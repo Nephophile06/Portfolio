@@ -181,8 +181,8 @@ button {
 
 /* Square crop container — hides the transparent circle padding of the PNG */
 .identity-left {
-    width: 112px;
-    height: 112px;
+    width: 120px;
+    height: 120px;
     flex-shrink: 0;
     overflow: hidden;
     border: 1px solid var(--border-color);
@@ -308,7 +308,7 @@ button {
 .content-divider {
     height: 1px;
     background: var(--border-color);
-    margin: 24px 0;
+    margin: 33px 0;
 }
 
 /* ── Generic Section Block ───────────── */
@@ -631,20 +631,19 @@ button {
 .cert-list {
     display: flex;
     flex-direction: column;
-    gap: 0;
+    gap: 24px;
 }
 
 .cert-item {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
-    padding: 14px 0;
+    padding: 12px 0;
     border-bottom: 1px solid var(--border-color);
-    gap: 12px;
 }
 
-.cert-item:first-child {
-    border-top: 1px solid var(--border-color);
+.cert-item:last-child {
+    border-bottom: none;
 }
 
 .cert-name {
