@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // ── Top navbar active link on scroll ──────────────────────────
     const navHome        = document.getElementById('nav-home');
-    const navCaseStudies = document.getElementById('nav-case-studies');
+    const navCaseStudies = document.getElementById('nav-projects');
     const portfolioSection = document.getElementById('portfolio-section');
     const mainContent    = document.getElementById('main-content');
 
@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ── Navbar: Case Studies smooth scroll ────────────────────────
+    // ── Navbar: Projects smooth scroll ────────────────────────
     if (navCaseStudies) {
         navCaseStudies.addEventListener('click', (e) => {
             e.preventDefault();
