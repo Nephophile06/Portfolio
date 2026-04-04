@@ -1,8 +1,8 @@
 /* ── Page container ────────────────── */
 .projects-page {
-    max-width: 780px;
+    max-width: 1080px;
     margin: 0 auto;
-    padding: 36px 40px 0;
+    padding: 40px 56px 32px;
 }
 
 /* ── Back link ─────────────────────── */
