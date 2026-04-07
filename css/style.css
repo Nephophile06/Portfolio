@@ -896,3 +896,52 @@ button {
         gap: 4px;
     }
 }
+
+/* ── Certifications Detailed Page Styles ── */
+.cert-detail-box {
+    padding-bottom: 66px;
+    margin-bottom: 33px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.cert-detail-box:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.cert-header-info {
+    margin-bottom: 24px;
+}
+
+.cert-detail-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+.cert-detail-issuer {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+}
+
+.cert-image-wrapper {
+    width: 100%;
+    max-width: 900px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    background: #f8fafc;
+    padding: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.cert-full-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 4px;
+    object-fit: contain;
+}
