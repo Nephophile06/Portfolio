@@ -30,6 +30,7 @@ body {
     height: 100%;
     margin: 0;
     padding: 0;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -902,6 +903,7 @@ button {
     padding-bottom: 66px;
     margin-bottom: 33px;
     border-bottom: 1px solid var(--border-color);
+    scroll-margin-top: 100px;
 }
 
 .cert-detail-box:last-child {

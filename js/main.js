@@ -30,4 +30,68 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // ── Sketchify Carousel ──
+    const carouselTrack = document.getElementById('sketchify-track');
+    const leftBtn = document.getElementById('sketchify-left-btn');
+    const rightBtn = document.getElementById('sketchify-right-btn');
+
+    if (carouselTrack && leftBtn && rightBtn) {
+        let currentIndex = 0;
+        const slides = carouselTrack.querySelectorAll('.carousel-slide');
+        const totalSlides = slides.length;
+
+        function updateCarousel() {
+            slides.forEach((slide, index) => {
+                const position = index - currentIndex;
+
+                if (position === 0) {
+                    // Current slide - front and center
+                    slide.style.zIndex = '3';
+                    slide.style.transform = 'translateX(0) scale(1)';
+                    slide.style.opacity = '1';
+                } else if (position === 1) {
+                    // Next slide - slightly offset
+                    slide.style.zIndex = '2';
+                    slide.style.transform = 'translateX(40px) scale(0.95)';
+                    slide.style.opacity = '0.7';
+                } else if (position === 2) {
+                    // Third slide - more offset
+                    slide.style.zIndex = '1';
+                    slide.style.transform = 'translateX(80px) scale(0.9)';
+                    slide.style.opacity = '0.4';
+                } else {
+                    // Hidden slides
+                    slide.style.zIndex = '0';
+                    slide.style.transform = 'translateX(120px) scale(0.85)';
+                    slide.style.opacity = '0';
+                    slide.style.pointerEvents = 'none';
+                }
+            });
+
+            // Disable left button at first slide
+            leftBtn.disabled = currentIndex === 0;
+            // Disable right button at last slide
+            rightBtn.disabled = currentIndex === totalSlides - 1;
+        }
+
+        // Left button click
+        leftBtn.addEventListener('click', () => {
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateCarousel();
+            }
+        });
+
+        // Right button click
+        rightBtn.addEventListener('click', () => {
+            if (currentIndex < totalSlides - 1) {
+                currentIndex++;
+                updateCarousel();
+            }
+        });
+
+        // Initialize carousel
+        updateCarousel();
+    }
+
 });

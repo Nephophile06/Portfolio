@@ -33,7 +33,12 @@
 .showcase-card {
     border-radius: var(--radius-lg);
     overflow: hidden;
+    margin-bottom: 24px;
     transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.showcase-card:not(:last-of-type) {
+    margin-bottom: 12px;
 }
 
 .showcase-card:hover {
@@ -54,30 +59,119 @@
 }
 
 .pr-hero-dark {
-    background: linear-gradient(135deg, #2a2a3d 0%, #3a3a55 40%, #5a5a78 100%);
+    background: radial-gradient(circle at 50% 40%, #2f7c86 0%, #1f4d57 50%, #0b252b 100%);
 }
 
 .pr-hero-light {
-    background: linear-gradient(135deg, #1a1a2e 0%, #2d2d45 50%, #3e3e5a 100%);
+    background: radial-gradient(circle at 50% 40%, #2f7c86 0%, #1f4d57 50%, #0b252b 100%);
 }
 
-/* ── Background watermark text ─────── */
-.hero-bg-text {
+/* ── Custom Carousel Styles ───────── */
+.custom-carousel-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    z-index: 1;
+    padding: 0 60px;
+}
+
+.carousel-track {
+    position: relative;
+    width: 700px;
+    height: 400px;
+    perspective: 1000px;
+}
+
+.carousel-slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+        opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+        box-shadow 0.5s ease;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.carousel-slide:nth-child(1) {
+    z-index: 3;
+    transform: translateX(0) scale(1);
+    opacity: 1;
+}
+
+.carousel-slide:nth-child(2) {
+    z-index: 2;
+    transform: translateX(40px) scale(0.95);
+    opacity: 0.7;
+}
+
+.carousel-slide:nth-child(3) {
+    z-index: 1;
+    transform: translateX(80px) scale(0.9);
+    opacity: 0.4;
+}
+
+.carousel-slide:nth-child(4),
+.carousel-slide:nth-child(5),
+.carousel-slide:nth-child(6) {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.carousel-btn {
     position: absolute;
     top: 50%;
-    left: 50%;
-    transform: translate(-50%, -55%);
-    font-size: 3.2rem;
-    font-weight: 700;
-    color: rgba(255, 255, 255, 0.06);
-    white-space: nowrap;
-    pointer-events: none;
-    letter-spacing: 0.04em;
-    user-select: none;
+    transform: translateY(-50%);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+    backdrop-filter: blur(8px);
 }
 
-.hero-bg-text.dark-text {
-    color: rgba(255, 255, 255, 0.05);
+.carousel-btn:hover:not(:disabled) {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-50%) scale(1.05);
+}
+
+.carousel-btn:disabled {
+    opacity: 0.2;
+    cursor: not-allowed;
+    border-color: rgba(255, 255, 255, 0.05);
+}
+
+.carousel-btn:active:not(:disabled) {
+    transform: translateY(-50%) scale(0.95);
+}
+
+.left-btn {
+    left: 10px;
+}
+
+.right-btn {
+    right: 10px;
 }
 
 /* ── Hero screens container ────────── */
@@ -86,7 +180,7 @@
     display: flex;
     align-items: flex-end;
     justify-content: center;
-    gap: 16px;
+    gap: 12px;
     z-index: 1;
     padding: 20px;
     width: 100%;
@@ -509,7 +603,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 18px 22px;
-    background: rgba(20, 20, 30, 0.85);
+    background: rgba(17, 26, 31, 0.85);
     border-top: 1px solid rgba(255, 255, 255, 0.06);
     border-radius: 0 0 var(--radius-lg) var(--radius-lg);
 }
@@ -535,7 +629,7 @@
 
 /* ── Let's Talk Section ── */
 .lets-talk-section {
-    padding: 48px 0 32px;
+    padding: 12px 0 12px;
 }
 
 .lets-talk-heading {
@@ -672,10 +766,6 @@
 @media (max-width: 700px) {
     .projects-page {
         padding: 24px 20px 0;
-    }
-
-    .hero-bg-text {
-        font-size: 1.8rem;
     }
 
     .hero-screens {
