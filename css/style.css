@@ -929,21 +929,21 @@ button {
     color: var(--text-secondary);
 }
 
-.cert-image-wrapper {
-    width: 100%;
-    max-width: 900px;
-    border-radius: 8px;
-    overflow: hidden;
-    border: 1px solid var(--border-color);
-    background: #f8fafc;
-    padding: 12px;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+.cert-detail-box#cert-software-dev .cert-image-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    border-radius: 18px;
 }
 
-.cert-full-image {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 4px;
-    object-fit: contain;
+.cert-detail-box#cert-software-dev .cert-full-image {
+    max-width: 800px;
+    border-radius: 12px;
+    transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.cert-detail-box#cert-software-dev .cert-image-wrapper:hover .cert-full-image {
+    transform: perspective(800px) rotateX(0deg) rotateY(0deg) translateY(-4px);
+    filter:
+        drop-shadow(0 10px 40px rgba(15, 30, 120, 0.45)) drop-shadow(0 5px 12px rgba(10, 20, 100, 0.35));
 }
