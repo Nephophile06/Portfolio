@@ -1,0 +1,196 @@
+/* ── Certifications Page Container ─── */
+.certifications-page {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 40px 56px 32px;
+}
+
+/* ── Certifications Detailed Page ──── */
+.cert-details-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.cert-detail-box {
+    padding-bottom: 66px;
+    margin-bottom: 33px;
+    border-bottom: 1px solid var(--border-color);
+    scroll-margin-top: 100px;
+}
+
+.cert-detail-box:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.cert-header-info {
+    margin-bottom: 24px;
+}
+
+.cert-detail-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+.cert-detail-issuer {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+}
+
+.cert-detail-box#cert-software-dev .cert-image-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    border-radius: 18px;
+}
+
+.cert-detail-box#cert-software-dev .cert-full-image {
+    max-width: 800px;
+    border-radius: 12px;
+    transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.cert-detail-box#cert-software-dev .cert-image-wrapper:hover .cert-full-image {
+    transform: perspective(800px) rotateX(0deg) rotateY(0deg) translateY(-4px);
+    filter:
+        drop-shadow(0 10px 40px rgba(15, 30, 120, 0.45)) drop-shadow(0 5px 12px rgba(10, 20, 100, 0.35));
+}
+
+/* ── Certificate image wrappers ─── */
+.cert-image-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    border-radius: 18px;
+}
+
+.cert-full-image {
+    max-width: 100%;
+    border-radius: 12px;
+}
+
+/* ── Interactive IUPC List ──────── */
+.interactive-cert-list {
+    border-top: 1px solid var(--border-color);
+    margin-top: 20px;
+}
+
+.cert-row {
+    border-bottom: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.row-visible {
+    display: flex;
+    align-items: center;
+    padding: 24px 10px;
+    cursor: pointer;
+    gap: 20px;
+}
+
+.row-num {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-muted);
+}
+
+.row-title {
+    flex: 1;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    transition: transform 0.3s ease;
+}
+
+.row-arrow {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    transition: transform 0.3s ease;
+}
+
+/* Hidden content logic */
+.row-hidden {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+}
+
+/* Hover effect */
+.cert-row:hover {
+    background: rgba(0, 113, 227, 0.02);
+}
+
+.cert-row:hover .row-hidden {
+    max-height: 600px;
+    opacity: 1;
+    padding-bottom: 30px;
+}
+
+.cert-row:hover .row-title {
+    transform: translateX(10px);
+    color: var(--accent-blue);
+}
+
+.cert-row:hover .row-arrow {
+    transform: rotate(180deg);
+    color: var(--accent-blue);
+}
+
+/* Content styling inside reveal */
+.row-content {
+    display: flex;
+    gap: 30px;
+    padding: 0 40px;
+    align-items: center;
+}
+
+.row-img {
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--border-color);
+}
+
+.row-img.landscape {
+    width: 350px;
+}
+
+.row-img.square-cert {
+    width: 250px;
+}
+
+.row-desc {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    max-width: 400px;
+}
+
+.cert-full-view {
+    display: inline-block;
+    margin-top: 15px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--accent-blue);
+    text-decoration: underline;
+}
+
+/* ── Responsive ─────────────────── */
+@media (max-width: 768px) {
+    .certifications-page {
+        padding: 24px 20px 0;
+    }
+
+    .row-content {
+        flex-direction: column;
+        padding: 0 15px;
+    }
+
+    .row-img {
+        width: 100% !important;
+    }
+}
