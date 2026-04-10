@@ -194,3 +194,83 @@
         width: 100% !important;
     }
 }
+
+.drone-masonry-gallery {
+    column-count: 3;
+    /* Desktop e 3 column */
+    column-gap: 16px;
+    /* Card gulor moddhe gap */
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+.drone-card {
+    display: inline-block;
+    /* Essential for masonry: keeps content together */
+    width: 100%;
+    /* Column full stretch korbe */
+    margin-bottom: 16px;
+    /* Row er niche gap */
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    /* Edge-to-edge image rounding */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+    border: 1px solid var(--border-color);
+    /* Matches theme */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.drone-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+.drone-img {
+    width: 100%;
+    height: auto;
+    /* Maintains native aspect ratio */
+    display: block;
+}
+
+.drone-label {
+    padding: 12px 14px;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    font-weight: 600;
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* Aspect Ratios based on classes */
+.drone-landscape .drone-img {
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+}
+
+.drone-portrait .drone-img {
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+}
+
+.drone-square .drone-img {
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+}
+
+/* Responsive Grid */
+@media (max-width: 900px) {
+    .drone-masonry-gallery {
+        column-count: 2;
+        /* Tablet e 2 column */
+    }
+}
+
+@media (max-width: 600px) {
+    .drone-masonry-gallery {
+        column-count: 1;
+        /* Mobile e 1 column (vertical stack) */
+        column-gap: 0;
+    }
+}
