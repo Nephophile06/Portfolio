@@ -245,7 +245,7 @@
 
 /* Aspect Ratios based on classes */
 .drone-landscape .drone-img {
-    aspect-ratio: 16 / 10;
+    aspect-ratio: 20 / 12;
     object-fit: cover;
 }
 
