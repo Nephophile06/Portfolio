@@ -113,17 +113,26 @@ function closeLightbox() {
     lightbox.style.display = "none";
 }
 
-// Screen-er jekono jaygay click korlei modal bondho hobe
-window.onclick = function (event) {
+function openLightbox(element) {
     const lightbox = document.getElementById("certLightbox");
+    if (!lightbox) return;
 
-    // Jodi lightbox open thake ebong user click kore
-    if (event.target === lightbox || event.target.id === "fullCertImage" || event.target.className === "cert-modal") {
-        closeLightbox();
-    }
-};
+    lightbox.style.display = "block";
+    document.getElementById("fullCertImage").src = element.src;
+    document.getElementById("caption").innerHTML = element.alt;
 
-// Alt approach: Jure listener add kora
-document.getElementById("certLightbox").addEventListener("click", function () {
+    setTimeout(() => {
+        window.addEventListener("click", closeLightboxOnClick);
+    }, 10);
+}
+
+function closeLightboxOnClick() {
     closeLightbox();
-});
+    window.removeEventListener("click", closeLightboxOnClick);
+}
+
+function closeLightbox() {
+    const lightbox = document.getElementById("certLightbox");
+    if (!lightbox) return;
+    lightbox.style.display = "none";
+}
