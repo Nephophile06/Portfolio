@@ -95,3 +95,33 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 });
+
+// ── Lightbox Functions (Global scope) ──
+function openLightbox(element) {
+    const lightbox = document.getElementById("certLightbox");
+    if (!lightbox) return;
+
+    lightbox.style.display = "block";
+    document.getElementById("fullCertImage").src = element.src;
+    document.getElementById("caption").innerHTML = element.alt;
+
+    // স্ক্রল বন্ধ করা যখন ছবি খোলা থাকে
+    document.body.style.overflow = "hidden";
+}
+
+function closeLightbox() {
+    const lightbox = document.getElementById("certLightbox");
+    if (!lightbox) return;
+
+    lightbox.style.display = "none";
+
+    // স্ক্রল আবার চালু করা
+    document.body.style.overflow = "auto";
+}
+
+// 'Esc' কি চাপলে ছবি বন্ধ হবে
+document.addEventListener('keydown', function (event) {
+    if (event.key === "Escape") {
+        closeLightbox();
+    }
+});

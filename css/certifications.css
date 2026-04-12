@@ -1,4 +1,4 @@
-/* ── Certifications Page Container ─── */
+﻿/* ── Certifications Page Container ─── */
 .certifications-page {
     max-width: 1080px;
     margin: 0 auto;
@@ -273,4 +273,150 @@
         /* Mobile e 1 column (vertical stack) */
         column-gap: 0;
     }
+}
+
+.ms-cert-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* ৩টি কলাম */
+    gap: 16px;
+    margin-top: 24px;
+}
+
+.ms-cert-item {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+}
+
+.ms-cert-item:hover {
+    transform: translateY(-5px);
+}
+
+.ms-img {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    /* ল্যান্ডস্কেপ ইউনিফর্ম সাইজ */
+    object-fit: cover;
+    display: block;
+}
+
+.ms-label {
+    padding: 10px 12px;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    font-weight: 600;
+    text-align: center;
+    border-top: 1px solid var(--border-color);
+}
+
+/* ৭ম আইটেমকে মাঝখানে আনার লজিক */
+.ms-centered-item {
+    grid-column: 2;
+}
+
+/* রেসপন্সিভ ডিজাইন */
+@media (max-width: 900px) {
+    .ms-cert-grid {
+        grid-template-columns: repeat(2, 1fr);
+        /* ট্যাবলেটে ২ কলাম */
+    }
+
+    .ms-centered-item {
+        grid-column: span 2;
+        /* মোবাইলে/ট্যাবলেটে ফুল উইডথ বা অটো */
+        max-width: 50%;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 600px) {
+    .ms-cert-grid {
+        grid-template-columns: 1fr;
+        /* মোবাইলে ১ কলাম */
+    }
+
+    .ms-centered-item {
+        max-width: 100%;
+    }
+}
+
+/* ছবির কার্সর চেঞ্জ করা */
+.ms-img {
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.ms-img:hover {
+    opacity: 0.8;
+}
+
+/* Modal Background */
+.cert-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Show modal with flex when active */
+.cert-modal[style*='display: block'] {
+    display: flex !important;
+}
+
+/* Modal Content (image) */
+.modal-content {
+    margin: auto;
+    display: block;
+    width: auto;
+    max-width: 85%;
+    max-height: 85vh;
+    object-fit: contain;
+    border-radius: 8px;
+    animation: zoomIn 0.3s;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+/* Zoom Animation */
+@keyframes zoomIn {
+    from {
+        transform: scale(0.7);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Close Button */
+.close-modal {
+    position: fixed;
+    top: 20px;
+    right: 35px;
+    color: #333;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 1001;
+    transition: color 0.2s;
+}
+
+.close-modal:hover {
+    color: #000;
+}
+
+/* Hide caption */
+#caption {
+    display: none;
 }

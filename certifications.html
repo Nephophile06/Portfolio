@@ -155,9 +155,42 @@
                         <h3 class="cert-detail-title">AI for Beginners</h3>
                         <p class="cert-detail-issuer">Microsoft Learning</p>
                     </div>
-                    <div class="cert-image-wrapper">
-                        <img src="assets/certificates/ai-beginners.jpg" alt="AI for Beginners Certificate"
-                            class="cert-full-image">
+
+                    <div class="ms-cert-grid">
+                        <div class="ms-cert-item">
+                            <img src="assets/1.png" alt="Module 1" class="ms-img" onclick="openLightbox(this)">
+                            <p class="ms-label">Introduction to AI</p>
+                        </div>
+                        <div class="ms-cert-item">
+                            <img src="assets/2.png" alt="Module 2" class="ms-img" onclick="openLightbox(this)">
+                            <p class="ms-label">Machine Learning Basics</p>
+                        </div>
+                        <div class="ms-cert-item">
+                            <img src="assets/3.png" alt="Module 3" class="ms-img" onclick="openLightbox(this)">
+                            <p class="ms-label">Neural Networks</p>
+                        </div>
+                        <div class="ms-cert-item">
+                            <img src="assets/4.png" alt="Module 4" class="ms-img" onclick="openLightbox(this)">
+                            <p class="ms-label">Computer Vision</p>
+                        </div>
+                        <div class="ms-cert-item">
+                            <img src="assets/5.png" alt="Module 5" class="ms-img" onclick="openLightbox(this)">
+                            <p class="ms-label">Natural Language Processing</p>
+                        </div>
+                        <div class="ms-cert-item">
+                            <img src="assets/6.png" alt="Module 6" class="ms-img" onclick="openLightbox(this)">
+                            <p class="ms-label">Generative AI</p>
+                        </div>
+                        <div class="ms-cert-item ms-centered-item">
+                            <img src="assets/7.png" alt="Final Certificate" class="ms-img" onclick="openLightbox(this)">
+                            <p class="ms-label">Course Completion Certificate</p>
+                        </div>
+                    </div>
+
+                    <div id="certLightbox" class="cert-modal" onclick="closeLightbox()">
+                        <span class="close-modal">&times;</span>
+                        <img class="modal-content" id="fullCertImage">
+                        <div id="caption"></div>
                     </div>
                 </div>
 
@@ -215,6 +248,7 @@
         </section>
     </main>
 
+    <script src="js/main.js"></script>
     <script>
         // Scroll reveal animation
         const faders = document.querySelectorAll('.fade-in-scroll');
