@@ -366,11 +366,13 @@
     background-color: transparent;
     align-items: center;
     justify-content: center;
+    pointer-events: none;
 }
 
 /* Show modal with flex when active */
 .cert-modal[style*='display: block'] {
     display: flex !important;
+    pointer-events: auto;
 }
 
 /* Modal Content (image) */
@@ -384,6 +386,7 @@
     border-radius: 8px;
     animation: zoomIn 0.3s;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    pointer-events: auto;
 }
 
 /* Zoom Animation */
@@ -397,23 +400,6 @@
         transform: scale(1);
         opacity: 1;
     }
-}
-
-/* Close Button */
-.close-modal {
-    position: fixed;
-    top: 20px;
-    right: 35px;
-    color: #333;
-    font-size: 40px;
-    font-weight: bold;
-    cursor: pointer;
-    z-index: 1001;
-    transition: color 0.2s;
-}
-
-.close-modal:hover {
-    color: #000;
 }
 
 /* Hide caption */

@@ -104,9 +104,6 @@ function openLightbox(element) {
     lightbox.style.display = "block";
     document.getElementById("fullCertImage").src = element.src;
     document.getElementById("caption").innerHTML = element.alt;
-
-    // স্ক্রল বন্ধ করা যখন ছবি খোলা থাকে
-    document.body.style.overflow = "hidden";
 }
 
 function closeLightbox() {
@@ -114,14 +111,19 @@ function closeLightbox() {
     if (!lightbox) return;
 
     lightbox.style.display = "none";
-
-    // স্ক্রল আবার চালু করা
-    document.body.style.overflow = "auto";
 }
 
-// 'Esc' কি চাপলে ছবি বন্ধ হবে
-document.addEventListener('keydown', function (event) {
-    if (event.key === "Escape") {
+// Screen-er jekono jaygay click korlei modal bondho hobe
+window.onclick = function (event) {
+    const lightbox = document.getElementById("certLightbox");
+
+    // Jodi lightbox open thake ebong user click kore
+    if (event.target === lightbox || event.target.id === "fullCertImage" || event.target.className === "cert-modal") {
         closeLightbox();
     }
+};
+
+// Alt approach: Jure listener add kora
+document.getElementById("certLightbox").addEventListener("click", function () {
+    closeLightbox();
 });
