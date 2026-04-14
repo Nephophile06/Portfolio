@@ -406,3 +406,133 @@
 #caption {
     display: none;
 }
+
+/* ── Innovation Timeline Container ── */
+.innovation-timeline {
+    position: relative;
+    padding: 40px 0;
+    margin-top: 30px;
+}
+
+.innovation-timeline::before {
+    content: '';
+    position: absolute;
+    left: 31px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--border-color);
+}
+
+.timeline-block {
+    position: relative;
+    margin-bottom: 60px;
+}
+
+.timeline-marker-line {
+    position: absolute;
+    left: 26px;
+    top: 25px;
+    width: 12px;
+    height: 12px;
+    background: var(--text-primary);
+    border-radius: 50%;
+    z-index: 2;
+    box-shadow: 0 0 0 4px white;
+}
+
+.timeline-marker-line::after {
+    content: '→';
+    position: absolute;
+    left: 24px;
+    top: -14px;
+    width: 57px;
+    height: 1px;
+    color: var(--text-muted);
+    font-size: 1.6rem;
+    font-weight: 500;
+}
+
+.timeline-content-wrapper {
+    display: flex;
+    gap: 40px;
+    padding-left: 90px;
+    align-items: center;
+}
+
+.timeline-image-box {
+    flex: 0 0 420px;
+}
+
+.timeline-img {
+    width: 100%;
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease;
+}
+
+.timeline-img:hover {
+    transform: scale(1.02);
+}
+
+.timeline-details-box {
+    flex: 1;
+    max-width: 420px;
+}
+
+.details-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 5px;
+}
+
+.details-subtitle {
+    color: var(--accent-blue);
+    font-weight: 600;
+    font-size: 0.85rem;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.details-text {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    margin-bottom: 15px;
+}
+
+.details-tags span {
+    display: inline-block;
+    padding: 3px 12px;
+    background: rgba(0, 113, 227, 0.05);
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-right: 8px;
+    color: var(--accent-blue);
+}
+
+.details-date {
+    margin-top: 15px;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+/* Mobile Responsive */
+@media (max-width: 900px) {
+    .timeline-content-wrapper {
+        flex-direction: column;
+        padding-left: 50px;
+        gap: 20px;
+    }
+
+    .timeline-image-box {
+        flex: 1;
+        width: 100%;
+    }
+
+    .timeline-details-box {
+        max-width: 100%;
+    }
+}
