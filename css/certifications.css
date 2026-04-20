@@ -536,3 +536,54 @@
         max-width: 100%;
     }
 }
+
+/* ── Isometric Tilt Style ── */
+.tilt-container {
+    perspective: 1200px;
+    /* থ্রি-ডি ইফেক্টের গভীরতা */
+    display: flex;
+    justify-content: center;
+    padding: 40px 0;
+}
+
+.tilt-card {
+    position: relative;
+    width: 100%;
+    max-width: 750px;
+    transform: rotateY(-10deg) rotateX(5deg) rotateZ(-2deg);
+    /* শুরুতে বাঁকানো থাকবে */
+    transform-style: preserve-3d;
+    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    /* স্মুথ ট্রানজিশন */
+    box-shadow: -20px 20px 50px rgba(0, 0, 0, 0.2);
+    /* বড় শ্যাডো থ্রি-ডি ভাব আনে */
+    border-radius: 8px;
+    background: #fff;
+}
+
+/* হোভার করলে সোজা হবে */
+.tilt-card:hover {
+    transform: rotateY(0deg) rotateX(0deg) rotateZ(0deg);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.tilt-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* ছবির ওপর হালকা শাইন বা রিফ্লেকশন */
+.tilt-reflection {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 50%);
+    pointer-events: none;
+    /* ক্লিকের পথে বাধা দিবে না */
+    border-radius: 8px;
+}
