@@ -136,3 +136,36 @@ function closeLightbox() {
     if (!lightbox) return;
     lightbox.style.display = "none";
 }
+
+const tiltCard = document.querySelector('.tilt-card');
+
+if (tiltCard) {
+    // মাউস নড়াচড়া করলে কার্সরের দিকে বাঁকবে
+    tiltCard.addEventListener('mousemove', (e) => {
+        tiltCard.classList.remove('resetting');
+
+        const rect = tiltCard.getBoundingClientRect();
+        const x = e.clientX - rect.left; // কার্ডের ভেতর x পজিশন
+        const y = e.clientY - rect.top;  // কার্ডের ভেতর y পজিশন
+
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+
+        // কার্সরের দিকে হেলানোর ম্যাথ (সর্বোচ্চ ১৫ ডিগ্রি বাঁকবে)
+        const rotateX = ((y - centerY) / centerY) * -15; // উপর-নিচ
+        const rotateY = ((x - centerX) / centerX) * 15;  // ডান-বাম
+
+        // থ্রি-ডি রোটেশন এবং শ্যাডো অ্যাড করা
+        tiltCard.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+
+        // কার্সরের উল্টো দিকে ডাইনামিক শ্যাডো পড়বে
+        tiltCard.style.boxShadow = `${-rotateY}px ${rotateX}px 40px rgba(0, 0, 0, 0.15)`;
+    });
+
+    // মাউস সরিয়ে নিলে আবার আগের মতো সোজা হয়ে যাবে
+    tiltCard.addEventListener('mouseleave', () => {
+        tiltCard.classList.add('resetting');
+        tiltCard.style.transform = `rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+        tiltCard.style.boxShadow = `0 10px 30px rgba(0, 0, 0, 0.1)`;
+    });
+}

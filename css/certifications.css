@@ -537,10 +537,10 @@
     }
 }
 
-/* ── Isometric Tilt Style ── */
+/* ── Interactive 3D Tilt Style ── */
 .tilt-container {
     perspective: 1200px;
-    /* থ্রি-ডি ইফেক্টের গভীরতা */
+    /* থ্রি-ডি লুকের জন্য */
     display: flex;
     justify-content: center;
     padding: 40px 0;
@@ -549,22 +549,25 @@
 .tilt-card {
     position: relative;
     width: 100%;
-    max-width: 750px;
-    transform: rotateY(-10deg) rotateX(5deg) rotateZ(-2deg);
-    /* শুরুতে বাঁকানো থাকবে */
-    transform-style: preserve-3d;
-    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-    /* স্মুথ ট্রানজিশন */
-    box-shadow: -20px 20px 50px rgba(0, 0, 0, 0.2);
-    /* বড় শ্যাডো থ্রি-ডি ভাব আনে */
-    border-radius: 8px;
+    /* এখানে 750px এর বদলে 500px করে দিলাম, আপনি চাইলে আপনার পছন্দমতো বাড়াতে/কমাতে পারেন */
+    max-width: 700px;
     background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transform-style: preserve-3d;
+
+    /* হোভার করার আগে একদম সোজা থাকবে */
+    transform: rotateX(0deg) rotateY(0deg);
+
+    /* কার্সরের সাথে সাথে মুভ করার স্পিড */
+    transition: transform 0.1s ease-out, box-shadow 0.1s ease-out;
+    cursor: pointer;
+    will-change: transform;
 }
 
-/* হোভার করলে সোজা হবে */
-.tilt-card:hover {
-    transform: rotateY(0deg) rotateX(0deg) rotateZ(0deg);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+/* মাউস কার্ড থেকে সরিয়ে নিলে স্মুথলি আবার সোজা হওয়ার ট্রানজিশন */
+.tilt-card.resetting {
+    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.6s ease;
 }
 
 .tilt-card img {
@@ -575,15 +578,145 @@
     border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-/* ছবির ওপর হালকা শাইন বা রিফ্লেকশন */
-.tilt-reflection {
+/* ব্যাকগ্রাউন্ড শেপ (আগের মতোই থাকবে) */
+.tilt-bg-shapes {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 120px;
+    height: 120px;
+    background: linear-gradient(135deg, rgba(0, 113, 227, 0.12) 0%, rgba(0, 113, 227, 0.04) 100%);
+    border-radius: 12px;
+    transform: rotate(15deg);
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+.milestone-timeline {
+    position: relative;
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 20px 0;
+}
+
+/* মাঝখানের ভার্টিকাল লাইন */
+.center-line {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #e2e8f0;
+    transform: translateX(-50%);
+}
+
+.scroll-dot {
     position: absolute;
     top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 50%);
-    pointer-events: none;
-    /* ক্লিকের পথে বাধা দিবে না */
-    border-radius: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 12px;
+    height: 12px;
+    background: #cbd5e1;
+    border-radius: 50%;
+}
+
+.timeline-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+/* বাঁ পাশের বক্স (Image) */
+.timeline-img-box {
+    width: 45%;
+    position: relative;
+    text-align: right;
+}
+
+.timeline-img-box img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+/* ডান পাশের বক্স (Text) */
+.timeline-text-box {
+    width: 45%;
+    text-align: left;
+    padding-left: 30px;
+}
+
+/* মাঝখানের ডেট ব্যাজ */
+.date-badge {
+    position: absolute;
+    right: -15%;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #fff;
+    padding: 8px 15px;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    border: 1px solid #f1f5f9;
+    z-index: 10;
+}
+
+.timeline-tag {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.achievement-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 10px 0;
+}
+
+.achievement-desc {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.works-for {
+    margin-top: 15px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+/* মোবাইল রেসপন্সিভ */
+@media (max-width: 768px) {
+    .center-line {
+        left: 20px;
+    }
+
+    .timeline-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .timeline-img-box,
+    .timeline-text-box {
+        width: 100%;
+        text-align: left;
+        padding-left: 50px;
+    }
+
+    .date-badge {
+        position: relative;
+        right: 0;
+        top: 0;
+        transform: none;
+        display: inline-block;
+        margin-top: 10px;
+    }
 }
