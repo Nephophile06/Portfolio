@@ -540,7 +540,6 @@
 /* ── Interactive 3D Tilt Style ── */
 .tilt-container {
     perspective: 1200px;
-    /* থ্রি-ডি লুকের জন্য */
     display: flex;
     justify-content: center;
     padding: 40px 0;
@@ -549,23 +548,19 @@
 .tilt-card {
     position: relative;
     width: 100%;
-    /* এখানে 750px এর বদলে 500px করে দিলাম, আপনি চাইলে আপনার পছন্দমতো বাড়াতে/কমাতে পারেন */
     max-width: 700px;
     background: #fff;
     border-radius: 8px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     transform-style: preserve-3d;
 
-    /* হোভার করার আগে একদম সোজা থাকবে */
     transform: rotateX(0deg) rotateY(0deg);
 
-    /* কার্সরের সাথে সাথে মুভ করার স্পিড */
     transition: transform 0.1s ease-out, box-shadow 0.1s ease-out;
     cursor: pointer;
     will-change: transform;
 }
 
-/* মাউস কার্ড থেকে সরিয়ে নিলে স্মুথলি আবার সোজা হওয়ার ট্রানজিশন */
 .tilt-card.resetting {
     transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.6s ease;
 }
@@ -578,7 +573,6 @@
     border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-/* ব্যাকগ্রাউন্ড শেপ (আগের মতোই থাকবে) */
 .tilt-bg-shapes {
     position: absolute;
     top: 20px;
