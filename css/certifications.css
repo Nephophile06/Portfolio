@@ -598,29 +598,24 @@
     position: relative;
     width: 100%;
     max-width: 600px;
-    background-color: #262626;
-    /* ডার্ক ব্যাকগ্রাউন্ড (neutral-800) */
+    background-color: #333333;
     border-radius: 0.5rem;
     overflow: hidden;
     padding: 1.5rem;
-    /* সার্টিফিকেটের চারপাশে সুন্দর বর্ডার রাখার জন্য */
     cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-/* গোল বৃত্ত বা ব্লবগুলোর বেসিক স্টাইল */
 .blob {
     position: absolute;
     border-radius: 50%;
     filter: blur(16px);
-    /* শুরুতে ব্লার থাকবে */
     transition: all 0.5s ease-in-out;
     z-index: 0;
 }
 
-/* হোভার করলে ব্লার চলে যাবে */
 .blob-card:hover .blob {
     filter: blur(0px);
 }
@@ -677,16 +672,13 @@
     transform: translateX(-3rem);
 }
 
-/* ভেতরের কন্টেন্ট (সার্টিফিকেট) */
 .blob-content {
     position: relative;
     z-index: 10;
-    /* বৃত্তগুলোর ওপরে রাখার জন্য */
     width: 100%;
     border-radius: 0.25rem;
     overflow: hidden;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-    /* ছবির চারপাশে হালকা শ্যাডো */
 }
 
 .blob-cert-img {
@@ -696,7 +688,6 @@
     transition: transform 0.3s ease;
 }
 
-/* হোভার করলে ছবিতে হালকা জুম ইফেক্ট */
 .blob-card:hover .blob-cert-img {
     transform: scale(1.02);
 }
