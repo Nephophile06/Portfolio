@@ -836,6 +836,19 @@
     z-index: 20;
 }
 
+/* মাইলস্টোন ইমেজের জন্য ক্লিকযোগ্য স্টাইল */
+.ms-img-clickable {
+    cursor: pointer;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), filter 0.3s ease;
+}
+
+.ms-img-clickable:hover {
+    transform: scale(1.03) translateY(-5px);
+    /* হালকা উপরে উঠে আসবে */
+    filter: brightness(0.9) contrast(1.1);
+    /* দেখার সুবিধার্থে কন্ট্রাস্ট বাড়ানো */
+}
+
 /* ── Zig-Zag logic (Row Reverse) ── */
 .row-reverse {
     flex-direction: row-reverse;

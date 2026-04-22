@@ -104,6 +104,10 @@ function openLightbox(element) {
     lightbox.style.display = "block";
     document.getElementById("fullCertImage").src = element.src;
     document.getElementById("caption").innerHTML = element.alt;
+
+    setTimeout(() => {
+        window.addEventListener("click", closeLightboxOnClick);
+    }, 10);
 }
 
 function closeLightbox() {
@@ -111,19 +115,6 @@ function closeLightbox() {
     if (!lightbox) return;
 
     lightbox.style.display = "none";
-}
-
-function openLightbox(element) {
-    const lightbox = document.getElementById("certLightbox");
-    if (!lightbox) return;
-
-    lightbox.style.display = "block";
-    document.getElementById("fullCertImage").src = element.src;
-    document.getElementById("caption").innerHTML = element.alt;
-
-    setTimeout(() => {
-        window.addEventListener("click", closeLightboxOnClick);
-    }, 10);
 }
 
 function closeLightboxOnClick() {
@@ -131,11 +122,7 @@ function closeLightboxOnClick() {
     window.removeEventListener("click", closeLightboxOnClick);
 }
 
-function closeLightbox() {
-    const lightbox = document.getElementById("certLightbox");
-    if (!lightbox) return;
-    lightbox.style.display = "none";
-}
+
 
 const tiltCard = document.querySelector('.tilt-card');
 
