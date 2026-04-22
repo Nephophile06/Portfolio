@@ -186,11 +186,6 @@
                             <p class="ms-label">Ask questions and analyze content with Microsoft 365 Copilot</p>
                         </div>
                     </div>
-
-                    <div id="certLightbox" class="cert-modal" onclick="closeLightbox(event)">
-                        <img class="modal-content" id="fullCertImage">
-                        <div id="caption"></div>
-                    </div>
                 </div>
 
                 <div class="cert-detail-box fade-in-scroll" id="cert-she-innovates">
@@ -206,7 +201,7 @@
                             <div class="timeline-content-wrapper">
                                 <div class="timeline-image-box">
                                     <img src="assets/banner_Sketchify.png" alt="She Innovates Poster"
-                                        class="timeline-img">
+                                        class="timeline-img ms-img-clickable" onclick="openLightbox(this)">
                                 </div>
                                 <div class="timeline-details-box">
                                     <h4 class="details-title">Banner of Sketchify</h4>
@@ -277,8 +272,7 @@
                     <div class="tilt-container">
                         <div class="tilt-bg-shapes"></div>
                         <div class="tilt-card">
-                            <img src="assets/IUPC_Aug2024.png" alt="IUPC 2024 Certificate"
-                                class="cert-full-image ms-img-clickable" onclick="openLightbox(this)">
+                            <img src="assets/IUPC_Aug2024.png" alt="IUPC 2024 Certificate">
                             <div class="tilt-reflection"></div>
                         </div>
                     </div>
@@ -412,6 +406,12 @@
 
         </section>
     </main>
+
+    <!-- Global Lightbox Modal -->
+    <div id="certLightbox" class="cert-modal" onclick="closeLightboxOnClick()">
+        <img class="modal-content" id="fullCertImage">
+        <div id="caption"></div>
+    </div>
 
     <script src="js/main.js"></script>
     <script>

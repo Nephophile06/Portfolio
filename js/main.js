@@ -104,25 +104,19 @@ function openLightbox(element) {
     lightbox.style.display = "block";
     document.getElementById("fullCertImage").src = element.src;
     document.getElementById("caption").innerHTML = element.alt;
-
-    setTimeout(() => {
-        window.addEventListener("click", closeLightboxOnClick);
-    }, 10);
 }
 
-function closeLightbox() {
+function closeLightbox(event) {
     const lightbox = document.getElementById("certLightbox");
     if (!lightbox) return;
-
-    lightbox.style.display = "none";
+    if (!event || event.target !== document.getElementById("fullCertImage")) {
+        lightbox.style.display = "none";
+    }
 }
 
 function closeLightboxOnClick() {
     closeLightbox();
-    window.removeEventListener("click", closeLightboxOnClick);
 }
-
-
 
 const tiltCard = document.querySelector('.tilt-card');
 

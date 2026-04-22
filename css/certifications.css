@@ -197,9 +197,7 @@
 
 .drone-masonry-gallery {
     column-count: 3;
-    /* Desktop e 3 column */
     column-gap: 16px;
-    /* Card gulor moddhe gap */
     max-width: 1000px;
     margin: 0 auto;
     padding: 20px 0;
@@ -207,18 +205,13 @@
 
 .drone-card {
     display: inline-block;
-    /* Essential for masonry: keeps content together */
     width: 100%;
-    /* Column full stretch korbe */
     margin-bottom: 16px;
-    /* Row er niche gap */
     background: #fff;
     border-radius: 12px;
     overflow: hidden;
-    /* Edge-to-edge image rounding */
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
     border: 1px solid var(--border-color);
-    /* Matches theme */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -299,7 +292,6 @@
 .ms-img {
     width: 100%;
     aspect-ratio: 16 / 10;
-    /* ল্যান্ডস্কেপ ইউনিফর্ম সাইজ */
     object-fit: cover;
     display: block;
 }
@@ -313,7 +305,6 @@
     border-top: 1px solid var(--border-color);
 }
 
-/* ৭ম আইটেমকে মাঝখানে আনার লজিক */
 .ms-centered-item {
     grid-column: 2;
 }
@@ -322,12 +313,10 @@
 @media (max-width: 900px) {
     .ms-cert-grid {
         grid-template-columns: repeat(2, 1fr);
-        /* ট্যাবলেটে ২ কলাম */
     }
 
     .ms-centered-item {
         grid-column: span 2;
-        /* মোবাইলে/ট্যাবলেটে ফুল উইডথ বা অটো */
         max-width: 50%;
         margin: 0 auto;
     }
@@ -336,7 +325,6 @@
 @media (max-width: 600px) {
     .ms-cert-grid {
         grid-template-columns: 1fr;
-        /* মোবাইলে ১ কলাম */
     }
 
     .ms-centered-item {
@@ -344,7 +332,6 @@
     }
 }
 
-/* ছবির কার্সর চেঞ্জ করা */
 .ms-img {
     cursor: pointer;
     transition: 0.3s;
@@ -363,16 +350,17 @@
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: transparent;
+    background-color: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     align-items: center;
     justify-content: center;
-    pointer-events: none;
+    cursor: zoom-out;
 }
 
 /* Show modal with flex when active */
 .cert-modal[style*='display: block'] {
     display: flex !important;
-    pointer-events: auto;
 }
 
 /* Modal Content (image) */
