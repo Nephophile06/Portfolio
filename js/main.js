@@ -149,7 +149,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const cards = document.querySelectorAll("#wgSlider .slider-card");
     const prevBtn = document.getElementById("wgPrev");
     const nextBtn = document.getElementById("wgNext");
-    let currentIndex = 1; // শুরুতেই মাঝখানের ছবি (preview.png) একটিভ থাকবে
+    let currentIndex = 1;
 
     function updateSlider() {
         cards.forEach((card, index) => {
@@ -164,7 +164,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
 
-        // অ্যারো বাটনের একটিভ/ইনঅ্যাক্টিভ স্টেট আপডেট
+        // active/inactive state update for arrow buttons
         prevBtn.disabled = (currentIndex === 0);
         nextBtn.disabled = (currentIndex === cards.length - 1);
     }
@@ -183,6 +183,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // ইনিশিয়াল কল
+    // initial call
     updateSlider();
 });
