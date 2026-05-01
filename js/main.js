@@ -144,3 +144,45 @@ if (tiltCard) {
         tiltCard.style.boxShadow = `0 10px 30px rgba(0, 0, 0, 0.1)`;
     });
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+    const cards = document.querySelectorAll("#wgSlider .slider-card");
+    const prevBtn = document.getElementById("wgPrev");
+    const nextBtn = document.getElementById("wgNext");
+    let currentIndex = 1; // শুরুতেই মাঝখানের ছবি (preview.png) একটিভ থাকবে
+
+    function updateSlider() {
+        cards.forEach((card, index) => {
+            card.classList.remove("left", "active", "right");
+
+            if (index === currentIndex) {
+                card.classList.add("active");
+            } else if (index === currentIndex - 1) {
+                card.classList.add("left");
+            } else if (index === currentIndex + 1) {
+                card.classList.add("right");
+            }
+        });
+
+        // অ্যারো বাটনের একটিভ/ইনঅ্যাক্টিভ স্টেট আপডেট
+        prevBtn.disabled = (currentIndex === 0);
+        nextBtn.disabled = (currentIndex === cards.length - 1);
+    }
+
+    nextBtn.addEventListener("click", () => {
+        if (currentIndex < cards.length - 1) {
+            currentIndex++;
+            updateSlider();
+        }
+    });
+
+    prevBtn.addEventListener("click", () => {
+        if (currentIndex > 0) {
+            currentIndex--;
+            updateSlider();
+        }
+    });
+
+    // ইনিশিয়াল কল
+    updateSlider();
+});

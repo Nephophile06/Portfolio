@@ -84,35 +84,35 @@
 
                 <!-- Project 2 — Whatcha Got? -->
                 <div class="showcase-card fade-in-scroll" id="showcase-2">
-                    <div class="showcase-hero pr-hero-light">
-                        <div class="slider-3d-container">
-                            <!-- Left Card -->
-                            <div class="slider-card side-card left">
+                    <div class="showcase-hero pr-hero-light" style="position: relative;">
+
+                        <!-- Navigation Arrows -->
+                        <button class="wg-nav-btn prev-btn" id="wgPrev" disabled>&#10094;</button>
+
+                        <div class="slider-3d-container" id="wgSlider">
+                            <!-- Card 1 -->
+                            <div class="slider-card" data-index="0">
                                 <div class="card-inner">
-                                    <img src="assets/Homepage.png" alt="Recipe Recommendation">
-                                    <div class="card-label">Smart Recipes</div>
+                                    <img src="assets/Homepage.png" alt="Smart Recipes">
                                 </div>
                             </div>
 
-                            <!-- Center Card (Active) -->
-                            <div class="slider-card center-card">
+                            <!-- Card 2 -->
+                            <div class="slider-card" data-index="1">
                                 <div class="card-inner">
                                     <img src="assets/preview.png" alt="Whatcha Got Main UI">
-                                    <div class="card-content">
-                                        <span class="tag">AI Engine</span>
-                                        <h4>Ready For Refreshment</h4>
-                                    </div>
                                 </div>
                             </div>
 
-                            <!-- Right Card -->
-                            <div class="slider-card side-card right">
+                            <!-- Card 3 -->
+                            <div class="slider-card" data-index="2">
                                 <div class="card-inner">
-                                    <img src="assets/Signup.png" alt="Inventory Tracking">
-                                    <div class="card-label">Dive Into Digital Worlds</div>
+                                    <img src="assets/Signup.png" alt="Dive Into Digital Worlds">
                                 </div>
                             </div>
                         </div>
+
+                        <button class="wg-nav-btn next-btn" id="wgNext">&#10095;</button>
                     </div>
 
                     <div class="showcase-info">
