@@ -18,6 +18,20 @@ document.addEventListener('DOMContentLoaded', () => {
         msgBtn.addEventListener('click', () => alert('Message feature coming soon!'));
     }
 
+    // ── Calendly Book a Meeting popup ──
+    const calendlyBtn = document.getElementById('calendly-btn');
+    if (calendlyBtn) {
+        calendlyBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const url = calendlyBtn.dataset.url;
+            if (window.Calendly && typeof window.Calendly.initPopupWidget === 'function') {
+                window.Calendly.initPopupWidget({ url });
+            } else {
+                window.open(url, '_blank', 'noopener');
+            }
+        });
+    }
+
     // ── Save/Bookmark button toggle ──
     const saveBtn = document.getElementById('btn-save');
     if (saveBtn) {

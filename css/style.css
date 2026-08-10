@@ -322,6 +322,22 @@ button {
     color: var(--accent-blue);
 }
 
+/* Calendly button — same visual style as .contact-link (text + icon only) */
+.calendly-btn {
+    background: transparent;
+    border: none;
+    padding: 0;
+    text-decoration: none;
+}
+
+.calendly-btn svg {
+    flex-shrink: 0;
+}
+
+.calendly-btn:hover {
+    color: var(--accent-blue);
+}
+
 /* ── Section Divider ─────────────────── */
 .content-divider {
     height: 1px;
