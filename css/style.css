@@ -746,51 +746,6 @@ button {
     color: var(--text-secondary);
 }
 
-/* ── Other Work ──────────────────────── */
-.other-work-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-    max-width: 400px;
-}
-
-.other-work-link {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: var(--text-primary);
-    padding: 10px 14px;
-    border-radius: var(--radius-sm);
-    border: 1px solid var(--border-color);
-    background: var(--bg-card);
-    transition: var(--transition);
-}
-
-.other-work-link:hover {
-    border-color: var(--text-muted);
-    background: var(--bg-page);
-}
-
-.other-work-icon {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-}
-
-.dribbble-icon {
-    background: #FCE7F3;
-}
-
-.behance-icon {
-    background: #DBEAFE;
-}
-
 /* ── Skills & Tools ──────────────────── */
 .skills-text {
     display: flex;
