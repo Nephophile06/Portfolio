@@ -747,40 +747,62 @@ button {
 }
 
 /* ── Skills & Tools ──────────────────── */
-.skills-text {
+.skills-categorized-container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.skill-category-block {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.skill-category-title {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    width: fit-content;
+    font-size: 0.94rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0 0 2px 0;
+    padding: 0;
+    background: none;
+    border: none;
+    box-shadow: none;
+    letter-spacing: -0.01em;
+}
+
+.skill-cloud-icon {
+    color: #4A698E;
+    flex-shrink: 0;
+    transition: transform 0.25s ease, color 0.25s ease;
+}
+
+.skill-category-block:hover .skill-cloud-icon {
+    color: var(--text-primary);
+    transform: translateY(-1px);
+}
+
+.skill-category-content {
     display: flex;
     flex-direction: column;
     gap: 8px;
+    padding-left: 2px;
 }
 
-.skills-text p {
-    font-size: 0.88rem;
+.skill-row {
+    font-size: 0.85rem;
     color: var(--text-secondary);
-    line-height: 1.7;
+    line-height: 1.62;
 }
 
-.skills-tools-row {
-    display: flex !important;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 4px;
-}
-
-.skill-tool-badge {
-    display: inline-block;
-    padding: 4px 12px;
-    background: var(--bg-sidebar);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-full);
-    font-size: 0.78rem;
-    font-weight: 500;
-    color: var(--text-secondary);
-    transition: var(--transition);
-}
-
-.skill-tool-badge:hover {
-    border-color: var(--text-muted);
+.skill-label {
+    font-weight: 600;
     color: var(--text-primary);
+    margin-right: 4px;
 }
 
 /* ── Scroll Animations ───────────────── */
