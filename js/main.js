@@ -32,15 +32,19 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ── Save/Bookmark button toggle ──
-    const saveBtn = document.getElementById('btn-save');
-    if (saveBtn) {
-        let saved = false;
-        saveBtn.addEventListener('click', () => {
-            saved = !saved;
-            saveBtn.style.background = saved ? '#F0FDF4' : '';
-            saveBtn.style.borderColor = saved ? '#22C55E' : '';
-            saveBtn.style.color = saved ? '#22C55E' : '';
+    // ── Resume Dropdown Toggle (for mobile/touch devices) ──
+    const resumeDropdown = document.getElementById('resumeDropdown');
+    const resumeDropdownBtn = document.getElementById('resumeDropdownBtn');
+    if (resumeDropdown && resumeDropdownBtn) {
+        resumeDropdownBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            resumeDropdown.classList.toggle('active');
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!resumeDropdown.contains(e.target)) {
+                resumeDropdown.classList.remove('active');
+            }
         });
     }
 

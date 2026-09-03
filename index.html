@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home | Anika Binta Azad Shifa</title>
 
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✨</text></svg>">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✨</text></svg>">
 
     <!-- Social Share Preview (Open Graph Tags) -->
     <meta property="og:title" content="Anika Binta Azad Shifa | Portfolio">
@@ -21,7 +22,7 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-FZDWVGK2ZY"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+        function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
 
         gtag('config', 'G-FZDWVGK2ZY');
@@ -62,7 +63,7 @@
 
                 <div class="identity-right">
                     <h1 class="identity-name">Anika Binta Azad Shifa</h1>
-                    <p class="identity-title">UI/UX Designer | Frontend Developer | Data Annotator | AI Trainer</p>
+                    <p class="identity-title">UI/UX Designer | Frontend Developer | Data Annotator</p>
                     <p class="identity-location">
                         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2">
@@ -74,16 +75,66 @@
                     <div class="identity-meta">
                         <span class="avail-dot"></span>
                         <span class="avail-text">Available for work</span>
-                        <a href="assets/UI_UX resume.pdf" download="Anika_Binta_Azad_Shifa_Resume.pdf"
-                            class="download-resume-link">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2">
-                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                                <polyline points="7 10 12 15 17 10" />
-                                <line x1="12" y1="15" x2="12" y2="3" />
-                            </svg>
-                            Download Resume
-                        </a>
+                        <div class="resume-dropdown" id="resumeDropdown">
+                            <button class="resume-dropdown-btn" type="button" aria-haspopup="true" aria-expanded="false"
+                                id="resumeDropdownBtn">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                                    <polyline points="7 10 12 15 17 10" />
+                                    <line x1="12" y1="15" x2="12" y2="3" />
+                                </svg>
+                                <span>Download Resume</span>
+                                <svg class="resume-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2.5">
+                                    <polyline points="6 9 12 15 18 9" />
+                                </svg>
+                            </button>
+                            <div class="resume-dropdown-menu" id="resumeDropdownMenu">
+                                <a href="assets/UI_UX resume.pdf" download="Anika_Binta_Azad_UI_UX_Resume.pdf"
+                                    class="resume-dropdown-item">
+                                    <div class="resume-item-icon">
+                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2">
+                                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                                            <polyline points="14 2 14 8 20 8" />
+                                            <line x1="16" y1="13" x2="8" y2="13" />
+                                            <line x1="16" y1="17" x2="8" y2="17" />
+                                        </svg>
+                                    </div>
+                                    <div class="resume-item-text">
+                                        <span class="resume-item-title">UI/UX Resume</span>
+                                        <span class="resume-item-desc">Design & Frontend</span>
+                                    </div>
+                                    <svg class="resume-item-arrow" width="12" height="12" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2">
+                                        <line x1="7" y1="17" x2="17" y2="7" />
+                                        <polyline points="7 7 17 7 17 17" />
+                                    </svg>
+                                </a>
+                                <a href="assets/UI_UX resume.pdf" download="Anika_Binta_Azad_Data_Annotator_Resume.pdf"
+                                    class="resume-dropdown-item">
+                                    <div class="resume-item-icon">
+                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2">
+                                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                                            <polyline points="14 2 14 8 20 8" />
+                                            <line x1="16" y1="13" x2="8" y2="13" />
+                                            <line x1="16" y1="17" x2="8" y2="17" />
+                                        </svg>
+                                    </div>
+                                    <div class="resume-item-text">
+                                        <span class="resume-item-title">Data Annotator Resume</span>
+                                        <span class="resume-item-desc">AI Training & Annotation</span>
+                                    </div>
+                                    <svg class="resume-item-arrow" width="12" height="12" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2">
+                                        <line x1="7" y1="17" x2="17" y2="7" />
+                                        <polyline points="7 7 17 7 17 17" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="identity-contacts">
@@ -96,7 +147,7 @@
                             anikabintaazad24@gmail.com
                         </a>
                         <a href="https://www.linkedin.com/in/anika-binta-azad-shifa-159964224/" target="_blank"
-                            class="contact-link">
+                            rel="noopener noreferrer" class="contact-link">
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
                                 <path
                                     d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
@@ -104,6 +155,25 @@
                                 <circle cx="4" cy="4" r="2" />
                             </svg>
                             LinkedIn
+                        </a>
+                        <a href="https://www.behance.net/nondini2" target="_blank" rel="noopener noreferrer"
+                            class="contact-link">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M22 7h-7V5h7v2zM0 5h6.6C8.7 5 10 6.1 10 8.1c0 1.2-.6 2.2-1.6 2.8C9.6 11.4 10.5 12.5 10.5 14c0 2.5-1.8 3.9-4.5 3.9H0V5zm4.7 5.5h1.5c.9 0 1.5-.4 1.5-1.2 0-.8-.5-1.3-1.5-1.3h-1.5v2.5zm0 5h1.6c1.1 0 1.8-.5 1.8-1.4 0-1-.7-1.4-1.9-1.4h-1.5V15.5zm12.7-2.3c.1 1.5 1.1 2.3 2.6 2.3 1 0 1.8-.5 2.2-1.2h2.8c-.8 2.5-2.7 3.7-5.1 3.7-3.3 0-5.5-2.2-5.5-5.5 0-3.2 2.2-5.5 5.4-5.5 3.5 0 5.5 2.7 5.4 6.2h-7.8zm4.9-2.1c-.1-1.2-.9-2-2.1-2-1.2 0-2 .8-2.2 2h4.3z" />
+                            </svg>
+                            Behance
+                        </a>
+                        <a href="https://dribbble.com/anikabintaazad24" target="_blank" rel="noopener noreferrer"
+                            class="contact-link">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10" />
+                                <path d="M19.13 5.09C15.22 9.14 10 10.44 2.25 10.94" />
+                                <path d="M21.75 12.84c-6.62-1.41-12.14 1-16.38 6.32" />
+                                <path d="M8.56 2.75c4.37 6 6 9.42 8 17.72" />
+                            </svg>
+                            Dribbble
                         </a>
 
                         <!-- Calendly Book a Meeting Button -->
@@ -126,22 +196,29 @@
             <div class="section-block" id="about-me">
                 <h2 class="block-title">About me</h2>
                 <p class="about-text">
-                    I am a passionate and creative individual with experience in competitive programming, web
-                    development, and graphic design. I enjoy solving complex problems using C++ and have participated in
-                    coding competitions. At the same time, I love designing user-friendly and visually appealing
-                    websites, as well as creating graphics.
-                    <br>
-                    <br>
-                    Now, I am a detail-oriented Data Annotator and AI Training Specialist with multiple domains,
-                    including image, audio, and video annotation. Currently working with diverse platforms as a
-                    freelance contributor, I have developed strong expertise in delivering high-quality training data
-                    for machine learning models, maintaining accuracy, and quality standards across large-scale
-                    datasets.
-                    <br>
-                    <br>
-                    In addition to annotation work, I am also involved in content creation and generalist tasks. I am
-                    passionate about contributing to AI development by ensuring precise and reliable data, and I
-                    continuously aim to improve efficiency and quality in every project I work on.
+                    I'm a UI/UX designer who enjoys solving problems through design. For me, good design is not simply
+                    about making an interface look beautiful, it is about making things easier to understand, easier to
+                    navigate, and more comfortable to use. I'm particularly interested in user flows, information
+                    architecture, interaction design, and building consistent design systems. I've worked on projects
+                    ranging from mobile applications to e-commerce and SaaS interfaces, where I've practiced research,
+                    wireframing, prototyping, and high-fidelity design in Figma.
+
+                    <br> <br>
+
+                    I also have a background in frontend development, which gives me a practical understanding of how
+                    designs are translated into real products. I've worked with HTML, CSS, JavaScript, Bootstrap,
+                    Tailwind, React and Flask, and I enjoy bridging the gap between a design file and a working
+                    interface. This combination has helped me think beyond visual design and consider responsiveness,
+                    usability, components, and technical feasibility while designing.
+
+                    <br> <br>
+
+                    Outside of design and development, I've worked extensively in data annotation and AI evaluation.
+                    My experience includes image/video annotation, object tagging, transcription, content quality
+                    assessment, pairwise comparison, AI-output evaluation, fact-checking, and quality assurance.
+                    These roles have developed my attention to detail, analytical thinking, and ability to follow
+                    complex guidelines consistently. I'm interested in growing as a designer while continuing to explore
+                    the intersection of design, technology, and AI.
                 </p>
             </div>
 

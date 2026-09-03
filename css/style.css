@@ -287,21 +287,160 @@ button {
     font-weight: 500;
 }
 
-.download-resume-link {
+/* ── Minimal Resume Dropdown ─────────── */
+.resume-dropdown {
+    position: relative;
+    margin-left: auto;
+    display: inline-block;
+}
+
+.resume-dropdown-btn {
     display: inline-flex;
     align-items: center;
-    gap: 5px;
+    gap: 6px;
+    background: transparent;
+    border: none;
+    padding: 4px 2px;
+    font-family: inherit;
     font-size: 0.8rem;
     font-weight: 500;
     color: var(--text-primary);
+    cursor: pointer;
     text-decoration: underline;
     text-underline-offset: 2px;
-    margin-left: auto;
     transition: var(--transition);
 }
 
-.download-resume-link:hover {
-    color: var(--accent-blue);
+.resume-dropdown-btn:hover,
+.resume-dropdown:hover .resume-dropdown-btn,
+.resume-dropdown:focus-within .resume-dropdown-btn {
+    color: #3b597b;
+}
+
+.resume-chevron {
+    transition: transform 0.25s ease;
+}
+
+.resume-dropdown:hover .resume-chevron,
+.resume-dropdown:focus-within .resume-chevron,
+.resume-dropdown.active .resume-chevron {
+    transform: rotate(180deg);
+}
+
+.resume-dropdown-menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    min-width: 255px;
+    width: max-content;
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(180, 200, 230, 0.65);
+    border-radius: var(--radius-md);
+    box-shadow: 0 10px 30px -4px rgba(30, 58, 95, 0.1), 0 4px 12px rgba(30, 58, 95, 0.05);
+    padding: 6px;
+    z-index: 100;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(8px);
+    transition: opacity 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+        visibility 0.22s;
+    pointer-events: none;
+}
+
+/* Invisible hover bridge to prevent closing on gap */
+.resume-dropdown-menu::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 0;
+    right: 0;
+    height: 10px;
+}
+
+.resume-dropdown:hover .resume-dropdown-menu,
+.resume-dropdown:focus-within .resume-dropdown-menu,
+.resume-dropdown.active .resume-dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.resume-dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 10px;
+    border-radius: var(--radius-sm);
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: background 0.18s ease, transform 0.18s ease;
+}
+
+.resume-dropdown-item:hover {
+    background: rgba(74, 105, 142, 0.08);
+}
+
+.resume-item-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    background: rgba(74, 105, 142, 0.1);
+    color: #3b597b;
+    flex-shrink: 0;
+    transition: background 0.18s ease, color 0.18s ease;
+}
+
+.resume-dropdown-item:hover .resume-item-icon {
+    background: #3b597b;
+    color: #ffffff;
+}
+
+.resume-item-text {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.resume-item-title {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    line-height: 1.25;
+    white-space: nowrap;
+    transition: color 0.18s ease;
+}
+
+.resume-dropdown-item:hover .resume-item-title {
+    color: #1e3653;
+}
+
+.resume-item-desc {
+    font-size: 0.67rem;
+    color: var(--text-muted);
+    margin-top: 1px;
+    white-space: nowrap;
+}
+
+.resume-item-arrow {
+    margin-left: auto;
+    color: var(--text-muted);
+    opacity: 0;
+    transform: translateX(-4px);
+    transition: all 0.18s ease;
+    flex-shrink: 0;
+}
+
+.resume-dropdown-item:hover .resume-item-arrow {
+    opacity: 1;
+    transform: translateX(0);
+    color: #3b597b;
 }
 
 .identity-contacts {
