@@ -539,6 +539,7 @@ button {
     display: block;
     border-radius: var(--radius-md);
     overflow: hidden;
+    text-decoration: none;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -550,156 +551,67 @@ button {
 .project-img {
     position: relative;
     width: 100%;
-    aspect-ratio: 16/9;
+    aspect-ratio: 16/11;
     overflow: hidden;
     border-radius: var(--radius-md);
     display: flex;
     align-items: center;
     justify-content: center;
+    background: #E2E8F0;
 }
 
-.pr-dark {
-    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+/* Matching Canvas Backgrounds */
+.bg-sketchify {
+    background-color: #FAECED;
 }
 
-.pr-light {
-    background: linear-gradient(135deg, #F8F9FA 0%, #E9ECEF 100%);
+.bg-roseva {
+    background-color: #FAF7F2;
 }
 
-/* Chat mockup */
-.pr-phone-frame {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    padding: 10px;
+.bg-orbit {
+    background-color: #FFFFFF;
+}
+
+.bg-whatchagot {
+    background-color: #D4E5FA;
+}
+
+.project-img img {
     width: 100%;
-    max-width: 200px;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    opacity: 1 !important;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.pr-chat-bubble {
-    padding: 5px 10px;
-    border-radius: 12px;
-    font-size: 0.6rem;
-    font-weight: 500;
-    max-width: 70%;
-}
-
-.pr-chat-bubble.left {
-    background: rgba(255, 255, 255, 0.12);
-    color: rgba(255, 255, 255, 0.9);
-    align-self: flex-start;
-}
-
-.pr-chat-bubble.right {
-    background: #0071E3;
-    color: white;
-    align-self: flex-end;
-}
-
-.pr-chat-small {
-    height: 6px;
-    width: 40%;
-    background: rgba(0, 113, 227, 0.6);
-    border-radius: 6px;
-    align-self: flex-end;
-}
-
-.pr-action-row {
-    display: flex;
-    gap: 6px;
-    margin-top: 4px;
-}
-
-.pr-btn-sm {
-    padding: 3px 8px;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 6px;
-    font-size: 0.55rem;
-    color: rgba(255, 255, 255, 0.8);
-}
-
-/* Buyback screens mockup */
-.pr-screens {
-    display: flex;
-    gap: 6px;
-    padding: 12px;
-    align-items: flex-end;
-}
-
-.pr-screen {
-    background: white;
-    border-radius: 8px;
-    padding: 8px 6px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 4px;
-    border: 1px solid #E5E7EB;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-.pr-screen.s1 {
-    width: 50px;
-}
-
-.pr-screen.s2 {
-    width: 58px;
-}
-
-.pr-screen.s3 {
-    width: 50px;
-}
-
-.pr-screen-bar {
-    width: 80%;
-    height: 3px;
-    background: #E5E7EB;
-    border-radius: 2px;
-}
-
-.pr-screen-icon {
-    font-size: 1rem;
-}
-
-.pr-screen-text {
-    font-size: 0.45rem;
-    color: var(--text-muted);
-    text-align: center;
-    font-weight: 600;
-}
-
-.pr-screen-price {
-    font-size: 0.55rem;
-    color: #16A34A;
-    font-weight: 700;
-}
-
-.pr-screen-check {
-    font-size: 1rem;
-    color: #16A34A;
+.project-card:hover .project-img img {
+    transform: scale(1.03);
 }
 
 .pr-overlay-text {
     position: absolute;
-    bottom: 10px;
-    left: 12px;
-    font-size: 0.85rem;
-    font-weight: 700;
-    color: rgba(255, 255, 255, 0.85);
-    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+    bottom: 14px;
+    left: 24px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #475569;
     pointer-events: none;
+    line-height: 1.35;
 }
 
 .pr-overlay-text span {
     display: block;
-    font-size: 1rem;
-    color: white;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #0F172A;
+    margin-top: 1px;
+    transition: color 0.2s ease;
 }
 
-.pr-overlay-text.dark {
-    color: var(--text-primary);
-    text-shadow: none;
+.project-card:hover .pr-overlay-text span {
+    color: #1E3A5F;
 }
 
 /* ── Experience List ─────────────────── */
