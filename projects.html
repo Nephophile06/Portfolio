@@ -27,9 +27,13 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Preload the existing Inter Latin font to avoid a late font-swap shift. -->
+    <link rel="preload" href="https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2" as="font" type="font/woff2" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/projects.css">
+    <link rel="stylesheet" href="css/notebook.css">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='5' y='4' width='22' height='24' rx='2' fill='%23f3f7fb' stroke='%23486783' stroke-width='2'/%3E%3Cpath d='M11 11h11M11 16h8M11 21h10' stroke='%23486783' stroke-width='2'/%3E%3C/svg%3E">
 </head>
 
 <body>
@@ -38,7 +42,7 @@
     <header class="personal-navbar" id="personal-navbar">
         <nav class="navbar-links">
             <a href="index.html" class="navbar-link" id="nav-home">Home</a>
-            <a href="projects.html" class="navbar-link active" id="nav-projects">Projects</a>
+            <a href="projects.html" class="navbar-link active" id="nav-projects" aria-current="page">Projects</a>
             <a href="certifications.html" class="navbar-link" id="nav-download">Certifications</a>
         </nav>
     </header>
@@ -64,7 +68,7 @@
                     <div class="showcase-hero pr-hero-dark">
 
                         <div class="custom-carousel-container">
-                            <button class="carousel-btn left-btn" id="sketchify-left-btn">
+                            <button class="carousel-btn left-btn" id="sketchify-left-btn" type="button" aria-label="Previous Sketchify image" aria-controls="sketchify-track">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                     stroke-width="2">
                                     <polyline points="15 18 9 12 15 6"></polyline>
@@ -72,16 +76,16 @@
                             </button>
 
                             <div class="carousel-track" id="sketchify-track">
-                                <div class="carousel-slide"><img src="assets/img01.png" alt="Categories"></div>
-                                <div class="carousel-slide"><img src="assets/img02.png" alt="LogIn"></div>
-                                <div class="carousel-slide"><img src="assets/img03.png" alt="Featured"></div>
-                                <div class="carousel-slide"><img src="assets/img04.png" alt="Products by Categories">
+                                <div class="carousel-slide"><img src="assets/img01.webp" alt="Categories" width="1400" height="472" loading="eager" decoding="async" fetchpriority="high"></div>
+                                <div class="carousel-slide"><img src="assets/img02.webp" alt="LogIn" width="1400" height="712" loading="lazy" decoding="async"></div>
+                                <div class="carousel-slide"><img src="assets/img03.webp" alt="Featured" width="1400" height="638" loading="lazy" decoding="async"></div>
+                                <div class="carousel-slide"><img src="assets/img04.webp" alt="Products by Categories" width="1400" height="638" loading="lazy" decoding="async">
                                 </div>
-                                <div class="carousel-slide"><img src="assets/img05.png" alt="Search Results"></div>
-                                <div class="carousel-slide"><img src="assets/img06.png" alt="Personal Cart"></div>
+                                <div class="carousel-slide"><img src="assets/img05.webp" alt="Search Results" width="1400" height="638" loading="lazy" decoding="async"></div>
+                                <div class="carousel-slide"><img src="assets/img06.webp" alt="Personal Cart" width="1400" height="638" loading="lazy" decoding="async"></div>
                             </div>
 
-                            <button class="carousel-btn right-btn" id="sketchify-right-btn">
+                            <button class="carousel-btn right-btn" id="sketchify-right-btn" type="button" aria-label="Next Sketchify image" aria-controls="sketchify-track">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                     stroke-width="2">
                                     <polyline points="9 18 15 12 9 6"></polyline>
@@ -104,32 +108,32 @@
                     <div class="showcase-hero pr-hero-light" style="position: relative;">
 
                         <!-- Navigation Arrows -->
-                        <button class="wg-nav-btn prev-btn" id="wgPrev" disabled>&#10094;</button>
+                        <button class="wg-nav-btn prev-btn" id="wgPrev" type="button" aria-label="Previous Whatcha Got image" aria-controls="wgSlider" disabled>&#10094;</button>
 
                         <div class="slider-3d-container" id="wgSlider">
                             <!-- Card 1 -->
                             <div class="slider-card" data-index="0">
                                 <div class="card-inner">
-                                    <img src="assets/Homepage.png" alt="Smart Recipes">
+                                    <img src="assets/Homepage.webp" alt="Smart Recipes" width="412" height="917" loading="lazy" decoding="async">
                                 </div>
                             </div>
 
                             <!-- Card 2 -->
                             <div class="slider-card" data-index="1">
                                 <div class="card-inner">
-                                    <img src="assets/preview.png" alt="Whatcha Got Main UI">
+                                    <img src="assets/preview.webp" alt="Whatcha Got Main UI" width="412" height="917" loading="lazy" decoding="async">
                                 </div>
                             </div>
 
                             <!-- Card 3 -->
                             <div class="slider-card" data-index="2">
                                 <div class="card-inner">
-                                    <img src="assets/Signup.png" alt="Dive Into Digital Worlds">
+                                    <img src="assets/Signup.webp" alt="Dive Into Digital Worlds" width="412" height="917" loading="lazy" decoding="async">
                                 </div>
                             </div>
                         </div>
 
-                        <button class="wg-nav-btn next-btn" id="wgNext">&#10095;</button>
+                        <button class="wg-nav-btn next-btn" id="wgNext" type="button" aria-label="Next Whatcha Got image" aria-controls="wgSlider">&#10095;</button>
                     </div>
 
                     <div class="showcase-info">
@@ -221,10 +225,10 @@
                                 <input type="hidden" name="_next"
                                     value="https://nephophile06.github.io/Portfolio/projects.html">
 
-                                <input type="text" name="name" placeholder="Your name" required id="form-name">
-                                <input type="email" name="email" placeholder="Your Email address" required
+                                <input type="text" name="name" placeholder="Your name" aria-label="Your name" autocomplete="name" required id="form-name">
+                                <input type="email" name="email" placeholder="Your Email address" aria-label="Your Email address" autocomplete="email" required
                                     id="form-email">
-                                <textarea name="message" placeholder="Message" rows="5" required
+                                <textarea name="message" placeholder="Message" aria-label="Message" rows="5" required
                                     id="form-message"></textarea>
                                 <button type="submit" class="talk-submit" id="form-submit">Send Message</button>
                             </form>
@@ -236,35 +240,12 @@
                 <footer class="projects-footer" id="projects-footer">
                     <p>&copy; Copyright 2026</p>
                 </footer>
-
+            </div>
         </section>
     </main>
 
-    <script src="js/main.js"></script>
-    <script>
-        // Live clock
-        function updateClock() {
-            const now = new Date();
-            let h = now.getHours();
-            const m = String(now.getMinutes()).padStart(2, '0');
-            const ampm = h >= 12 ? 'PM' : 'AM';
-            h = h % 12 || 12;
-            document.getElementById('live-time').textContent = `${String(h).padStart(2, '0')}:${m} ${ampm}`;
-        }
-        updateClock();
-        setInterval(updateClock, 30000);
-
-        // Scroll reveal
-        const faders = document.querySelectorAll('.fade-in-scroll');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.15 });
-        faders.forEach(el => observer.observe(el));
-    </script>
+    <script src="js/main.js" defer></script>
+    <script src="js/fx.js" defer></script>
 
 </body>
 

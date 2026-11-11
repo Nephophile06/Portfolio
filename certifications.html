@@ -26,10 +26,14 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Preload the existing Inter Latin font to avoid a late font-swap shift. -->
+    <link rel="preload" href="https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2" as="font" type="font/woff2" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/projects.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/certifications.css">
+    <link rel="stylesheet" href="css/notebook.css">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='5' y='4' width='22' height='24' rx='2' fill='%23f3f7fb' stroke='%23486783' stroke-width='2'/%3E%3Cpath d='M11 11h11M11 16h8M11 21h10' stroke='%23486783' stroke-width='2'/%3E%3C/svg%3E">
 </head>
 
 <body>
@@ -38,7 +42,7 @@
         <nav class="navbar-links">
             <a href="index.html" class="navbar-link" id="nav-home">Home</a>
             <a href="projects.html" class="navbar-link" id="nav-projects">Projects</a>
-            <a href="certifications.html" class="navbar-link active" id="nav-download">Certifications</a>
+            <a href="certifications.html" class="navbar-link active" id="nav-download" aria-current="page">Certifications</a>
         </nav>
     </header>
 
@@ -61,7 +65,7 @@
                         <p class="cert-detail-issuer">Micro1</p>
                     </div>
                     <div class="cert-image-wrapper">
-                        <img src="assets/micro1.jpg" alt="Software Developer Certificate" class="cert-full-image">
+                        <img src="assets/micro1.webp" alt="Software Developer Certificate" class="cert-full-image" width="1600" height="1129" loading="eager" decoding="async" fetchpriority="high">
                     </div>
                 </div>
 
@@ -80,7 +84,7 @@
                             </div>
                             <div class="row-hidden">
                                 <div class="row-content">
-                                    <img src="assets/iupc01.png" class="row-img landscape">
+                                    <img src="assets/iupc01.webp" alt="Ongoing Contest Highlights" class="row-img landscape" width="1206" height="803" loading="lazy" decoding="async">
                                     <p class="row-desc">During the 5-hour contest, our team successfully solved 5 out of
                                         6 problems and was fully focused on cracking the final challenge.</p>
                                 </div>
@@ -95,7 +99,7 @@
                             </div>
                             <div class="row-hidden">
                                 <div class="row-content">
-                                    <img src="assets/iupc02.png" class="row-img landscape">
+                                    <img src="assets/iupc02.webp" alt="Team Balloon_Lagbe" class="row-img landscape" width="1081" height="803" loading="lazy" decoding="async">
                                     <p class="row-desc">Celebrating our championship victory; each balloon represents a
                                         solved problem, we proudly celebrate our winning moment and the teamwork behind
                                         it.</p>
@@ -111,7 +115,7 @@
                             </div>
                             <div class="row-hidden">
                                 <div class="row-content">
-                                    <img src="assets/iupc03.png" class="row-img square-cert">
+                                    <img src="assets/iupc03.webp" alt="Prize for Champion" class="row-img square-cert" width="884" height="803" loading="lazy" decoding="async">
                                     <div class="row-text-side">
                                         <p class="row-desc">Securing 1st place in the Senior Division — recognized with
                                             an official certificate and prize money.</p>
@@ -131,37 +135,37 @@
                     </div>
                     <div class="drone-masonry-gallery">
                         <div class="drone-card drone-square">
-                            <img src="assets/dronu01.png" alt="Drone of " Pixel Pirates" class="drone-img">
+                            <img src="assets/dronu01.webp" alt="Drone of &quot;Pixel Pirates&quot;" class="drone-img" width="603" height="803" loading="lazy" decoding="async">
                             <p class="drone-label">Drone of "Pixel Pirates"</p>
                         </div>
 
                         <div class="drone-card drone-portrait">
-                            <img src="assets/dronu02.png" alt="Pre-flight Technical Check" class="drone-img">
+                            <img src="assets/dronu02.webp" alt="Pre-flight Technical Check" class="drone-img" width="706" height="803" loading="lazy" decoding="async">
                             <p class="drone-label">Pre-flight Technical Check</p>
                         </div>
 
                         <div class="drone-card drone-portrait">
-                            <img src="assets/dronu03.png" alt="Practice on the Obstacles" class="drone-img">
+                            <img src="assets/dronu03.webp" alt="Practice on the Obstacles" class="drone-img" width="706" height="803" loading="lazy" decoding="async">
                             <p class="drone-label">Practice on the Obstacles</p>
                         </div>
 
                         <div class="drone-card drone-square">
-                            <img src="assets/dronu04.png" alt="Team Pixel Pirates" class="drone-img">
+                            <img src="assets/dronu04.webp" alt="Team Pixel Pirates" class="drone-img" width="1072" height="803" loading="lazy" decoding="async">
                             <p class="drone-label">Team Pixel Pirates</p>
                         </div>
 
                         <div class="drone-card drone-landscape">
-                            <img src="assets/dronu05.png" alt="Discussion with Dept. Head" class="drone-img">
+                            <img src="assets/dronu05.webp" alt="Discussion with Dept. Head" class="drone-img" width="1072" height="803" loading="lazy" decoding="async">
                             <p class="drone-label">Discussion with Dept. Head</p>
                         </div>
 
                         <div class="drone-card drone-landscape">
-                            <img src="assets/dronu06.png" alt="Award Ceremony Moment" class="drone-img">
+                            <img src="assets/dronu06.webp" alt="Award Ceremony Moment" class="drone-img" width="1072" height="803" loading="lazy" decoding="async">
                             <p class="drone-label">Award Ceremony Moment</p>
                         </div>
 
                         <div class="drone-card drone-square">
-                            <img src="assets/dronu07.png" alt="RoboFest 1.0 Winner" class="drone-img">
+                            <img src="assets/dronu07.webp" alt="RoboFest 1.0 Winner" class="drone-img" width="787" height="803" loading="lazy" decoding="async">
                             <p class="drone-label">RoboFest 1.0 Winner</p>
                         </div>
                     </div>
@@ -175,31 +179,31 @@
 
                     <div class="ms-cert-grid">
                         <div class="ms-cert-item">
-                            <img src="assets/1.png" alt="Module 1" class="ms-img" onclick="openLightbox(this)">
+                            <img src="assets/1.webp" alt="Module 1" class="ms-img" onclick="openLightbox(this)" width="1800" height="1199" loading="lazy" decoding="async">
                             <p class="ms-label">Introduction to Microsoft 365 Copilot</p>
                         </div>
                         <div class="ms-cert-item">
-                            <img src="assets/2.png" alt="Module 2" class="ms-img" onclick="openLightbox(this)">
+                            <img src="assets/2.webp" alt="Module 2" class="ms-img" onclick="openLightbox(this)" width="1800" height="1199" loading="lazy" decoding="async">
                             <p class="ms-label">Optimize and extend Microsoft 365 Copilot</p>
                         </div>
                         <div class="ms-cert-item">
-                            <img src="assets/3.png" alt="Module 3" class="ms-img" onclick="openLightbox(this)">
+                            <img src="assets/3.webp" alt="Module 3" class="ms-img" onclick="openLightbox(this)" width="1800" height="1199" loading="lazy" decoding="async">
                             <p class="ms-label">Explore the possibilities with Microsoft 365 Copilot</p>
                         </div>
                         <div class="ms-cert-item">
-                            <img src="assets/4.png" alt="Module 4" class="ms-img" onclick="openLightbox(this)">
+                            <img src="assets/4.webp" alt="Module 4" class="ms-img" onclick="openLightbox(this)" width="1800" height="1199" loading="lazy" decoding="async">
                             <p class="ms-label">Create and draft with Microsoft 365 Copilot</p>
                         </div>
                         <div class="ms-cert-item">
-                            <img src="assets/5.png" alt="Module 5" class="ms-img" onclick="openLightbox(this)">
+                            <img src="assets/5.webp" alt="Module 5" class="ms-img" onclick="openLightbox(this)" width="1786" height="1190" loading="lazy" decoding="async">
                             <p class="ms-label">Summarize and simplify information with Microsoft 365 Copilot</p>
                         </div>
                         <div class="ms-cert-item">
-                            <img src="assets/6.png" alt="Module 6" class="ms-img" onclick="openLightbox(this)">
+                            <img src="assets/6.webp" alt="Module 6" class="ms-img" onclick="openLightbox(this)" width="1786" height="1190" loading="lazy" decoding="async">
                             <p class="ms-label">Edit and transform content with Microsoft 365 Copilot</p>
                         </div>
                         <div class="ms-cert-item ms-centered-item">
-                            <img src="assets/7.png" alt="Final Certificate" class="ms-img" onclick="openLightbox(this)">
+                            <img src="assets/7.webp" alt="Final Certificate" class="ms-img" onclick="openLightbox(this)" width="1786" height="1190" loading="lazy" decoding="async">
                             <p class="ms-label">Ask questions and analyze content with Microsoft 365 Copilot</p>
                         </div>
                     </div>
@@ -217,8 +221,8 @@
                             <div class="timeline-marker-line"></div>
                             <div class="timeline-content-wrapper">
                                 <div class="timeline-image-box">
-                                    <img src="assets/banner_Sketchify.png" alt="She Innovates Poster"
-                                        class="timeline-img ms-img-clickable" onclick="openLightbox(this)">
+                                    <img src="assets/banner_Sketchify.webp" alt="She Innovates Poster"
+                                        class="timeline-img ms-img-clickable" onclick="openLightbox(this)" width="1800" height="1440" loading="lazy" decoding="async">
                                 </div>
                                 <div class="timeline-details-box">
                                     <h4 class="details-title">Banner of Sketchify</h4>
@@ -242,8 +246,8 @@
                             <div class="timeline-marker-line"></div>
                             <div class="timeline-content-wrapper img-right">
                                 <div class="timeline-image-box">
-                                    <img src="assets/chobi.png" alt="Project Presenting"
-                                        class="timeline-img ms-img-clickable" onclick="openLightbox(this)">
+                                    <img src="assets/chobi.webp" alt="Project Presenting"
+                                        class="timeline-img ms-img-clickable" onclick="openLightbox(this)" width="788" height="475" loading="lazy" decoding="async">
                                 </div>
                                 <div class="timeline-details-box">
                                     <h4 class="details-title">Event Presentation Experience</h4>
@@ -263,8 +267,8 @@
                             <div class="timeline-marker-line"></div>
                             <div class="timeline-content-wrapper img-right">
                                 <div class="timeline-image-box">
-                                    <img src="assets/she_innovates.png" alt="Participation Certificate"
-                                        class="timeline-img ms-img-clickable" onclick="openLightbox(this)">
+                                    <img src="assets/she_innovates.webp" alt="Participation Certificate"
+                                        class="timeline-img ms-img-clickable" onclick="openLightbox(this)" width="669" height="475" loading="lazy" decoding="async">
                                 </div>
                                 <div class="timeline-details-box">
                                     <h4 class="details-title">Certificate of Achievement</h4>
@@ -289,7 +293,7 @@
                     <div class="tilt-container">
                         <div class="tilt-bg-shapes"></div>
                         <div class="tilt-card">
-                            <img src="assets/IUPC_Aug2024.png" alt="IUPC 2024 Certificate">
+                            <img src="assets/IUPC_Aug2024.webp" alt="IUPC 2024 Certificate" width="1400" height="993" loading="lazy" decoding="async">
                             <div class="tilt-reflection"></div>
                         </div>
                     </div>
@@ -310,8 +314,8 @@
                             <div class="blob blob-4"></div>
 
                             <div class="blob-content">
-                                <img src="assets/BAUST_Marathon2023.png" alt="BAUST Marathon Certificate"
-                                    class="blob-cert-img">
+                                <img src="assets/BAUST_Marathon2023.webp" alt="BAUST Marathon Certificate"
+                                    class="blob-cert-img" width="669" height="475" loading="lazy" decoding="async">
                             </div>
 
                         </div>
@@ -331,8 +335,8 @@
 
                         <div class="timeline-row">
                             <div class="timeline-img-box">
-                                <img src="assets/School01.png" alt="Co-curricular Activities" class="ms-img-clickable"
-                                    onclick="openLightbox(this)">
+                                <img src="assets/School01.webp" alt="Co-curricular Activities" class="ms-img-clickable"
+                                    onclick="openLightbox(this)" width="631" height="475" loading="lazy" decoding="async">
                             </div>
                             <div class="date-badge">Dec 2016</div>
                             <div class="timeline-text-box">
@@ -348,8 +352,8 @@
 
                         <div class="timeline-row row-reverse">
                             <div class="timeline-img-box">
-                                <img src="assets/School05.png" alt="Essay Competition" class="ms-img-clickable"
-                                    onclick="openLightbox(this)">
+                                <img src="assets/School05.webp" alt="Essay Competition" class="ms-img-clickable"
+                                    onclick="openLightbox(this)" width="634" height="475" loading="lazy" decoding="async">
                             </div>
                             <div class="date-badge">Dec 2016</div>
                             <div class="timeline-text-box">
@@ -365,8 +369,8 @@
 
                         <div class="timeline-row">
                             <div class="timeline-img-box">
-                                <img src="assets/School06.png" alt="Chess Competition" class="ms-img-clickable"
-                                    onclick="openLightbox(this)">
+                                <img src="assets/School06.webp" alt="Chess Competition" class="ms-img-clickable"
+                                    onclick="openLightbox(this)" width="638" height="475" loading="lazy" decoding="async">
                             </div>
                             <div class="date-badge">Dec 2016</div>
                             <div class="timeline-text-box">
@@ -381,8 +385,8 @@
 
                         <div class="timeline-row row-reverse">
                             <div class="timeline-img-box">
-                                <img src="assets/School03.png" alt="Quran Competition" class="ms-img-clickable"
-                                    onclick="openLightbox(this)">
+                                <img src="assets/School03.webp" alt="Quran Competition" class="ms-img-clickable"
+                                    onclick="openLightbox(this)" width="631" height="475" loading="lazy" decoding="async">
                             </div>
                             <div class="date-badge">Dec 2015</div>
                             <div class="timeline-text-box">
@@ -396,8 +400,8 @@
 
                         <div class="timeline-row">
                             <div class="timeline-img-box">
-                                <img src="assets/School02.png" alt="Essay Competition" class="ms-img-clickable"
-                                    onclick="openLightbox(this)">
+                                <img src="assets/School02.webp" alt="Essay Competition" class="ms-img-clickable"
+                                    onclick="openLightbox(this)" width="647" height="475" loading="lazy" decoding="async">
                             </div>
                             <div class="date-badge">Dec 2015</div>
                             <div class="timeline-text-box">
@@ -412,8 +416,8 @@
 
                         <div class="timeline-row row-reverse">
                             <div class="timeline-img-box">
-                                <img src="assets/School04.png" alt="Art Competition" class="ms-img-clickable"
-                                    onclick="openLightbox(this)">
+                                <img src="assets/School04.webp" alt="Art Competition" class="ms-img-clickable"
+                                    onclick="openLightbox(this)" width="638" height="475" loading="lazy" decoding="async">
                             </div>
                             <div class="date-badge">Dec 2015</div>
                             <div class="timeline-text-box">
@@ -439,24 +443,14 @@
     </main>
 
     <!-- Global Lightbox Modal -->
-    <div id="certLightbox" class="cert-modal" onclick="closeLightboxOnClick()">
-        <img class="modal-content" id="fullCertImage">
+    <div id="certLightbox" class="cert-modal" role="dialog" aria-modal="true" aria-label="Certificate preview" onclick="closeLightboxOnClick()">
+        <button type="button" class="lightbox-close" aria-label="Close image">&times;</button>
+        <img class="modal-content" id="fullCertImage" alt="" width="1" height="1" loading="lazy" decoding="async">
         <div id="caption"></div>
     </div>
 
-    <script src="js/main.js"></script>
-    <script>
-        // Scroll reveal animation
-        const faders = document.querySelectorAll('.fade-in-scroll');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.15 });
-        faders.forEach(el => observer.observe(el));
-    </script>
+    <script src="js/main.js" defer></script>
+    <script src="js/fx.js" defer></script>
 
 </body>
 
