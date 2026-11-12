@@ -154,5 +154,117 @@
         }, { passive: true });
     }
 
+    // ── 4. Interactive Akibuki Drawing Canvas (Scribble/Doodle on desk) ──
+    const canvas = document.getElementById('akibukiCanvas');
+    const btnPen = document.getElementById('btnAkibukiPen');
+    const btnClear = document.getElementById('btnAkibukiClear');
+
+    if (canvas) {
+        const ctx = canvas.getContext('2d');
+        let isDrawing = false;
+        let isEnabled = true;
+        let lastX = 0, lastY = 0;
+
+        function resizeCanvas() {
+            const rect = canvas.getBoundingClientRect();
+            if (rect.width === 0 || rect.height === 0) return;
+
+            // Preserve existing sketch during resize
+            const tempCanvas = document.createElement('canvas');
+            tempCanvas.width = canvas.width;
+            tempCanvas.height = canvas.height;
+            const tempCtx = tempCanvas.getContext('2d');
+            if (canvas.width > 0 && canvas.height > 0) {
+                tempCtx.drawImage(canvas, 0, 0);
+            }
+
+            const dpr = window.devicePixelRatio || 1;
+            canvas.width = rect.width * dpr;
+            canvas.height = rect.height * dpr;
+            ctx.scale(dpr, dpr);
+
+            if (tempCanvas.width > 0 && tempCanvas.height > 0) {
+                ctx.drawImage(tempCanvas, 0, 0, tempCanvas.width / dpr, tempCanvas.height / dpr);
+            }
+
+            ctx.lineCap = 'round';
+            ctx.lineJoin = 'round';
+            ctx.strokeStyle = '#2d2723';
+            ctx.lineWidth = 2.2;
+        }
+
+        window.addEventListener('resize', resizeCanvas);
+        // Initial setup
+        setTimeout(resizeCanvas, 50);
+
+        function getPos(e) {
+            const rect = canvas.getBoundingClientRect();
+            return {
+                x: e.clientX - rect.left,
+                y: e.clientY - rect.top
+            };
+        }
+
+        canvas.addEventListener('pointerdown', (e) => {
+            if (!isEnabled) return;
+            if (e.target !== canvas) return;
+
+            isDrawing = true;
+            const pos = getPos(e);
+            lastX = pos.x;
+            lastY = pos.y;
+            canvas.setPointerCapture(e.pointerId);
+
+            // Draw a subtle dot on single tap/click
+            ctx.beginPath();
+            ctx.arc(lastX, lastY, 1.2, 0, Math.PI * 2);
+            ctx.fillStyle = '#2d2723';
+            ctx.fill();
+        });
+
+        canvas.addEventListener('pointermove', (e) => {
+            if (!isDrawing || !isEnabled) return;
+            const pos = getPos(e);
+
+            ctx.beginPath();
+            ctx.moveTo(lastX, lastY);
+            const midX = (lastX + pos.x) / 2;
+            const midY = (lastY + pos.y) / 2;
+            ctx.quadraticCurveTo(lastX, lastY, midX, midY);
+            ctx.lineTo(pos.x, pos.y);
+            ctx.stroke();
+
+            lastX = pos.x;
+            lastY = pos.y;
+        });
+
+        const stopDraw = (e) => {
+            if (!isDrawing) return;
+            isDrawing = false;
+            try { canvas.releasePointerCapture(e.pointerId); } catch(err) {}
+        };
+
+        canvas.addEventListener('pointerup', stopDraw);
+        canvas.addEventListener('pointercancel', stopDraw);
+
+        // Toggle button
+        if (btnPen) {
+            btnPen.addEventListener('click', () => {
+                isEnabled = !isEnabled;
+                btnPen.classList.toggle('is-active', isEnabled);
+                btnPen.querySelector('span').textContent = isEnabled ? 'Akibuki: ON' : 'Akibuki: OFF';
+                canvas.style.pointerEvents = isEnabled ? 'auto' : 'none';
+            });
+        }
+
+        // Clear button
+        if (btnClear) {
+            btnClear.addEventListener('click', () => {
+                const rect = canvas.getBoundingClientRect();
+                ctx.clearRect(0, 0, rect.width, rect.height);
+            });
+        }
+    }
+
 })();
 

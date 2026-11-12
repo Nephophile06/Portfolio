@@ -58,8 +58,49 @@
 
         <!-- Hero / Fullscreen Creative Desk Section -->
         <section class="creative-hero-desk" id="hero-desk">
+            <!-- Interactive Freehand Drawing / Akibuki Canvas Layer -->
+            <canvas id="akibukiCanvas" class="akibuki-draw-canvas" title="Doodle / Akibuki directly on the desk!"></canvas>
+
+            <!-- Akibuki Pen / Eraser Toolbar -->
+            <div class="akibuki-toolbar" id="akibukiToolbar" role="toolbar" aria-label="Akibuki Drawing Tools">
+                <button type="button" class="akibuki-btn is-active" id="btnAkibukiPen" title="Toggle Akibuki Scribble">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"/>
+                    </svg>
+                    <span>Akibuki: ON</span>
+                </button>
+                <button type="button" class="akibuki-btn" id="btnAkibukiClear" title="Clear your drawings">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="3 6 5 6 21 6"/>
+                        <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+                    </svg>
+                    <span>Clear</span>
+                </button>
+            </div>
+
             <div class="desk-board" id="deskBoard">
                 
+                <!-- Hand-drawn Callout Annotations -->
+                <div class="desk-annotation annot-polaroid" aria-hidden="true">
+                    <svg width="44" height="32" viewBox="0 0 44 32" fill="none">
+                        <path d="M38 24 C24 30 14 22 8 8" stroke="#342e2b" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M12 16 L8 8 L16 9" stroke="#342e2b" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    <span class="annot-text">that's me! 📸</span>
+                </div>
+
+                <div class="desk-annotation annot-splitflap" aria-hidden="true">
+                    <svg width="50" height="28" viewBox="0 0 50 28" fill="none">
+                        <path d="M6 20 C20 4 38 10 44 16" stroke="#342e2b" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M38 18 L44 16 L42 9" stroke="#342e2b" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    <span class="annot-text">airport board ↺</span>
+                </div>
+
+                <div class="desk-annotation annot-draghint" aria-hidden="true">
+                    <span class="annot-text">✦ drag any note or scribble on the desk ✦</span>
+                </div>
+
                 <!-- 1. Main Greeting Quote Card (Rebecca style) -->
                 <div class="desk-item note-main-quote" id="noteMainQuote">
                     <div class="tape-strip"></div>

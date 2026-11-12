@@ -1,0 +1,165 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="600" viewBox="0 0 600 600" fill="none" stroke="#2d2723" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.22">
+    <!-- 1. Star / Sparkle Doodles -->
+    <!-- 4-point sparkle at (70, 80) -->
+    <path d="M70 60 Q70 80 50 80 Q70 80 70 100 Q70 80 90 80 Q70 80 70 60 Z"/>
+    <circle cx="95" cy="65" r="1.5" fill="#2d2723"/>
+    <circle cx="48" cy="98" r="1" fill="#2d2723"/>
+
+    <!-- 5-point sketchy star at (460, 90) -->
+    <path d="M460 70 L466 85 L482 86 L470 96 L474 112 L460 102 L446 112 L450 96 L438 86 L454 85 Z"/>
+
+    <!-- Small sparkle at (280, 240) -->
+    <path d="M280 230 Q280 240 270 240 Q280 240 280 250 Q280 240 290 240 Q280 240 280 230 Z"/>
+    <circle cx="295" cy="235" r="1.2" fill="#2d2723"/>
+
+    <!-- Sparkle cluster at (530, 480) -->
+    <path d="M530 470 Q530 480 520 480 Q530 480 530 490 Q530 480 540 480 Q530 480 530 470 Z"/>
+    <circle cx="548" cy="474" r="1.5" fill="#2d2723"/>
+    <circle cx="518" cy="492" r="1" fill="#2d2723"/>
+
+    <!-- 2. Curly Scribble Loops & Spirals -->
+    <!-- Spiral at (190, 75) -->
+    <path d="M190 75 C195 70 205 70 205 80 C205 92 188 94 182 82 C176 68 198 58 214 68 C228 80 220 102 200 106 C176 110 162 90 170 68"/>
+
+    <!-- Spring coil doodle at (510, 310) -->
+    <path d="M500 280 C520 280 520 295 500 295 C525 295 525 310 505 310 C530 310 530 325 510 325 C535 325 535 340 515 340"/>
+
+    <!-- Tornado scribble at (420, 360) -->
+    <path d="M410 350 Q430 348 435 352 Q405 356 430 360 Q410 364 425 368 Q415 372 422 376"/>
+
+    <!-- 3. Hand-Drawn Arrows & Pointers -->
+    <!-- Curvy loop arrow at (340, 110) -->
+    <path d="M330 130 C340 90 380 90 380 120 C380 145 350 150 360 175"/>
+    <path d="M352 170 L360 177 L368 168"/>
+
+    <!-- Swoosh arrow at (90, 480) -->
+    <path d="M70 510 C100 520 130 500 135 460"/>
+    <path d="M125 468 L136 458 L142 470"/>
+
+    <!-- Curly bracket pointer at (440, 480) -->
+    <path d="M430 460 C445 460 445 475 455 475 C445 475 445 490 430 490"/>
+    <path d="M465 475 L480 475 M475 470 L482 475 L475 480"/>
+
+    <!-- 4. Idea Lightbulb Doodle at (80, 220) -->
+    <path d="M80 200 C68 200 60 210 60 222 C60 232 66 238 72 244 L72 252 L88 252 L88 244 C94 238 100 232 100 222 C100 210 92 200 80 200 Z"/>
+    <path d="M74 256 L86 256 M76 260 L84 260"/>
+    <path d="M80 192 L80 186 M52 206 L46 202 M108 206 L114 202 M58 190 L52 184 M102 190 L108 184"/>
+
+    <!-- 5. Paper Airplane Doodle at (480, 190) -->
+    <path d="M460 200 L510 175 L485 220 L478 205 L460 200 Z"/>
+    <path d="M510 175 L478 205"/>
+    <path d="M440 215 C446 218 450 214 452 210" stroke-dasharray="3 3"/>
+
+    <!-- 6. Cute Cloud Doodle at (220, 160) -->
+    <path d="M210 175 C205 175 200 170 202 163 C204 156 212 154 216 155 C218 147 228 142 236 146 C242 143 250 146 252 153 C258 153 262 158 261 165 C260 172 254 175 248 175 Z"/>
+    <path d="M218 184 L216 189 M234 185 L232 191 M248 184 L246 189"/>
+
+    <!-- 7. Coffee Mug with Steam at (370, 250) -->
+    <path d="M360 250 L395 250 L392 278 C392 284 386 288 380 288 L375 288 C369 288 363 284 363 278 Z"/>
+    <path d="M395 255 C402 255 406 260 405 268 C404 274 398 276 393 275"/>
+    <path d="M372 242 C370 236 374 232 372 226 M384 242 C382 236 386 232 384 226"/>
+
+    <!-- 8. Code & Tech Doodles -->
+    <!-- Code tag </> at (150, 360) -->
+    <path d="M142 355 L132 365 L142 375"/>
+    <path d="M152 352 L146 378"/>
+    <path d="M156 355 L166 365 L156 375"/>
+
+    <!-- Curly Braces { } at (490, 420) -->
+    <path d="M480 405 C474 405 472 410 472 415 C472 419 468 421 465 422 C468 423 472 425 472 429 C472 434 474 439 480 439"/>
+    <path d="M500 405 C506 405 508 410 508 415 C508 419 512 421 515 422 C512 423 508 425 508 429 C508 434 506 439 500 439"/>
+
+    <!-- 9. Hand-Drawn Pencil at (290, 460) -->
+    <g transform="rotate(-35 290 460)">
+        <rect x="270" y="450" width="40" height="12" rx="2"/>
+        <path d="M310 450 L324 456 L310 462 Z"/>
+        <path d="M319 454 L324 456 L319 458 Z" fill="#2d2723"/>
+        <path d="M278 450 L278 462"/>
+    </g>
+
+    <!-- 10. Wireframe / UI Window Doodle at (240, 320) -->
+    <rect x="230" y="310" width="54" height="42" rx="3" stroke-dasharray="3 2"/>
+    <line x1="230" y1="320" x2="284" y2="320"/>
+    <circle cx="236" cy="315" r="1.5" fill="#2d2723"/>
+    <circle cx="242" cy="315" r="1.5" fill="#2d2723"/>
+    <line x1="236" y1="328" x2="260" y2="328"/>
+    <line x1="236" y1="334" x2="276" y2="334"/>
+    <line x1="236" y1="340" x2="252" y2="340"/>
+
+    <!-- 11. Scribble Cross-Hatch Shading at (380, 370) -->
+    <g opacity="0.9">
+        <line x1="375" y1="365" x2="405" y2="395"/>
+        <line x1="382" y1="362" x2="412" y2="392"/>
+        <line x1="390" y1="362" x2="420" y2="392"/>
+        <line x1="405" y1="365" x2="375" y2="395"/>
+        <line x1="412" y1="365" x2="382" y2="395"/>
+    </g>
+
+    <!-- 12. Cute Heart with Sketch Lines at (440, 260) -->
+    <path d="M440 275 C425 260 415 242 430 232 C440 225 448 234 450 238 C452 234 460 225 470 232 C485 242 475 260 460 275 L450 284 Z"/>
+    <path d="M438 250 L452 242 M442 260 L458 250"/>
+
+    <!-- 13. Squiggly Waves & Zigzags -->
+    <!-- Wavy line at (60, 420) -->
+    <path d="M50 420 Q60 410 70 420 T90 420 T110 420 T130 420"/>
+
+    <!-- Zigzag underline at (320, 530) -->
+    <path d="M300 535 L310 525 L320 535 L330 525 L340 535 L350 525 L360 535"/>
+
+    <!-- Wavy squiggle at (470, 540) -->
+    <path d="M450 540 Q465 528 480 540 T510 540 T540 540"/>
+
+    <!-- 14. Little Daisy / Flower Doodle at (70, 310) -->
+    <circle cx="75" cy="310" r="4"/>
+    <path d="M75 302 C75 298 79 298 79 302 Z"/>
+    <path d="M75 318 C75 322 71 322 71 318 Z"/>
+    <path d="M67 310 C63 310 63 306 67 306 Z"/>
+    <path d="M83 310 C87 310 87 314 83 314 Z"/>
+    <path d="M75 320 C76 330 74 336 78 340"/>
+
+    <!-- 15. Cute Smiling Sun / Star at (360, 50) -->
+    <circle cx="360" cy="50" r="10"/>
+    <circle cx="356" cy="48" r="1.2" fill="#2d2723"/>
+    <circle cx="364" cy="48" r="1.2" fill="#2d2723"/>
+    <path d="M357 53 Q360 56 363 53"/>
+    <path d="M360 36 L360 32 M360 64 L360 68 M346 50 L342 50 M374 50 L378 50 M350 40 L346 36 M370 60 L374 64 M350 60 L346 64 M370 40 L374 36"/>
+
+    <!-- 16. Concentric Circles / Target at (170, 480) -->
+    <circle cx="180" cy="470" r="14" stroke-dasharray="3 2"/>
+    <circle cx="180" cy="470" r="7"/>
+    <circle cx="180" cy="470" r="2" fill="#2d2723"/>
+
+    <!-- 17. Eye Sketch (Vision / Design) at (530, 80) -->
+    <path d="M510 80 Q530 65 550 80 Q530 95 510 80 Z"/>
+    <circle cx="530" cy="80" r="5"/>
+    <circle cx="531" cy="79" r="1.8" fill="#2d2723"/>
+
+    <!-- 18. Mini Planet with Ring at (210, 540) -->
+    <circle cx="210" cy="540" r="10"/>
+    <path d="M192 543 C192 538 228 534 230 541 C230 545 196 548 192 543 Z"/>
+
+    <!-- 19. Checkmark & Sketch box at (120, 140) -->
+    <rect x="115" y="135" width="16" height="16" rx="2"/>
+    <path d="M118 143 L122 147 L130 137" stroke-width="2.2"/>
+
+    <!-- 20. Infinite Loop / Mobius Doodle at (360, 440) -->
+    <path d="M350 435 C338 423 325 435 338 447 C355 460 365 435 382 447 C395 435 382 423 370 435 Z"/>
+
+    <!-- 21. Hand-lettered Doodles: "draft", "ideas", "akibuki" -->
+    <g transform="rotate(-8 175 285)" stroke-width="1.6">
+        <path d="M165 280 L165 292 M165 285 Q174 280 174 286 Q174 292 165 292" /> <!-- d -->
+        <path d="M178 285 L178 292 M178 287 Q183 284 186 287" /> <!-- r -->
+        <path d="M195 286 Q190 284 188 288 Q188 292 195 292 L195 285" /> <!-- a -->
+        <path d="M199 282 L199 292 M196 285 L203 285" /> <!-- f -->
+        <path d="M205 282 L205 292 M203 285 L208 285" /> <!-- t -->
+    </g>
+
+    <!-- Starbursts & Dots -->
+    <circle cx="150" cy="180" r="1.5" fill="#2d2723"/>
+    <circle cx="310" cy="190" r="1.5" fill="#2d2723"/>
+    <circle cx="410" cy="120" r="1.2" fill="#2d2723"/>
+    <circle cx="560" cy="230" r="1.5" fill="#2d2723"/>
+    <circle cx="100" cy="380" r="1.2" fill="#2d2723"/>
+    <circle cx="260" cy="490" r="1.5" fill="#2d2723"/>
+    <circle cx="480" cy="360" r="1.2" fill="#2d2723"/>
+</svg>
