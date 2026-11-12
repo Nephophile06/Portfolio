@@ -40,7 +40,8 @@
 
     <!-- Hand-drawn sky doodles (decorative, behind everything) -->
     <div class="sky-doodles" aria-hidden="true">
-        <svg class="doodle doodle--butterfly-a" viewBox="0 0 160 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <div class="doodle-flyer">
+            <svg class="doodle doodle--butterfly-a" viewBox="0 0 160 130" fill="none" xmlns="http://www.w3.org/2000/svg">
             <defs>
                 <filter id="doodleRoughA" x="-12%" y="-12%" width="124%" height="124%">
                     <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="2" seed="4" result="n"/>
@@ -56,11 +57,13 @@
                     <circle class="d-dot" cx="47" cy="78" r="2.4"/>
                 </g>
                 <g transform="translate(160 0) scale(-1 1)">
-                    <path class="d-fill" d="M77 60C66 42 44 27 28 32 15 37 18 56 32 66c10 6 25 8 38 5Z"/>
-                    <path class="d-fill" d="M76 71c-12 5-28 13-33 25-4 9 4 17 13 12 11-5 17-17 20-28Z"/>
-                    <path class="d-sketch" d="M43 44c-8-2-16 0-19 6M48 50c-7 0-14 4-17 9M56 82c-5 5-9 12-9 18"/>
-                    <circle class="d-dot" cx="47" cy="55" r="3.4"/>
-                    <circle class="d-dot" cx="47" cy="78" r="2.4"/>
+                    <g class="d-wing-r">
+                        <path class="d-fill" d="M77 60C66 42 44 27 28 32 15 37 18 56 32 66c10 6 25 8 38 5Z"/>
+                        <path class="d-fill" d="M76 71c-12 5-28 13-33 25-4 9 4 17 13 12 11-5 17-17 20-28Z"/>
+                        <path class="d-sketch" d="M43 44c-8-2-16 0-19 6M48 50c-7 0-14 4-17 9M56 82c-5 5-9 12-9 18"/>
+                        <circle class="d-dot" cx="47" cy="55" r="3.4"/>
+                        <circle class="d-dot" cx="47" cy="78" r="2.4"/>
+                    </g>
                 </g>
                 <path class="d-body" d="M80 43c-2.8 6-4 14-4 21 0 9 1.5 21 4 30 2.5-9 4-21 4-30 0-7-1.2-15-4-21Z"/>
                 <path class="d-sketch" d="M80 45c-5-8-11-13-17-14M80 45c5-8 11-13 17-14"/>
@@ -69,36 +72,7 @@
                 <circle class="d-body" cx="80" cy="44" r="4.4"/>
             </g>
         </svg>
-
-        <svg class="doodle doodle--butterfly-b" viewBox="0 0 160 130" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-                <filter id="doodleRoughB" x="-12%" y="-12%" width="124%" height="124%">
-                    <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="2" seed="9" result="n"/>
-                    <feDisplacementMap in="SourceGraphic" in2="n" scale="1.5" xChannelSelector="R" yChannelSelector="G"/>
-                </filter>
-            </defs>
-            <g filter="url(#doodleRoughB)" stroke-linecap="round" stroke-linejoin="round">
-                <g class="d-wing">
-                    <path class="d-fill" d="M77 60C66 42 44 27 28 32 15 37 18 56 32 66c10 6 25 8 38 5Z"/>
-                    <path class="d-fill" d="M76 71c-12 5-28 13-33 25-4 9 4 17 13 12 11-5 17-17 20-28Z"/>
-                    <path class="d-sketch" d="M43 44c-8-2-16 0-19 6M48 50c-7 0-14 4-17 9M56 82c-5 5-9 12-9 18"/>
-                    <circle class="d-dot" cx="47" cy="55" r="3.4"/>
-                    <circle class="d-dot" cx="47" cy="78" r="2.4"/>
-                </g>
-                <g transform="translate(160 0) scale(-1 1)">
-                    <path class="d-fill" d="M77 60C66 42 44 27 28 32 15 37 18 56 32 66c10 6 25 8 38 5Z"/>
-                    <path class="d-fill" d="M76 71c-12 5-28 13-33 25-4 9 4 17 13 12 11-5 17-17 20-28Z"/>
-                    <path class="d-sketch" d="M43 44c-8-2-16 0-19 6M48 50c-7 0-14 4-17 9M56 82c-5 5-9 12-9 18"/>
-                    <circle class="d-dot" cx="47" cy="55" r="3.4"/>
-                    <circle class="d-dot" cx="47" cy="78" r="2.4"/>
-                </g>
-                <path class="d-body" d="M80 43c-2.8 6-4 14-4 21 0 9 1.5 21 4 30 2.5-9 4-21 4-30 0-7-1.2-15-4-21Z"/>
-                <path class="d-sketch" d="M80 45c-5-8-11-13-17-14M80 45c5-8 11-13 17-14"/>
-                <circle class="d-dot" cx="63" cy="31" r="2.1"/>
-                <circle class="d-dot" cx="97" cy="31" r="2.1"/>
-                <circle class="d-body" cx="80" cy="44" r="4.4"/>
-            </g>
-        </svg>
+        </div>
 
         <svg class="doodle doodle--jelly" viewBox="0 0 132 164" fill="none" xmlns="http://www.w3.org/2000/svg">
             <defs>
@@ -119,6 +93,12 @@
                 <circle class="d-bubble" cx="119" cy="18" r="3"/>
                 <circle class="d-bubble" cx="103" cy="20" r="3.4"/>
                 <path class="d-sparkle" d="M24 18l2.6 8.4L35 29l-8.4 2.6L24 40l-2.6-8.4L13 29l8.4-2.6Z"/>
+                <g class="d-waves">
+                    <path class="d-sketch" d="M2 84c5-3 10-3 15 0s10 3 15 0" opacity=".6"/>
+                    <path class="d-sketch" d="M108 92c4-2 8-2 12 0s8 2 12 0" opacity=".55"/>
+                    <path class="d-sketch" d="M44 150c6-3 12-3 18 0s12 3 18 0 12-3 18 0" opacity=".7"/>
+                    <path class="d-sketch" d="M8 120c4-2 8-2 12 0" opacity=".5"/>
+                </g>
             </g>
         </svg>
 
@@ -143,6 +123,12 @@
                 <circle class="d-bubble" cx="160" cy="26" r="5"/>
                 <circle class="d-bubble" cx="172" cy="10" r="3"/>
                 <circle class="d-bubble" cx="150" cy="12" r="3.4"/>
+                <g class="d-waves">
+                    <path class="d-sketch" d="M6 116c7-5 14-5 21 0s14 5 21 0" opacity=".7"/>
+                    <path class="d-sketch" d="M140 116c7-4 13-4 20 0s13 4 19 0" opacity=".6"/>
+                    <path class="d-sketch" d="M46 138c9-4 19-4 28 0s19 4 28 0 19-4 28 0" opacity=".8"/>
+                    <path class="d-sketch" d="M30 104c4 2 8 2 12 0M146 101c4 2 8 2 12 0" opacity=".5"/>
+                </g>
             </g>
         </svg>
 

@@ -74,27 +74,62 @@ body { background: transparent !important; }
     from { rotate: var(--tilt); }
     to { rotate: calc(var(--tilt) + var(--sway)); }
 }
-.doodle .d-fill { fill: #a9cfe8; stroke: #4d7ea6; stroke-width: 1.7; }
-.doodle .d-fill-soft { fill: #c6dff3; stroke: #4d7ea6; stroke-width: 1.6; }
-.doodle .d-body { fill: #7fa9c9; stroke: #3f6d94; stroke-width: 1.5; }
-.doodle .d-sketch { stroke: #4d7ea6; stroke-width: 1.4; opacity: 0.85; }
-.doodle .d-dot { fill: #4d7ea6; }
-.doodle .d-bubble { fill: rgba(255, 255, 255, 0.55); stroke: #4d7ea6; stroke-width: 1.2; }
-.doodle .d-sparkle { fill: #dcecf9; stroke: #4d7ea6; stroke-width: 1.3; }
+.doodle .d-fill { fill: #cfe8f6; stroke: #245474; stroke-width: 1.7; }
+.doodle .d-fill-soft { fill: #e8f6fd; stroke: #2d5f80; stroke-width: 1.6; }
+.doodle .d-body { fill: #8db9d3; stroke: #1d4563; stroke-width: 1.5; }
+.doodle .d-sketch { stroke: #2b5a7a; stroke-width: 1.4; opacity: 0.9; }
+.doodle .d-dot { fill: #1f4a69; }
+.doodle .d-bubble { fill: rgba(255, 255, 255, 0.6); stroke: #2b5a7a; stroke-width: 1.2; }
+.doodle .d-sparkle { fill: #d5effb; stroke: #2b5a7a; stroke-width: 1.3; }
 
 /* Every sketch hovers at its own height and side, each with a different
    bob so the group never moves in lockstep. */
-.doodle--butterfly-a {
-    width: 138px; top: 16vh; left: 3vw;
-    --tilt: -18deg; --sway: 3.5deg; --drift-x: 14px; --drift-y: -20px;
-    --dur: 9.5s; --delay: -2.2s; --depth: 1.15;
+.doodle-flyer {
+    position: absolute;
+    top: 14vh;
+    left: 0;
+    width: 138px;
+    animation: butterfly-roam 46s linear -8s infinite;
+    will-change: transform;
 }
-.doodle--butterfly-b {
-    width: 98px; top: 48vh; right: 6.5vw;
-    --tilt: 14deg; --sway: -3.5deg; --drift-x: -12px; --drift-y: -16px;
-    --dur: 8.5s; --delay: -4s; --depth: 0.8;
-    scale: -1 1;
-    opacity: 0.4;
+.doodle--butterfly-a {
+    position: relative; top: auto; left: auto; right: auto; bottom: auto;
+    width: 100%;
+    --tilt: -12deg; --sway: 4deg; --drift-x: 10px; --drift-y: -14px;
+    --dur: 8.6s; --delay: -2.2s; --depth: 0.7;
+}
+/* A slow, unhurried crossing — banks gently and exits off-screen before looping. */
+@keyframes butterfly-roam {
+    0%   { transform: translate(-13vw, 5vh) rotate(8deg); }
+    12%  { transform: translate(3vw, -3vh) rotate(-5deg); }
+    26%  { transform: translate(21vw, 4vh) rotate(7deg); }
+    40%  { transform: translate(38vw, -4vh) rotate(-6deg); }
+    54%  { transform: translate(56vw, 5vh) rotate(8deg); }
+    68%  { transform: translate(73vw, -3vh) rotate(-5deg); }
+    82%  { transform: translate(90vw, 3vh) rotate(6deg); }
+    100% { transform: translate(110vw, -2vh) rotate(-4deg); }
+}
+/* Wings beat around the body, so the crossing reads as flight rather than
+   a butterfly being carried along on a string. */
+.doodle .d-wing,
+.doodle .d-wing-r {
+    transform-box: view-box;
+    transform-origin: 80px 64px;
+    animation: wing-flap 0.62s ease-in-out infinite alternate;
+}
+@keyframes wing-flap {
+    from { transform: scaleX(1); }
+    to { transform: scaleX(0.64); }
+}
+/* Little current lines trailing the turtle and jellyfish. */
+.doodle .d-waves {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: wave-drift 6.8s ease-in-out infinite alternate;
+}
+@keyframes wave-drift {
+    from { transform: translateX(-2.5px); opacity: 0.7; }
+    to { transform: translateX(2.5px); opacity: 1; }
 }
 .doodle--jelly {
     width: 112px; top: 9vh; right: 4vw;
@@ -108,7 +143,7 @@ body { background: transparent !important; }
     opacity: 0.44;
 }
 .doodle--sparkle {
-    width: 84px; bottom: 18vh; right: 5.5vw;
+    width: 84px; bottom: 27vh; right: 5.5vw;
     --tilt: 7deg; --sway: -3deg; --drift-x: 7px; --drift-y: -13px;
     --dur: 7.5s; --delay: -3s; --depth: 0.65;
     opacity: 0.48;
@@ -123,8 +158,7 @@ body { background: transparent !important; }
 }
 
 @media (max-width: 1199px) {
-    .doodle--butterfly-a { width: 110px; top: 14vh; left: 2vw; }
-    .doodle--butterfly-b { width: 76px; right: 4vw; }
+    .doodle-flyer { width: 110px; top: 13vh; }
     .doodle--jelly { width: 90px; top: 9vh; right: 2vw; }
     .doodle--turtle { width: 118px; left: 2vw; }
     .doodle--sparkle { width: 66px; right: 3vw; }
@@ -134,22 +168,30 @@ body { background: transparent !important; }
    sketches would sit on top of headings and links. Keep the sky
    doodles to the right-hand whitespace there. */
 @media (max-width: 1199px) {
-    .page-projects .doodle--butterfly-a,
+    .page-projects .doodle-flyer,
     .page-projects .doodle--turtle,
-    .page-certifications .doodle--butterfly-a,
+    .page-certifications .doodle-flyer,
     .page-certifications .doodle--turtle { display: none; }
 }
 @media (max-width: 767px) {
     .doodle { opacity: 0.36; --drift-x: 4px; --drift-y: -6px; }
     .doodle > g { filter: none; }
-    .doodle--butterfly-a { width: 82px; top: 10vh; left: -10px; }
+    .doodle-flyer { width: 82px; top: 10vh; }
     .doodle--jelly { width: 72px; top: 12vh; right: -8px; }
     .doodle--turtle { width: 96px; bottom: 5vh; left: -12px; opacity: 0.32; }
-    .doodle--butterfly-b,
     .doodle--sparkle { display: none; }
 }
 @media (prefers-reduced-motion: reduce) {
     .doodle { animation: none; transform: none; }
+    .doodle .d-wing,
+    .doodle .d-wing-r,
+    .doodle .d-waves { animation: none; }
+    .doodle-flyer {
+        animation: none;
+        left: 3vw;
+        top: 16vh;
+        transform: none;
+    }
 }
 ::selection { background: #d3e7f7; color: #17304a; }
 img { height: auto; }

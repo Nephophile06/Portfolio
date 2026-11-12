@@ -1,6 +1,6 @@
 /* ==========================================================================
    Creative Canvas Script
-   - 60FPS Generative Motion Graphics Canvas Engine (Waves, Particles, Ripples)
+   - 60FPS Generative Motion Graphics Canvas Engine (Fluid Ribbons, Click Ripples)
    - Interactive Bezier Vector Curve Tool (Live UI/UX Vector Computation)
    - Airport Split-Flap Dynamic Letter Cycling
    - Draggable Desk Cards with Spring Inertia & 3D Tilt Parallax
@@ -59,7 +59,7 @@
         setInterval(flipToNextWord, 3400);
     }
 
-    // ── 2. 60FPS Generative Motion Graphics Canvas (Fluid Waves & Particles) ──
+    // ── 2. 60FPS Generative Motion Graphics Canvas (Fluid Wave Ribbons) ──
     const motionCanvas = document.getElementById('motionCanvas');
     if (motionCanvas) {
         const ctx = motionCanvas.getContext('2d');
@@ -82,10 +82,6 @@
         // Shockwave ripples on click
         const ripples = [];
 
-        // Particles for interactive constellation field
-        const PARTICLE_COUNT = 32;
-        const particles = [];
-
         function resize() {
             const rect = motionCanvas.getBoundingClientRect();
             dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -94,19 +90,6 @@
             motionCanvas.width = width * dpr;
             motionCanvas.height = height * dpr;
             ctx.scale(dpr, dpr);
-
-            if (particles.length === 0) {
-                for (let i = 0; i < PARTICLE_COUNT; i++) {
-                    particles.push({
-                        x: Math.random() * width,
-                        y: Math.random() * height,
-                        vx: (Math.random() - 0.5) * 0.6,
-                        vy: (Math.random() - 0.5) * 0.6,
-                        radius: Math.random() * 2 + 1.2,
-                        baseAlpha: Math.random() * 0.35 + 0.15
-                    });
-                }
-            }
         }
 
         window.addEventListener('resize', resize, { passive: true });
@@ -134,7 +117,7 @@
         // Trigger dynamic ripple on click
         deskContainer.addEventListener('pointerdown', (e) => {
             // Only trigger if clicking canvas or background, not interactive links/inputs
-            if (e.target.closest('a, button, input, .split-flap-tile, .bezier-handle')) return;
+            if (e.target.closest('a, button, input, .split-flap-tile')) return;
             const rect = motionCanvas.getBoundingClientRect();
             ripples.push({
                 x: e.clientX - rect.left,
@@ -235,48 +218,6 @@
                 ctx.stroke();
             });
 
-            // 3. Update & render particle constellation
-            particles.forEach((p, i) => {
-                p.x += p.vx;
-                p.y += p.vy;
-
-                // Bounce borders
-                if (p.x < 0 || p.x > width) p.vx *= -1;
-                if (p.y < 0 || p.y > height) p.vy *= -1;
-
-                // Mouse avoidance
-                const pdx = p.x - mouse.x;
-                const pdy = p.y - mouse.y;
-                const pDist = Math.sqrt(pdx * pdx + pdy * pdy);
-                if (pDist < 100) {
-                    const angle = Math.atan2(pdy, pdx);
-                    p.x += Math.cos(angle) * 2;
-                    p.y += Math.sin(angle) * 2;
-                }
-
-                // Particle circle
-                ctx.beginPath();
-                ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-                ctx.fillStyle = `rgba(74, 124, 166, ${p.baseAlpha})`;
-                ctx.fill();
-
-                // Connect nearby particles with delicate faint lines
-                for (let j = i + 1; j < particles.length; j++) {
-                    const p2 = particles[j];
-                    const cdx = p.x - p2.x;
-                    const cdy = p.y - p2.y;
-                    const cDist = Math.sqrt(cdx * cdx + cdy * cdy);
-                    if (cDist < 85) {
-                        ctx.beginPath();
-                        ctx.moveTo(p.x, p.y);
-                        ctx.lineTo(p2.x, p2.y);
-                        ctx.strokeStyle = `rgba(74, 124, 166, ${(1 - cDist / 85) * 0.2})`;
-                        ctx.lineWidth = 0.8;
-                        ctx.stroke();
-                    }
-                }
-            });
-
             animationFrameId = requestAnimationFrame(render);
         }
 
@@ -291,83 +232,7 @@
         observer.observe(motionCanvas);
     }
 
-    // ── 3. Interactive Bezier Vector Tool Engine (UI/UX + Frontend Precision) ──
-    const bezierSvg = document.getElementById('bezierSvg');
-    const handleC1 = document.getElementById('handleC1');
-    const handleC2 = document.getElementById('handleC2');
-    const bezierCurvePath = document.getElementById('bezierCurvePath');
-    const tangentLine1 = document.getElementById('tangentLine1');
-    const tangentLine2 = document.getElementById('tangentLine2');
-    const bezierCodeDisplay = document.getElementById('bezierCodeDisplay');
-
-    if (bezierSvg && handleC1 && handleC2 && bezierCurvePath) {
-        // SVG Coordinate Space: 210 x 95
-        const P0 = { x: 20, y: 65 };
-        const P3 = { x: 190, y: 35 };
-        let C1 = { x: 65, y: 20 };
-        let C2 = { x: 145, y: 75 };
-
-        function updateCurve() {
-            // Clamp coordinates inside SVG viewbox
-            C1.x = Math.max(10, Math.min(200, C1.x));
-            C1.y = Math.max(8, Math.min(88, C1.y));
-            C2.x = Math.max(10, Math.min(200, C2.x));
-            C2.y = Math.max(8, Math.min(88, C2.y));
-
-            handleC1.setAttribute('transform', `translate(${C1.x}, ${C1.y})`);
-            handleC2.setAttribute('transform', `translate(${C2.x}, ${C2.y})`);
-
-            tangentLine1.setAttribute('x2', C1.x);
-            tangentLine1.setAttribute('y2', C1.y);
-            tangentLine2.setAttribute('x2', C2.x);
-            tangentLine2.setAttribute('y2', C2.y);
-
-            const d = `M ${P0.x} ${P0.y} C ${Math.round(C1.x)} ${Math.round(C1.y)}, ${Math.round(C2.x)} ${Math.round(C2.y)}, ${P3.x} ${P3.y}`;
-            bezierCurvePath.setAttribute('d', d);
-
-            if (bezierCodeDisplay) {
-                bezierCodeDisplay.textContent = `d="M 20 65 C ${Math.round(C1.x)} ${Math.round(C1.y)}, ${Math.round(C2.x)} ${Math.round(C2.y)}, 190 35"`;
-            }
-        }
-
-        function setupHandleDrag(handleEl, targetPoint) {
-            let isDragging = false;
-
-            handleEl.addEventListener('pointerdown', (e) => {
-                isDragging = true;
-                handleEl.setPointerCapture(e.pointerId);
-                e.stopPropagation();
-                e.preventDefault();
-            });
-
-            handleEl.addEventListener('pointermove', (e) => {
-                if (!isDragging) return;
-                const rect = bezierSvg.getBoundingClientRect();
-                const scaleX = 210 / rect.width;
-                const scaleY = 95 / rect.height;
-
-                targetPoint.x = (e.clientX - rect.left) * scaleX;
-                targetPoint.y = (e.clientY - rect.top) * scaleY;
-                updateCurve();
-                e.stopPropagation();
-            });
-
-            const stopDrag = (e) => {
-                if (!isDragging) return;
-                isDragging = false;
-                try { handleEl.releasePointerCapture(e.pointerId); } catch(err) {}
-            };
-
-            handleEl.addEventListener('pointerup', stopDrag);
-            handleEl.addEventListener('pointercancel', stopDrag);
-        }
-
-        setupHandleDrag(handleC1, C1);
-        setupHandleDrag(handleC2, C2);
-        updateCurve();
-    }
-
-    // ── 4. Draggable Desk Elements (Pointer Physics & Velocity Tilt) ──
+    // ── 3. Draggable Desk Elements (Pointer Physics & Velocity Tilt) ──
     const isDesktop = window.matchMedia('(min-width: 901px)').matches;
     if (isDesktop) {
         let maxZ = 40;
@@ -380,7 +245,6 @@
             if (el.classList.contains('note-polaroid-card')) return 3;
             if (el.classList.contains('note-exp-card')) return -3.5;
             if (el.classList.contains('note-strengths-card')) return 2;
-            if (el.classList.contains('note-bezier-tool')) return 2;
             if (el.classList.contains('note-about-brief')) return 1.4;
             return 0;
         };
@@ -393,7 +257,7 @@
             let velocityX = 0;
 
             el.addEventListener('pointerdown', (e) => {
-                if (e.target.closest('a, button, input, .bezier-handle, .bezier-svg')) return;
+                if (e.target.closest('a, button, input')) return;
 
                 dragging = true;
                 el.classList.add('is-dragging');
@@ -444,45 +308,102 @@
         });
     }
 
-    // ── 5. Cute Standing Lop Bunny Mascot (Standing Curiosity & Speech Bubble) ──
+    // ── 4. Hand-drawn Bunny Mascot (little hellos & a curious face) ──
     const duckMascot = document.getElementById('duckMascot');
     const duckBubble = document.getElementById('duckBubble');
-    const bunnyImg = duckMascot ? duckMascot.querySelector('img') : null;
+    const duckLive = document.getElementById('duckLive');
 
     const mascotGreetings = [
-        "Hii! Welcome to Anika's portfolio! 🐰🐾",
-        "I'm standing up to see your cursor! 👀✨",
-        "Clean UI/UX & thoughtful code ☕💻",
-        "Try dragging the notes or bezier handles! 🎨",
-        "Cloudy skies, crisp interfaces ☁️✨",
-        "Scroll down to explore my case studies! 🚀",
-        "*sniff sniff* Let's build something cool! 💌"
+        "hi!",
+        "are you enjoying the scroll?",
+        "did you look at that project?",
+        "psst — the notes are draggable.",
+        "just checking in. you're doing great.",
+        "that case study is my favourite.",
+        "take your time. i'm not going anywhere.",
+        "you've got lovely taste.",
+        "tiny break? stretch your shoulders.",
+        "want to see my brush strokes?"
+    ];
+    const mascotReactions = [
+        "ooh, did you look at that?",
+        "nice move!",
+        "i saw that.",
+        "careful — it's paper."
     ];
 
     if (duckMascot && duckBubble) {
         let bubbleTimer;
-        duckMascot.addEventListener('click', () => {
-            const randomMsg = mascotGreetings[Math.floor(Math.random() * mascotGreetings.length)];
-            duckBubble.textContent = randomMsg;
+        let bubbleOpen = false;
+        let lastReaction = 0;
+        const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        const say = (msg, ms = 3600) => {
+            duckBubble.textContent = msg;
             duckBubble.classList.add('is-visible');
+            if (duckLive) duckLive.textContent = msg;
+            duckMascot.classList.add('is-chatty');
             clearTimeout(bubbleTimer);
+            setTimeout(() => duckMascot.classList.remove('is-chatty'), 420);
+            bubbleOpen = true;
             bubbleTimer = setTimeout(() => {
                 duckBubble.classList.remove('is-visible');
-            }, 3400);
+                bubbleOpen = false;
+            }, ms);
+        };
+
+        const randomFrom = (list) => list[Math.floor(Math.random() * list.length)];
+        const greet = () => say(randomFrom(mascotGreetings));
+
+        duckMascot.addEventListener('click', (e) => {
+            e.preventDefault();
+            greet();
+        });
+        duckMascot.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                greet();
+            }
         });
 
-        // Subtle 3D reactive tilt on bunny image toward cursor
-        if (bunnyImg) {
+        // Small reactions when a note or sticker is picked up (throttled)
+        document.querySelectorAll('.desk-item').forEach(el => {
+            el.addEventListener('pointerdown', () => {
+                const now = Date.now();
+                if (now - lastReaction < 42000) return;
+                lastReaction = now;
+                setTimeout(() => {
+                    if (!document.hidden) say(randomFrom(mascotReactions), 3000);
+                }, 650);
+            }, { passive: true });
+        });
+
+        // Occasional gentle hellos while the page is open
+        const autoHello = () => {
+            if (document.hidden || bubbleOpen) return;
+            say(randomFrom(mascotGreetings), 4200);
+        };
+        // First greeting is always a simple "hi!"
+        setTimeout(() => {
+            if (!document.hidden && !bubbleOpen) say("hi!", 4200);
+        }, 5200);
+        setInterval(autoHello, 34000);
+
+        // The face follows the cursor a little
+        if (!reduced) {
             window.addEventListener('pointermove', (e) => {
                 const rect = duckMascot.getBoundingClientRect();
-                const cx = rect.left + rect.width / 2;
-                const cy = rect.top + rect.height / 2;
-                const dx = (e.clientX - cx) / window.innerWidth;
-                const dy = (e.clientY - cy) / window.innerHeight;
-                const rotY = Math.max(-10, Math.min(10, dx * 14));
-                const rotX = Math.max(-6, Math.min(6, -dy * 10));
-                bunnyImg.style.transform = `perspective(600px) rotateY(${rotY.toFixed(1)}deg) rotateX(${rotX.toFixed(1)}deg)`;
+                const dx = (e.clientX - (rect.left + rect.width / 2)) / window.innerWidth;
+                const dy = (e.clientY - (rect.top + rect.height * 0.45)) / window.innerHeight;
+                const x = Math.max(-2.6, Math.min(2.6, dx * 12));
+                const y = Math.max(-2, Math.min(2, dy * 8));
+                duckMascot.style.setProperty('--look-x', `${x.toFixed(1)}px`);
+                duckMascot.style.setProperty('--look-y', `${y.toFixed(1)}px`);
             }, { passive: true });
+            window.addEventListener('blur', () => {
+                duckMascot.style.setProperty('--look-x', '0px');
+                duckMascot.style.setProperty('--look-y', '0px');
+            });
         }
     }
 
