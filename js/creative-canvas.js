@@ -462,17 +462,18 @@
         });
     }
 
-    // ── 6. Realistic Mascot (Speech Bubble & 3D Interactive Parallax) ──
+    // ── 6. Cute Bunny Plushie Mascot (Squish Physics & Speech Bubble) ──
     const duckMascot = document.getElementById('duckMascot');
     const duckBubble = document.getElementById('duckBubble');
 
     const mascotGreetings = [
-        "Welcome to Anika's workspace! 🐰☕",
-        "Designing experiences & building with code ✨",
+        "Squeeze me! I'm Anika's plushie 🧸✨",
+        "Soft vibes & clean interfaces ☕",
+        "Handcrafted with code & love 💻",
         "Try dragging the notes or bezier handles! 🎨",
         "Switch palettes from the top right! 🌿",
         "Explore my UI/UX & dev case studies below! 🚀",
-        "Looking for a designer? Let's connect! 💌"
+        "Need a designer? Let's connect! 💌"
     ];
 
     if (duckMascot && duckBubble) {
@@ -494,8 +495,8 @@
             const cy = rect.top + rect.height / 2;
             const dx = (e.clientX - cx) / window.innerWidth;
             const dy = (e.clientY - cy) / window.innerHeight;
-            const rotY = Math.max(-10, Math.min(10, dx * 14));
-            const rotX = Math.max(-6, Math.min(6, -dy * 8));
+            const rotY = Math.max(-8, Math.min(8, dx * 12));
+            const rotX = Math.max(-5, Math.min(5, -dy * 8));
             duckMascot.style.transform = `perspective(800px) rotateY(${rotY.toFixed(1)}deg) rotateX(${rotX.toFixed(1)}deg)`;
         }, { passive: true });
     }
