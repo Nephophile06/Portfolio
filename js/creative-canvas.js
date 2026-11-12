@@ -3,7 +3,6 @@
    - 60FPS Generative Motion Graphics Canvas Engine (Waves, Particles, Ripples)
    - Interactive Bezier Vector Curve Tool (Live UI/UX Vector Computation)
    - Airport Split-Flap Dynamic Letter Cycling
-   - Design Tokens Theme Palette Switcher
    - Draggable Desk Cards with Spring Inertia & 3D Tilt Parallax
    - Minimal Mascot with Eye-Tracking & Interactions
    ========================================================================== */
@@ -148,12 +147,12 @@
             if (ripples.length > 5) ripples.shift();
         });
 
-        // 4 Multi-layered flowing vector ribbons
+        // 4 Multi-layered flowing vector ribbons — cloud whites and sky blues
         const ribbons = [
-            { baseY: 0.28, amp: 26, freq: 0.0035, speed: 0.016, color: 'rgba(235, 160, 95, 0.28)', width: 2.2 },
-            { baseY: 0.48, amp: 34, freq: 0.0028, speed: 0.012, color: 'rgba(165, 140, 220, 0.24)', width: 2.0 },
-            { baseY: 0.70, amp: 28, freq: 0.0032, speed: 0.018, color: 'rgba(115, 195, 140, 0.22)', width: 1.8 },
-            { baseY: 0.88, amp: 20, freq: 0.0040, speed: 0.014, color: 'rgba(140, 125, 110, 0.16)', width: 1.5 }
+            { baseY: 0.28, amp: 26, freq: 0.0035, speed: 0.016, color: 'rgba(255, 255, 255, 0.55)', width: 2.2 },
+            { baseY: 0.48, amp: 34, freq: 0.0028, speed: 0.012, color: 'rgba(126, 170, 208, 0.30)', width: 2.0 },
+            { baseY: 0.70, amp: 28, freq: 0.0032, speed: 0.018, color: 'rgba(168, 205, 232, 0.35)', width: 1.8 },
+            { baseY: 0.88, amp: 20, freq: 0.0040, speed: 0.014, color: 'rgba(74, 124, 166, 0.18)', width: 1.5 }
         ];
 
         function render() {
@@ -171,7 +170,7 @@
                 // Subtle ripple ring
                 ctx.beginPath();
                 ctx.arc(rp.x, rp.y, rp.radius, 0, Math.PI * 2);
-                ctx.strokeStyle = `rgba(180, 160, 140, ${Math.max(0, (rp.strength / 22) * 0.25)})`;
+                ctx.strokeStyle = `rgba(74, 124, 166, ${Math.max(0, (rp.strength / 22) * 0.3)})`;
                 ctx.lineWidth = 1.5;
                 ctx.stroke();
 
@@ -258,7 +257,7 @@
                 // Particle circle
                 ctx.beginPath();
                 ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-                ctx.fillStyle = `rgba(130, 115, 100, ${p.baseAlpha})`;
+                ctx.fillStyle = `rgba(74, 124, 166, ${p.baseAlpha})`;
                 ctx.fill();
 
                 // Connect nearby particles with delicate faint lines
@@ -271,7 +270,7 @@
                         ctx.beginPath();
                         ctx.moveTo(p.x, p.y);
                         ctx.lineTo(p2.x, p2.y);
-                        ctx.strokeStyle = `rgba(140, 125, 110, ${(1 - cDist / 85) * 0.18})`;
+                        ctx.strokeStyle = `rgba(74, 124, 166, ${(1 - cDist / 85) * 0.2})`;
                         ctx.lineWidth = 0.8;
                         ctx.stroke();
                     }
@@ -368,26 +367,23 @@
         updateCurve();
     }
 
-    // ── 4. Design Tokens Theme Palette Switcher ──
-    const paletteChips = document.querySelectorAll('.palette-chip');
-    paletteChips.forEach(chip => {
-        chip.addEventListener('click', () => {
-            const theme = chip.getAttribute('data-theme');
-            paletteChips.forEach(c => c.classList.remove('is-active'));
-            chip.classList.add('is-active');
-
-            document.body.classList.remove('theme-vanilla', 'theme-sage', 'theme-lilac', 'theme-sky');
-            if (theme && theme !== 'vanilla') {
-                document.body.classList.add(`theme-${theme}`);
-            }
-        });
-    });
-
-    // ── 5. Draggable Desk Elements (Pointer Physics & Velocity Tilt) ──
+    // ── 4. Draggable Desk Elements (Pointer Physics & Velocity Tilt) ──
     const isDesktop = window.matchMedia('(min-width: 901px)').matches;
     if (isDesktop) {
         let maxZ = 40;
         const draggables = document.querySelectorAll('.desk-item');
+
+        // Natural resting rotation for each draggable note / sticker
+        const baseRotation = (el) => {
+            if (el.dataset.rot !== undefined) return Number(el.dataset.rot) || 0;
+            if (el.classList.contains('note-main-quote')) return -1.5;
+            if (el.classList.contains('note-polaroid-card')) return 3;
+            if (el.classList.contains('note-exp-card')) return -3.5;
+            if (el.classList.contains('note-strengths-card')) return 2;
+            if (el.classList.contains('note-bezier-tool')) return 2;
+            if (el.classList.contains('note-about-brief')) return 1.4;
+            return 0;
+        };
 
         draggables.forEach(el => {
             let dragging = false;
@@ -426,14 +422,7 @@
                 lastMoveX = e.clientX;
 
                 // Natural card resting rotation
-                let baseRot = 0;
-                if (el.classList.contains('note-main-quote')) baseRot = -1.5;
-                else if (el.classList.contains('note-polaroid-card')) baseRot = 3;
-                else if (el.classList.contains('note-exp-card')) baseRot = -3.5;
-                else if (el.classList.contains('note-strengths-card')) baseRot = 2;
-                else if (el.classList.contains('note-bezier-tool')) baseRot = 2;
-
-                const dynamicRot = baseRot + Math.max(-12, Math.min(12, velocityX));
+                const dynamicRot = baseRotation(el) + Math.max(-12, Math.min(12, velocityX));
                 el.style.transform = `translate(${currentX + dx}px, ${currentY + dy}px) rotate(${dynamicRot}deg) scale(1.03)`;
             });
 
@@ -442,17 +431,10 @@
                 dragging = false;
                 el.classList.remove('is-dragging');
 
-                let baseRot = '0deg';
-                if (el.classList.contains('note-main-quote')) baseRot = '-1.5deg';
-                else if (el.classList.contains('note-polaroid-card')) baseRot = '3deg';
-                else if (el.classList.contains('note-exp-card')) baseRot = '-3.5deg';
-                else if (el.classList.contains('note-strengths-card')) baseRot = '2deg';
-                else if (el.classList.contains('note-bezier-tool')) baseRot = '2deg';
-
                 // Smooth spring settle
                 const style = window.getComputedStyle(el);
                 const matrix = new DOMMatrixReadOnly(style.transform);
-                el.style.transform = `translate(${matrix.m41}px, ${matrix.m42}px) rotate(${baseRot}) scale(1)`;
+                el.style.transform = `translate(${matrix.m41}px, ${matrix.m42}px) rotate(${baseRotation(el)}deg) scale(1)`;
 
                 try { el.releasePointerCapture(e.pointerId); } catch(err) {}
             };
@@ -462,7 +444,7 @@
         });
     }
 
-    // ── 6. Cute Standing Lop Bunny Mascot (Standing Curiosity & Speech Bubble) ──
+    // ── 5. Cute Standing Lop Bunny Mascot (Standing Curiosity & Speech Bubble) ──
     const duckMascot = document.getElementById('duckMascot');
     const duckBubble = document.getElementById('duckBubble');
     const bunnyImg = duckMascot ? duckMascot.querySelector('img') : null;
@@ -472,7 +454,7 @@
         "I'm standing up to see your cursor! 👀✨",
         "Clean UI/UX & thoughtful code ☕💻",
         "Try dragging the notes or bezier handles! 🎨",
-        "Switch palettes from the top right! 🌿",
+        "Cloudy skies, crisp interfaces ☁️✨",
         "Scroll down to explore my case studies! 🚀",
         "*sniff sniff* Let's build something cool! 💌"
     ];

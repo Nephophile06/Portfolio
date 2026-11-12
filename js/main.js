@@ -244,3 +244,45 @@ function closeLightbox(event) {
     lightboxTrigger?.focus({ preventScroll: true });
 }
 function closeLightboxOnClick() { closeLightbox(); }
+
+/* Sky doodles — gentle pointer parallax. The float and sway loops are CSS;
+   this only nudges the layer toward the cursor, and stays still for
+   reduced-motion or touch-only visitors. */
+(() => {
+    const layer = document.querySelector('.sky-doodles');
+    if (!layer) return;
+    const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const finePointer = window.matchMedia('(pointer: fine)');
+    let targetX = 0, targetY = 0, currentX = 0, currentY = 0, frame = 0;
+
+    const ease = () => {
+        currentX += (targetX - currentX) * 0.075;
+        currentY += (targetY - currentY) * 0.075;
+        layer.style.setProperty('--px', `${currentX.toFixed(2)}px`);
+        layer.style.setProperty('--py', `${currentY.toFixed(2)}px`);
+        if (Math.abs(targetX - currentX) > 0.05 || Math.abs(targetY - currentY) > 0.05) {
+            frame = requestAnimationFrame(ease);
+        } else {
+            frame = 0;
+        }
+    };
+
+    const reset = () => {
+        targetX = currentX = 0;
+        targetY = currentY = 0;
+        layer.style.setProperty('--px', '0px');
+        layer.style.setProperty('--py', '0px');
+        if (frame) { cancelAnimationFrame(frame); frame = 0; }
+    };
+
+    window.addEventListener('pointermove', (event) => {
+        if (motionQuery.matches || !finePointer.matches) return;
+        targetX = (event.clientX / window.innerWidth - 0.5) * -26;
+        targetY = (event.clientY / window.innerHeight - 0.5) * -18;
+        if (!frame) frame = requestAnimationFrame(ease);
+    }, { passive: true });
+
+    motionQuery.addEventListener('change', reset);
+    finePointer.addEventListener('change', () => { if (!finePointer.matches) reset(); });
+    window.addEventListener('blur', reset);
+})();

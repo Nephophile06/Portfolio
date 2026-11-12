@@ -4,18 +4,17 @@
    Switches: <html data-motion="off" data-companion="off">.
    ============================================================= */
 
-/* 1. Paper, ink and a single muted-blue accent */
+/* 1. Cloudy sky: paper, ink and a single muted-blue accent */
 :root {
-    --bg-page: #f3f7fb;
+    --bg-page: #eaf4fc;
     --bg-card: #ffffff;
-    --text-primary: #293846;
-    --text-secondary: #4c5d6d;
-    --text-muted: #526575;
-    --accent-blue: #486783;
-    --border-color: #c3cfdb;
+    --text-primary: #22384b;
+    --text-secondary: #455e74;
+    --text-muted: #546c80;
+    --accent-blue: #4d7ea6;
+    --border-color: #c6dcec;
     --paper: #ffffff;
-    --paper-blue: #e8eff6;
-    --grid-ink: rgba(91, 117, 144, 0.16);
+    --paper-blue: #edf7fd;
     --navbar-height: 68px;
     --radius-sm: 4px;
     --radius-md: 7px;
@@ -25,13 +24,134 @@
 }
 html, body { height: auto; overflow-x: clip; }
 html { scroll-padding-top: 92px; }
-body {
-    background: var(--bg-page);
-    background-image: radial-gradient(var(--grid-ink) 0.8px, transparent 0.8px);
-    background-size: 20px 20px;
-    background-attachment: scroll;
+/* The sky lives on <html> so the fixed doodle layer can sit above it
+   and still paint below every content block. */
+html {
+    background-color: var(--bg-page);
+    background-image:
+        radial-gradient(42% 24% at 6% 10%, rgba(255, 255, 255, 0.95) 0 55%, rgba(255, 255, 255, 0) 72%),
+        radial-gradient(28% 16% at 20% 5%, rgba(255, 255, 255, 0.9) 0 55%, rgba(255, 255, 255, 0) 72%),
+        radial-gradient(38% 22% at 94% 22%, rgba(255, 255, 255, 0.9) 0 55%, rgba(255, 255, 255, 0) 72%),
+        radial-gradient(24% 14% at 80% 16%, rgba(255, 255, 255, 0.85) 0 55%, rgba(255, 255, 255, 0) 72%),
+        linear-gradient(180deg, #d3e8f8 0%, #e7f3fc 30%, #f7fbff 64%, #ffffff 100%);
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
 }
-::selection { background: #d1e0ed; color: #20364a; }
+body { background: transparent !important; }
+
+/* 1b. Crayon doodles drifting behind the sky */
+.sky-doodles {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+    user-select: none;
+}
+.doodle {
+    position: absolute;
+    height: auto;
+    opacity: 0.52;
+    --depth: 1;
+    --tilt: 0deg;
+    --sway: 2deg;
+    --drift-x: 8px;
+    --drift-y: -12px;
+    --dur: 9s;
+    --delay: 0s;
+    rotate: var(--tilt);
+    transform: translate(calc(var(--px, 0px) * var(--depth)), calc(var(--py, 0px) * var(--depth)));
+    animation:
+        doodle-float var(--dur) ease-in-out var(--delay) infinite alternate,
+        doodle-sway calc(var(--dur) * 1.3) ease-in-out var(--delay) infinite alternate;
+}
+@keyframes doodle-float {
+    from { translate: 0 0; }
+    to { translate: var(--drift-x) var(--drift-y); }
+}
+@keyframes doodle-sway {
+    from { rotate: var(--tilt); }
+    to { rotate: calc(var(--tilt) + var(--sway)); }
+}
+.doodle .d-fill { fill: #a9cfe8; stroke: #4d7ea6; stroke-width: 1.7; }
+.doodle .d-fill-soft { fill: #c6dff3; stroke: #4d7ea6; stroke-width: 1.6; }
+.doodle .d-body { fill: #7fa9c9; stroke: #3f6d94; stroke-width: 1.5; }
+.doodle .d-sketch { stroke: #4d7ea6; stroke-width: 1.4; opacity: 0.85; }
+.doodle .d-dot { fill: #4d7ea6; }
+.doodle .d-bubble { fill: rgba(255, 255, 255, 0.55); stroke: #4d7ea6; stroke-width: 1.2; }
+.doodle .d-sparkle { fill: #dcecf9; stroke: #4d7ea6; stroke-width: 1.3; }
+
+/* Every sketch hovers at its own height and side, each with a different
+   bob so the group never moves in lockstep. */
+.doodle--butterfly-a {
+    width: 138px; top: 16vh; left: 3vw;
+    --tilt: -18deg; --sway: 3.5deg; --drift-x: 14px; --drift-y: -20px;
+    --dur: 9.5s; --delay: -2.2s; --depth: 1.15;
+}
+.doodle--butterfly-b {
+    width: 98px; top: 48vh; right: 6.5vw;
+    --tilt: 14deg; --sway: -3.5deg; --drift-x: -12px; --drift-y: -16px;
+    --dur: 8.5s; --delay: -4s; --depth: 0.8;
+    scale: -1 1;
+    opacity: 0.4;
+}
+.doodle--jelly {
+    width: 112px; top: 9vh; right: 4vw;
+    --tilt: 5deg; --sway: -2.5deg; --drift-x: 8px; --drift-y: -15px;
+    --dur: 11s; --delay: -1s; --depth: 0.7;
+}
+.doodle--turtle {
+    width: 148px; bottom: 9vh; left: 3.5vw;
+    --tilt: -5deg; --sway: 2.5deg; --drift-x: 9px; --drift-y: -12px;
+    --dur: 12s; --delay: -5s; --depth: 1.05;
+    opacity: 0.44;
+}
+.doodle--sparkle {
+    width: 84px; bottom: 18vh; right: 5.5vw;
+    --tilt: 7deg; --sway: -3deg; --drift-x: 7px; --drift-y: -13px;
+    --dur: 7.5s; --delay: -3s; --depth: 0.65;
+    opacity: 0.48;
+    animation:
+        doodle-float var(--dur) ease-in-out var(--delay) infinite alternate,
+        doodle-sway calc(var(--dur) * 1.3) ease-in-out var(--delay) infinite alternate,
+        doodle-twinkle 5.6s ease-in-out -1.4s infinite alternate;
+}
+@keyframes doodle-twinkle {
+    from { opacity: 0.34; }
+    to { opacity: 0.58; }
+}
+
+@media (max-width: 1199px) {
+    .doodle--butterfly-a { width: 110px; top: 14vh; left: 2vw; }
+    .doodle--butterfly-b { width: 76px; right: 4vw; }
+    .doodle--jelly { width: 90px; top: 9vh; right: 2vw; }
+    .doodle--turtle { width: 118px; left: 2vw; }
+    .doodle--sparkle { width: 66px; right: 3vw; }
+}
+
+/* Notebook pages run edge-to-edge at this width, so the left-hand
+   sketches would sit on top of headings and links. Keep the sky
+   doodles to the right-hand whitespace there. */
+@media (max-width: 1199px) {
+    .page-projects .doodle--butterfly-a,
+    .page-projects .doodle--turtle,
+    .page-certifications .doodle--butterfly-a,
+    .page-certifications .doodle--turtle { display: none; }
+}
+@media (max-width: 767px) {
+    .doodle { opacity: 0.36; --drift-x: 4px; --drift-y: -6px; }
+    .doodle > g { filter: none; }
+    .doodle--butterfly-a { width: 82px; top: 10vh; left: -10px; }
+    .doodle--jelly { width: 72px; top: 12vh; right: -8px; }
+    .doodle--turtle { width: 96px; bottom: 5vh; left: -12px; opacity: 0.32; }
+    .doodle--butterfly-b,
+    .doodle--sparkle { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .doodle { animation: none; transform: none; }
+}
+::selection { background: #d3e7f7; color: #17304a; }
 img { height: auto; }
 button, a, input, textarea, [role="button"] { -webkit-tap-highlight-color: transparent; }
 :where(a, button, input, textarea, [tabindex]):focus-visible {
@@ -44,11 +164,11 @@ button, a, input, textarea, [role="button"] { -webkit-tap-highlight-color: trans
 
 /* 2. Quiet toolbar navigation; underline moves, never changes width */
 .personal-navbar {
-    background: #f3f7fb;
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
+    background: rgba(244, 250, 255, 0.86);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border-color);
-    box-shadow: none;
+    box-shadow: 0 8px 24px -18px rgba(35, 70, 100, 0.35);
     padding-inline: max(20px, calc((100vw - 968px) / 2));
     justify-content: flex-end;
 }
@@ -190,7 +310,14 @@ button, a, input, textarea, [role="button"] { -webkit-tap-highlight-color: trans
 .project-showcase { gap: 32px; }
 .showcase-card { position: relative; overflow: visible; background: var(--paper); border: 1px solid var(--border-color); padding: 8px; box-shadow: 4px 4px 0 var(--paper-blue); transition: transform 220ms ease; }
 .showcase-hero { border-radius: 4px; }
-.pr-hero-dark, .pr-hero-light { background: var(--paper-blue); background-image: linear-gradient(#d9e3ec 1px, transparent 1px), linear-gradient(90deg, #d9e3ec 1px, transparent 1px); background-size: 24px 24px; }
+.pr-hero-dark, .pr-hero-light {
+    background: var(--paper-blue);
+    background-image:
+        radial-gradient(58% 66% at 18% 28%, rgba(255, 255, 255, 0.85) 0 28%, rgba(255, 255, 255, 0) 72%),
+        radial-gradient(48% 58% at 84% 78%, rgba(255, 255, 255, 0.7) 0 28%, rgba(255, 255, 255, 0) 74%),
+        linear-gradient(180deg, #f5fbff 0%, #e4f2fc 60%, #dcedfa 100%);
+    background-size: cover;
+}
 .showcase-info { background: var(--paper); padding: 18px 10px 12px; border: 0; border-radius: 0; gap: 12px; }
 .showcase-title { color: var(--text-primary); font-size: 0.86rem; line-height: 1.65; font-weight: 600; letter-spacing: -0.015em; }
 .showcase-arrow { color: var(--accent-blue); flex-shrink: 0; }
