@@ -529,32 +529,33 @@ body.theme-sky {
     --note-mint: #d1e4f5;
 }
 
-/* ── Cute Coffee Bunny Plushie Mascot ── */
+/* ── Cute Standing Lop Bunny Mascot ── */
 .desk-mascot {
     position: fixed;
-    bottom: 8px;
-    right: 24px;
-    width: 172px;
-    height: 185px;
+    bottom: 0px;
+    right: 28px;
+    width: 145px;
+    height: 243px;
     z-index: 1000;
     cursor: pointer;
-    filter: drop-shadow(0 14px 28px rgba(45, 35, 25, 0.22));
-    animation: plushieBreathe 4.6s ease-in-out infinite;
+    filter: drop-shadow(0 12px 22px rgba(45, 35, 25, 0.26));
+    animation: bunnyStandingIdle 4.8s ease-in-out infinite;
     transition: transform 220ms cubic-bezier(0.2, 0.8, 0.3, 1), filter 220ms ease;
     transform-origin: bottom center;
 }
-@keyframes plushieBreathe {
+@keyframes bunnyStandingIdle {
     0%, 100% { transform: translateY(0px) scale(1, 1); }
-    50% { transform: translateY(-5px) scale(1.025, 0.975); }
+    50% { transform: translateY(-4px) scale(1.015, 0.985); }
 }
 .desk-mascot:hover {
-    transform: scale(1.07, 1.05) translateY(-8px);
-    filter: drop-shadow(0 20px 38px rgba(45, 35, 25, 0.3));
+    transform: scale(1.05) translateY(-8px);
+    filter: drop-shadow(0 18px 30px rgba(45, 35, 25, 0.34));
 }
 .desk-mascot:active {
-    transform: scale(1.18, 0.84) translateY(6px);
-    transition: transform 90ms cubic-bezier(0.1, 0.9, 0.2, 1);
+    transform: scale(0.96, 1.08) translateY(-16px);
+    transition: transform 120ms cubic-bezier(0.1, 0.9, 0.2, 1);
 }
+.bunny-standing-img,
 .bunny-plushie-img {
     width: 100%;
     height: 100%;
@@ -567,7 +568,7 @@ body.theme-sky {
 }
 .mascot-bubble {
     position: absolute;
-    bottom: 198px;
+    bottom: 252px;
     right: 8px;
     padding: 10px 18px;
     background: #ffffff;
@@ -721,13 +722,13 @@ body.theme-sky {
         transform-origin: top right;
     }
     .desk-mascot {
-        width: 155px;
-        height: 173px;
-        bottom: 16px;
+        width: 125px;
+        height: 210px;
+        bottom: 0px;
         right: 18px;
     }
     .mascot-bubble {
-        bottom: 184px;
+        bottom: 218px;
         font-size: 0.82rem;
     }
     .motion-canvas {
@@ -750,13 +751,13 @@ body.theme-sky {
         font-size: 0.75rem;
     }
     .desk-mascot {
-        width: 125px;
-        height: 135px;
-        bottom: 6px;
+        width: 95px;
+        height: 160px;
+        bottom: 0px;
         right: 10px;
     }
     .mascot-bubble {
-        bottom: 148px;
+        bottom: 168px;
         font-size: 0.78rem;
         max-width: 230px;
     }

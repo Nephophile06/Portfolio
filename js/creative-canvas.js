@@ -462,18 +462,19 @@
         });
     }
 
-    // ── 6. Cute Bunny Plushie Mascot (Squish Physics & Speech Bubble) ──
+    // ── 6. Cute Standing Lop Bunny Mascot (Standing Curiosity & Speech Bubble) ──
     const duckMascot = document.getElementById('duckMascot');
     const duckBubble = document.getElementById('duckBubble');
+    const bunnyImg = duckMascot ? duckMascot.querySelector('img') : null;
 
     const mascotGreetings = [
-        "Squeeze me! I'm Anika's plushie 🧸✨",
-        "Soft vibes & clean interfaces ☕",
-        "Handcrafted with code & love 💻",
+        "Hii! Welcome to Anika's portfolio! 🐰🐾",
+        "I'm standing up to see your cursor! 👀✨",
+        "Clean UI/UX & thoughtful code ☕💻",
         "Try dragging the notes or bezier handles! 🎨",
         "Switch palettes from the top right! 🌿",
-        "Explore my UI/UX & dev case studies below! 🚀",
-        "Need a designer? Let's connect! 💌"
+        "Scroll down to explore my case studies! 🚀",
+        "*sniff sniff* Let's build something cool! 💌"
     ];
 
     if (duckMascot && duckBubble) {
@@ -485,20 +486,22 @@
             clearTimeout(bubbleTimer);
             bubbleTimer = setTimeout(() => {
                 duckBubble.classList.remove('is-visible');
-            }, 3200);
+            }, 3400);
         });
 
-        // Subtle 3D reactive tilt toward cursor
-        window.addEventListener('pointermove', (e) => {
-            const rect = duckMascot.getBoundingClientRect();
-            const cx = rect.left + rect.width / 2;
-            const cy = rect.top + rect.height / 2;
-            const dx = (e.clientX - cx) / window.innerWidth;
-            const dy = (e.clientY - cy) / window.innerHeight;
-            const rotY = Math.max(-8, Math.min(8, dx * 12));
-            const rotX = Math.max(-5, Math.min(5, -dy * 8));
-            duckMascot.style.transform = `perspective(800px) rotateY(${rotY.toFixed(1)}deg) rotateX(${rotX.toFixed(1)}deg)`;
-        }, { passive: true });
+        // Subtle 3D reactive tilt on bunny image toward cursor
+        if (bunnyImg) {
+            window.addEventListener('pointermove', (e) => {
+                const rect = duckMascot.getBoundingClientRect();
+                const cx = rect.left + rect.width / 2;
+                const cy = rect.top + rect.height / 2;
+                const dx = (e.clientX - cx) / window.innerWidth;
+                const dy = (e.clientY - cy) / window.innerHeight;
+                const rotY = Math.max(-10, Math.min(10, dx * 14));
+                const rotX = Math.max(-6, Math.min(6, -dy * 10));
+                bunnyImg.style.transform = `perspective(600px) rotateY(${rotY.toFixed(1)}deg) rotateX(${rotX.toFixed(1)}deg)`;
+            }, { passive: true });
+        }
     }
 
 })();
