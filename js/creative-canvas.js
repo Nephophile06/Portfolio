@@ -497,7 +497,7 @@
             const mascotCenterY = rect.top + rect.height * 0.469; // Eye Y center
 
             const angle = Math.atan2(e.clientY - mascotCenterY, e.clientX - mascotCenterX);
-            const dist = 2.0; // pupil travel radius
+            const dist = 2.8; // pupil travel radius for larger bunny eyes
             const px = Math.cos(angle) * dist;
             const py = Math.sin(angle) * dist;
 
