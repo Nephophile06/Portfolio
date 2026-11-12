@@ -462,11 +462,9 @@
         });
     }
 
-    // ── 6. Minimal Mascot (Eye Tracking & Interactive Chat) ──
+    // ── 6. Realistic Mascot (Speech Bubble & 3D Interactive Parallax) ──
     const duckMascot = document.getElementById('duckMascot');
     const duckBubble = document.getElementById('duckBubble');
-    const duckPupilLeft = document.getElementById('duckPupilLeft');
-    const duckPupilRight = document.getElementById('duckPupilRight');
 
     const mascotGreetings = [
         "Welcome to Anika's workspace! 🐰☕",
@@ -474,7 +472,7 @@
         "Try dragging the notes or bezier handles! 🎨",
         "Switch palettes from the top right! 🌿",
         "Explore my UI/UX & dev case studies below! 🚀",
-        "Need a designer? Let's connect! 💌"
+        "Looking for a designer? Let's connect! 💌"
     ];
 
     if (duckMascot && duckBubble) {
@@ -489,20 +487,16 @@
             }, 3200);
         });
 
-        // Eye tracking mouse across entire window
+        // Subtle 3D reactive tilt toward cursor
         window.addEventListener('pointermove', (e) => {
-            if (!duckPupilLeft || !duckPupilRight) return;
             const rect = duckMascot.getBoundingClientRect();
-            const mascotCenterX = rect.left + rect.width * 0.50; // Eye X center
-            const mascotCenterY = rect.top + rect.height * 0.41; // Eye Y center
-
-            const angle = Math.atan2(e.clientY - mascotCenterY, e.clientX - mascotCenterX);
-            const dist = 2.4; // pupil travel radius
-            const px = Math.cos(angle) * dist;
-            const py = Math.sin(angle) * dist;
-
-            duckPupilLeft.style.transform = `translate(${px}px, ${py}px)`;
-            duckPupilRight.style.transform = `translate(${px}px, ${py}px)`;
+            const cx = rect.left + rect.width / 2;
+            const cy = rect.top + rect.height / 2;
+            const dx = (e.clientX - cx) / window.innerWidth;
+            const dy = (e.clientY - cy) / window.innerHeight;
+            const rotY = Math.max(-10, Math.min(10, dx * 14));
+            const rotX = Math.max(-6, Math.min(6, -dy * 8));
+            duckMascot.style.transform = `perspective(800px) rotateY(${rotY.toFixed(1)}deg) rotateX(${rotX.toFixed(1)}deg)`;
         }, { passive: true });
     }
 
