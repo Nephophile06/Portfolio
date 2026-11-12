@@ -529,13 +529,13 @@ body.theme-sky {
     --note-mint: #d1e4f5;
 }
 
-/* ── Aesthetic Bunny Mascot with Spring Physics ── */
+/* ── Aesthetic Tulip Bunny Mascot (Image 1 & 3 Inspired) ── */
 .desk-mascot {
     position: fixed;
-    bottom: 18px;
-    right: 24px;
-    width: 105px;
-    height: 125px;
+    bottom: 16px;
+    right: 20px;
+    width: 130px;
+    height: 145px;
     z-index: 1000;
     cursor: pointer;
     filter: drop-shadow(0 10px 24px rgba(45, 38, 30, 0.16));
@@ -545,31 +545,29 @@ body.theme-sky {
 }
 @keyframes bunnyFloat {
     0%, 100% { transform: translateY(0px) rotate(0deg); }
-    50% { transform: translateY(-7px) rotate(1.5deg); }
+    50% { transform: translateY(-6px) rotate(1deg); }
 }
 .desk-mascot:hover {
-    transform: scale(1.1) translateY(-8px) rotate(-2deg);
+    transform: scale(1.08) translateY(-8px) rotate(-1.5deg);
 }
 .desk-mascot:active {
-    transform: scale(0.92, 1.18) translateY(4px);
+    transform: scale(0.94, 1.14) translateY(3px);
 }
-.bunny-ear-left {
-    transform-origin: 32px 65px;
-    animation: bunnyEarTwitchLeft 5s ease-in-out infinite;
+.mascot-tulip {
+    transform-origin: 24px 132px;
+    animation: tulipSway 4.8s ease-in-out infinite;
 }
-.bunny-ear-right {
-    transform-origin: 66px 65px;
-    animation: bunnyEarTwitchRight 6s ease-in-out infinite;
+@keyframes tulipSway {
+    0%, 100% { transform: rotate(0deg); }
+    50% { transform: rotate(-3.5deg); }
 }
-@keyframes bunnyEarTwitchLeft {
-    0%, 88%, 100% { transform: rotate(0deg); }
-    92% { transform: rotate(-5deg); }
-    96% { transform: rotate(2deg); }
+.mascot-heart-float {
+    transform-origin: 104px 40px;
+    animation: heartBeat 2.6s ease-in-out infinite;
 }
-@keyframes bunnyEarTwitchRight {
-    0%, 85%, 100% { transform: rotate(0deg); }
-    90% { transform: rotate(6deg); }
-    95% { transform: rotate(-2deg); }
+@keyframes heartBeat {
+    0%, 100% { transform: scale(1) translateY(0); }
+    50% { transform: scale(1.15) translateY(-4px); }
 }
 .mascot-svg {
     width: 100%;
@@ -578,8 +576,8 @@ body.theme-sky {
 }
 .mascot-bubble {
     position: absolute;
-    bottom: 132px;
-    right: 0;
+    bottom: 154px;
+    right: 6px;
     padding: 9px 15px;
     background: #ffffff;
     border: 2px solid #2b2725;
@@ -751,13 +749,13 @@ body.theme-sky {
         font-size: 0.75rem;
     }
     .desk-mascot {
-        width: 78px;
-        height: 94px;
-        bottom: 12px;
-        right: 12px;
+        width: 95px;
+        height: 106px;
+        bottom: 10px;
+        right: 10px;
     }
     .mascot-bubble {
-        bottom: 102px;
+        bottom: 118px;
         font-size: 0.75rem;
         max-width: 220px;
     }

@@ -469,12 +469,12 @@
     const duckPupilRight = document.getElementById('duckPupilRight');
 
     const mascotGreetings = [
-        "Hop into my designs! 🐰✨",
-        "Hi there! I'm Anika's helper bunny 🥕",
+        "Welcome to Anika's workspace! 🐰🌷",
+        "Crafting designs with care & code ✨",
         "Try dragging the notes or bezier handles! 🎨",
-        "Switch palettes from the top right! 🌿",
-        "Designing experiences & building with code 💻",
-        "Need a UI/UX designer? Let's chat! 💌"
+        "Switch themes from the top right! 🌿",
+        "Explore my UI/UX & dev case studies below! 🚀",
+        "Need a designer? Let's connect! 💌"
     ];
 
     if (duckMascot && duckBubble) {
@@ -493,11 +493,11 @@
         window.addEventListener('pointermove', (e) => {
             if (!duckPupilLeft || !duckPupilRight) return;
             const rect = duckMascot.getBoundingClientRect();
-            const mascotCenterX = rect.left + rect.width / 2;
-            const mascotCenterY = rect.top + rect.height * 0.65; // Eye position in SVG
+            const mascotCenterX = rect.left + rect.width * 0.585; // Eye X center
+            const mascotCenterY = rect.top + rect.height * 0.469; // Eye Y center
 
             const angle = Math.atan2(e.clientY - mascotCenterY, e.clientX - mascotCenterX);
-            const dist = 3.2; // pupil travel radius for larger eyes
+            const dist = 2.0; // pupil travel radius
             const px = Math.cos(angle) * dist;
             const py = Math.sin(angle) * dist;
 
