@@ -1,0 +1,570 @@
+/* ==========================================================================
+   Creative Canvas Theme (Rebecca Yang Inspired + UI/UX & Frontend Identity)
+   ========================================================================== */
+
+:root {
+    --canvas-bg: #efece6;
+    --canvas-paper: #fbf9f5;
+    --canvas-ink: #2b2725;
+    --canvas-ink-muted: #5e5854;
+    --note-sand: #f5eedc;
+    --note-lavender: #eae4f4;
+    --note-mint: #e2f0e5;
+    --note-blue: #e0ecf7;
+    --card-shadow: 0 10px 30px rgba(45, 38, 30, 0.08);
+    --card-shadow-hover: 0 16px 36px rgba(45, 38, 30, 0.14);
+}
+
+/* Page Background */
+body {
+    background-color: var(--canvas-bg) !important;
+    background-image: 
+        radial-gradient(circle at 10% 10%, rgba(255, 255, 255, 0.6) 0%, transparent 40%),
+        radial-gradient(circle at 90% 85%, rgba(255, 255, 255, 0.4) 0%, transparent 50%),
+        radial-gradient(rgba(100, 90, 80, 0.09) 1px, transparent 1px) !important;
+    background-size: 100% 100%, 100% 100%, 24px 24px !important;
+    color: var(--canvas-ink) !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+}
+
+.personal-navbar {
+    background: rgba(239, 236, 230, 0.85) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border-bottom: 1px solid rgba(100, 90, 80, 0.12) !important;
+}
+.navbar-link {
+    color: #4f4842 !important;
+    font-weight: 500 !important;
+}
+.navbar-link:hover, .navbar-link.active {
+    color: #1a1715 !important;
+    font-weight: 700 !important;
+}
+.navbar-link::after {
+    border-bottom-color: #2b2725 !important;
+}
+
+/* ── Fullscreen Interactive Hero Canvas ── */
+.creative-hero-desk {
+    position: relative;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    min-height: calc(100vh - 60px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    overflow: hidden;
+    user-select: none;
+    box-sizing: border-box;
+}
+
+.desk-board {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    height: 640px;
+    margin: 0 auto;
+}
+
+/* Draggable Items Common */
+.desk-item {
+    position: absolute;
+    cursor: grab;
+    touch-action: none;
+    transition: transform 220ms cubic-bezier(0.2, 0.8, 0.3, 1), box-shadow 220ms ease;
+}
+.desk-item:active,
+.desk-item.is-dragging {
+    cursor: grabbing !important;
+    z-index: 99 !important;
+    transition: none !important;
+}
+
+/* Washi Tape Strip */
+.tape-strip {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-1deg);
+    width: 90px;
+    height: 24px;
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(2px);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    border-left: 2px dashed rgba(0,0,0,0.08);
+    border-right: 2px dashed rgba(0,0,0,0.08);
+    z-index: 10;
+    pointer-events: none;
+}
+
+/* 1. Main Quote Sticky Card */
+.note-main-quote {
+    top: 40px;
+    left: 140px;
+    width: 350px;
+    padding: 34px 28px 26px;
+    background: var(--note-sand);
+    border: 1px solid #ebdcb9;
+    border-radius: 4px;
+    box-shadow: var(--card-shadow);
+    transform: rotate(-1.5deg);
+    z-index: 15;
+}
+.note-main-quote:hover {
+    box-shadow: var(--card-shadow-hover);
+    transform: rotate(0deg) scale(1.01);
+}
+.quote-salutation {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #7d6548;
+    margin-bottom: 12px;
+}
+.quote-title {
+    font-size: 1.85rem;
+    font-weight: 800;
+    line-height: 1.2;
+    color: #1e1915;
+    letter-spacing: -0.04em;
+    margin-bottom: 24px;
+}
+.quote-title em {
+    font-style: italic;
+    font-family: Georgia, serif;
+    font-weight: 400;
+}
+.quote-bottom-tag {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #8c7353;
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.7);
+    padding: 4px 10px;
+    border-radius: 4px;
+    border: 1px solid rgba(140, 115, 83, 0.2);
+}
+
+/* 2. Interactive Flipping Split-Flap Board (Centered over photo) */
+.desk-split-flap {
+    top: 240px;
+    left: 260px;
+    z-index: 30;
+    background: #ffffff;
+    padding: 8px 12px;
+    border-radius: 6px;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+    border: 1px solid #dcd8cf;
+    transform: rotate(0.8deg);
+}
+.split-flap-board {
+    display: flex;
+    gap: 4px;
+}
+.split-flap-tile {
+    width: 22px;
+    height: 34px;
+    background: #1e1d1b;
+    border: 1px solid #3c3a37;
+    border-radius: 4px;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+    font-size: 1.05rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    box-shadow: inset 0 -1px 2px rgba(0,0,0,0.5);
+    perspective: 300px;
+}
+.split-flap-tile.flipping {
+    animation: tileFlipAnim 320ms ease;
+}
+@keyframes tileFlipAnim {
+    0% { transform: rotateX(0deg); }
+    50% { transform: rotateX(90deg); background: #383633; }
+    100% { transform: rotateX(0deg); }
+}
+
+/* 3. Polaroid Photo Card */
+.note-polaroid-card {
+    top: 55px;
+    left: 480px;
+    width: 220px;
+    background: #ffffff;
+    padding: 12px 12px 20px;
+    border-radius: 3px;
+    box-shadow: 0 14px 34px rgba(45, 38, 30, 0.12);
+    transform: rotate(3deg);
+    z-index: 12;
+    text-align: center;
+}
+.note-polaroid-card:hover {
+    transform: rotate(1deg) scale(1.02);
+    box-shadow: var(--card-shadow-hover);
+}
+.polaroid-frame {
+    width: 100%;
+    aspect-ratio: 1 / 1.15;
+    background: #e2dbce;
+    overflow: hidden;
+    border-radius: 2px;
+    border: 1px solid #e5dfd4;
+}
+.polaroid-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+.polaroid-name {
+    margin-top: 14px;
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: #2b2725;
+    letter-spacing: -0.02em;
+}
+.polaroid-sub {
+    font-size: 0.72rem;
+    color: #78706b;
+    margin-top: 2px;
+}
+
+/* 4. Experience & Education Note (Lavender) */
+.note-exp-card {
+    top: 110px;
+    left: 20px;
+    width: 240px;
+    padding: 24px 20px;
+    background: var(--note-lavender);
+    border: 1px solid #d4c7e8;
+    border-radius: 4px;
+    box-shadow: var(--card-shadow);
+    transform: rotate(-3.5deg);
+    z-index: 10;
+}
+.note-exp-card:hover {
+    transform: rotate(-1deg) scale(1.02);
+    box-shadow: var(--card-shadow-hover);
+}
+.note-exp-heading {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #5d4a7a;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 12px;
+}
+.note-exp-item {
+    font-size: 0.85rem;
+    color: #2b2338;
+    margin-bottom: 12px;
+    line-height: 1.4;
+}
+.note-exp-item strong {
+    display: block;
+    font-size: 0.92rem;
+    color: #171121;
+}
+.note-exp-links {
+    margin-top: 14px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+.note-exp-links a {
+    color: #4b366a;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color 0.15s ease, opacity 0.15s ease;
+}
+.note-exp-links a:hover {
+    color: #171121;
+    opacity: 0.8;
+}
+
+/* 5. Core Strengths Note (Mint) */
+.note-strengths-card {
+    top: 130px;
+    right: 70px;
+    width: 290px;
+    padding: 26px 22px;
+    background: var(--note-mint);
+    border: 1px solid #cce3d1;
+    border-radius: 4px;
+    box-shadow: var(--card-shadow);
+    transform: rotate(2deg);
+    z-index: 14;
+}
+.note-strengths-card:hover {
+    transform: rotate(0deg) scale(1.02);
+    box-shadow: var(--card-shadow-hover);
+}
+.strengths-heading {
+    font-size: 0.84rem;
+    font-weight: 700;
+    color: #295433;
+    margin-bottom: 14px;
+}
+.strengths-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.strength-badge {
+    padding: 7px 12px;
+    background: rgba(255, 255, 255, 0.85);
+    border: 1px solid #bcdbc2;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #1e3f26;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
+}
+
+/* 6. "See My Work" Button */
+.note-jump-pill {
+    bottom: 40px;
+    left: 450px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 26px;
+    background: #ffffff;
+    border: 2px solid #2b2725;
+    border-radius: 12px;
+    box-shadow: 4px 6px 0 #2b2725;
+    text-decoration: none;
+    cursor: pointer;
+    transform: rotate(-1.5deg);
+    z-index: 25;
+    transition: transform 160ms ease, box-shadow 160ms ease;
+}
+.note-jump-pill:hover {
+    transform: rotate(0deg) translateY(-3px);
+    box-shadow: 6px 9px 0 #2b2725;
+}
+.note-jump-pill span {
+    font-size: 1rem;
+    font-weight: 800;
+    color: #2b2725;
+}
+
+/* 7. Doodles & Stickers */
+.desk-doodle {
+    position: absolute;
+    cursor: grab;
+    z-index: 8;
+    filter: drop-shadow(2px 4px 6px rgba(45, 38, 30, 0.1));
+    transition: transform 180ms ease;
+}
+.desk-doodle:hover {
+    transform: scale(1.15) rotate(6deg);
+}
+.doodle-plant { top: 30px; left: 80px; width: 62px; height: 62px; }
+.doodle-tennis { top: 40px; right: 400px; width: 44px; height: 44px; }
+.doodle-heart { top: 220px; right: 30px; width: 48px; height: 48px; transform: rotate(14deg); }
+.doodle-coffee { bottom: 60px; left: 340px; width: 56px; height: 56px; transform: rotate(-8deg); }
+.doodle-dumbbell { bottom: 45px; left: 160px; width: 68px; height: 40px; transform: rotate(-5deg); }
+
+/* ── Cute Duck Mascot in Bottom-Right Corner ── */
+.desk-mascot {
+    position: fixed;
+    bottom: 16px;
+    right: 20px;
+    width: 64px;
+    height: 64px;
+    z-index: 1000;
+    cursor: pointer;
+    filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.15));
+    transition: transform 200ms cubic-bezier(0.2, 0.8, 0.3, 1);
+}
+.desk-mascot:hover {
+    transform: scale(1.15) translateY(-4px);
+}
+.mascot-svg {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}
+.mascot-bubble {
+    position: absolute;
+    bottom: 74px;
+    right: 0;
+    padding: 8px 14px;
+    background: #ffffff;
+    border: 1.5px solid #2b2725;
+    border-radius: 8px 8px 2px 8px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #2b2725;
+    box-shadow: 3px 4px 0 #2b2725;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(6px);
+    transition: opacity 180ms ease, transform 180ms ease;
+}
+.mascot-bubble.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ── Sticky Case Studies (Rebecca Style Horizontal Carousel) ── */
+.works-sticky-section {
+    padding: 60px 0 80px;
+}
+.works-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+.works-heading {
+    font-size: 1.85rem;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    color: #2b2725;
+}
+.works-gallery {
+    display: flex;
+    gap: 30px;
+    overflow-x: auto;
+    padding: 20px 6px 36px;
+    scrollbar-width: thin;
+    scrollbar-color: #c9c0b5 transparent;
+}
+.work-sticky-note {
+    position: relative;
+    flex: 0 0 310px;
+    padding: 16px 16px 24px;
+    background: #ffffff;
+    border: 1px solid #dcd5c7;
+    border-radius: 6px;
+    box-shadow: 0 10px 24px rgba(45, 38, 30, 0.08);
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    transition: transform 240ms ease, box-shadow 240ms ease;
+}
+.work-sticky-note:nth-child(1) { background: #fdfaf2; transform: rotate(-1.5deg); }
+.work-sticky-note:nth-child(2) { background: #f7f1fc; transform: rotate(1.2deg); }
+.work-sticky-note:nth-child(3) { background: #eff7f2; transform: rotate(-1deg); }
+.work-sticky-note:nth-child(4) { background: #edf4fa; transform: rotate(1.8deg); }
+
+.work-sticky-note:hover {
+    transform: translateY(-8px) scale(1.02) !important;
+    box-shadow: 0 18px 38px rgba(45, 38, 30, 0.16) !important;
+    z-index: 10;
+}
+.work-img-frame {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 16px;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    background: #e9e4dc;
+}
+.work-img-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 260ms ease;
+}
+.work-sticky-note:hover .work-img-frame img {
+    transform: scale(1.05);
+}
+.work-tags-meta {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: #7d7269;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+.work-title {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #2b2725;
+    margin-bottom: 8px;
+    letter-spacing: -0.03em;
+}
+.work-desc {
+    font-size: 0.84rem;
+    color: #5e5854;
+    line-height: 1.5;
+    margin-bottom: 16px;
+    flex-grow: 1;
+}
+.work-open-link {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #2b2725;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+/* Responsive Mobile Stacking */
+@media (max-width: 900px) {
+    .creative-hero-desk {
+        min-height: auto;
+        padding: 20px 10px;
+    }
+    .desk-board {
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        align-items: center;
+    }
+    .desk-item {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+        bottom: auto !important;
+        transform: none !important;
+        width: 100% !important;
+        max-width: 380px !important;
+    }
+    .desk-doodle {
+        display: none !important;
+    }
+    .desk-split-flap {
+        margin: 10px 0;
+        max-width: 100%;
+        overflow-x: auto;
+    }
+}
+
+@media (max-width: 500px) {
+    .split-flap-board {
+        gap: 2px;
+    }
+    .split-flap-tile {
+        width: 16px;
+        height: 26px;
+        font-size: 0.75rem;
+    }
+    .desk-mascot {
+        width: 52px;
+        height: 52px;
+        bottom: 12px;
+        right: 12px;
+    }
+    .mascot-bubble {
+        bottom: 60px;
+        font-size: 0.75rem;
+        max-width: 200px;
+    }
+}
