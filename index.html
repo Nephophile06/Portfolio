@@ -610,27 +610,59 @@
         </div>
     </main>
 
-    <!-- Minimal Line-Art Mascot in Bottom Right Corner -->
-    <div class="desk-mascot" id="duckMascot" title="Click me!">
-        <div class="mascot-bubble" id="duckBubble">Hello! ✨</div>
-        <svg class="mascot-svg" viewBox="0 0 80 80" fill="none">
-            <!-- Minimal Paper/Clay Pebble Body -->
-            <path d="M16 48 C16 26 28 14 40 14 C52 14 64 26 64 48 C64 64 54 70 40 70 C26 70 16 64 16 48 Z" 
+    <!-- Aesthetic Minimal Bunny Mascot in Bottom Right Corner -->
+    <div class="desk-mascot" id="duckMascot" title="Click me! 🐰">
+        <div class="mascot-bubble" id="duckBubble">Hello! 🐰✨</div>
+        <svg class="mascot-svg" viewBox="0 0 100 120" fill="none">
+            <!-- Left Bunny Ear -->
+            <g class="bunny-ear-left">
+                <path d="M 28 65 C 16 35, 18 6, 34 6 C 46 6, 44 35, 38 65 Z" 
+                      fill="#ffffff" stroke="#2b2725" stroke-width="2.5" stroke-linejoin="round"/>
+                <path d="M 29 55 C 22 36, 24 15, 34 15 C 41 15, 40 36, 36 55 Z" 
+                      fill="#ffdce2"/>
+            </g>
+
+            <!-- Right Bunny Ear (Cute Floppy Tilt) -->
+            <g class="bunny-ear-right">
+                <path d="M 62 65 C 56 35, 58 7, 73 9 C 85 11, 80 40, 70 65 Z" 
+                      fill="#ffffff" stroke="#2b2725" stroke-width="2.5" stroke-linejoin="round"/>
+                <path d="M 63 55 C 59 36, 61 17, 71 18 C 77 19, 74 38, 68 55 Z" 
+                      fill="#ffdce2"/>
+            </g>
+
+            <!-- Chubby Bunny Head -->
+            <path d="M 18 82 C 14 62, 30 52, 50 52 C 70 52, 86 62, 82 82 C 85 98, 74 114, 50 114 C 26 114, 15 98, 18 82 Z" 
                   fill="#ffffff" stroke="#2b2725" stroke-width="2.5" stroke-linejoin="round"/>
-            <!-- Subtle Cheek Blush Dots -->
-            <circle cx="26" cy="48" r="3" fill="#f0d5ce" opacity="0.8"/>
-            <circle cx="54" cy="48" r="3" fill="#f0d5ce" opacity="0.8"/>
-            <!-- Minimal Dot Eyes with Tracking Pupils -->
+
+            <!-- Soft Rosy Blush -->
+            <ellipse cx="26" cy="88" rx="5.5" ry="3.8" fill="#fca5b9" opacity="0.65"/>
+            <ellipse cx="74" cy="88" rx="5.5" ry="3.8" fill="#fca5b9" opacity="0.65"/>
+
+            <!-- Left Eye with Tracking Pupils -->
             <g id="duckPupilLeft">
-                <circle cx="33" cy="40" r="3.2" fill="#2b2725"/>
-                <circle cx="32" cy="38.8" r="1" fill="#ffffff"/>
+                <circle cx="37" cy="78" r="4.6" fill="#2b2725"/>
+                <circle cx="35.5" cy="76" r="1.6" fill="#ffffff"/>
+                <circle cx="38.5" cy="79.5" r="0.8" fill="#ffffff"/>
             </g>
+
+            <!-- Right Eye with Tracking Pupils -->
             <g id="duckPupilRight">
-                <circle cx="47" cy="40" r="3.2" fill="#2b2725"/>
-                <circle cx="46" cy="38.8" r="1" fill="#ffffff"/>
+                <circle cx="63" cy="78" r="4.6" fill="#2b2725"/>
+                <circle cx="61.5" cy="76" r="1.6" fill="#ffffff"/>
+                <circle cx="64.5" cy="79.5" r="0.8" fill="#ffffff"/>
             </g>
-            <!-- Cute Minimal Smile Line -->
-            <path d="M37 47 Q40 50 43 47" stroke="#2b2725" stroke-width="2" stroke-linecap="round"/>
+
+            <!-- Bunny Nose -->
+            <polygon points="48,85 52,85 50,88" fill="#f8719d" stroke="#2b2725" stroke-width="1.2" stroke-linejoin="round"/>
+
+            <!-- Bunny Cute Split Smile -->
+            <path d="M 44.5 91 Q 47.5 94 50 89 Q 52.5 94 55.5 91" stroke="#2b2725" stroke-width="2" stroke-linecap="round" fill="none"/>
+
+            <!-- Tiny Paws Peeking Up -->
+            <ellipse cx="32" cy="112" rx="7.5" ry="5.5" fill="#ffffff" stroke="#2b2725" stroke-width="2.2"/>
+            <ellipse cx="68" cy="112" rx="7.5" ry="5.5" fill="#ffffff" stroke="#2b2725" stroke-width="2.2"/>
+            <line x1="32" y1="110" x2="32" y2="114" stroke="#2b2725" stroke-width="1.2" stroke-linecap="round"/>
+            <line x1="68" y1="110" x2="68" y2="114" stroke="#2b2725" stroke-width="1.2" stroke-linecap="round"/>
         </svg>
     </div>
 

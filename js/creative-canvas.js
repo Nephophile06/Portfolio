@@ -469,11 +469,12 @@
     const duckPupilRight = document.getElementById('duckPupilRight');
 
     const mascotGreetings = [
-        "Hello! Welcome to my space ✨",
+        "Hop into my designs! 🐰✨",
+        "Hi there! I'm Anika's helper bunny 🥕",
         "Try dragging the notes or bezier handles! 🎨",
-        "Designing experiences & building with code 💻",
         "Switch palettes from the top right! 🌿",
-        "Check out my case studies below! 🚀"
+        "Designing experiences & building with code 💻",
+        "Need a UI/UX designer? Let's chat! 💌"
     ];
 
     if (duckMascot && duckBubble) {
@@ -493,10 +494,10 @@
             if (!duckPupilLeft || !duckPupilRight) return;
             const rect = duckMascot.getBoundingClientRect();
             const mascotCenterX = rect.left + rect.width / 2;
-            const mascotCenterY = rect.top + rect.height / 2;
+            const mascotCenterY = rect.top + rect.height * 0.65; // Eye position in SVG
 
             const angle = Math.atan2(e.clientY - mascotCenterY, e.clientX - mascotCenterX);
-            const dist = 2.4; // pupil travel radius
+            const dist = 3.2; // pupil travel radius for larger eyes
             const px = Math.cos(angle) * dist;
             const py = Math.sin(angle) * dist;
 
