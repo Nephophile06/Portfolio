@@ -15,18 +15,18 @@
     --card-shadow-hover: 0 16px 36px rgba(45, 38, 30, 0.14);
 }
 
-/* Page Background with Hand-Drawn "Akibuki" Doodle Pattern */
+/* Page Background - Clean, Architectural Designer Canvas */
 body {
     background-color: var(--canvas-bg) !important;
     background-image: 
-        url('../assets/akibuki-pattern.svg'),
-        radial-gradient(circle at 10% 10%, rgba(255, 255, 255, 0.6) 0%, transparent 40%),
-        radial-gradient(circle at 90% 85%, rgba(255, 255, 255, 0.4) 0%, transparent 50%),
-        radial-gradient(rgba(100, 90, 80, 0.08) 1px, transparent 1px) !important;
-    background-size: 580px 580px, 100% 100%, 100% 100%, 24px 24px !important;
-    background-repeat: repeat, no-repeat, no-repeat, repeat !important;
+        radial-gradient(circle at 15% 15%, rgba(255, 255, 255, 0.75) 0%, transparent 45%),
+        radial-gradient(circle at 85% 80%, rgba(255, 255, 255, 0.5) 0%, transparent 50%),
+        linear-gradient(rgba(75, 65, 55, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(75, 65, 55, 0.04) 1px, transparent 1px) !important;
+    background-size: 100% 100%, 100% 100%, 28px 28px, 28px 28px !important;
     color: var(--canvas-ink) !important;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+    transition: background-color 400ms ease;
 }
 
 .personal-navbar {
@@ -63,91 +63,70 @@ body {
     box-sizing: border-box;
 }
 
-/* Interactive Freehand Akibuki Drawing Canvas */
-.akibuki-draw-canvas {
+/* 60FPS Generative Motion Graphics Canvas */
+.motion-canvas {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 2;
-    touch-action: none;
-    cursor: crosshair;
+    z-index: 1;
+    pointer-events: auto;
 }
 
-/* Akibuki Floating Toolbar */
-.akibuki-toolbar {
+/* Design Tokens Theme Palette Switcher */
+.canvas-palette-bar {
     position: absolute;
     top: 20px;
     right: 28px;
-    z-index: 60;
+    z-index: 50;
     display: flex;
     align-items: center;
     gap: 8px;
-    background: rgba(255, 255, 255, 0.92);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    padding: 6px 12px;
-    border-radius: 24px;
-    border: 1.5px solid #2b2725;
-    box-shadow: 2px 3px 0 #2b2725;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 5px 12px;
+    border-radius: 20px;
+    border: 1px solid rgba(120, 100, 80, 0.2);
+    box-shadow: 0 4px 14px rgba(45, 38, 30, 0.08);
 }
-.akibuki-btn {
+.palette-title {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: #6a6158;
+    text-transform: uppercase;
+    margin-right: 2px;
+}
+.palette-chip {
     display: flex;
     align-items: center;
     gap: 6px;
-    padding: 6px 12px;
+    padding: 4px 10px;
     background: transparent;
-    border: none;
-    border-radius: 18px;
-    font-size: 0.78rem;
-    font-weight: 700;
+    border: 1px solid transparent;
+    border-radius: 14px;
+    font-size: 0.74rem;
+    font-weight: 600;
     color: #4b4540;
     cursor: pointer;
-    transition: all 160ms ease;
+    transition: all 180ms ease;
 }
-.akibuki-btn:hover {
-    background: #f0ece1;
+.palette-chip:hover {
+    background: rgba(240, 235, 225, 0.85);
     color: #1a1715;
 }
-.akibuki-btn.is-active {
+.palette-chip.is-active {
     background: #2b2725;
     color: #ffffff;
+    border-color: #2b2725;
 }
-
-/* Hand-Drawn Sketch Annotations on Desk */
-.desk-annotation {
-    position: absolute;
-    z-index: 8;
-    pointer-events: none;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 0.85rem;
-    font-weight: 700;
-    color: #52483f;
-    opacity: 0.85;
-}
-.annot-polaroid {
-    top: 505px;
-    left: 495px;
-    transform: rotate(2deg);
-}
-.annot-splitflap {
-    top: 205px;
-    left: 285px;
-    transform: rotate(-3deg);
-}
-.annot-draghint {
-    top: 24px;
-    left: 360px;
-    font-size: 0.8rem;
-    letter-spacing: 0.03em;
-    color: #6d6257;
-    background: rgba(255, 255, 255, 0.75);
-    padding: 4px 12px;
-    border-radius: 16px;
-    border: 1px dashed rgba(60, 50, 40, 0.3);
+.chip-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 0, 0, 0.15);
 }
 
 .desk-board {
@@ -156,6 +135,7 @@ body {
     max-width: 1200px;
     height: 640px;
     margin: 0 auto;
+    z-index: 10;
 }
 
 /* Draggable Items Common */
@@ -428,7 +408,74 @@ body {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
 }
 
-/* 6. "See My Work" Button */
+/* 6. Interactive Bezier Curve Toy Card */
+.note-bezier-tool {
+    top: 410px;
+    left: 45px;
+    width: 240px;
+    padding: 14px 14px 12px;
+    background: #ffffff;
+    border: 1px solid #ddd6c8;
+    border-radius: 6px;
+    box-shadow: var(--card-shadow);
+    transform: rotate(2deg);
+    z-index: 18;
+}
+.note-bezier-tool:hover {
+    box-shadow: var(--card-shadow-hover);
+    transform: rotate(0deg) scale(1.02);
+}
+.bezier-tool-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    font-size: 0.72rem;
+    font-weight: 700;
+}
+.bezier-tag {
+    font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+    color: #2b2725;
+    background: #f0ebe2;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+.bezier-hint {
+    color: #8c7f73;
+    font-size: 0.7rem;
+    font-weight: 500;
+}
+.bezier-svg {
+    width: 100%;
+    height: 75px;
+    background: #faf8f5;
+    border-radius: 4px;
+    border: 1px solid #ebdcb9;
+    overflow: visible;
+}
+.bezier-handle {
+    cursor: grab;
+    touch-action: none;
+    transition: filter 120ms ease;
+}
+.bezier-handle:hover {
+    filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.25));
+}
+.bezier-code-display {
+    margin-top: 8px;
+    font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+    font-size: 0.65rem;
+    color: #5a524a;
+    background: #f4efe6;
+    padding: 4px 8px;
+    border-radius: 4px;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* 7. "See My Work" Button */
 .note-jump-pill {
     bottom: 40px;
     left: 450px;
@@ -456,37 +503,54 @@ body {
     color: #2b2725;
 }
 
-/* 7. Doodles & Stickers */
-.desk-doodle {
-    position: absolute;
-    cursor: grab;
-    z-index: 8;
-    filter: drop-shadow(2px 4px 6px rgba(45, 38, 30, 0.1));
-    transition: transform 180ms ease;
+/* Dynamic Color Themes */
+body.theme-vanilla {
+    --canvas-bg: #efece6;
+    --note-sand: #f5eedc;
+    --note-lavender: #eae4f4;
+    --note-mint: #e2f0e5;
 }
-.desk-doodle:hover {
-    transform: scale(1.15) rotate(6deg);
+body.theme-sage {
+    --canvas-bg: #eaf1ec;
+    --note-sand: #edf5ee;
+    --note-lavender: #dbebe0;
+    --note-mint: #cde4d3;
 }
-.doodle-plant { top: 30px; left: 80px; width: 62px; height: 62px; }
-.doodle-tennis { top: 40px; right: 400px; width: 44px; height: 44px; }
-.doodle-heart { top: 220px; right: 30px; width: 48px; height: 48px; transform: rotate(14deg); }
-.doodle-coffee { bottom: 60px; left: 340px; width: 56px; height: 56px; transform: rotate(-8deg); }
-.doodle-dumbbell { bottom: 45px; left: 160px; width: 68px; height: 40px; transform: rotate(-5deg); }
+body.theme-lilac {
+    --canvas-bg: #f0ecf6;
+    --note-sand: #fbf5fc;
+    --note-lavender: #ebe2f7;
+    --note-mint: #dfd8f2;
+}
+body.theme-sky {
+    --canvas-bg: #eaf1f8;
+    --note-sand: #f2f7fc;
+    --note-lavender: #dceaf7;
+    --note-mint: #d1e4f5;
+}
 
-/* ── Cute Duck Mascot in Bottom-Right Corner ── */
+/* ── Minimal Mascot with Spring Physics ── */
 .desk-mascot {
     position: fixed;
-    bottom: 16px;
-    right: 20px;
-    width: 64px;
-    height: 64px;
+    bottom: 20px;
+    right: 24px;
+    width: 66px;
+    height: 66px;
     z-index: 1000;
     cursor: pointer;
-    filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.15));
-    transition: transform 200ms cubic-bezier(0.2, 0.8, 0.3, 1);
+    filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.12));
+    animation: mascotFloat 4s ease-in-out infinite;
+    transition: transform 160ms cubic-bezier(0.2, 0.8, 0.3, 1);
+}
+@keyframes mascotFloat {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-5px) rotate(1deg); }
 }
 .desk-mascot:hover {
-    transform: scale(1.15) translateY(-4px);
+    transform: scale(1.15) translateY(-6px) rotate(-2deg);
+}
+.desk-mascot:active {
+    transform: scale(0.9, 1.15) translateY(2px);
 }
 .mascot-svg {
     width: 100%;
@@ -642,14 +706,14 @@ body {
     .desk-annotation {
         display: none !important;
     }
-    .akibuki-toolbar {
+    .canvas-palette-bar {
         top: 10px;
         right: 12px;
-        transform: scale(0.88);
+        transform: scale(0.85);
         transform-origin: top right;
     }
-    .akibuki-draw-canvas {
-        pointer-events: none !important;
+    .motion-canvas {
+        opacity: 0.6;
     }
     .desk-split-flap {
         margin: 10px 0;
