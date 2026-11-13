@@ -98,41 +98,40 @@ body { background: transparent !important; }
     --tilt: -8deg; --sway: 2deg; --drift-x: 8px; --drift-y: -12px;
     --dur: 8.6s; --delay: -2.2s; --depth: 0.7;
 }
-/* A slow, unhurried crossing. Body stays nearly level so the wing beat —
-   not a rocking motion — carries the flight. */
+/* Fly from right to left across the screen. Body stays nearly level so the wing beat carries the flight. */
 @keyframes butterfly-roam {
-    0%   { transform: translate(-13vw, 5vh) rotate(3deg); }
-    12%  { transform: translate(3vw, -3vh) rotate(-2deg); }
-    26%  { transform: translate(21vw, 4vh) rotate(3deg); }
-    40%  { transform: translate(38vw, -4vh) rotate(-2.5deg); }
-    54%  { transform: translate(56vw, 5vh) rotate(3deg); }
-    68%  { transform: translate(73vw, -3vh) rotate(-2deg); }
-    82%  { transform: translate(90vw, 3vh) rotate(2.5deg); }
-    100% { transform: translate(110vw, -2vh) rotate(-2deg); }
+    0%   { transform: translate(112vw, 4vh) rotate(-2.5deg); }
+    14%  { transform: translate(94vw, -3vh) rotate(2deg); }
+    28%  { transform: translate(75vw, 4vh) rotate(-2deg); }
+    43%  { transform: translate(56vw, -4vh) rotate(2.5deg); }
+    58%  { transform: translate(37vw, 4vh) rotate(-2deg); }
+    72%  { transform: translate(19vw, -3vh) rotate(2.5deg); }
+    86%  { transform: translate(2vw, 3vh) rotate(-2deg); }
+    100% { transform: translate(-14vw, -2vh) rotate(2deg); }
 }
 /* 3/4 Perspective view: near and far wings hinge along the body axis in natural flight */
 .doodle--butterfly-a .d-sketch { stroke-width: 1.2; opacity: 0.65; }
 .doodle .d-wing-near,
 .doodle .d-wing {
     transform-box: view-box;
-    transform-origin: 118px 106px;
+    transform-origin: 77px 106px;
     will-change: transform;
     animation: wing-flap-near 0.44s ease-in-out infinite alternate;
 }
 .doodle .d-wing-far,
 .doodle .d-wing-r {
     transform-box: view-box;
-    transform-origin: 118px 106px;
+    transform-origin: 77px 106px;
     will-change: transform;
     animation: wing-flap-far 0.44s ease-in-out infinite alternate;
 }
 @keyframes wing-flap-near {
     from { transform: rotate(0deg) scaleY(1); }
-    to   { transform: rotate(-7deg) scaleY(0.80) skewX(3deg); }
+    to   { transform: rotate(7deg) scaleY(0.80) skewX(-3deg); }
 }
 @keyframes wing-flap-far {
     from { transform: rotate(0deg) scaleY(1); }
-    to   { transform: rotate(8deg) scaleY(0.82) skewX(-3deg); }
+    to   { transform: rotate(-8deg) scaleY(0.82) skewX(3deg); }
 }
 /* Little current lines trailing the turtle and jellyfish. */
 .doodle .d-waves {
@@ -156,7 +155,7 @@ body { background: transparent !important; }
     opacity: 0.44;
 }
 .doodle--sparkle {
-    width: 84px; bottom: 27vh; right: 5.5vw;
+    width: 84px; top: 38vh; right: 5.5vw;
     --tilt: 7deg; --sway: -3deg; --drift-x: 7px; --drift-y: -13px;
     --dur: 7.5s; --delay: -3s; --depth: 0.65;
     opacity: 0.48;
@@ -174,7 +173,7 @@ body { background: transparent !important; }
     .doodle-flyer { width: 110px; top: 13vh; }
     .doodle--jelly { width: 90px; top: 9vh; right: 2vw; }
     .doodle--turtle { width: 118px; left: 2vw; }
-    .doodle--sparkle { width: 66px; right: 3vw; }
+    .doodle--sparkle { width: 66px; top: 38vh; right: 3vw; }
 }
 
 /* Notebook pages run edge-to-edge at this width, so the left-hand
