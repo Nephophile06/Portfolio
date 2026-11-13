@@ -47,37 +47,46 @@
     <!-- Hand-drawn sky doodles (decorative, behind everything) -->
     <div class="sky-doodles" aria-hidden="true">
         <div class="doodle-flyer">
-            <svg class="doodle doodle--butterfly-a" viewBox="0 0 160 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <svg class="doodle doodle--butterfly-a" viewBox="0 0 195 185" fill="none" xmlns="http://www.w3.org/2000/svg">
             <defs>
                 <filter id="doodleRoughA" x="-12%" y="-12%" width="124%" height="124%">
-                    <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="2" seed="4" result="n"/>
-                    <feDisplacementMap in="SourceGraphic" in2="n" scale="1.5" xChannelSelector="R" yChannelSelector="G"/>
+                    <feTurbulence type="fractalNoise" baseFrequency="0.045" numOctaves="2" seed="5" result="n"/>
+                    <feDisplacementMap in="SourceGraphic" in2="n" scale="1.4" xChannelSelector="R" yChannelSelector="G"/>
                 </filter>
             </defs>
             <g filter="url(#doodleRoughA)" stroke-linecap="round" stroke-linejoin="round">
-                <g class="d-wing">
-                    <path class="d-fill" d="M77 60C66 42 44 27 28 32 15 37 18 56 32 66c10 6 25 8 38 5Z"/>
-                    <path class="d-fill" d="M76 71c-12 5-28 13-33 25-4 9 4 17 13 12 11-5 17-17 20-28Z"/>
-                    <path class="d-sketch" d="M43 44c-8-2-16 0-19 6M48 50c-7 0-14 4-17 9M56 82c-5 5-9 12-9 18"/>
-                    <circle class="d-dot" cx="47" cy="55" r="3.4"/>
-                    <circle class="d-dot" cx="47" cy="78" r="2.4"/>
+                <!-- 1. Background / Far Wing (3/4 perspective flight) -->
+                <g class="d-wing-far">
+                    <path class="d-fill-soft" d="M120 102 C126 88 142 72 168 66 C176 64 182 72 178 86 C172 102 152 118 126 114 Z"/>
+                    <path class="d-sketch" d="M124 104 C138 88 154 78 172 72 M130 106 C148 98 162 102 172 108"/>
                 </g>
-                <g transform="translate(160 0) scale(-1 1)">
-                    <g class="d-wing-r">
-                        <path class="d-fill" d="M77 60C66 42 44 27 28 32 15 37 18 56 32 66c10 6 25 8 38 5Z"/>
-                        <path class="d-fill" d="M76 71c-12 5-28 13-33 25-4 9 4 17 13 12 11-5 17-17 20-28Z"/>
-                        <path class="d-sketch" d="M43 44c-8-2-16 0-19 6M48 50c-7 0-14 4-17 9M56 82c-5 5-9 12-9 18"/>
-                        <circle class="d-dot" cx="47" cy="55" r="3.4"/>
-                        <circle class="d-dot" cx="47" cy="78" r="2.4"/>
-                    </g>
+
+                <!-- 2. Slender Body & Antennae -->
+                <g class="d-body-group">
+                    <path class="d-body" d="M124 99 C121 106 116 116 111 126 C108 132 105 138 102 141 C100 143 98 140 99 136 C103 124 109 112 116 102 C119 98 123 96 124 99 Z"/>
+                    <path class="d-sketch" d="M117 105 C119 108 121 109 123 108 M113 113 C116 116 118 117 120 115 M110 121 C112 123 115 124 117 122"/>
+                    <circle class="d-body" cx="125" cy="98" r="4.2"/>
+                    <circle class="d-dot" cx="126" cy="97" r="1.6"/>
+                    <path class="d-sketch" d="M127 96 C134 88 144 80 154 81"/>
+                    <circle class="d-dot" cx="154" cy="81" r="1.5"/>
+                    <path class="d-sketch" d="M128 98 C138 94 150 90 162 92"/>
+                    <circle class="d-dot" cx="162" cy="92" r="1.5"/>
                 </g>
-                <path class="d-body" d="M80 43c-2.8 6-4 14-4 21 0 9 1.5 21 4 30 2.5-9 4-21 4-30 0-7-1.2-15-4-21Z"/>
-                <path class="d-sketch" d="M80 45c-5-8-11-13-17-14M80 45c5-8 11-13 17-14"/>
-                <circle class="d-dot" cx="63" cy="31" r="2.1"/>
-                <circle class="d-dot" cx="97" cy="31" r="2.1"/>
-                <circle class="d-body" cx="80" cy="44" r="4.4"/>
+
+                <!-- 3. Foreground / Near Wing (Forewing + Scalloped Hindwing) -->
+                <g class="d-wing-near">
+                    <path class="d-fill" d="M117 104 C108 84 94 48 98 18 C100 8 106 4 109 9 C112 15 106 32 98 56 C88 82 72 98 52 108 C42 113 28 115 16 118 C8 120 4 125 10 129 C24 135 48 132 72 124 C94 116 110 108 117 104 Z"/>
+                    <path class="d-fill" d="M112 116 C88 124 58 134 32 136 C18 137 6 132 4 140 C2 148 14 156 26 158 C38 160 52 154 62 152 C46 160 32 168 34 176 C36 182 48 184 62 178 C80 170 96 150 108 134 C112 128 114 121 112 116 Z"/>
+                    <path class="d-sketch" d="M114 102 C104 76 96 46 100 24 M114 102 C98 78 84 64 74 52 M114 104 C92 88 72 82 56 80 M114 105 C88 98 64 100 44 104"/>
+                    <path class="d-sketch" d="M96 38 C88 54 76 72 60 84 M88 56 C78 72 64 86 48 94"/>
+                    <path class="d-sketch" d="M110 118 C86 128 58 140 38 148 M108 124 C84 138 60 156 46 166 M106 130 C86 148 72 164 56 174"/>
+                    <path class="d-sketch" d="M22 144 C28 150 36 152 46 150 M32 162 C40 168 50 168 58 164"/>
+                    <circle class="d-dot" cx="98" cy="24" r="1.4"/>
+                    <circle class="d-dot" cx="50" cy="148" r="1.3"/>
+                    <circle class="d-dot" cx="58" cy="172" r="1.2"/>
+                </g>
             </g>
-        </svg>
+            </svg>
         </div>
 
         <svg class="doodle doodle--jelly" viewBox="0 0 132 164" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -299,40 +308,20 @@
                     </svg>
                 </div>
 
-                <div class="desk-item desk-doodle desk-sticker sticker-petals" id="stickerPetals" data-rot="-3" title="Drag me anywhere" aria-hidden="true">
-                    <svg viewBox="0 0 104 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M6 20c7-5 15-6 22-2M84 12c5-2 10-1 14 2M14 88c7-3 14-2 19 2M82 84c5-2 10-1 14 2" stroke="#7fa9c9" stroke-width="1.4" stroke-linecap="round" stroke-dasharray="1 6"/>
-                        <g transform="translate(58 28) rotate(-14)" stroke="#2b5a7a" stroke-width="1.4" stroke-linejoin="round">
-                            <path d="M0 19C-7 13-16 6-16-4c0-9 7-15 16-15s16 6 16 15c0 10-9 17-16 23Z" fill="#dcecf9"/>
-                            <path d="M0 16V-12M0-3l-8-7M0-3l8-7M-4 6l-7-6M4 6l7-6" stroke="#7fa9c9" stroke-width="0.9" stroke-linecap="round" opacity=".85"/>
-                            <path d="M0 15c5-2 9-6 11-10" stroke="#a9cfe8" stroke-width="1" stroke-linecap="round"/>
-                        </g>
-                        <g transform="translate(24 54) rotate(-42) scale(0.94)" stroke="#a06a76" stroke-width="1.5" stroke-linejoin="round">
-                            <path d="M0 19C-7 13-16 6-16-4c0-9 7-15 16-15s16 6 16 15c0 10-9 17-16 23Z" fill="#f4d8dc"/>
-                            <path d="M0 16V-12M0-3l-8-7M0-3l8-7M-4 6l-7-6M4 6l7-6" stroke="#c398a1" stroke-width="0.9" stroke-linecap="round" opacity=".85"/>
-                            <path d="M0 15c5-2 9-6 11-10" stroke="#e8bcc3" stroke-width="1" stroke-linecap="round"/>
-                        </g>
-                        <g transform="translate(82 52) rotate(26) scale(0.8)" stroke="#245474" stroke-width="1.6" stroke-linejoin="round">
-                            <path d="M0 19C-7 13-16 6-16-4c0-9 7-15 16-15s16 6 16 15c0 10-9 17-16 23Z" fill="#cfe8f6"/>
-                            <path d="M0 16V-12M0-3l-8-7M0-3l8-7M-4 6l-7-6M4 6l7-6" stroke="#5f8cae" stroke-width="1" stroke-linecap="round" opacity=".85"/>
-                            <path d="M0 15c5-2 9-6 11-10" stroke="#96bfdb" stroke-width="1" stroke-linecap="round"/>
-                        </g>
-                        <g transform="translate(48 80) rotate(8) scale(0.72)" stroke="#8a7259" stroke-width="1.7" stroke-linejoin="round">
-                            <path d="M0 19C-7 13-16 6-16-4c0-9 7-15 16-15s16 6 16 15c0 10-9 17-16 23Z" fill="#f8efe2"/>
-                            <path d="M0 16V-12M0-3l-8-7M0-3l8-7M-4 6l-7-6M4 6l7-6" stroke="#b3a08a" stroke-width="0.9" stroke-linecap="round" opacity=".85"/>
-                            <path d="M0 15c5-2 9-6 11-10" stroke="#dfceb6" stroke-width="1" stroke-linecap="round"/>
-                        </g>
-                        <path d="M92 74l1.5 4.5 4.5 1.5-4.5 1.5-1.5 4.5-1.5-4.5-4.5-1.5 4.5-1.5Z" fill="#d5effb" stroke="#245474" stroke-width="1.1"/>
-                        <circle cx="12" cy="70" r="2" fill="#b9d6e8"/>
-                        <circle cx="68" cy="24" r="1.6" fill="#e2bcc3"/>
-                    </svg>
-                </div>
-
                 <div class="desk-item desk-doodle desk-sticker sticker-paint" id="stickerPaint" data-rot="3" title="Drag me anywhere" aria-hidden="true">
                     <svg viewBox="0 0 110 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 100c12-10 30-15 48-12 8 1 14 5 16 9-9 6-23 9-38 8-10-1-19-3-26-5Z" fill="#cfe8f6" stroke="#245474" stroke-width="1.3" stroke-linejoin="round"/>
-                        <path d="M22 101c10-4 22-6 33-5" stroke="#8db9d3" stroke-width="2.4" stroke-linecap="round"/>
-                        <g transform="translate(63 47) rotate(38)">
+                        <!-- little potted plant -->
+                        <g stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M24 99c0-7 1-12 3-17" stroke="#5f8068" stroke-width="1.8"/>
+                            <path d="M26 92c-5 0-9-3-10-8 5-1 9 2 10 8Z" fill="#cfe0d3" stroke="#5b7c62" stroke-width="1.2"/>
+                            <path d="M27 88c5-1 8-5 8-10-5 0-8 4-8 10Z" fill="#e3efe0" stroke="#5b7c62" stroke-width="1.2"/>
+                            <path d="M27 82c-2-4-1-8 2-11 2 4 1 8-2 11Z" fill="#cfe0d3" stroke="#5b7c62" stroke-width="1.2"/>
+                            <path d="M12 102h24l-2.6 13.4c-.3 1.7-1.6 2.8-3.3 2.8H17.9c-1.7 0-3-1.1-3.3-2.8Z" fill="#f8efe2" stroke="#245474" stroke-width="1.5"/>
+                            <path d="M10 99h28v4.5H10Z" fill="#dcecf9" stroke="#245474" stroke-width="1.4"/>
+                            <path d="M16 107c3 1.4 8 1.4 11 0" stroke="#b7a38b" stroke-width="1" opacity="0.7"/>
+                        </g>
+                        <!-- paintbrush -->
+                        <g transform="translate(74 50) rotate(30)">
                             <path d="M-6.5-48c0-3.4 3-5.5 6.5-5.5s6.5 2.1 6.5 5.5V8h-13Z" fill="#fdfbf7" stroke="#245474" stroke-width="1.7" stroke-linejoin="round"/>
                             <path d="M-6.5-38h13" stroke="#245474" stroke-width="1" opacity="0.32"/>
                             <path d="M-6.5 8h13v12h-13Z" fill="#8db9d3" stroke="#245474" stroke-width="1.6" stroke-linejoin="round"/>
@@ -341,8 +330,13 @@
                             <path d="M-3.5 22c0 5-.5 10-2 15M0 22c0 6 .5 11 1 16M3.5 22c.5 5 1.5 9 4 13" stroke="#8db9d3" stroke-width="1" stroke-linecap="round" opacity="0.9"/>
                             <path d="M-7.5 35c4 2 10 2 15 1l-2 7c-4 1-8 0-11-3Z" fill="#8db9d3" stroke="#245474" stroke-width="1.1" stroke-linejoin="round"/>
                         </g>
+                        <!-- a few paint marks and drops -->
+                        <path d="M41 104c4-2 9-2 13 0" stroke="#8db9d3" stroke-width="2.2" stroke-linecap="round"/>
+                        <path d="M45 96c3-1 6-1 9 1" stroke="#e3aeb8" stroke-width="1.8" stroke-linecap="round" opacity="0.9"/>
+                        <path d="M58 90c0-2 1.4-3.6 3-4.8 1.6 1.2 3 2.8 3 4.8 0 1.7-1.3 3-3 3s-3-1.3-3-3Z" fill="#a9cfe8" stroke="#245474" stroke-width="1.2"/>
+                        <circle cx="72" cy="98" r="1.9" fill="#e2bcc3"/>
+                        <circle cx="52" cy="113" r="1.4" fill="#b9d6e8"/>
                         <path d="M18 32l1.8 5.4 5.4 1.8-5.4 1.8-1.8 5.4-1.8-5.4-5.4-1.8 5.4-1.8Z" fill="#d5effb" stroke="#245474" stroke-width="1.1"/>
-                        <path d="M20 108c4-2 8-2 12 0" stroke="#245474" stroke-width="1.2" stroke-linecap="round" opacity="0.5"/>
                     </svg>
                 </div>
 
@@ -790,134 +784,63 @@
         </div>
     </main>
 
-    <!-- Hand-drawn bunny mascot — little hellos, blinks, and a curious face -->
+    <!-- Sketchy bunny mascot — crayon outline, little hellos, blinks, and a curious face -->
     <div class="desk-mascot bunny-mascot" id="duckMascot" role="button" tabindex="0" aria-label="Bunny mascot — click for a little hello" title="Click me for a little hello">
-        <svg class="mascot-svg" viewBox="0 0 180 210" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <svg class="mascot-svg" viewBox="0 0 160 170" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <defs>
-                <filter id="mascotRough" x="-10%" y="-10%" width="120%" height="120%">
-                    <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="8" result="n"/>
-                    <feDisplacementMap in="SourceGraphic" in2="n" scale="0.9" xChannelSelector="R" yChannelSelector="G"/>
+                <filter id="mascotRough" x="-12%" y="-12%" width="124%" height="124%">
+                    <feTurbulence type="fractalNoise" baseFrequency="0.055" numOctaves="2" seed="9" result="n"/>
+                    <feDisplacementMap in="SourceGraphic" in2="n" scale="1.7" xChannelSelector="R" yChannelSelector="G"/>
                 </filter>
-                <radialGradient id="mascotFurHead" cx="38%" cy="30%" r="78%">
-                    <stop offset="0" stop-color="#fffdfa"/>
-                    <stop offset="0.62" stop-color="#fbf3e8"/>
-                    <stop offset="1" stop-color="#e9d9c7"/>
-                </radialGradient>
-                <linearGradient id="mascotFurBody" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0" stop-color="#fdf8f0"/>
-                    <stop offset="1" stop-color="#f0e2d2"/>
-                </linearGradient>
-                <linearGradient id="mascotEarIn" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0" stop-color="#f7d9d9"/>
-                    <stop offset="1" stop-color="#eec2c6"/>
-                </linearGradient>
                 <radialGradient id="mascotBlush" cx="50%" cy="50%" r="50%">
-                    <stop offset="0" stop-color="#eea1a8" stop-opacity="0.55"/>
+                    <stop offset="0" stop-color="#eea1a8" stop-opacity="0.5"/>
                     <stop offset="1" stop-color="#eea1a8" stop-opacity="0"/>
                 </radialGradient>
-                <linearGradient id="mascotBow" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0" stop-color="#f0ccd1"/>
-                    <stop offset="1" stop-color="#dda7b0"/>
-                </linearGradient>
-                <radialGradient id="mascotEye" cx="36%" cy="30%" r="80%">
-                    <stop offset="0" stop-color="#8a6555"/>
-                    <stop offset="0.55" stop-color="#4e352c"/>
-                    <stop offset="1" stop-color="#2b1e1a"/>
-                </radialGradient>
-                <linearGradient id="mascotPetal" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0" stop-color="#e6f4fd"/>
-                    <stop offset="1" stop-color="#b9d9ee"/>
-                </linearGradient>
-                <linearGradient id="mascotLeaf" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0" stop-color="#cfe2d1"/>
-                    <stop offset="1" stop-color="#a9c6ae"/>
-                </linearGradient>
             </defs>
 
-            <ellipse cx="90" cy="204" rx="47" ry="5.5" fill="#2f4a5e" opacity="0.12"/>
+            <ellipse cx="80" cy="166" rx="40" ry="4" fill="#2f4a5e" opacity="0.1"/>
 
-            <g filter="url(#mascotRough)" stroke="#2c3f4f" stroke-linecap="round" stroke-linejoin="round">
-                <!-- body -->
-                <path d="M57 146c-10 15-14 32-6 43 8 10 22 13 39 13s31-3 39-13c8-11 4-28-6-43-11 6-55 6-66 0Z" fill="url(#mascotFurBody)" stroke-width="2.2"/>
-                <ellipse cx="90" cy="172" rx="25" ry="21" fill="#fffaf3" opacity="0.75" stroke="none"/>
-                <!-- feet -->
-                <path d="M52 190c-1 7 5 11 13 11 7 0 12-3 12-9s-5-9-12-9c-6 0-12 2-13 7Z" fill="#fdf8f1" stroke-width="2"/>
-                <path d="M128 190c1 7-5 11-13 11-7 0-12-3-12-9s5-9 12-9c6 0 12 2 13 7Z" fill="#fdf8f1" stroke-width="2"/>
-                <path d="M60 197c3 2 7 2 10 0M116 197c3 2 7 2 10 0" fill="none" stroke-width="1.4" opacity="0.55"/>
-                <!-- arms -->
-                <path d="M58 149c-5 7-7 16-3 23 3 5 9 4 12-1l5-15Z" fill="url(#mascotFurBody)" stroke-width="2"/>
-                <path d="M122 149c5 7 7 16 3 23-3 5-9 4-12-1l-5-15Z" fill="url(#mascotFurBody)" stroke-width="2"/>
+            <g filter="url(#mascotRough)" stroke="#5f7481" stroke-linecap="round" stroke-linejoin="round">
                 <!-- ears -->
                 <g class="mascot-ear-l">
-                    <path d="M68 70C56 58 47 33 50 16c2-9 9-13 15-7 8 8 10 33 8 60Z" fill="url(#mascotFurHead)" stroke-width="2.2"/>
-                    <path d="M66 62C57 50 53 32 56 21c1-5 4-6 7-3 5 5 6 23 5 42Z" fill="url(#mascotEarIn)" stroke="none"/>
-                    <path d="M60 24c1 8 3 17 6 24" stroke="#d9a9ad" stroke-width="1" opacity="0.55" fill="none"/>
+                    <path d="M58 96C47 78 41 48 47 28c4-12 17-14 23-3 6 12 5 45 3 71Z" fill="#fffdf8" stroke-width="2.6"/>
+                    <path d="M59 84c-6-15-9-37-5-50 2-6 8-7 11-1 3 7 2 30 0 48" fill="none" stroke="#d8a9b0" stroke-width="2"/>
                 </g>
                 <g class="mascot-ear-r">
-                    <path d="M110 68c-3-26 1-48 14-57 7-5 14-2 14 6 0 15-11 37-24 51Z" fill="url(#mascotFurHead)" stroke-width="2.2"/>
-                    <path d="M113 60c0-20 4-36 13-43 4-3 7-1 7 3 0 11-8 28-18 39Z" fill="url(#mascotEarIn)" stroke="none"/>
-                    <path d="M127 20c-3 8-7 16-11 22" stroke="#d9a9ad" stroke-width="1" opacity="0.55" fill="none"/>
+                    <path d="M103 96c-2-24-1-50 5-64 4-11 17-12 22-1 5 13-1 45-8 65Z" fill="#fffdf8" stroke-width="2.6"/>
+                    <path d="M107 84c1-16 4-37 9-48 3-6 9-6 11 0 3 8-2 31-6 46" fill="none" stroke="#d8a9b0" stroke-width="2"/>
                 </g>
                 <!-- head -->
-                <path d="M41 100c0-27 22-46 49-46s49 19 49 46c0 27-21 46-49 46s-49-19-49-46Z" fill="url(#mascotFurHead)" stroke-width="2.3"/>
-                <!-- cheek fur -->
-                <path d="M43 108c-6 1-10 5-11 10 4 2 9 1 13-3M137 108c6 1 10 5 11 10-4 2-9 1-13-3" fill="#fdf7ee" stroke-width="1.6"/>
-                <path d="M87 61c1 4 2 7 4 9M93 61c-1 4-2 7-4 9" fill="none" stroke-width="1.2" opacity="0.5"/>
-                <!-- bow -->
-                <g class="mascot-bow" transform="translate(57 68) rotate(-14)">
-                    <path d="M0 0c-9-8-17-5-17 2s8 10 17 4Z" fill="url(#mascotBow)" stroke-width="1.5"/>
-                    <path d="M0 0c9-8 17-5 17 2s-8 10-17 4Z" fill="url(#mascotBow)" stroke-width="1.5"/>
-                    <path d="M-3 5l-5 11M3 5l5 11" fill="none" stroke-width="1.4"/>
-                    <circle r="3.6" fill="#e7b6bd" stroke-width="1.5"/>
-                </g>
+                <path d="M48 94C31 97 20 111 20 131c0 21 19 35 60 35s60-14 60-35c0-20-11-34-28-37c-9-2-55-2-64 0Z" fill="#fffdf8" stroke-width="2.8"/>
+                <!-- loose crayon accents -->
+                <path d="M40 104c-3 2-5 5-5 9M43 158c4 2 9 3 14 2M125 150c3-2 5-5 6-9M52 101c-2 1-3 2-4 4" fill="none" stroke-width="1.2" opacity="0.35"/>
             </g>
 
-            <!-- hydrangea held in the paws -->
-            <g stroke-linecap="round" stroke-linejoin="round">
-                <path d="M90 168v12" stroke="#5f8068" stroke-width="1.8" fill="none"/>
-                <path d="M88 171c-6-1-9-5-9-9 5 0 8 3 9 9Z" fill="url(#mascotLeaf)" stroke="#5b7c62" stroke-width="1.1"/>
-                <path d="M92 172c6 0 9-4 10-8-5-1-8 2-10 8Z" fill="url(#mascotLeaf)" stroke="#5b7c62" stroke-width="1.1"/>
-                <g transform="translate(90 158)">
-                    <g class="mascot-bloom">
-                        <ellipse cx="0" cy="-7.5" rx="7.2" ry="5.4" fill="url(#mascotPetal)" stroke="#2d5f80" stroke-width="1.1"/>
-                        <ellipse cx="7.5" cy="0" rx="7.2" ry="5.4" fill="url(#mascotPetal)" stroke="#2d5f80" stroke-width="1.1" transform="rotate(90)"/>
-                        <ellipse cx="0" cy="7.5" rx="7.2" ry="5.4" fill="url(#mascotPetal)" stroke="#2d5f80" stroke-width="1.1"/>
-                        <ellipse cx="-7.5" cy="0" rx="7.2" ry="5.4" fill="url(#mascotPetal)" stroke="#2d5f80" stroke-width="1.1" transform="rotate(90)"/>
-                        <circle r="3.2" fill="#f7e9cd" stroke="#9a835c" stroke-width="0.9"/>
-                        <circle cx="-1.2" cy="-1" r="0.7" fill="#9a835c" stroke="none"/>
-                        <circle cx="1.2" cy="1" r="0.7" fill="#9a835c" stroke="none"/>
-                    </g>
-                </g>
-                <!-- paws over the stem -->
-                <ellipse cx="79" cy="180" rx="8.5" ry="6" fill="#fdf8f1" stroke="#2c3f4f" stroke-width="1.8"/>
-                <ellipse cx="101" cy="180" rx="8.5" ry="6" fill="#fdf8f1" stroke="#2c3f4f" stroke-width="1.8"/>
-                <path d="M76 180c1.5 1 3 1 4.5 0M98 180c1.5 1 3 1 4.5 0" fill="none" stroke="#2c3f4f" stroke-width="1" opacity="0.5"/>
+            <!-- small bow at the base of the left ear -->
+            <g class="mascot-bow" transform="translate(52 88) rotate(-16)">
+                <path d="M0 0c-8-7-15-4-15 2 0 5 7 8 15 2Z" fill="#f4d8dc" stroke="#a3767e" stroke-width="1.3" stroke-linejoin="round"/>
+                <path d="M0 0c8-7 15-4 15 2 0 5-7 8-15 2Z" fill="#f4d8dc" stroke="#a3767e" stroke-width="1.3" stroke-linejoin="round"/>
+                <circle r="3" fill="#e9bcc3" stroke="#a3767e" stroke-width="1.3"/>
+                <path d="M-2 4l-3 8M2 4l3 8" fill="none" stroke="#a3767e" stroke-width="1.2" stroke-linecap="round"/>
             </g>
 
             <!-- face -->
             <g class="mascot-look">
-                <ellipse cx="59" cy="117" rx="11" ry="6" fill="url(#mascotBlush)" stroke="none"/>
-                <ellipse cx="121" cy="117" rx="11" ry="6" fill="url(#mascotBlush)" stroke="none"/>
-                <ellipse cx="81" cy="116" rx="11" ry="7.5" fill="#fffaf3" opacity="0.85" stroke="none"/>
-                <ellipse cx="99" cy="116" rx="11" ry="7.5" fill="#fffaf3" opacity="0.85" stroke="none"/>
+                <ellipse cx="44" cy="134" rx="10" ry="5.5" fill="url(#mascotBlush)" stroke="none"/>
+                <ellipse cx="118" cy="132" rx="10" ry="5.5" fill="url(#mascotBlush)" stroke="none"/>
                 <g class="mascot-eye">
-                    <ellipse cx="70" cy="99" rx="7.2" ry="8.8" fill="url(#mascotEye)" stroke="none"/>
-                    <ellipse cx="67.6" cy="96" rx="2.4" ry="3" fill="#ffffff" opacity="0.9" stroke="none"/>
-                    <circle cx="72.6" cy="102.5" r="1.2" fill="#ffffff" opacity="0.55" stroke="none"/>
-                    <path d="M61.5 94.5c-2-2-3.4-4.2-4-6.4M62.5 100c-2.4-.8-4.4-1.8-5.8-3.2" fill="none" stroke="#2c3f4f" stroke-width="1.2" stroke-linecap="round"/>
+                    <circle cx="64" cy="124" r="4.6" fill="#44525b"/>
                 </g>
                 <g class="mascot-eye">
-                    <ellipse cx="110" cy="99" rx="7.2" ry="8.8" fill="url(#mascotEye)" stroke="none"/>
-                    <ellipse cx="107.6" cy="96" rx="2.4" ry="3" fill="#ffffff" opacity="0.9" stroke="none"/>
-                    <circle cx="112.6" cy="102.5" r="1.2" fill="#ffffff" opacity="0.55" stroke="none"/>
-                    <path d="M118.5 94.5c2-2 3.4-4.2 4-6.4M117.5 100c2.4-.8 4.4-1.8 5.8-3.2" fill="none" stroke="#2c3f4f" stroke-width="1.2" stroke-linecap="round"/>
+                    <circle cx="98" cy="122" r="4.4" fill="#44525b"/>
                 </g>
-                <path d="M86.5 111.5c2.2-1.6 4.8-1.6 7 0l-3.5 4.5Z" fill="#d79aa2" stroke="#8d5a63" stroke-width="0.9" stroke-linejoin="round"/>
-                <path d="M90 116v3.2M90 119.2c-2 1.8-4 2.2-6 1.2M90 119.2c2 1.8 4 2.2 6 1.2" fill="none" stroke="#8d5a63" stroke-width="1.1" stroke-linecap="round"/>
-                <path d="M74 113c-4 0-7 1-9.5 3M74 117c-4 1-6.5 2.5-8.5 5M106 113c4 0 7 1 9.5 3M106 117c4 1 6.5 2.5 8.5 5" fill="none" stroke="#5d6f7c" stroke-width="0.9" stroke-linecap="round" opacity="0.55"/>
+                <path d="M78 133l3 4 3-4" fill="none" stroke="#5f7481" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M78 141c2 1.6 4 1.6 6 0" fill="none" stroke="#5f7481" stroke-width="1.4" stroke-linecap="round"/>
             </g>
 
-            <path class="mascot-spark" d="M148 52l2.2 6.4 6.4 2.2-6.4 2.2-2.2 6.4-2.2-6.4-6.4-2.2 6.4-2.2Z" fill="#d5effb" stroke="#245474" stroke-width="1.2"/>
+            <path class="mascot-spark" d="M132 56l2 5.6 5.6 2-5.6 2-2 5.6-2-5.6-5.6-2 5.6-2Z" fill="#d5effb" stroke="#245474" stroke-width="1.1"/>
+            <circle cx="24" cy="62" r="2" fill="#b9d6e8"/>
+            <circle cx="118" cy="96" r="1.5" fill="#e2bcc3"/>
         </svg>
     </div>
     <div class="mascot-bubble" id="duckBubble" aria-hidden="true">hi!</div>

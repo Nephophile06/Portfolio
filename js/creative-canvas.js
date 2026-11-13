@@ -130,12 +130,12 @@
             if (ripples.length > 5) ripples.shift();
         });
 
-        // 4 Multi-layered flowing vector ribbons — cloud whites and sky blues
+        // 3 Multi-layered flowing vector ribbons — cloud whites and sky blues
+        // (no ribbon near the base of the sky, so no flat “horizon” line)
         const ribbons = [
             { baseY: 0.28, amp: 26, freq: 0.0035, speed: 0.016, color: 'rgba(255, 255, 255, 0.55)', width: 2.2 },
             { baseY: 0.48, amp: 34, freq: 0.0028, speed: 0.012, color: 'rgba(126, 170, 208, 0.30)', width: 2.0 },
-            { baseY: 0.70, amp: 28, freq: 0.0032, speed: 0.018, color: 'rgba(168, 205, 232, 0.35)', width: 1.8 },
-            { baseY: 0.88, amp: 20, freq: 0.0040, speed: 0.014, color: 'rgba(74, 124, 166, 0.18)', width: 1.5 }
+            { baseY: 0.70, amp: 28, freq: 0.0032, speed: 0.018, color: 'rgba(168, 205, 232, 0.35)', width: 1.8 }
         ];
 
         function render() {
