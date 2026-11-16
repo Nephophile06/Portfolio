@@ -323,18 +323,18 @@ button, a, input, textarea, [role="button"] { -webkit-tap-highlight-color: trans
 .block-title::before, .lets-talk-heading::before {
     content: '';
     display: inline-block;
-    width: 26px;
-    height: 18px;
+    width: 25px;
+    height: 17px;
     margin-right: 11px;
     vertical-align: -2px;
-    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 22' fill='none'%3E%3Cpath d='M6.5 17h18c3 0 5.5-2.2 5.5-5 0-2.5-1.8-4.5-4.2-4.9-.5-3.6-3.6-6.1-7.3-6.1-2.5 0-4.8 1.2-6 3.2C11.5 3.5 10.5 3 9.5 3 6.5 3 4 5.5 4 8.5c0 .5.1 1 .2 1.5C2.2 10.8 1 12.8 1 15c0 2.8 2.5 2 5.5 2z' fill='%23dcf0fa' stroke='%23366487' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M9.5 9.5c1.2-1.5 2.8-1.8 4.2-1.2' stroke='%23366487' stroke-width='1.1' stroke-linecap='round' opacity='0.7'/%3E%3Cpath d='M17.5 7.5c1.4-1.2 3.2-1 4.2 0' stroke='%23366487' stroke-width='1.1' stroke-linecap='round' opacity='0.7'/%3E%3Cpath d='M6 14.5c1.5 1 3.5 1 5 0' stroke='%23366487' stroke-width='1' stroke-linecap='round' opacity='0.55'/%3E%3Cpath d='M27.5 1.5l.7 2 2 .7-2 .7-.7 2-.7-2-2-.7 2-.7z' fill='%23eef7fc' stroke='%23366487' stroke-width='0.85'/%3E%3C/svg%3E") no-repeat center / contain;
-    filter: drop-shadow(1px 2px 0 rgba(77, 126, 166, 0.14));
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 20' fill='none'%3E%3Cpath d='M5.5 16.5h19c2.8 0 4.5-2 4.5-4.5 0-2.2-1.7-4-3.8-4.4C24.7 4.3 22 2 18.5 2c-2.3 0-4.3 1-5.4 2.8C12.3 4.3 11.2 4 10 4 7.2 4 5 6.2 5 9c0 .4.1.8.2 1.2C3 10.8 1.5 12.5 1.5 14.5c0 2 1.8 2 4 2z' fill='%23dcf0fa' stroke='%23366487' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center / contain;
+    filter: drop-shadow(1px 2px 0 rgba(77, 126, 166, 0.12));
     transition: transform 220ms ease;
 }
 .block-title:hover::before, .lets-talk-heading:hover::before {
-    transform: translateY(-2px) scale(1.08) rotate(-2deg);
+    transform: translateY(-2px) scale(1.08);
 }
-.pencil-line { position: absolute; left: 37px; bottom: -1px; width: calc(100% - 37px); height: 7px; overflow: visible; pointer-events: none; color: var(--accent-blue); }
+.pencil-line { position: absolute; left: 36px; bottom: -1px; width: calc(100% - 36px); height: 7px; overflow: visible; pointer-events: none; color: var(--accent-blue); }
 .pencil-line path { stroke-dasharray: 100; stroke-dashoffset: 0; }
 .reveal-ready .pencil-line path { stroke-dashoffset: 100; transition: stroke-dashoffset 650ms ease 120ms; }
 .reveal-ready.visible .pencil-line path { stroke-dashoffset: 0; }
