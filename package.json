@@ -1,0 +1,13 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "Anika Binta Azad - Portfolio Website",
+  "scripts": {
+    "dev": "node server.js",
+    "start": "node server.js",
+    "serve": "python -m http.server 3000"
+  },
+  "keywords": ["portfolio", "design", "frontend", "ui-ux"],
+  "author": "Anika Binta Azad",
+  "license": "ISC"
+}
