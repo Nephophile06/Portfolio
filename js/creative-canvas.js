@@ -258,7 +258,7 @@
         });
     }
 
-    // ── 4. Hand-drawn Bunny Mascot (little hellos & a curious face) ──
+    // ── 4. Hand-drawn Profile Mascot (little hellos & a curious face) ──
     const duckMascot = document.getElementById('duckMascot');
     const duckBubble = document.getElementById('duckBubble');
     const duckLive = document.getElementById('duckLive');
