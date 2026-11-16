@@ -2,7 +2,6 @@
    Creative Canvas Script
    - 60FPS Generative Motion Graphics Canvas Engine (Fluid Ribbons, Click Ripples)
    - Interactive Bezier Vector Curve Tool (Live UI/UX Vector Computation)
-   - Airport Split-Flap Dynamic Letter Cycling
    - Draggable Desk Cards with Spring Inertia & 3D Tilt Parallax
    - Minimal Mascot with Eye-Tracking & Interactions
    ========================================================================== */
@@ -10,56 +9,7 @@
 (function () {
     'use strict';
 
-    // ── 1. Airport Split-Flap Words Animation ──
-    const words = [
-        "H I ,  I ' M  A N I K A",
-        "U I / U X  D E S I G N ",
-        "F R O N T E N D  D E V ",
-        "D A T A  A N N O T A T E",
-        "B U I L D I N G  I D E A"
-    ];
-    let wordIndex = 0;
-    const flapBoard = document.getElementById('splitFlapBoard');
-
-    function initFlapTiles(word) {
-        if (!flapBoard) return;
-        flapBoard.innerHTML = '';
-        const chars = word.padEnd(16, ' ').slice(0, 16).split('');
-        chars.forEach(char => {
-            const tile = document.createElement('div');
-            tile.className = 'split-flap-tile';
-            tile.textContent = char;
-            flapBoard.appendChild(tile);
-        });
-    }
-
-    function flipToNextWord() {
-        if (!flapBoard) return;
-        wordIndex = (wordIndex + 1) % words.length;
-        const target = words[wordIndex].padEnd(16, ' ').slice(0, 16);
-        const tiles = flapBoard.querySelectorAll('.split-flap-tile');
-
-        target.split('').forEach((char, i) => {
-            if (tiles[i] && tiles[i].textContent !== char) {
-                setTimeout(() => {
-                    tiles[i].classList.add('flipping');
-                    setTimeout(() => {
-                        tiles[i].textContent = char;
-                    }, 160);
-                    setTimeout(() => {
-                        tiles[i].classList.remove('flipping');
-                    }, 320);
-                }, i * 45);
-            }
-        });
-    }
-
-    if (flapBoard) {
-        initFlapTiles(words[0]);
-        setInterval(flipToNextWord, 3400);
-    }
-
-    // ── 2. 60FPS Generative Motion Graphics Canvas (Fluid Wave Ribbons) ──
+    // ── 1. 60FPS Generative Motion Graphics Canvas (Fluid Wave Ribbons) ──
     const motionCanvas = document.getElementById('motionCanvas');
     if (motionCanvas) {
         const ctx = motionCanvas.getContext('2d');
@@ -117,7 +67,7 @@
         // Trigger dynamic ripple on click
         deskContainer.addEventListener('pointerdown', (e) => {
             // Only trigger if clicking canvas or background, not interactive links/inputs
-            if (e.target.closest('a, button, input, .split-flap-tile')) return;
+            if (e.target.closest('a, button, input')) return;
             const rect = motionCanvas.getBoundingClientRect();
             ripples.push({
                 x: e.clientX - rect.left,
