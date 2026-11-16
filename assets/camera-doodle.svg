@@ -1,0 +1,64 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 100' fill='none'>
+  <defs>
+    <!-- Deep glossy glass gradient for lens -->
+    <radialGradient id='lensGlass' cx='45%' cy='42%' r='55%'>
+      <stop offset='0%' stop-color='#3b5368'/>
+      <stop offset='55%' stop-color='#192530'/>
+      <stop offset='100%' stop-color='#0b1117'/>
+    </radialGradient>
+    <!-- Soft metallic gradient for top plate -->
+    <linearGradient id='metalPlate' x1='0' y1='0' x2='0' y2='1'>
+      <stop offset='0%' stop-color='#f1f5f9'/>
+      <stop offset='60%' stop-color='#e2e8f0'/>
+      <stop offset='100%' stop-color='#cbd5e1'/>
+    </linearGradient>
+    <!-- Subtle drop shadow -->
+    <filter id='cameraShadow' x='-10%' y='-10%' width='125%' height='125%'>
+      <feDropShadow dx='0' dy='4' stdDeviation='3' flood-color='#1e3a52' flood-opacity='0.16'/>
+    </filter>
+  </defs>
+
+  <g filter='url(#cameraShadow)'>
+    <!-- 1. Top Plate & Viewfinder Bump -->
+    <!-- Viewfinder left bump -->
+    <rect x='22' y='14' width='32' height='12' rx='3' fill='url(#metalPlate)' stroke='#245474' stroke-width='1.6' stroke-linejoin='round'/>
+    <rect x='29' y='17' width='14' height='6' rx='1.5' fill='#1e293b' stroke='#245474' stroke-width='1.1'/>
+    <circle cx='32' cy='19.5' r='1' fill='#93c5fd' opacity='0.85'/>
+
+    <!-- Orange Shutter Button -->
+    <circle cx='92' cy='18' r='5' fill='#f97316' stroke='#c2410c' stroke-width='1.3'/>
+    <ellipse cx='91' cy='16.5' rx='2.2' ry='1.2' fill='#fdba74' opacity='0.8'/>
+
+    <!-- Main top metallic deck -->
+    <path d='M16 25c0-2.5 2-4.5 4.5-4.5h79c2.5 0 4.5 2 4.5 4.5v9H16v-9z' fill='url(#metalPlate)' stroke='#245474' stroke-width='1.6' stroke-linejoin='round'/>
+    <line x1='16' y1='34' x2='104' y2='34' stroke='#245474' stroke-width='1.4'/>
+
+    <!-- 2. Main Camera Body -->
+    <rect x='16' y='34' width='88' height='54' rx='6' fill='#283540' stroke='#245474' stroke-width='1.7' stroke-linejoin='round'/>
+    <!-- Body leatherette grip texture / line -->
+    <line x1='18' y1='40' x2='102' y2='40' stroke='#334452' stroke-width='1'/>
+    <line x1='18' y1='82' x2='102' y2='82' stroke='#334452' stroke-width='1'/>
+
+    <!-- Small grip patch on left -->
+    <rect x='22' y='46' width='10' height='26' rx='2' fill='#202b35' opacity='0.6'/>
+
+    <!-- 3. Lens System (prominent circular lens) -->
+    <!-- Outer silver bezel ring -->
+    <circle cx='68' cy='58' r='27' fill='#e2e8f0' stroke='#245474' stroke-width='1.6'/>
+    <!-- Dark knurled outer barrel -->
+    <circle cx='68' cy='58' r='24' fill='#1e293b' stroke='#245474' stroke-width='1.2'/>
+    <!-- Red / Coral accent ring (Leica / vintage style) -->
+    <circle cx='68' cy='58' r='21.5' fill='none' stroke='#f97316' stroke-width='1.4'/>
+    <!-- Inner silver aperture ring -->
+    <circle cx='68' cy='58' r='19.5' fill='#2c3e50' stroke='#cbd5e1' stroke-width='1'/>
+    <!-- Convex Glass Lens Element -->
+    <circle cx='68' cy='58' r='16.5' fill='url(#lensGlass)' stroke='#111827' stroke-width='1.2'/>
+
+    <!-- Glossy lens glare reflections -->
+    <!-- Bright primary curved reflection -->
+    <ellipse cx='65' cy='51' rx='6.5' ry='4' fill='#ffffff' opacity='0.85' transform='rotate(-18 65 51)'/>
+    <circle cx='63' cy='49' r='1.8' fill='#ffffff'/>
+    <!-- Secondary soft curved reflection at bottom -->
+    <path d='M62 68c3.5 2 8.5 2 12 0' stroke='#93c5fd' stroke-width='1.4' stroke-linecap='round' opacity='0.45'/>
+  </g>
+</svg>
