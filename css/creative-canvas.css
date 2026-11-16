@@ -592,18 +592,6 @@ body {
     transform: rotate(-5deg);
     z-index: 20;
 }
-.sticker-camera {
-    top: 36px;
-    left: 418px;
-    width: 90px;
-    transform: rotate(-6deg);
-    z-index: 11;
-    cursor: grab;
-}
-.sticker-camera:active {
-    transform: scale(0.96) rotate(-4deg);
-    cursor: grabbing;
-}
 .sticker-paint {
     top: 430px;
     right: 72px;

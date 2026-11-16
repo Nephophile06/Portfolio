@@ -104,6 +104,67 @@
             </svg>
         </div>
 
+        
+        <svg class="doodle doodle--camera" viewBox="0 0 114 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <filter id="doodleRoughC" x="-12%" y="-12%" width="124%" height="124%">
+                    <feTurbulence type="fractalNoise" baseFrequency="0.048" numOctaves="2" seed="9" result="n"/>
+                    <feDisplacementMap in="SourceGraphic" in2="n" scale="1.4" xChannelSelector="R" yChannelSelector="G"/>
+                </filter>
+            </defs>
+            <g filter="url(#doodleRoughC)" stroke-linecap="round" stroke-linejoin="round">
+                <!-- Top details: Mode dial & shutter button -->
+                <path class="d-fill-soft" d="M18 25h10v5H18z"/>
+                <path class="d-body" d="M82 22c0-3 3-5 6-5s6 2 6 5v5H82z"/>
+                <!-- Viewfinder housing bump -->
+                <path class="d-fill-soft" d="M34 23c0-3 2.5-5 5.5-5h15c3 0 5.5 2 5.5 5v7H34z"/>
+
+                <!-- Top metallic plate -->
+                <path class="d-fill-soft" d="M15 30h82c4.5 0 8 3.5 8 8v6H7v-6c0-4.5 3.5-8 8-8z"/>
+                <line class="d-sketch" x1="7" y1="44" x2="105" y2="44"/>
+
+                <!-- Main camera body -->
+                <path class="d-fill" d="M7 44h98c0 0 0 0 0 0v35c0 5.5-4.5 10-10 10H17c-5.5 0-10-4.5-10-10V44z"/>
+
+                <!-- Viewfinder window & sensor dots -->
+                <rect class="d-body" x="24" y="34" width="13" height="6.5" rx="2"/>
+                <circle class="d-dot" cx="27" cy="37" r="1.2"/>
+                <circle class="d-dot" cx="44" cy="37" r="1.8"/>
+                <circle class="d-body" cx="82" cy="37" r="2.4"/>
+
+                <!-- Side strap eyelets -->
+                <path class="d-sketch" d="M7 50C4 50 4 56 7 56"/>
+                <path class="d-sketch" d="M105 50c3 0 3 6 0 6"/>
+
+                <!-- Grip texture lines -->
+                <line class="d-sketch" x1="14" y1="52" x2="23" y2="52"/>
+                <line class="d-sketch" x1="14" y1="58" x2="20" y2="58"/>
+                <line class="d-sketch" x1="14" y1="64" x2="23" y2="64"/>
+                <line class="d-sketch" x1="14" y1="70" x2="20" y2="70"/>
+                <line class="d-sketch" x1="89" y1="52" x2="98" y2="52"/>
+                <line class="d-sketch" x1="92" y1="58" x2="98" y2="58"/>
+                <line class="d-sketch" x1="89" y1="64" x2="98" y2="64"/>
+                <line class="d-sketch" x1="92" y1="70" x2="98" y2="70"/>
+
+                <!-- Center Lens Assembly -->
+                <circle class="d-fill-soft" cx="56" cy="62" r="23"/>
+                <circle class="d-sketch" cx="56" cy="62" r="19"/>
+                <circle class="d-body" cx="56" cy="62" r="14"/>
+                <circle class="d-fill" cx="56" cy="62" r="8"/>
+                <!-- Lens glare reflections -->
+                <path class="d-sketch" d="M49 56c3-3 7-4 11-3" opacity=".85"/>
+                <circle class="d-dot" cx="53" cy="58" r="1.4"/>
+                <path class="d-sketch" d="M52 68c3 2 7 2 10 0" opacity=".65"/>
+
+                <!-- Flash sparkle above shutter -->
+                <path class="d-sparkle" d="M98 12l1.6 5 5 1.6-5 1.6-1.6 5-1.6-5-5-1.6 5-1.6z"/>
+
+                <!-- Ground/sky accent dashes -->
+                <path class="d-sketch" d="M18 92c4 1.5 8 1.5 12 0" opacity=".5"/>
+                <path class="d-sketch" d="M82 92c4 1.5 8 1.5 12 0" opacity=".5"/>
+            </g>
+        </svg>
+
         <svg class="doodle doodle--jelly" viewBox="0 0 132 164" fill="none" xmlns="http://www.w3.org/2000/svg">
             <defs>
                 <filter id="doodleRoughJ" x="-12%" y="-12%" width="124%" height="124%">

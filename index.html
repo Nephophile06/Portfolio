@@ -110,6 +110,67 @@
             </svg>
         </div>
 
+        
+        <svg class="doodle doodle--camera" viewBox="0 0 114 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <filter id="doodleRoughC" x="-12%" y="-12%" width="124%" height="124%">
+                    <feTurbulence type="fractalNoise" baseFrequency="0.048" numOctaves="2" seed="9" result="n"/>
+                    <feDisplacementMap in="SourceGraphic" in2="n" scale="1.4" xChannelSelector="R" yChannelSelector="G"/>
+                </filter>
+            </defs>
+            <g filter="url(#doodleRoughC)" stroke-linecap="round" stroke-linejoin="round">
+                <!-- Top details: Mode dial & shutter button -->
+                <path class="d-fill-soft" d="M18 25h10v5H18z"/>
+                <path class="d-body" d="M82 22c0-3 3-5 6-5s6 2 6 5v5H82z"/>
+                <!-- Viewfinder housing bump -->
+                <path class="d-fill-soft" d="M34 23c0-3 2.5-5 5.5-5h15c3 0 5.5 2 5.5 5v7H34z"/>
+
+                <!-- Top metallic plate -->
+                <path class="d-fill-soft" d="M15 30h82c4.5 0 8 3.5 8 8v6H7v-6c0-4.5 3.5-8 8-8z"/>
+                <line class="d-sketch" x1="7" y1="44" x2="105" y2="44"/>
+
+                <!-- Main camera body -->
+                <path class="d-fill" d="M7 44h98c0 0 0 0 0 0v35c0 5.5-4.5 10-10 10H17c-5.5 0-10-4.5-10-10V44z"/>
+
+                <!-- Viewfinder window & sensor dots -->
+                <rect class="d-body" x="24" y="34" width="13" height="6.5" rx="2"/>
+                <circle class="d-dot" cx="27" cy="37" r="1.2"/>
+                <circle class="d-dot" cx="44" cy="37" r="1.8"/>
+                <circle class="d-body" cx="82" cy="37" r="2.4"/>
+
+                <!-- Side strap eyelets -->
+                <path class="d-sketch" d="M7 50C4 50 4 56 7 56"/>
+                <path class="d-sketch" d="M105 50c3 0 3 6 0 6"/>
+
+                <!-- Grip texture lines -->
+                <line class="d-sketch" x1="14" y1="52" x2="23" y2="52"/>
+                <line class="d-sketch" x1="14" y1="58" x2="20" y2="58"/>
+                <line class="d-sketch" x1="14" y1="64" x2="23" y2="64"/>
+                <line class="d-sketch" x1="14" y1="70" x2="20" y2="70"/>
+                <line class="d-sketch" x1="89" y1="52" x2="98" y2="52"/>
+                <line class="d-sketch" x1="92" y1="58" x2="98" y2="58"/>
+                <line class="d-sketch" x1="89" y1="64" x2="98" y2="64"/>
+                <line class="d-sketch" x1="92" y1="70" x2="98" y2="70"/>
+
+                <!-- Center Lens Assembly -->
+                <circle class="d-fill-soft" cx="56" cy="62" r="23"/>
+                <circle class="d-sketch" cx="56" cy="62" r="19"/>
+                <circle class="d-body" cx="56" cy="62" r="14"/>
+                <circle class="d-fill" cx="56" cy="62" r="8"/>
+                <!-- Lens glare reflections -->
+                <path class="d-sketch" d="M49 56c3-3 7-4 11-3" opacity=".85"/>
+                <circle class="d-dot" cx="53" cy="58" r="1.4"/>
+                <path class="d-sketch" d="M52 68c3 2 7 2 10 0" opacity=".65"/>
+
+                <!-- Flash sparkle above shutter -->
+                <path class="d-sparkle" d="M98 12l1.6 5 5 1.6-5 1.6-1.6 5-1.6-5-5-1.6 5-1.6z"/>
+
+                <!-- Ground/sky accent dashes -->
+                <path class="d-sketch" d="M18 92c4 1.5 8 1.5 12 0" opacity=".5"/>
+                <path class="d-sketch" d="M82 92c4 1.5 8 1.5 12 0" opacity=".5"/>
+            </g>
+        </svg>
+
         <svg class="doodle doodle--jelly" viewBox="0 0 132 164" fill="none" xmlns="http://www.w3.org/2000/svg">
             <defs>
                 <filter id="doodleRoughJ" x="-12%" y="-12%" width="124%" height="124%">
@@ -318,52 +379,6 @@
                 </div>
 
                 <!-- Hand-drawn blue stickers (draggable doodles) -->
-                <div class="desk-item desk-doodle desk-sticker sticker-camera" id="stickerCamera" data-rot="-6" title="Drag me anywhere" aria-hidden="true">
-                    <svg viewBox="0 0 120 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <defs>
-                            <radialGradient id="cameraLensGlass" cx="45%" cy="42%" r="55%">
-                                <stop offset="0%" stop-color="#3b5368"/>
-                                <stop offset="55%" stop-color="#192530"/>
-                                <stop offset="100%" stop-color="#0b1117"/>
-                            </radialGradient>
-                            <linearGradient id="cameraMetalPlate" x1="0" y1="0" x2="0" y2="1">
-                                <stop offset="0%" stop-color="#f8fafc"/>
-                                <stop offset="60%" stop-color="#e2e8f0"/>
-                                <stop offset="100%" stop-color="#cbd5e1"/>
-                            </linearGradient>
-                        </defs>
-                        <!-- Top viewfinder bump -->
-                        <rect x="22" y="14" width="32" height="12" rx="3" fill="url(#cameraMetalPlate)" stroke="#245474" stroke-width="1.6" stroke-linejoin="round"/>
-                        <rect x="29" y="17" width="14" height="6" rx="1.5" fill="#1e293b" stroke="#245474" stroke-width="1.1"/>
-                        <circle cx="32" cy="19.5" r="1" fill="#93c5fd" opacity="0.85"/>
-
-                        <!-- Orange shutter release button -->
-                        <circle cx="92" cy="18" r="5" fill="#f97316" stroke="#c2410c" stroke-width="1.3"/>
-                        <ellipse cx="91" cy="16.5" rx="2.2" ry="1.2" fill="#fdba74" opacity="0.8"/>
-
-                        <!-- Top metallic plate -->
-                        <path d="M16 25c0-2.5 2-4.5 4.5-4.5h79c2.5 0 4.5 2 4.5 4.5v9H16v-9z" fill="url(#cameraMetalPlate)" stroke="#245474" stroke-width="1.6" stroke-linejoin="round"/>
-                        <line x1="16" y1="34" x2="104" y2="34" stroke="#245474" stroke-width="1.4"/>
-
-                        <!-- Main camera body -->
-                        <rect x="16" y="34" width="88" height="54" rx="6" fill="#283540" stroke="#245474" stroke-width="1.7" stroke-linejoin="round"/>
-                        <line x1="18" y1="40" x2="102" y2="40" stroke="#334452" stroke-width="1"/>
-                        <line x1="18" y1="82" x2="102" y2="82" stroke="#334452" stroke-width="1"/>
-                        <rect x="22" y="46" width="10" height="26" rx="2" fill="#202b35" opacity="0.6"/>
-
-                        <!-- Lens assembly -->
-                        <circle cx="68" cy="58" r="27" fill="#e2e8f0" stroke="#245474" stroke-width="1.6"/>
-                        <circle cx="68" cy="58" r="24" fill="#1e293b" stroke="#245474" stroke-width="1.2"/>
-                        <circle cx="68" cy="58" r="21.5" fill="none" stroke="#f97316" stroke-width="1.4"/>
-                        <circle cx="68" cy="58" r="19.5" fill="#2c3e50" stroke="#cbd5e1" stroke-width="1"/>
-                        <circle cx="68" cy="58" r="16.5" fill="url(#cameraLensGlass)" stroke="#111827" stroke-width="1.2"/>
-
-                        <!-- Glossy lens glare reflections -->
-                        <ellipse cx="65" cy="51" rx="6.5" ry="4" fill="#ffffff" opacity="0.85" transform="rotate(-18 65 51)"/>
-                        <circle cx="63" cy="49" r="1.8" fill="#ffffff"/>
-                        <path d="M62 68c3.5 2 8.5 2 12 0" stroke="#93c5fd" stroke-width="1.4" stroke-linecap="round" opacity="0.45"/>
-                    </svg>
-                </div>
                 <div class="desk-item desk-doodle desk-sticker sticker-plane" id="stickerPlane" data-rot="-5" title="Drag me anywhere" aria-hidden="true">
                     <svg viewBox="0 0 100 96" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M6 86c14-4 25-9 27-22 2-14-11-20-5-31 4-8 12-11 21-12" stroke="#7fa9c9" stroke-width="1.6" stroke-linecap="round" stroke-dasharray="1 7"/>
