@@ -517,7 +517,7 @@ button {
     display: inline-flex;
     align-items: center;
     gap: 4px;
-    font-size: 0.82rem;
+    font-size: 0.86rem;
     font-weight: 500;
     color: var(--text-secondary);
     transition: var(--transition);
@@ -647,10 +647,16 @@ button {
 .exp-location {
     display: flex;
     align-items: center;
-    gap: 4px;
-    font-size: 0.72rem;
+    gap: 5px;
+    font-size: 0.84rem;
     color: var(--text-muted);
     margin-bottom: 4px;
+}
+
+.exp-location svg {
+    width: 12px;
+    height: 12px;
+    flex-shrink: 0;
 }
 
 .exp-header {
@@ -671,7 +677,7 @@ button {
 }
 
 .exp-dates {
-    font-size: 0.78rem;
+    font-size: 0.84rem;
     color: var(--text-muted);
     white-space: nowrap;
     font-weight: 500;
@@ -733,7 +739,7 @@ button {
 }
 
 .edu-dates {
-    font-size: 0.78rem;
+    font-size: 0.84rem;
     color: var(--text-muted);
     margin-bottom: 2px;
 }

@@ -370,7 +370,7 @@ button, a, input, textarea, [role="button"] { -webkit-tap-highlight-color: trans
 .about-text { font-size: 0.92rem; line-height: 1.85; }
 .content-divider { margin: 44px 0; height: 0; background: none; border-top: 1px dashed var(--border-color); }
 .block-header { margin-bottom: 24px; gap: 16px; }
-.view-all-link { min-height: 44px; font-family: var(--utility-font); font-size: 0.75rem; }
+.view-all-link { min-height: 44px; font-family: var(--utility-font); font-size: 0.86rem; }
 
 /* 5. Project artboards: reusable Figma-style corner handles */
 .projects-grid { gap: 24px; }
@@ -429,7 +429,8 @@ button, a, input, textarea, [role="button"] { -webkit-tap-highlight-color: trans
 .exp-item::before,
 .exp-item::after { display: none; }
 .exp-company { font-family: var(--font-stencil); font-size: 0.98rem; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; }
-.exp-location, .exp-dates, .edu-dates { font-family: var(--utility-font); font-size: 0.72rem; }
+.exp-location, .exp-dates, .edu-dates { font-family: var(--utility-font); font-size: 0.84rem; }
+.exp-location svg { width: 12px; height: 12px; flex-shrink: 0; }
 .exp-role { margin-block: 5px 12px; color: var(--accent-blue); }
 .exp-desc, .exp-bullets li, .skill-row { line-height: 1.8; font-size: 0.88rem; }
 .edu-item { padding: 16px 20px; background: var(--paper); border: 1px solid var(--border-color); border-radius: 3px; }
