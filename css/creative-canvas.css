@@ -21,8 +21,8 @@
     --line-strong: rgba(63, 109, 148, 0.4);
     --card-shadow: 0 16px 34px -14px rgba(35, 70, 100, 0.28), 0 3px 8px rgba(35, 70, 100, 0.06);
     --card-shadow-hover: 0 24px 44px -16px rgba(35, 70, 100, 0.34), 0 6px 12px rgba(35, 70, 100, 0.08);
-    --heading-font: 'Meno Banner', 'meno-banner', Georgia, 'Times New Roman', serif;
     --font-stencil: "Hansson Stencil MN", "Allerta Stencil", "Oxanium", sans-serif;
+    --heading-font: var(--font-stencil);
     --subheading-font: var(--font-stencil);
 }
 
@@ -814,11 +814,12 @@ html[data-motion="off"] .sky-doodles .doodle-flyer { animation: none; }
     margin-bottom: 30px;
 }
 .works-heading {
-    font-family: var(--heading-font, 'Meno Banner', 'meno-banner', Georgia, serif);
-    font-size: 1.45rem;
-    font-style: italic;
+    font-family: var(--font-stencil) !important;
+    font-size: 1.35rem;
+    font-style: normal;
     font-weight: 500;
-    letter-spacing: -0.015em;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
     color: var(--text-primary);
     margin-bottom: 0;
 }
