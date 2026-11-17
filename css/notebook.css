@@ -21,6 +21,7 @@
     --radius-lg: 10px;
     --transition: transform 180ms ease, opacity 180ms ease;
     --utility-font: ui-monospace, SFMono-Regular, Consolas, monospace;
+    --heading-font: 'Meno Banner', 'meno-banner', Georgia, 'Times New Roman', serif;
 }
 html, body { height: auto; overflow-x: clip; }
 html { scroll-padding-top: 92px; }
@@ -321,16 +322,25 @@ button, a, input, textarea, [role="button"] { -webkit-tap-highlight-color: trans
 
 /* 4. Section notation and drawn underlines — existing words only */
 .section-block { scroll-margin-top: 94px; }
-.block-title, .lets-talk-heading {
+.block-title, .lets-talk-heading, .works-heading {
     position: relative;
     display: inline-block;
-    font-size: 1.18rem;
-    letter-spacing: -0.035em;
+    font-family: var(--heading-font);
+    font-size: 1.22rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
     line-height: 1.4;
     margin-bottom: 24px;
     padding-bottom: 6px;
+    color: var(--text-primary);
 }
-.block-title::before, .lets-talk-heading::before {
+.block-header .block-title,
+.block-header .works-heading,
+.works-header .block-title,
+.works-header .works-heading {
+    margin-bottom: 0;
+}
+.block-title::before, .lets-talk-heading::before, .works-heading::before {
     content: '';
     display: inline-block;
     width: 25px;
@@ -341,7 +351,7 @@ button, a, input, textarea, [role="button"] { -webkit-tap-highlight-color: trans
     filter: drop-shadow(1px 2px 0 rgba(77, 126, 166, 0.12));
     transition: transform 220ms ease;
 }
-.block-title:hover::before, .lets-talk-heading:hover::before {
+.block-title:hover::before, .lets-talk-heading:hover::before, .works-heading:hover::before {
     transform: translateY(-2px) scale(1.08);
 }
 .pencil-line { position: absolute; left: 36px; bottom: -1px; width: calc(100% - 36px); height: 7px; overflow: visible; pointer-events: none; color: var(--accent-blue); }

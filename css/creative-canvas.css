@@ -811,10 +811,12 @@ html[data-motion="off"] .sky-doodles .doodle-flyer { animation: none; }
     margin-bottom: 30px;
 }
 .works-heading {
-    font-size: 1.85rem;
-    font-weight: 800;
-    letter-spacing: -0.04em;
-    color: var(--ink);
+    font-family: var(--heading-font, 'Meno Banner', 'meno-banner', Georgia, serif);
+    font-size: 1.22rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+    margin-bottom: 0;
 }
 .works-gallery {
     display: flex;
