@@ -499,10 +499,11 @@
 
 .showcase-title {
     font-family: var(--subheading-font);
-    font-size: 0.95rem;
+    font-size: 0.88rem;
     font-weight: 600;
     color: #ffffff;
-    letter-spacing: 0.3px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
 }
 
 .showcase-arrow {

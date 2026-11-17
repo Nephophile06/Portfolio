@@ -10,7 +10,7 @@
     --navbar-height: 56px;
     --font: 'Adrianna', 'adrianna', 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     --heading-font: 'Meno Banner', 'meno-banner', Georgia, 'Times New Roman', serif;
-    --subheading-font: 'Hansson Stencil MN', 'hansson-stencil-mn', 'Hansson Stencil', 'HanssonStencilMN', 'HanssonStencil', Impact, sans-serif;
+    --subheading-font: 'Hansson Stencil MN', 'hansson-stencil-mn', 'Hansson Stencil', 'HanssonStencilMN', 'HanssonStencil', 'Allerta Stencil', sans-serif;
     --transition: all 0.22s ease;
     --radius-sm: 6px;
     --radius-md: 10px;
@@ -661,9 +661,11 @@ button {
 
 .exp-company {
     font-family: var(--subheading-font);
-    font-size: 0.98rem;
+    font-size: 0.95rem;
     font-weight: 700;
     color: var(--text-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
 }
 
 .exp-dates {
@@ -720,10 +722,12 @@ button {
 
 .edu-degree {
     font-family: var(--subheading-font);
-    font-size: 0.94rem;
+    font-size: 0.92rem;
     font-weight: 700;
     color: var(--text-primary);
     margin-bottom: 2px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
 }
 
 .edu-dates {
@@ -756,7 +760,7 @@ button {
     align-items: center;
     gap: 7px;
     width: fit-content;
-    font-size: 0.94rem;
+    font-size: 0.92rem;
     font-weight: 700;
     color: var(--text-primary);
     margin: 0 0 2px 0;
@@ -764,7 +768,8 @@ button {
     background: none;
     border: none;
     box-shadow: none;
-    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
 }
 
 .skill-cloud-icon {
