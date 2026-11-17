@@ -498,7 +498,7 @@
 }
 
 .showcase-title {
-    font-family: var(--subheading-font);
+    font-family: var(--font-stencil);
     font-size: 0.88rem;
     font-weight: 600;
     color: #ffffff;

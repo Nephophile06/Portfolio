@@ -120,7 +120,7 @@ html.certifications-garden {
 }
 
 .cert-detail-title {
-    font-family: var(--subheading-font);
+    font-family: var(--font-stencil);
     font-size: clamp(1rem, 2.2vw, 1.25rem);
     font-weight: 600;
     color: var(--text-primary);

@@ -22,7 +22,8 @@
     --card-shadow: 0 16px 34px -14px rgba(35, 70, 100, 0.28), 0 3px 8px rgba(35, 70, 100, 0.06);
     --card-shadow-hover: 0 24px 44px -16px rgba(35, 70, 100, 0.34), 0 6px 12px rgba(35, 70, 100, 0.08);
     --heading-font: 'Meno Banner', 'meno-banner', Georgia, 'Times New Roman', serif;
-    --subheading-font: 'Hansson Stencil MN', 'hansson-stencil-mn', 'Hansson Stencil', 'HanssonStencilMN', 'HanssonStencil', 'Allerta Stencil', sans-serif;
+    --font-stencil: "Hansson Stencil MN", "Allerta Stencil", "Oxanium", sans-serif;
+    --subheading-font: var(--font-stencil);
 }
 
 /* Page background — morning sky with a soft cloud glow at the top.
@@ -880,7 +881,7 @@ html[data-motion="off"] .sky-doodles .doodle-flyer { animation: none; }
     letter-spacing: 0.04em;
 }
 .work-title {
-    font-family: var(--subheading-font);
+    font-family: var(--font-stencil);
     font-size: 1.15rem;
     font-weight: 700;
     color: var(--ink);
@@ -893,7 +894,7 @@ html[data-motion="off"] .sky-doodles .doodle-flyer { animation: none; }
 .exp-company,
 .edu-degree,
 .skill-category-title {
-    font-family: var(--subheading-font) !important;
+    font-family: var(--font-stencil) !important;
     text-transform: uppercase !important;
     letter-spacing: 0.14em !important;
 }
