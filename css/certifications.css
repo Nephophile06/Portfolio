@@ -1,3 +1,88 @@
+/* Certifications Garden Theme: Realistic botanical wall matching user sample photograph.
+   Warm sage-green sunlit wall, photographic cascading white jasmine blossoms, and soft leaf shadows (komorebi). */
+html.certifications-garden {
+    --garden-paper: #b6b99c;
+    --garden-sage: #c7caa9;
+    --garden-leaf: #78825a;
+    --garden-petal: #fffef9;
+    --garden-sun: #eef3d6;
+    background-color: #b6b99c;
+    background-image:
+        radial-gradient(ellipse 65% 55% at 20% 25%, rgba(242, 246, 222, 0.45), transparent 70%),
+        radial-gradient(ellipse 50% 60% at 75% 15%, rgba(246, 250, 228, 0.38), transparent 60%),
+        radial-gradient(ellipse 70% 60% at 35% 80%, rgba(130, 140, 102, 0.28), transparent 70%),
+        linear-gradient(175deg, #c7caa9 0%, #b8bba0 38%, #a6ad88 72%, #959d76 100%);
+    background-attachment: fixed;
+}
+
+.page-certifications .garden-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+    user-select: none;
+    mask-image: none;
+    -webkit-mask-image: none;
+}
+
+/* Photorealistic cascading jasmine flowers from sample on the right */
+.page-certifications .garden-branch--right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: clamp(340px, 34vw, 620px);
+    background: url('../assets/certifications-jasmine-right.webp') top right / contain no-repeat;
+    opacity: 0.98;
+    z-index: 1;
+}
+
+/* Photorealistic soft dappled sunlight and leaf shadows (komorebi) on the left */
+.page-certifications .garden-shadow--left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: clamp(280px, 30vw, 560px);
+    background: url('../assets/certifications-shadow-left.webp') top left / contain no-repeat;
+    opacity: 0.88;
+    z-index: 0;
+}
+
+@media (max-width: 1199px) {
+    .page-certifications .garden-branch--right {
+        width: clamp(260px, 28vw, 420px);
+        opacity: 0.92;
+    }
+    .page-certifications .garden-shadow--left {
+        width: clamp(200px, 24vw, 360px);
+        opacity: 0.75;
+    }
+}
+
+@media (max-width: 767px) {
+    .page-certifications .garden-branch--right {
+        width: 200px;
+        right: -25px;
+        opacity: 0.55;
+    }
+    .page-certifications .garden-shadow--left {
+        width: 160px;
+        left: -25px;
+        opacity: 0.45;
+    }
+}
+
+.page-certifications .cert-image-wrapper {
+    background: rgba(255, 255, 255, 0.82);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: 10px;
+    box-shadow: 0 16px 36px rgba(40, 52, 32, 0.12), 0 4px 10px rgba(40, 52, 32, 0.05);
+}
+
 /* ── Certifications Page Container ─── */
 .certifications-page {
     width: 100%;
