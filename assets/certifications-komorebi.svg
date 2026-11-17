@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1200" width="100%" height="100%" preserveAspectRatio="xMinYMin meet"><defs>
+    <filter id="bokehCanopyBlur" x="-30%" y="-30%" width="160%" height="160%">
+        <feGaussianBlur stdDeviation="40" />
+    </filter>
+
+    <filter id="bokehMidBlur" x="-25%" y="-25%" width="150%" height="150%">
+        <feGaussianBlur stdDeviation="22" />
+    </filter>
+
+    <filter id="bokehBranchBlur" x="-20%" y="-20%" width="140%" height="140%">
+        <feGaussianBlur stdDeviation="14" />
+    </filter>
+
+    <!-- Warm soft sunlight glares -->
+    <radialGradient id="sunGlow1" cx="45%" cy="35%" r="65%">
+        <stop offset="0%" stop-color="#fffde6" stop-opacity="0.30"/>
+        <stop offset="50%" stop-color="#f6fae0" stop-opacity="0.13"/>
+        <stop offset="100%" stop-color="#c7caa9" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="sunGlow2" cx="35%" cy="75%" r="60%">
+        <stop offset="0%" stop-color="#fafce8" stop-opacity="0.26"/>
+        <stop offset="55%" stop-color="#edf3d4" stop-opacity="0.11"/>
+        <stop offset="100%" stop-color="#c7caa9" stop-opacity="0"/>
+    </radialGradient>
+    </defs><g id="sunlightGlares"><ellipse cx="320" cy="360" rx="380" ry="300" fill="url(#sunGlow1)"/><ellipse cx="280" cy="840" rx="320" ry="260" fill="url(#sunGlow2)"/></g><g id="canopySilhouettes" filter="url(#bokehCanopyBlur)" fill="#3f4c32" opacity="0.36"><path d="M -60 -60 C 80 50, 220 40, 280 -20 C 340 -80, 180 -140, -40 -100 Z"/><path d="M -40 140 C 90 170, 260 210, 340 140 C 400 70, 310 -20, 140 40 Z"/><path d="M 90 290 C 260 320, 410 420, 470 340 C 530 250, 370 190, 210 220 Z"/><path d="M -50 480 C 70 510, 230 590, 310 530 C 390 470, 290 380, 110 410 Z"/><path d="M 50 710 C 210 740, 340 840, 420 770 C 490 700, 370 620, 180 640 Z"/><path d="M -40 920 C 100 960, 260 1040, 330 980 C 400 920, 290 830, 120 860 Z"/></g><g id="midFoliageSilhouettes" filter="url(#bokehMidBlur)" fill="#2d3822" opacity="0.45"><path d="M 50 90 Q 140 80 190 125 Q 165 160 70 135 Z"/><path d="M 130 145 Q 225 125 285 180 Q 250 215 155 190 Z"/><path d="M 210 75 Q 305 55 365 100 Q 330 145 235 120 Z"/><path d="M 175 245 Q 280 235 340 290 Q 305 335 200 305 Z"/><path d="M 85 410 Q 190 400 250 455 Q 215 490 110 465 Z"/><path d="M 190 475 Q 295 440 365 510 Q 320 545 210 520 Z"/><path d="M 140 590 Q 245 565 315 635 Q 280 670 165 645 Z"/><path d="M 95 795 Q 200 770 270 840 Q 225 875 120 850 Z"/><path d="M 200 875 Q 305 850 375 920 Q 330 955 220 930 Z"/><path d="M 130 1025 Q 235 1000 305 1070 Q 270 1105 155 1080 Z"/></g><g id="stemSilhouettes" filter="url(#bokehBranchBlur)" stroke="#232d19" stroke-width="4.8" fill="none" opacity="0.40" stroke-linecap="round"><path d="M -30 50 Q 110 130 250 185"/><path d="M 140 140 Q 225 220 345 280"/><path d="M -20 370 Q 130 445 320 495"/><path d="M 190 470 Q 280 550 400 585"/><path d="M -30 750 Q 120 830 340 910"/><path d="M 160 860 Q 255 965 375 1045"/></g></svg>

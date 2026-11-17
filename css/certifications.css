@@ -26,26 +26,26 @@ html.certifications-garden {
     -webkit-mask-image: none;
 }
 
-/* Photorealistic cascading jasmine flowers from sample on the right */
+/* Photorealistic cascading jasmine flowers created via code (SVG) on the right */
 .page-certifications .garden-branch--right {
     position: absolute;
     top: 0;
     right: 0;
     height: 100vh;
-    width: clamp(340px, 34vw, 620px);
-    background: url('../assets/certifications-jasmine-right.webp') top right / contain no-repeat;
+    width: clamp(380px, 38vw, 700px);
+    background: url('../assets/certifications-jasmine-branch.svg') top right / contain no-repeat;
     opacity: 0.98;
     z-index: 1;
 }
 
-/* Photorealistic soft dappled sunlight and leaf shadows (komorebi) on the left */
+/* Photorealistic soft dappled sunlight and leaf shadows (komorebi) created via code (SVG) on the left */
 .page-certifications .garden-shadow--left {
     position: absolute;
     top: 0;
     left: 0;
     height: 100vh;
-    width: clamp(280px, 30vw, 560px);
-    background: url('../assets/certifications-shadow-left.webp') top left / contain no-repeat;
+    width: clamp(320px, 34vw, 680px);
+    background: url('../assets/certifications-komorebi.svg') top left / cover no-repeat;
     opacity: 0.88;
     z-index: 0;
 }
