@@ -498,8 +498,9 @@
 }
 
 .showcase-title {
-    font-size: 0.9rem;
-    font-weight: 500;
+    font-family: var(--subheading-font);
+    font-size: 0.95rem;
+    font-weight: 600;
     color: #ffffff;
     letter-spacing: 0.3px;
 }

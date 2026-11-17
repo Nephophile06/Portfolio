@@ -10,6 +10,7 @@
     --navbar-height: 56px;
     --font: 'Adrianna', 'adrianna', 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     --heading-font: 'Meno Banner', 'meno-banner', Georgia, 'Times New Roman', serif;
+    --subheading-font: 'Hansson Stencil MN', 'hansson-stencil-mn', 'Hansson Stencil', 'HanssonStencilMN', 'HanssonStencil', Impact, sans-serif;
     --transition: all 0.22s ease;
     --radius-sm: 6px;
     --radius-md: 10px;
@@ -659,7 +660,8 @@ button {
 }
 
 .exp-company {
-    font-size: 0.95rem;
+    font-family: var(--subheading-font);
+    font-size: 0.98rem;
     font-weight: 700;
     color: var(--text-primary);
 }
@@ -717,7 +719,8 @@ button {
 }
 
 .edu-degree {
-    font-size: 0.92rem;
+    font-family: var(--subheading-font);
+    font-size: 0.94rem;
     font-weight: 700;
     color: var(--text-primary);
     margin-bottom: 2px;
@@ -748,6 +751,7 @@ button {
 }
 
 .skill-category-title {
+    font-family: var(--subheading-font);
     display: inline-flex;
     align-items: center;
     gap: 7px;
