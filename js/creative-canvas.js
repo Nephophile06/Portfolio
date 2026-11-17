@@ -182,34 +182,35 @@
         observer.observe(motionCanvas);
     }
 
-    // ── 2. Paper planes: original paths, clipped to the upper hero sky ──
-    const heroFlight = (() => {
+    // ── 2. Paper planes: rounded, continuous flights across the homepage ──
+    const pageFlight = (() => {
         const hero = document.getElementById('hero-desk');
+        const content = document.querySelector('.content-section');
         const plane = document.getElementById('stickerPlane');
-        if (!hero || !plane || !window.ResizeObserver) return null;
+        if (!hero || !content || !plane || !window.ResizeObserver) return null;
 
         const scene = document.createElement('div');
-        scene.className = 'hero-flight-scene';
+        scene.className = 'page-flight-scene';
         scene.setAttribute('aria-hidden', 'true');
-        scene.innerHTML = `<svg class="hero-flight-routes" xmlns="http://www.w3.org/2000/svg" focusable="false">
+        scene.innerHTML = `<svg class="page-flight-routes" xmlns="http://www.w3.org/2000/svg" focusable="false">
             <defs>
-                <mask id="heroFlightRevealMain" maskUnits="userSpaceOnUse" x="0" y="0" width="100%" height="100%">
+                <mask id="pageFlightRevealMain" maskUnits="userSpaceOnUse" x="0" y="0" width="100%" height="100%">
                     <path class="flight-reveal" fill="none" stroke="white" stroke-width="8"/>
                 </mask>
-                <mask id="heroFlightRevealSide" maskUnits="userSpaceOnUse" x="0" y="0" width="100%" height="100%">
+                <mask id="pageFlightRevealSide" maskUnits="userSpaceOnUse" x="0" y="0" width="100%" height="100%">
                     <path class="flight-reveal" fill="none" stroke="white" stroke-width="8"/>
                 </mask>
             </defs>
             <path class="flight-guide"/>
             <path class="flight-guide flight-guide--side"/>
-            <path class="flight-path" mask="url(#heroFlightRevealMain)"/>
-            <path class="flight-path flight-path--side" mask="url(#heroFlightRevealSide)"/>
+            <path class="flight-path" mask="url(#pageFlightRevealMain)"/>
+            <path class="flight-path flight-path--side" mask="url(#pageFlightRevealSide)"/>
         </svg>`;
-        hero.appendChild(scene);
+        document.body.appendChild(scene);
 
         const carriers = [0, 1].map(index => {
             const carrier = document.createElement('div');
-            carrier.className = `hero-flight-plane${index ? ' hero-flight-plane--side' : ''}`;
+            carrier.className = `page-flight-plane${index ? ' page-flight-plane--side' : ''}`;
             scene.appendChild(carrier);
             return carrier;
         });
@@ -218,7 +219,7 @@
         carriers[1].appendChild(planeArt.cloneNode(true));
         carriers[0].appendChild(plane);
         plane.dataset.rot = '0';
-        hero.classList.add('has-plane-flight');
+        document.body.classList.add('has-plane-flight');
 
         const paths = [...scene.querySelectorAll('.flight-path')];
         const guides = [...scene.querySelectorAll('.flight-guide')];
@@ -227,35 +228,37 @@
         const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
         const desktop = window.matchMedia('(min-width: 901px)');
         let reduceMotion = reduced.matches;
-        const phases = [0.12, 0.08];
-        const durations = [24000, 29000];
+        const phases = [0.16, 0.58];
+        const durations = [42000, 36000];
         let lengths = [0, 0];
-        let frame = 0, previousTime = 0, releaseTimer = 0;
-        let inView = false, hovering = false, settling = false;
+        let frame = 0, previousTime = 0, releaseTimer = 0, readingFrame = 0;
+        let hovering = false, settling = false;
         const activeDrags = new Set();
 
         const isStill = () => reduceMotion || document.documentElement.dataset.motion === 'off';
-        const canFly = () => inView && !document.hidden && !isStill() && !hovering && !activeDrags.size && !settling;
-        const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
+        const canFly = () => !document.hidden && !isStill() && !hovering && !activeDrags.size && !settling;
+        const wrap = (value, length) => (value % length + length) % length;
 
         function paint() {
             const still = isStill();
             paths.forEach((path, index) => {
                 const length = lengths[index];
                 if (!length) return;
-                const progress = still ? [0.16, 0.24][index] : phases[index];
+                const progress = still ? (desktop.matches ? [0.16, 0.58] : [0.4, 0.9])[index] : phases[index];
                 const distance = length * progress;
                 const point = path.getPointAtLength(distance);
-                const ahead = path.getPointAtLength(Math.min(length, distance + 3));
-                const behind = path.getPointAtLength(Math.max(0, distance - 3));
+                const ahead = path.getPointAtLength(wrap(distance + 3, length));
+                const behind = path.getPointAtLength(wrap(distance - 3, length));
                 const angle = Math.atan2(ahead.y - behind.y, ahead.x - behind.x) * 180 / Math.PI + 45;
-                const opacity = still ? 0.76 : Math.min(1, progress / 0.025, (1 - progress) / 0.04);
                 carriers[index].style.transform = `translate(${point.x.toFixed(2)}px, ${point.y.toFixed(2)}px)`;
-                carriers[index].style.opacity = opacity.toFixed(3);
+                carriers[index].style.opacity = still ? '0.7' : index ? '0.74' : '0.88';
                 artwork[index].style.rotate = `${angle.toFixed(2)}deg`;
-                // Reveal the dotted line just behind the tail, never ahead of the nose.
-                reveals[index].style.strokeDasharray = `${still ? length : Math.max(0, distance - 25)} ${length + 50}`;
-                path.style.opacity = (still ? 0.38 : Math.min(1, (1 - progress) / 0.07)).toFixed(3);
+                // A short wake wraps around the closed curve, so neither plane
+                // teleports nor leaves a growing tangle of ink at each lap.
+                const wake = length * (index ? 0.38 : 0.3);
+                reveals[index].style.strokeDasharray = still ? `${length} ${length}` : `${wake} ${length - wake}`;
+                reveals[index].style.strokeDashoffset = still ? '0' : `${-(distance - 25 - wake)}`;
+                path.style.opacity = still ? '0.3' : index ? '0.54' : '0.7';
             });
         }
 
@@ -278,50 +281,59 @@
             if (canFly()) frame = requestAnimationFrame(tick);
         }
 
+        function updateReadingArea() {
+            readingFrame = 0;
+            const bounds = content.getBoundingClientRect();
+            const origin = scene.getBoundingClientRect();
+            const style = getComputedStyle(content);
+            const top = Math.max(-28, Math.min(origin.height, bounds.top - origin.top - 20));
+            scene.style.setProperty('--flight-reading-top', `${top}px`);
+            scene.style.setProperty('--flight-reading-left', `${bounds.left + parseFloat(style.paddingLeft) - 4}px`);
+            scene.style.setProperty('--flight-reading-right', `${bounds.right - parseFloat(style.paddingRight) + 4}px`);
+        }
+
+        function queueReadingArea() {
+            if (!readingFrame) readingFrame = requestAnimationFrame(updateReadingArea);
+        }
+
         function layout() {
             const w = scene.clientWidth;
             const h = scene.clientHeight;
             if (!w || !h) return;
-            let routes;
-            if (desktop.matches) {
-                const origin = hero.getBoundingClientRect();
-                const box = id => {
-                    const r = document.getElementById(id).getBoundingClientRect();
-                    return { left: r.left - origin.left, right: r.right - origin.left, top: r.top - origin.top, bottom: r.bottom - origin.top, width: r.width };
-                };
-                const quote = box('noteMainQuote');
-                const photo = box('notePolaroidCard');
-                const about = box('noteAboutBrief');
-                const exp = box('noteExpCard');
-                const crest = Math.max(35, quote.top - 32);
-                const turnX = photo.left + 20;
-                const bendY = Math.min(h * 0.7, photo.bottom + 25);
-                const sweepX = clamp(about.right + 26, w * 0.52, w * 0.74);
-                const leftX = Math.max(36, exp.left - 38);
-                routes = [
-                    `M ${w * 0.17} -45 C ${w * 0.21} 35, ${quote.left - 10} ${crest - 35}, ${quote.left + quote.width * 0.35} ${crest}
-                     C ${quote.right + 42} ${crest - 8}, ${turnX + 18} ${photo.top + 65}, ${turnX} ${bendY}
-                     C ${turnX - 8} ${bendY + 66}, ${sweepX - 30} ${bendY + 72}, ${sweepX + 65} ${bendY + 112}
-                     C ${w * 0.76} ${h * 0.82}, ${w * 0.82} ${h * 0.85}, ${w * 0.81} ${h + 55}`,
-                    `M -45 ${h * 0.4} C ${leftX * 0.45} ${h * 0.46}, ${leftX * 0.95} ${h * 0.34}, ${leftX} ${h * 0.49}
-                     C ${leftX + 24} ${h * 0.65}, ${leftX - 8} ${h * 0.68}, ${leftX + 95} ${h * 0.74}
-                     C ${leftX + 215} ${h * 0.82}, ${leftX + 122} ${h * 0.92}, ${leftX + 58} ${h + 55}`
-                ];
-            } else {
-                // A compact edge route for stacked notes, not a scaled desktop path.
-                routes = [
-                    `M ${w * 0.2} -35 C ${w * 0.36} 52, ${w - 32} 18, ${w - 19} ${h * 0.24}
-                     C ${w - 4} ${h * 0.39}, ${w - 48} ${h * 0.5}, ${w - 23} ${h * 0.65}
-                     C ${w - 4} ${h * 0.79}, ${w - 30} ${h * 0.88}, ${w - 45} ${h + 38}`,
-                    `M -35 ${h * 0.33} C 60 ${h * 0.39}, 12 ${h * 0.48}, 17 ${h * 0.6}
-                     C 23 ${h * 0.76}, 62 ${h * 0.81}, 36 ${h * 0.9} C 25 ${h * 0.95}, 7 ${h}, -20 ${h + 38}`
-                ];
+            const left = desktop.matches ? 0.055 : 0.022;
+            const right = 1 - left;
+            // Reflected control handles give every join (including the seam)
+            // the same tangent. These are loose loops, not outlines of the cards.
+            const routes = [
+                `M ${w * left} ${h * 0.45}
+                 C ${w * left} ${h * 0.14}, ${w * 0.31} ${h * 0.04}, ${w * 0.55} ${h * 0.14}
+                 C ${w * 0.79} ${h * 0.24}, ${w * right} ${h * 0.25}, ${w * right} ${h * 0.51}
+                 C ${w * right} ${h * 0.77}, ${w * 0.73} ${h * 0.93}, ${w * 0.49} ${h * 0.87}
+                 C ${w * 0.25} ${h * 0.81}, ${w * left} ${h * 0.76}, ${w * left} ${h * 0.45} Z`,
+                // A smaller, gently tilted oval makes the second flight quieter.
+                `M ${w * 0.45} ${h * 0.61}
+                 C ${w * 0.472} ${h * 0.775}, ${w * 0.4} ${h * 0.8965}, ${w * 0.29} ${h * 0.88}
+                 C ${w * 0.18} ${h * 0.8635}, ${w * 0.072} ${h * 0.715}, ${w * 0.05} ${h * 0.55}
+                 C ${w * 0.028} ${h * 0.385}, ${w * 0.1} ${h * 0.2635}, ${w * 0.21} ${h * 0.28}
+                 C ${w * 0.32} ${h * 0.2965}, ${w * 0.428} ${h * 0.445}, ${w * 0.45} ${h * 0.61} Z`
+            ];
+            if (!desktop.matches) {
+                // A tall, round-ended circuit spends time in the narrow phone
+                // gutters instead of hiding both planes beneath the reading column.
+                const edge = 10;
+                const mobileRoute = `M ${edge} ${h * 0.25}
+                    C ${edge} ${h * 0.05}, ${w - edge} ${h * 0.05}, ${w - edge} ${h * 0.25}
+                    C ${w - edge} ${h * 0.45}, ${w - edge} ${h * 0.55}, ${w - edge} ${h * 0.75}
+                    C ${w - edge} ${h * 0.95}, ${edge} ${h * 0.95}, ${edge} ${h * 0.75}
+                    C ${edge} ${h * 0.55}, ${edge} ${h * 0.45}, ${edge} ${h * 0.25} Z`;
+                routes.fill(mobileRoute);
             }
             scene.querySelector('svg').setAttribute('viewBox', `0 0 ${w} ${h}`);
             routes.forEach((d, index) => {
                 [paths[index], guides[index], reveals[index]].forEach(el => el.setAttribute('d', d));
                 lengths[index] = paths[index].getTotalLength();
             });
+            updateReadingArea();
             paint();
         }
 
@@ -333,7 +345,10 @@
         window.addEventListener('blur', () => { hovering = false; sync(); });
         new MutationObserver(sync).observe(document.documentElement, { attributes: true, attributeFilter: ['data-motion'] });
         new ResizeObserver(layout).observe(scene);
-        new IntersectionObserver(([entry]) => { inView = entry.isIntersecting; sync(); }, { threshold: 0 }).observe(scene);
+        const readingObserver = new ResizeObserver(queueReadingArea);
+        readingObserver.observe(content);
+        readingObserver.observe(hero);
+        window.addEventListener('scroll', queueReadingArea, { passive: true });
         document.fonts.ready.then(layout);
         layout();
         sync();
@@ -388,7 +403,7 @@
 
                 dragging = true;
                 activePointerId = e.pointerId;
-                heroFlight?.grab(el);
+                pageFlight?.grab(el);
                 el.classList.add('is-dragging');
                 el.style.zIndex = ++maxZ;
 
@@ -432,7 +447,7 @@
                 el.style.transform = `translate(${matrix.m41}px, ${matrix.m42}px) rotate(${baseRotation(el)}deg) scale(1)`;
 
                 try { el.releasePointerCapture(pointerId); } catch(err) {}
-                heroFlight?.release(el);
+                pageFlight?.release(el);
             };
 
             el.addEventListener('pointerup', stopDrag);

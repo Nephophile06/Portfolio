@@ -573,17 +573,25 @@ body {
     to { transform: translate(6px, -10px); }
 }
 
-/* Original paper-plane routes. The whole scene belongs to the hero, not the
-   viewport; the desk cards paint above it so neither ink nor planes cover text. */
-.hero-flight-scene {
-    position: absolute;
-    inset: 0;
+/* Homepage-wide flight, above the sky but below the desk and reading content.
+   A soft reading-area mask keeps the ink out of the copy as the page scrolls. */
+.page-flight-scene {
+    position: fixed;
+    inset: var(--navbar-height) 0 0;
     z-index: 3;
     overflow: hidden;
     pointer-events: none;
     user-select: none;
+    --flight-reading-top: 100vh;
+    --flight-reading-left: 0px;
+    --flight-reading-right: 100vw;
+    --flight-reading-feather: 24px;
+    mask-image:
+        linear-gradient(to bottom, #000 var(--flight-reading-top), transparent calc(var(--flight-reading-top) + 28px)),
+        linear-gradient(to right, #000 calc(var(--flight-reading-left) - var(--flight-reading-feather)), transparent var(--flight-reading-left), transparent var(--flight-reading-right), #000 calc(var(--flight-reading-right) + var(--flight-reading-feather)));
+    mask-composite: add;
 }
-.hero-flight-routes {
+.page-flight-routes {
     position: absolute;
     inset: 0;
     width: 100%;
@@ -598,11 +606,11 @@ body {
     stroke-linecap: round;
     stroke-dasharray: 1.5 9;
 }
-.flight-guide { opacity: .16; }
-.flight-guide--side { opacity: .12; }
+.flight-guide { opacity: .1; }
+.flight-guide--side { opacity: .07; }
 .flight-path { stroke: var(--sky-500); }
 .flight-path--side { stroke: var(--sky-400); }
-.hero-flight-plane {
+.page-flight-plane {
     position: absolute;
     top: 0;
     left: 0;
@@ -612,21 +620,21 @@ body {
     opacity: 0;
     pointer-events: none;
 }
-.hero-flight-plane--side {
+.page-flight-plane--side {
     width: 49px;
     height: 51px;
     margin: -25.5px 0 0 -24.5px;
 }
-.hero-flight-plane svg {
+.page-flight-plane svg {
     width: 100%;
     height: 100%;
     display: block;
     overflow: visible;
     transform-origin: center;
 }
-.hero-flight-scene .plane-resting-trail { display: none; }
+.page-flight-scene .plane-resting-trail { display: none; }
 /* Override the shared mobile sticker layout only inside the flight carrier. */
-.hero-flight-scene .sticker-plane {
+.page-flight-scene .sticker-plane {
     display: block !important;
     position: absolute !important;
     inset: 0 !important;
@@ -637,27 +645,30 @@ body {
     filter: none;
     pointer-events: auto;
 }
-.hero-flight-scene .sticker-plane svg {
+.page-flight-scene .sticker-plane svg {
     height: 100%;
     animation: none;
 }
 .has-plane-flight .desk-board { pointer-events: none; }
 .has-plane-flight .desk-board > .desk-item { pointer-events: auto; }
+.has-plane-flight .content-section { position: relative; z-index: 4; pointer-events: none; }
+.has-plane-flight .content-section > * { pointer-events: auto; }
 
 @media (max-width: 900px) {
-    .hero-flight-scene { height: min(100%, calc(100svh - 68px)); }
-    .hero-flight-plane {
-        width: 34px;
-        height: 36px;
-        margin: -18px 0 0 -17px;
+    .page-flight-scene { --flight-reading-feather: 8px; }
+    .page-flight-plane {
+        width: 22px;
+        height: 24px;
+        margin: -12px 0 0 -11px;
     }
-    .hero-flight-plane--side {
-        width: 29px;
-        height: 31px;
-        margin: -15.5px 0 0 -14.5px;
+    .page-flight-plane--side {
+        width: 18px;
+        height: 20px;
+        margin: -10px 0 0 -9px;
     }
-    .hero-flight-scene .sticker-plane { pointer-events: none; }
+    .page-flight-scene .sticker-plane { pointer-events: none; }
     .flight-guide, .flight-path { stroke-width: 1.2; stroke-dasharray: 1 8; }
+    .flight-guide--side { opacity: 0; }
 }
 
 /* ── Long-haired profile doodle mascot ── */
