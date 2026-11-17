@@ -226,6 +226,7 @@
         const artwork = carriers.map(el => el.querySelector('svg'));
         const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
         const desktop = window.matchMedia('(min-width: 901px)');
+        let reduceMotion = reduced.matches;
         const phases = [0.12, 0.08];
         const durations = [24000, 29000];
         let lengths = [0, 0];
@@ -233,7 +234,7 @@
         let inView = false, hovering = false, settling = false;
         const activeDrags = new Set();
 
-        const isStill = () => reduced.matches || document.documentElement.dataset.motion === 'off';
+        const isStill = () => reduceMotion || document.documentElement.dataset.motion === 'off';
         const canFly = () => inView && !document.hidden && !isStill() && !hovering && !activeDrags.size && !settling;
         const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
 
@@ -326,7 +327,7 @@
 
         plane.addEventListener('pointerenter', () => { hovering = desktop.matches; sync(); });
         plane.addEventListener('pointerleave', () => { hovering = false; sync(); });
-        reduced.addEventListener('change', sync);
+        reduced.addEventListener('change', event => { reduceMotion = event.matches; sync(); });
         desktop.addEventListener('change', () => { hovering = false; layout(); sync(); });
         document.addEventListener('visibilitychange', sync);
         window.addEventListener('blur', () => { hovering = false; sync(); });
