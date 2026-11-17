@@ -818,7 +818,7 @@ html[data-motion="off"] .sky-doodles .doodle-flyer { animation: none; }
     font-size: 1.35rem;
     font-style: normal;
     font-weight: 500;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--text-primary);
     margin-bottom: 0;
@@ -888,7 +888,7 @@ html[data-motion="off"] .sky-doodles .doodle-flyer { animation: none; }
     color: var(--ink);
     margin-bottom: 8px;
     text-transform: uppercase;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.09em;
 }
 
 .work-title,
@@ -897,7 +897,7 @@ html[data-motion="off"] .sky-doodles .doodle-flyer { animation: none; }
 .skill-category-title {
     font-family: var(--font-stencil) !important;
     text-transform: uppercase !important;
-    letter-spacing: 0.14em !important;
+    letter-spacing: 0.09em !important;
     font-weight: 500 !important;
 }
 .work-desc {

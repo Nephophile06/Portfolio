@@ -499,7 +499,7 @@ button {
     color: var(--text-primary);
     margin-bottom: 16px;
     text-transform: uppercase;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.08em;
 }
 
 .block-header {
@@ -667,7 +667,7 @@ button {
     font-weight: 500;
     color: var(--text-primary);
     text-transform: uppercase;
-    letter-spacing: 0.14em;
+    letter-spacing: 0.09em;
 }
 
 .exp-dates {
@@ -729,7 +729,7 @@ button {
     color: var(--text-primary);
     margin-bottom: 2px;
     text-transform: uppercase;
-    letter-spacing: 0.14em;
+    letter-spacing: 0.09em;
 }
 
 .edu-dates {
@@ -771,7 +771,7 @@ button {
     border: none;
     box-shadow: none;
     text-transform: uppercase;
-    letter-spacing: 0.14em;
+    letter-spacing: 0.09em;
 }
 
 .skill-cloud-icon {
