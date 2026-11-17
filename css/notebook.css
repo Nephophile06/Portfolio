@@ -326,10 +326,11 @@ button, a, input, textarea, [role="button"] { -webkit-tap-highlight-color: trans
     position: relative;
     display: inline-block;
     font-family: var(--heading-font);
-    font-size: 1.22rem;
+    font-size: 1.45rem;
+    font-style: italic;
     font-weight: 600;
-    letter-spacing: -0.02em;
-    line-height: 1.4;
+    letter-spacing: -0.015em;
+    line-height: 1.35;
     margin-bottom: 24px;
     padding-bottom: 6px;
     color: var(--text-primary);
