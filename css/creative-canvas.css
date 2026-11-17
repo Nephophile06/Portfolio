@@ -883,7 +883,7 @@ html[data-motion="off"] .sky-doodles .doodle-flyer { animation: none; }
 .work-title {
     font-family: var(--font-stencil);
     font-size: 1.15rem;
-    font-weight: 700;
+    font-weight: 500;
     color: var(--ink);
     margin-bottom: 8px;
     text-transform: uppercase;
@@ -897,6 +897,7 @@ html[data-motion="off"] .sky-doodles .doodle-flyer { animation: none; }
     font-family: var(--font-stencil) !important;
     text-transform: uppercase !important;
     letter-spacing: 0.14em !important;
+    font-weight: 500 !important;
 }
 .work-desc {
     font-size: 0.84rem;
