@@ -8,7 +8,7 @@
     --accent-blue: #0071E3;
     --border-color: rgba(180, 200, 230, 0.5);
     --navbar-height: 56px;
-    --font: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --font: 'Adrianna', 'adrianna', 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     --heading-font: 'Meno Banner', 'meno-banner', Georgia, 'Times New Roman', serif;
     --transition: all 0.22s ease;
     --radius-sm: 6px;

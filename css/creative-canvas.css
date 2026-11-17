@@ -41,7 +41,7 @@ html {
 }
 body {
     color: var(--ink) !important;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+    font-family: 'Adrianna', 'adrianna', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
 }
 
 .personal-navbar {
