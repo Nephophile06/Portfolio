@@ -228,7 +228,9 @@
         const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
         const desktop = window.matchMedia('(min-width: 901px)');
         let reduceMotion = reduced.matches;
-        const phases = [0.16, 0.58];
+        // Opposite corners on first paint, including the still illustration.
+        const startingPhases = () => desktop.matches ? [0.16, 0.96] : [0.4, 0];
+        const phases = startingPhases();
         const durations = [42000, 36000];
         let lengths = [0, 0];
         let frame = 0, previousTime = 0, releaseTimer = 0, readingFrame = 0;
@@ -244,7 +246,7 @@
             paths.forEach((path, index) => {
                 const length = lengths[index];
                 if (!length) return;
-                const progress = still ? (desktop.matches ? [0.16, 0.58] : [0.4, 0.9])[index] : phases[index];
+                const progress = still ? startingPhases()[index] : phases[index];
                 const distance = length * progress;
                 const point = path.getPointAtLength(distance);
                 const ahead = path.getPointAtLength(wrap(distance + 3, length));
@@ -310,12 +312,13 @@
                  C ${w * 0.79} ${h * 0.24}, ${w * right} ${h * 0.25}, ${w * right} ${h * 0.51}
                  C ${w * right} ${h * 0.77}, ${w * 0.73} ${h * 0.93}, ${w * 0.49} ${h * 0.87}
                  C ${w * 0.25} ${h * 0.81}, ${w * left} ${h * 0.76}, ${w * left} ${h * 0.45} Z`,
-                // A smaller, gently tilted oval makes the second flight quieter.
-                `M ${w * 0.45} ${h * 0.61}
-                 C ${w * 0.472} ${h * 0.775}, ${w * 0.4} ${h * 0.8965}, ${w * 0.29} ${h * 0.88}
-                 C ${w * 0.18} ${h * 0.8635}, ${w * 0.072} ${h * 0.715}, ${w * 0.05} ${h * 0.55}
-                 C ${w * 0.028} ${h * 0.385}, ${w * 0.1} ${h * 0.2635}, ${w * 0.21} ${h * 0.28}
-                 C ${w * 0.32} ${h * 0.2965}, ${w * 0.428} ${h * 0.445}, ${w * 0.45} ${h * 0.61} Z`
+                // The smaller oval lives on the right and runs counterclockwise:
+                // its plane climbs from the lower-right while the main one heads east.
+                `M ${w * 0.95} ${h * 0.61}
+                 C ${w * 0.928} ${h * 0.445}, ${w * 0.82} ${h * 0.2965}, ${w * 0.71} ${h * 0.28}
+                 C ${w * 0.6} ${h * 0.2635}, ${w * 0.528} ${h * 0.385}, ${w * 0.55} ${h * 0.55}
+                 C ${w * 0.572} ${h * 0.715}, ${w * 0.68} ${h * 0.8635}, ${w * 0.79} ${h * 0.88}
+                 C ${w * 0.9} ${h * 0.8965}, ${w * 0.972} ${h * 0.775}, ${w * 0.95} ${h * 0.61} Z`
             ];
             if (!desktop.matches) {
                 // A tall, round-ended circuit spends time in the narrow phone
@@ -326,7 +329,13 @@
                     C ${w - edge} ${h * 0.45}, ${w - edge} ${h * 0.55}, ${w - edge} ${h * 0.75}
                     C ${w - edge} ${h * 0.95}, ${edge} ${h * 0.95}, ${edge} ${h * 0.75}
                     C ${edge} ${h * 0.55}, ${edge} ${h * 0.45}, ${edge} ${h * 0.25} Z`;
-                routes.fill(mobileRoute);
+                routes[0] = mobileRoute;
+                // Start on the opposite gutter and travel in the other direction.
+                routes[1] = `M ${edge} ${h * 0.75}
+                    C ${edge} ${h * 0.55}, ${edge} ${h * 0.45}, ${edge} ${h * 0.25}
+                    C ${edge} ${h * 0.05}, ${w - edge} ${h * 0.05}, ${w - edge} ${h * 0.25}
+                    C ${w - edge} ${h * 0.45}, ${w - edge} ${h * 0.55}, ${w - edge} ${h * 0.75}
+                    C ${w - edge} ${h * 0.95}, ${edge} ${h * 0.95}, ${edge} ${h * 0.75} Z`;
             }
             scene.querySelector('svg').setAttribute('viewBox', `0 0 ${w} ${h}`);
             routes.forEach((d, index) => {

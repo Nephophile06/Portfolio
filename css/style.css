@@ -622,33 +622,18 @@ button {
 }
 
 .exp-item {
-    padding: 0 0 0 24px;
+    padding: 0;
     position: relative;
 }
 
 /* Dot */
 .exp-item::before {
-    content: '';
-    position: absolute;
-    left: -4px;
-    top: 6px;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: var(--border-color);
-    border: 2px solid var(--bg-content);
-    z-index: 1;
+    display: none;
 }
 
 /* Vertical line — drawn below the dot, stops short for a gap */
 .exp-item::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 18px;
-    bottom: 0px;
-    width: 2px;
-    background: var(--border-color);
+    display: none;
 }
 
 

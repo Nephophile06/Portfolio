@@ -63,6 +63,26 @@ body {
     border-bottom-color: var(--ink) !important;
 }
 
+/* Homepage butterfly: a lower diagonal crossing, independent of the planes.
+   Keep the shared pages' butterfly route and the existing wingbeat untouched. */
+.sky-doodles .doodle-flyer {
+    top: 0;
+    left: 0;
+    transform: translate(84vw, 32vh) rotate(-16deg);
+    animation: home-butterfly-crossing 50s linear -8s infinite;
+}
+@keyframes home-butterfly-crossing {
+    0%   { transform: translate(106vw, 24vh) rotate(-12deg); }
+    25%  { transform: translate(76vw, 34vh) rotate(-16deg); }
+    50%  { transform: translate(44vw, 47vh) rotate(-13deg); }
+    75%  { transform: translate(12vw, 60vh) rotate(-18deg); }
+    100% { transform: translate(-160px, 72vh) rotate(-14deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+    .sky-doodles .doodle-flyer { animation: none; }
+}
+html[data-motion="off"] .sky-doodles .doodle-flyer { animation: none; }
+
 /* ── Fullscreen Interactive Hero Sky ── */
 .creative-hero-desk {
     position: relative;

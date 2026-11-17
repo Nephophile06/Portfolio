@@ -406,9 +406,9 @@ button, a, input, textarea, [role="button"] { -webkit-tap-highlight-color: trans
 
 /* 6. Experience, education and paper-tab skills */
 .experience-list { gap: 32px; }
-.exp-item { padding-left: 24px; }
-.exp-item::before { left: -4px; width: 9px; height: 9px; border: 1px solid var(--accent-blue); border-radius: 1px; background: var(--paper); }
-.exp-item::after { width: 1px; background: none; border-left: 1px dashed var(--border-color); }
+.exp-item { padding-left: 0; }
+.exp-item::before,
+.exp-item::after { display: none; }
 .exp-company { font-size: 1.04rem; letter-spacing: -0.02em; }
 .exp-location, .exp-dates, .edu-dates { font-family: var(--utility-font); font-size: 0.72rem; }
 .exp-role { margin-block: 5px 12px; color: var(--accent-blue); }
