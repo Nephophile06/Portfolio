@@ -814,7 +814,7 @@ html[data-motion="off"] .sky-doodles .doodle-flyer { animation: none; }
     font-family: var(--heading-font, 'Meno Banner', 'meno-banner', Georgia, serif);
     font-size: 1.45rem;
     font-style: italic;
-    font-weight: 600;
+    font-weight: 500;
     letter-spacing: -0.015em;
     color: var(--text-primary);
     margin-bottom: 0;
