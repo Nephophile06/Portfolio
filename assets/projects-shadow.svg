@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 700" width="520" height="700" fill="none">
+  <defs>
+    <filter id="dappleFar" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="22"/>
+    </filter>
+    <filter id="dappleMid" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="9"/>
+    </filter>
+    <filter id="dappleNear" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="4"/>
+    </filter>
+    <linearGradient id="beamFade" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8e6254" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#8e6254" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Broad, far-off shadow pooling in the corner -->
+  <g fill="#9c7365" opacity="0.22" filter="url(#dappleFar)">
+    <ellipse cx="430" cy="90" rx="120" ry="150" transform="rotate(18 430 90)"/>
+    <ellipse cx="500" cy="260" rx="90" ry="130" transform="rotate(-12 500 260)"/>
+    <ellipse cx="300" cy="20" rx="110" ry="90" transform="rotate(-8 300 20)"/>
+  </g>
+
+  <!-- Leafy shadow clusters: soft, overlapping leaf prints from a branch -->
+  <g fill="#8b5f51" opacity="0.40" filter="url(#dappleMid)">
+    <g>
+      <ellipse cx="382" cy="96" rx="24" ry="66" transform="rotate(-28 382 96)"/>
+      <ellipse cx="410" cy="138" rx="22" ry="58" transform="rotate(8 410 138)"/>
+      <ellipse cx="356" cy="150" rx="19" ry="52" transform="rotate(36 356 150)"/>
+      <ellipse cx="430" cy="72" rx="20" ry="50" transform="rotate(-52 430 72)"/>
+      <ellipse cx="372" cy="44" rx="17" ry="44" transform="rotate(64 372 44)"/>
+    </g>
+    <g>
+      <ellipse cx="474" cy="246" rx="22" ry="58" transform="rotate(-34 474 246)"/>
+      <ellipse cx="500" cy="300" rx="19" ry="50" transform="rotate(12 500 300)"/>
+      <ellipse cx="452" cy="312" rx="16" ry="44" transform="rotate(42 452 312)"/>
+      <ellipse cx="486" cy="196" rx="15" ry="40" transform="rotate(-6 486 196)"/>
+    </g>
+    <g>
+      <ellipse cx="248" cy="34" rx="20" ry="54" transform="rotate(30 248 34)"/>
+      <ellipse cx="222" cy="86" rx="17" ry="46" transform="rotate(-18 222 86)"/>
+      <ellipse cx="276" cy="96" rx="15" ry="40" transform="rotate(54 276 96)"/>
+      <ellipse cx="300" cy="26" rx="14" ry="36" transform="rotate(-44 300 26)"/>
+    </g>
+  </g>
+
+  <!-- A few crisper leaves nearest the light -->
+  <g fill="#7f5548" opacity="0.32" filter="url(#dappleNear)">
+    <g>
+      <ellipse cx="394" cy="118" rx="10" ry="30" transform="rotate(-22 394 118)"/>
+      <ellipse cx="420" cy="158" rx="8" ry="24" transform="rotate(26 420 158)"/>
+      <ellipse cx="364" cy="172" rx="7" ry="20" transform="rotate(48 364 172)"/>
+    </g>
+    <g>
+      <ellipse cx="466" cy="274" rx="9" ry="26" transform="rotate(-40 466 274)"/>
+      <ellipse cx="492" cy="320" rx="7" ry="22" transform="rotate(6 492 320)"/>
+    </g>
+  </g>
+
+  <!-- Long raking beam edge, like light slipping past a curtain -->
+  <path d="M 60 0 L 200 0 L 520 430 L 520 520 L 60 0 Z" fill="url(#beamFade)" opacity="0.18" filter="url(#dappleFar)"/>
+</svg>

@@ -60,9 +60,29 @@ html.certifications-garden {
     pointer-events: none;
 }
 
+/* Watercolor Sage Butterfly in the upper-right corner */
+.page-certifications .garden-butterfly {
+    position: fixed;
+    top: clamp(110px, 18vh, 190px);
+    right: clamp(16px, 2.8vw, 48px);
+    width: min(clamp(130px, 12vw, 195px), 23vh);
+    aspect-ratio: 834 / 980;
+    z-index: 0;
+    background: url('../assets/certifications-butterfly.svg') top right / contain no-repeat;
+    pointer-events: none;
+    filter: drop-shadow(0 14px 28px rgba(45, 62, 38, 0.16));
+    transform: rotate(-3deg);
+    transition: transform 0.4s ease;
+}
+
 @media (max-width: 1199px) {
     .page-certifications .garden-bloom--left {
         width: min(clamp(210px, 27vw, 340px), 42vh);
+    }
+    .page-certifications .garden-butterfly {
+        top: clamp(85px, 13vh, 140px);
+        right: clamp(10px, 2vw, 24px);
+        width: min(clamp(105px, 12vw, 155px), 18vh);
     }
 }
 
@@ -70,6 +90,9 @@ html.certifications-garden {
     .page-certifications .garden-bloom--left {
         width: min(clamp(180px, 50vw, 240px), 42vh);
         opacity: 0.7;
+    }
+    .page-certifications .garden-butterfly {
+        display: none;
     }
 }
 
