@@ -42,6 +42,7 @@ html {
     background-size: cover;
     background-repeat: no-repeat;
 }
+
 body {
     color: var(--ink) !important;
     font-family: 'Adrianna', 'adrianna', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
@@ -54,16 +55,22 @@ body {
     border-bottom: 1px solid var(--line) !important;
     box-shadow: 0 8px 24px -18px rgba(35, 70, 100, 0.35) !important;
 }
+
 .navbar-link {
     color: #3d5670 !important;
     font-weight: 500 !important;
 }
-.navbar-link:hover, .navbar-link.active {
+
+.navbar-link:hover,
+.navbar-link.active {
     color: var(--ink) !important;
     font-weight: 700 !important;
 }
-.navbar-link::after {
-    border-bottom-color: var(--ink) !important;
+
+.navbar-link::after,
+.navbar-link:hover::after,
+.navbar-link.active::after {
+    display: none !important;
 }
 
 /* Homepage butterfly: a lower diagonal crossing, independent of the planes.
@@ -74,17 +81,38 @@ body {
     transform: translate(84vw, 32vh) rotate(-16deg);
     animation: home-butterfly-crossing 50s linear -8s infinite;
 }
+
 @keyframes home-butterfly-crossing {
-    0%   { transform: translate(106vw, 24vh) rotate(-12deg); }
-    25%  { transform: translate(76vw, 34vh) rotate(-16deg); }
-    50%  { transform: translate(44vw, 47vh) rotate(-13deg); }
-    75%  { transform: translate(12vw, 60vh) rotate(-18deg); }
-    100% { transform: translate(-160px, 72vh) rotate(-14deg); }
+    0% {
+        transform: translate(106vw, 24vh) rotate(-12deg);
+    }
+
+    25% {
+        transform: translate(76vw, 34vh) rotate(-16deg);
+    }
+
+    50% {
+        transform: translate(44vw, 47vh) rotate(-13deg);
+    }
+
+    75% {
+        transform: translate(12vw, 60vh) rotate(-18deg);
+    }
+
+    100% {
+        transform: translate(-160px, 72vh) rotate(-14deg);
+    }
 }
+
 @media (prefers-reduced-motion: reduce) {
-    .sky-doodles .doodle-flyer { animation: none; }
+    .sky-doodles .doodle-flyer {
+        animation: none;
+    }
 }
-html[data-motion="off"] .sky-doodles .doodle-flyer { animation: none; }
+
+html[data-motion="off"] .sky-doodles .doodle-flyer {
+    animation: none;
+}
 
 /* ── Fullscreen Interactive Hero Sky ── */
 .creative-hero-desk {
@@ -113,8 +141,14 @@ html[data-motion="off"] .sky-doodles .doodle-flyer { animation: none; }
     pointer-events: none;
     user-select: none;
 }
-.hero-doodles .doodle--camera { top: max(22px, calc(12vh - 68px)); }
-.hero-doodles .doodle--jelly { top: max(18px, calc(9vh - 68px)); }
+
+.hero-doodles .doodle--camera {
+    top: max(22px, calc(12vh - 68px));
+}
+
+.hero-doodles .doodle--jelly {
+    top: max(18px, calc(9vh - 68px));
+}
 
 /* Slow cloud banks sit under the canvas and the paper desk */
 .creative-hero-desk::before,
@@ -125,6 +159,7 @@ html[data-motion="off"] .sky-doodles .doodle-flyer { animation: none; }
     pointer-events: none;
     background-repeat: no-repeat;
 }
+
 .creative-hero-desk::before {
     left: -6%;
     right: -6%;
@@ -143,6 +178,7 @@ html[data-motion="off"] .sky-doodles .doodle-flyer { animation: none; }
     mask-image: linear-gradient(180deg, #000 0%, #000 46%, rgba(0, 0, 0, 0) 71%);
     animation: cloudBankDrift 46s ease-in-out infinite alternate;
 }
+
 .creative-hero-desk::after {
     left: 3%;
     top: 7%;
@@ -156,13 +192,25 @@ html[data-motion="off"] .sky-doodles .doodle-flyer { animation: none; }
     opacity: 0.6;
     animation: cloudPuffDrift 34s ease-in-out infinite alternate;
 }
+
 @keyframes cloudBankDrift {
-    from { transform: translate3d(-1.5%, 0, 0); }
-    to { transform: translate3d(1.5%, 0, 0); }
+    from {
+        transform: translate3d(-1.5%, 0, 0);
+    }
+
+    to {
+        transform: translate3d(1.5%, 0, 0);
+    }
 }
+
 @keyframes cloudPuffDrift {
-    from { transform: translate3d(0, 0, 0); }
-    to { transform: translate3d(26px, -10px, 0); }
+    from {
+        transform: translate3d(0, 0, 0);
+    }
+
+    to {
+        transform: translate3d(26px, -10px, 0);
+    }
 }
 
 /* 60FPS Generative Motion Graphics Canvas */
@@ -184,6 +232,7 @@ html[data-motion="off"] .sky-doodles .doodle-flyer { animation: none; }
     margin: 0 auto;
     z-index: 10;
 }
+
 .desk-board::before,
 .desk-board::after {
     content: '';
@@ -194,6 +243,7 @@ html[data-motion="off"] .sky-doodles .doodle-flyer { animation: none; }
     opacity: 0.7;
     background-repeat: no-repeat;
 }
+
 .desk-board::before {
     top: 10px;
     left: 20%;
@@ -204,6 +254,7 @@ html[data-motion="off"] .sky-doodles .doodle-flyer { animation: none; }
         radial-gradient(38% 52% at 56% 42%, #ffffff 0 60%, rgba(255, 255, 255, 0) 61%),
         radial-gradient(34% 48% at 82% 66%, #ffffff 0 60%, rgba(255, 255, 255, 0) 61%);
 }
+
 .desk-board::after {
     right: 2%;
     bottom: 30px;
@@ -222,6 +273,7 @@ html[data-motion="off"] .sky-doodles .doodle-flyer { animation: none; }
     touch-action: none;
     transition: transform 220ms cubic-bezier(0.2, 0.8, 0.3, 1), box-shadow 220ms ease;
 }
+
 .desk-item:active,
 .desk-item.is-dragging {
     cursor: grabbing !important;
@@ -259,16 +311,19 @@ html[data-motion="off"] .sky-doodles .doodle-flyer { animation: none; }
     transform: rotate(-1.5deg);
     z-index: 15;
 }
+
 .note-main-quote:hover {
     box-shadow: var(--card-shadow-hover);
     transform: rotate(0deg) scale(1.01);
 }
+
 .quote-salutation {
     font-size: 0.85rem;
     font-weight: 600;
     color: var(--sky-600);
     margin-bottom: 12px;
 }
+
 .quote-title {
     font-size: 1.85rem;
     font-weight: 800;
@@ -277,6 +332,7 @@ html[data-motion="off"] .sky-doodles .doodle-flyer { animation: none; }
     letter-spacing: -0.04em;
     margin-bottom: 24px;
 }
+
 .quote-title em {
     font-style: italic;
     font-family: Georgia, serif;
@@ -284,6 +340,7 @@ html[data-motion="off"] .sky-doodles .doodle-flyer { animation: none; }
     position: relative;
     display: inline-block;
 }
+
 .quote-title em::after {
     content: '';
     position: absolute;
@@ -294,6 +351,7 @@ html[data-motion="off"] .sky-doodles .doodle-flyer { animation: none; }
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 12' preserveAspectRatio='none'%3E%3Cpath d='M0 8 Q 25 1, 50 7 T 100 5' fill='none' stroke='%234d7ea6' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E");
     background-size: 100% 100%;
 }
+
 .quote-bottom-tag {
     font-size: 0.78rem;
     font-weight: 700;
@@ -309,19 +367,21 @@ html[data-motion="off"] .sky-doodles .doodle-flyer { animation: none; }
 .note-polaroid-card {
     top: 55px;
     left: 480px;
-    width: 220px;
+    width: 252px;
     background: #ffffff;
-    padding: 12px 12px 20px;
+    padding: 14px 14px 22px;
     border-radius: 3px;
     box-shadow: 0 14px 34px rgba(35, 70, 100, 0.16);
     transform: rotate(3deg);
     z-index: 12;
     text-align: center;
 }
+
 .note-polaroid-card:hover {
     transform: rotate(1deg) scale(1.02);
     box-shadow: var(--card-shadow-hover);
 }
+
 .polaroid-frame {
     width: 100%;
     aspect-ratio: 1 / 1.15;
@@ -330,31 +390,38 @@ html[data-motion="off"] .sky-doodles .doodle-flyer { animation: none; }
     border-radius: 2px;
     border: 1px solid var(--line);
 }
+
 .polaroid-frame img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
 }
+
 .polaroid-name {
     margin-top: 14px;
-    font-size: 0.92rem;
-    font-weight: 700;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 1.24rem;
+    font-weight: 500;
     color: var(--ink);
-    letter-spacing: -0.02em;
+    letter-spacing: 0.01em;
+    line-height: 1.25;
+    white-space: nowrap;
 }
+
 .polaroid-sub {
-    font-size: 0.72rem;
+    font-size: 0.9rem;
     color: var(--ink-muted);
-    margin-top: 2px;
+    margin-top: 4px;
+    letter-spacing: 0.02em;
 }
 
 /* 4. Experience & Education Note (pale cloud) */
 .note-exp-card {
-    top: 110px;
-    left: 20px;
-    width: 240px;
-    padding: 24px 20px;
+    top: 255px;
+    left: -10px;
+    width: 315px;
+    padding: 26px 24px 24px;
     background: var(--cloud-mist);
     border: 1px solid var(--sky-300);
     border-radius: 4px;
@@ -362,46 +429,94 @@ html[data-motion="off"] .sky-doodles .doodle-flyer { animation: none; }
     transform: rotate(-3.5deg);
     z-index: 10;
 }
+
 .note-exp-card:hover {
     transform: rotate(-1deg) scale(1.02);
     box-shadow: var(--card-shadow-hover);
 }
+
 .note-exp-heading {
-    font-size: 0.75rem;
-    font-weight: 700;
+    font-family: var(--font-stencil);
+    font-size: 0.84rem;
+    font-weight: 500;
     color: var(--sky-700);
     text-transform: uppercase;
-    letter-spacing: 0.04em;
-    margin-bottom: 12px;
+    letter-spacing: 0.05em;
+    margin-bottom: 10px;
 }
+
 .note-exp-item {
     font-size: 0.85rem;
     color: var(--ink-soft);
-    margin-bottom: 12px;
-    line-height: 1.4;
+    margin-bottom: 14px;
+    line-height: 1.5;
 }
+
 .note-exp-item strong {
     display: block;
     font-size: 0.92rem;
-    color: var(--ink);
-}
-.note-exp-links {
-    margin-top: 14px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    font-size: 0.8rem;
     font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 3px;
 }
-.note-exp-links a {
+
+.note-exp-links {
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px dashed var(--sky-300);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 0.84rem;
+}
+
+.note-exp-explore {
+    font-size: 0.84rem;
+    font-weight: 700;
     color: var(--sky-700);
     text-decoration: underline;
     text-underline-offset: 3px;
     transition: color 0.15s ease, opacity 0.15s ease;
 }
-.note-exp-links a:hover {
+
+.note-exp-explore:hover {
     color: var(--ink);
-    opacity: 0.8;
+}
+
+.note-resume-list {
+    list-style: none;
+    padding: 0;
+    margin: 2px 0 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.note-resume-list li {
+    font-size: 0.8rem;
+    color: var(--sky-700);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.note-resume-list li::before {
+    content: "–";
+    color: var(--ink-muted);
+    font-weight: 600;
+}
+
+.note-resume-list a {
+    color: var(--sky-700);
+    text-decoration: underline;
+    text-underline-offset: 2.5px;
+    font-weight: 600;
+    transition: color 0.15s ease, opacity 0.15s ease;
+}
+
+.note-resume-list a:hover {
+    color: var(--ink);
+    opacity: 0.85;
 }
 
 /* 5. Core Strengths Note (white cloud, blue rules) */
@@ -417,21 +532,25 @@ html[data-motion="off"] .sky-doodles .doodle-flyer { animation: none; }
     transform: rotate(2deg);
     z-index: 14;
 }
+
 .note-strengths-card:hover {
     transform: rotate(0deg) scale(1.02);
     box-shadow: var(--card-shadow-hover);
 }
+
 .strengths-heading {
     font-size: 0.84rem;
     font-weight: 700;
     color: var(--sky-700);
     margin-bottom: 14px;
 }
+
 .strengths-list {
     display: flex;
     flex-direction: column;
     gap: 8px;
 }
+
 .strength-badge {
     padding: 7px 12px;
     background: rgba(255, 255, 255, 0.9);
@@ -461,10 +580,12 @@ html[data-motion="off"] .sky-doodles .doodle-flyer { animation: none; }
     z-index: 25;
     transition: transform 160ms ease, box-shadow 160ms ease;
 }
+
 .note-jump-pill:hover {
     transform: rotate(0deg) translateY(-3px);
     box-shadow: 6px 9px 0 var(--sky-600);
 }
+
 .note-jump-pill span {
     font-size: 1rem;
     font-weight: 800;
@@ -484,9 +605,11 @@ html[data-motion="off"] .sky-doodles .doodle-flyer { animation: none; }
     transform: rotate(1.4deg);
     z-index: 16;
 }
+
 .note-about-brief:hover {
     box-shadow: var(--card-shadow-hover);
 }
+
 .note-about-brief .tape-strip {
     width: 78px;
     height: 20px;
@@ -495,6 +618,7 @@ html[data-motion="off"] .sky-doodles .doodle-flyer { animation: none; }
     border-left-color: rgba(44, 85, 115, 0.28);
     border-right-color: rgba(44, 85, 115, 0.28);
 }
+
 .brief-head {
     display: flex;
     align-items: center;
@@ -507,32 +631,38 @@ html[data-motion="off"] .sky-doodles .doodle-flyer { animation: none; }
     line-height: 1.1;
     letter-spacing: -0.01em;
 }
+
 .brief-star {
     width: 11px;
     height: 11px;
     background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M6 .8 7.4 4.6 11.2 6 7.4 7.4 6 11.2 4.6 7.4.8 6 4.6 4.6Z' fill='%237fa9c9'/%3E%3C/svg%3E") center / contain no-repeat;
 }
+
 .brief-copy {
-    margin: 9px 0 11px;
+    margin: 10px 0 18px;
     font-size: 0.84rem;
     line-height: 1.55;
     color: var(--ink-soft);
 }
+
 .brief-divider {
     display: flex;
     align-items: center;
     gap: 9px;
     margin-bottom: 11px;
 }
+
 .brief-divider span {
     flex: 1;
     border-top: 1px dashed var(--line-strong);
 }
+
 .brief-divider svg {
     width: 14px;
     height: 13px;
     flex-shrink: 0;
 }
+
 .loves-title {
     font-size: 0.6rem;
     font-weight: 700;
@@ -541,15 +671,17 @@ html[data-motion="off"] .sky-doodles .doodle-flyer { animation: none; }
     color: var(--ink-muted);
     margin-bottom: 8px;
 }
+
 .loves-row {
     list-style: none;
     display: flex;
-    align-items: flex-start;
+    align-items: flex-end;
     justify-content: space-between;
     gap: 4px;
     margin: 0;
     padding: 0;
 }
+
 .loves-row li {
     display: flex;
     flex-direction: column;
@@ -560,10 +692,16 @@ html[data-motion="off"] .sky-doodles .doodle-flyer { animation: none; }
     color: var(--ink-soft);
     min-width: 46px;
 }
+
 .loves-row svg {
     width: 24px;
     height: 24px;
     display: block;
+}
+
+.loves-row svg.loves-mocha {
+    width: 28px;
+    height: 38px;
 }
 
 /* Hand-drawn stickers — the same blue pencil family as the sky sketches */
@@ -571,15 +709,18 @@ html[data-motion="off"] .sky-doodles .doodle-flyer { animation: none; }
     z-index: 21;
     filter: drop-shadow(0 6px 10px rgba(35, 70, 100, 0.08));
 }
+
 .desk-sticker svg {
     display: block;
     width: 100%;
     height: auto;
     overflow: visible;
 }
+
 .desk-sticker:hover {
     filter: drop-shadow(0 10px 16px rgba(35, 70, 100, 0.18));
 }
+
 .sticker-plane {
     top: 14px;
     left: 720px;
@@ -587,13 +728,23 @@ html[data-motion="off"] .sky-doodles .doodle-flyer { animation: none; }
     transform: rotate(-5deg);
     z-index: 20;
 }
+
 .sticker-plane svg {
     animation: planeFloat 9s ease-in-out infinite alternate;
 }
-.sticker-plane.is-dragging svg { animation-play-state: paused; }
+
+.sticker-plane.is-dragging svg {
+    animation-play-state: paused;
+}
+
 @keyframes planeFloat {
-    from { transform: translate(0, 0); }
-    to { transform: translate(6px, -10px); }
+    from {
+        transform: translate(0, 0);
+    }
+
+    to {
+        transform: translate(6px, -10px);
+    }
 }
 
 /* Homepage-wide flight, above the sky but below the desk and reading content.
@@ -614,6 +765,7 @@ html[data-motion="off"] .sky-doodles .doodle-flyer { animation: none; }
         linear-gradient(to right, #000 calc(var(--flight-reading-left) - var(--flight-reading-feather)), transparent var(--flight-reading-left), transparent var(--flight-reading-right), #000 calc(var(--flight-reading-right) + var(--flight-reading-feather)));
     mask-composite: add;
 }
+
 .page-flight-routes {
     position: absolute;
     inset: 0;
@@ -621,6 +773,7 @@ html[data-motion="off"] .sky-doodles .doodle-flyer { animation: none; }
     height: 100%;
     overflow: visible;
 }
+
 .flight-guide,
 .flight-path {
     fill: none;
@@ -629,10 +782,23 @@ html[data-motion="off"] .sky-doodles .doodle-flyer { animation: none; }
     stroke-linecap: round;
     stroke-dasharray: 7 14;
 }
-.flight-guide { opacity: .1; }
-.flight-guide--side { opacity: .07; }
-.flight-path { stroke: var(--sky-500); }
-.flight-path--side { stroke: var(--sky-400); }
+
+.flight-guide {
+    opacity: .1;
+}
+
+.flight-guide--side {
+    opacity: .07;
+}
+
+.flight-path {
+    stroke: var(--sky-500);
+}
+
+.flight-path--side {
+    stroke: var(--sky-400);
+}
+
 .page-flight-plane {
     position: absolute;
     top: 0;
@@ -643,11 +809,13 @@ html[data-motion="off"] .sky-doodles .doodle-flyer { animation: none; }
     opacity: 0;
     pointer-events: none;
 }
+
 .page-flight-plane--side {
     width: 49px;
     height: 51px;
     margin: -25.5px 0 0 -24.5px;
 }
+
 .page-flight-plane svg {
     width: 100%;
     height: 100%;
@@ -655,7 +823,11 @@ html[data-motion="off"] .sky-doodles .doodle-flyer { animation: none; }
     overflow: visible;
     transform-origin: center;
 }
-.page-flight-scene .plane-resting-trail { display: none; }
+
+.page-flight-scene .plane-resting-trail {
+    display: none;
+}
+
 /* Override the shared mobile sticker layout only inside the flight carrier. */
 .page-flight-scene .sticker-plane {
     display: block !important;
@@ -668,30 +840,60 @@ html[data-motion="off"] .sky-doodles .doodle-flyer { animation: none; }
     filter: none;
     pointer-events: auto;
 }
+
 .page-flight-scene .sticker-plane svg {
     height: 100%;
     animation: none;
 }
-.has-plane-flight .desk-board { pointer-events: none; }
-.has-plane-flight .desk-board > .desk-item { pointer-events: auto; }
-.has-plane-flight .content-section { position: relative; z-index: 4; pointer-events: none; }
-.has-plane-flight .content-section > * { pointer-events: auto; }
+
+.has-plane-flight .desk-board {
+    pointer-events: none;
+}
+
+.has-plane-flight .desk-board>.desk-item {
+    pointer-events: auto;
+}
+
+.has-plane-flight .content-section {
+    position: relative;
+    z-index: 4;
+    pointer-events: none;
+}
+
+.has-plane-flight .content-section>* {
+    pointer-events: auto;
+}
 
 @media (max-width: 900px) {
-    .page-flight-scene { --flight-reading-feather: 8px; }
+    .page-flight-scene {
+        --flight-reading-feather: 8px;
+    }
+
     .page-flight-plane {
         width: 22px;
         height: 24px;
         margin: -12px 0 0 -11px;
     }
+
     .page-flight-plane--side {
         width: 18px;
         height: 20px;
         margin: -10px 0 0 -9px;
     }
-    .page-flight-scene .sticker-plane { pointer-events: none; }
-    .flight-guide, .flight-path { stroke-width: 1.4; stroke-dasharray: 5 11; }
-    .flight-guide--side { opacity: 0; }
+
+    .page-flight-scene .sticker-plane {
+        pointer-events: none;
+    }
+
+    .flight-guide,
+    .flight-path {
+        stroke-width: 1.4;
+        stroke-dasharray: 5 11;
+    }
+
+    .flight-guide--side {
+        opacity: 0;
+    }
 }
 
 /* ── Long-haired profile doodle mascot ── */
@@ -708,23 +910,35 @@ html[data-motion="off"] .sky-doodles .doodle-flyer { animation: none; }
     transition: scale 200ms ease, translate 200ms ease, filter 200ms ease;
     -webkit-tap-highlight-color: transparent;
 }
+
 @keyframes mascotFloat {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-5px); }
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
 }
+
 .desk-mascot:hover {
     scale: 1.04;
 }
+
 .desk-mascot:active,
 .desk-mascot.is-chatty {
     scale: 1.06;
     translate: 0 -4px;
 }
+
 .desk-mascot:focus-visible {
     outline: 2px solid var(--sky-600);
     outline-offset: 5px;
     border-radius: 14px;
 }
+
 .mascot-svg {
     width: 100%;
     height: 100%;
@@ -733,19 +947,32 @@ html[data-motion="off"] .sky-doodles .doodle-flyer { animation: none; }
     user-select: none;
     -webkit-user-drag: none;
 }
+
 .mascot-look {
     transform: translate(var(--look-x, 0px), var(--look-y, 0px));
     transition: transform 260ms ease-out;
 }
+
 .mascot-eye {
     transform-box: fill-box;
     transform-origin: center;
     animation: mascotBlink 6.4s infinite;
 }
+
 @keyframes mascotBlink {
-    0%, 92%, 100% { transform: scaleY(1); }
-    94%, 96% { transform: scaleY(0.12); }
+
+    0%,
+    92%,
+    100% {
+        transform: scaleY(1);
+    }
+
+    94%,
+    96% {
+        transform: scaleY(0.12);
+    }
 }
+
 .mascot-bubble {
     position: fixed;
     bottom: 250px;
@@ -767,10 +994,12 @@ html[data-motion="off"] .sky-doodles .doodle-flyer { animation: none; }
     transform: translateY(6px);
     transition: opacity 180ms ease, transform 180ms ease;
 }
+
 .mascot-bubble.is-visible {
     opacity: 1;
     transform: translateY(0);
 }
+
 .sr-only {
     position: absolute;
     width: 1px;
@@ -791,6 +1020,7 @@ html[data-motion="off"] .sky-doodles .doodle-flyer { animation: none; }
         right: 8px;
         bottom: 0;
     }
+
     .mascot-bubble {
         right: 12px;
         bottom: 204px;
@@ -798,21 +1028,26 @@ html[data-motion="off"] .sky-doodles .doodle-flyer { animation: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
+
     .desk-mascot,
     .mascot-eye,
-    .sticker-plane svg { animation: none; }
+    .sticker-plane svg {
+        animation: none;
+    }
 }
 
 /* ── Sticky Case Studies (Horizontal Carousel) ── */
 .works-sticky-section {
     padding: 60px 0 80px;
 }
+
 .works-header {
     display: flex;
     align-items: baseline;
     justify-content: space-between;
     margin-bottom: 30px;
 }
+
 .works-heading {
     font-family: var(--font-stencil) !important;
     font-size: 1.35rem;
@@ -823,6 +1058,7 @@ html[data-motion="off"] .sky-doodles .doodle-flyer { animation: none; }
     color: var(--text-primary);
     margin-bottom: 0;
 }
+
 .works-gallery {
     display: flex;
     gap: 30px;
@@ -831,6 +1067,7 @@ html[data-motion="off"] .sky-doodles .doodle-flyer { animation: none; }
     scrollbar-width: thin;
     scrollbar-color: var(--sky-400) transparent;
 }
+
 .work-sticky-note {
     position: relative;
     flex: 0 0 310px;
@@ -845,16 +1082,33 @@ html[data-motion="off"] .sky-doodles .doodle-flyer { animation: none; }
     flex-direction: column;
     transition: transform 240ms ease, box-shadow 240ms ease;
 }
-.work-sticky-note:nth-child(1) { background: #ffffff; transform: rotate(-1.5deg); }
-.work-sticky-note:nth-child(2) { background: var(--cloud-soft); transform: rotate(1.2deg); }
-.work-sticky-note:nth-child(3) { background: var(--cloud-mist); transform: rotate(-1deg); }
-.work-sticky-note:nth-child(4) { background: #ffffff; transform: rotate(1.8deg); }
+
+.work-sticky-note:nth-child(1) {
+    background: #ffffff;
+    transform: rotate(-1.5deg);
+}
+
+.work-sticky-note:nth-child(2) {
+    background: var(--cloud-soft);
+    transform: rotate(1.2deg);
+}
+
+.work-sticky-note:nth-child(3) {
+    background: var(--cloud-mist);
+    transform: rotate(-1deg);
+}
+
+.work-sticky-note:nth-child(4) {
+    background: #ffffff;
+    transform: rotate(1.8deg);
+}
 
 .work-sticky-note:hover {
     transform: translateY(-8px) scale(1.02) !important;
     box-shadow: 0 18px 38px rgba(35, 70, 100, 0.18) !important;
     z-index: 10;
 }
+
 .work-img-frame {
     width: 100%;
     aspect-ratio: 16 / 10;
@@ -864,15 +1118,18 @@ html[data-motion="off"] .sky-doodles .doodle-flyer { animation: none; }
     border: 1px solid rgba(63, 109, 148, 0.12);
     background: var(--cloud-shade);
 }
+
 .work-img-frame img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: transform 260ms ease;
 }
+
 .work-sticky-note:hover .work-img-frame img {
     transform: scale(1.05);
 }
+
 .work-tags-meta {
     font-size: 0.72rem;
     font-weight: 700;
@@ -881,6 +1138,7 @@ html[data-motion="off"] .sky-doodles .doodle-flyer { animation: none; }
     text-transform: uppercase;
     letter-spacing: 0.04em;
 }
+
 .work-title {
     font-family: var(--font-stencil);
     font-size: 1.15rem;
@@ -900,6 +1158,7 @@ html[data-motion="off"] .sky-doodles .doodle-flyer { animation: none; }
     letter-spacing: 0.05em !important;
     font-weight: 500 !important;
 }
+
 .work-desc {
     font-size: 0.84rem;
     color: var(--ink-soft);
@@ -907,6 +1166,7 @@ html[data-motion="off"] .sky-doodles .doodle-flyer { animation: none; }
     margin-bottom: 16px;
     flex-grow: 1;
 }
+
 .work-open-link {
     font-size: 0.82rem;
     font-weight: 700;
@@ -924,9 +1184,11 @@ html[data-motion="off"] .sky-doodles .doodle-flyer { animation: none; }
         min-height: auto;
         padding: 20px 10px;
     }
+
     .creative-hero-desk::after {
         opacity: 0.4;
     }
+
     .desk-board {
         height: auto;
         display: flex;
@@ -934,10 +1196,12 @@ html[data-motion="off"] .sky-doodles .doodle-flyer { animation: none; }
         gap: 24px;
         align-items: center;
     }
+
     .desk-board::before,
     .desk-board::after {
         display: none;
     }
+
     .desk-item {
         position: relative !important;
         top: auto !important;
@@ -948,22 +1212,26 @@ html[data-motion="off"] .sky-doodles .doodle-flyer { animation: none; }
         width: 100% !important;
         max-width: 380px !important;
     }
+
     .desk-doodle,
     .desk-annotation {
         display: none !important;
     }
+
     .desk-mascot {
         width: 114px;
         height: 157px;
         bottom: 0px;
         right: 12px;
     }
+
     .mascot-bubble {
         bottom: 185px;
         right: 16px;
         font-size: 0.8rem;
         max-width: 200px;
     }
+
     .motion-canvas {
         opacity: 0.6;
     }
@@ -976,6 +1244,7 @@ html[data-motion="off"] .sky-doodles .doodle-flyer { animation: none; }
         bottom: 0px;
         right: 8px;
     }
+
     .mascot-bubble {
         bottom: 160px;
         right: 12px;

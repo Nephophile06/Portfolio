@@ -137,23 +137,14 @@ button {
 .navbar-link:hover,
 .navbar-link.active {
     color: var(--text-primary);
+    font-weight: 700;
     background: transparent !important;
 }
 
-.navbar-link::after {
-    content: '';
-    position: absolute;
-    bottom: 2px;
-    left: 15%;
-    width: 0;
-    height: 1.5px;
-    background-color: var(--text-primary);
-    transition: width 0.3s ease;
-}
-
+.navbar-link::after,
 .navbar-link:hover::after,
 .navbar-link.active::after {
-    width: 70%;
+    display: none !important;
 }
 
 .navbar-link--cta {
@@ -714,6 +705,69 @@ button {
     list-style: disc;
 }
 
+/* ── Grouped Experience Sub-roles (LinkedIn promotion style) ── */
+.exp-roles-timeline {
+    position: relative;
+    margin-top: 14px;
+    padding-left: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+}
+
+.exp-subrole {
+    position: relative;
+}
+
+.exp-subrole:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: -20px;
+    top: 16px;
+    bottom: -18px;
+    width: 2px;
+    background: rgba(74, 105, 142, 0.32);
+}
+
+.exp-subrole::before {
+    content: '';
+    position: absolute;
+    left: -24px;
+    top: 5px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--paper, #ffffff);
+    border: 2px solid var(--accent-blue, #4a698e);
+    box-sizing: border-box;
+    z-index: 2;
+}
+
+.exp-subrole:first-child::before {
+    background: var(--accent-blue, #4a698e);
+    box-shadow: 0 0 0 3px rgba(74, 105, 142, 0.18);
+}
+
+.exp-subrole-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 6px;
+}
+
+.exp-subrole-header .exp-role {
+    margin: 0;
+    font-size: 0.88rem;
+    font-weight: 600;
+}
+
+.exp-subrole-header .exp-dates {
+    margin: 0;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
 
 
 /* ── Education ───────────────────────── */
@@ -912,7 +966,8 @@ button {
         flex-direction: column;
     }
 
-    .exp-header {
+    .exp-header,
+    .exp-subrole-header {
         flex-direction: column;
         gap: 4px;
     }

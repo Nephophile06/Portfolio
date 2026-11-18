@@ -258,9 +258,16 @@ button, a, input, textarea, [role="button"] { -webkit-tap-highlight-color: trans
     transform-origin: left;
     transition: transform 200ms ease;
 }
-.navbar-link:hover::after, .navbar-link.active::after { width: calc(100% - 28px); }
-.navbar-link.active::after { transform: scaleX(1) rotate(-2deg); }
-.navbar-link.active { color: var(--text-primary); font-weight: 600; }
+.navbar-link::after,
+.navbar-link:hover::after,
+.navbar-link.active::after {
+    display: none !important;
+}
+
+.navbar-link.active {
+    color: var(--text-primary);
+    font-weight: 700;
+}
 .content-section, .projects-page, .certifications-page {
     max-width: 1080px;
     padding: 34px 20px 40px;
@@ -432,6 +439,7 @@ button, a, input, textarea, [role="button"] { -webkit-tap-highlight-color: trans
 .exp-location, .exp-dates, .edu-dates { font-family: var(--utility-font); font-size: 0.84rem; }
 .exp-location svg { width: 12px; height: 12px; flex-shrink: 0; }
 .exp-role { margin-block: 5px 12px; color: var(--accent-blue); }
+.exp-subrole-header .exp-role { margin-block: 0 4px; }
 .exp-desc, .exp-bullets li, .skill-row { line-height: 1.8; font-size: 0.88rem; }
 .edu-item { padding: 16px 20px; background: var(--paper); border: 1px solid var(--border-color); border-radius: 3px; }
 .edu-degree { font-family: var(--font-stencil); font-size: 0.92rem; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; }
@@ -597,7 +605,7 @@ button, a, input, textarea, [role="button"] { -webkit-tap-highlight-color: trans
     .wg-nav-btn { width: 36px !important; height: 44px !important; min-width: 36px !important; min-height: 44px !important; border-radius: 4px; }
     .showcase-info { padding-inline: 6px; }
     .showcase-title { font-size: 0.8rem; }
-    .exp-header { flex-direction: column; }
+    .exp-header, .exp-subrole-header { flex-direction: column; }
     .lets-talk-grid { grid-template-columns: 1fr; gap: 28px; }
     .talk-form-wrap { padding: 18px; }
 }

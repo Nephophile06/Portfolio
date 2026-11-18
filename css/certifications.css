@@ -1,24 +1,18 @@
-/* Certifications Garden Theme: Realistic botanical wall matching user sample photograph.
-   Warm sage-green sunlit wall, photographic cascading white jasmine blossoms, and soft leaf shadows (komorebi). */
+/* Certifications Garden Theme: a serene pastel sage wall with hand-drawn botanical
+   sketch flowers in the bottom-left corner matching user inspiration photograph. */
 html.certifications-garden {
-    --garden-paper: #b6b99c;
-    --garden-sage: #c7caa9;
-    --garden-leaf: #78825a;
-    --garden-petal: #fffef9;
-    --garden-sun: #eef3d6;
-    background-color: #b6b99c;
+    background-color: #dfedd4;
     background-image:
-        radial-gradient(ellipse 65% 55% at 20% 25%, rgba(242, 246, 222, 0.45), transparent 70%),
-        radial-gradient(ellipse 50% 60% at 75% 15%, rgba(246, 250, 228, 0.38), transparent 60%),
-        radial-gradient(ellipse 70% 60% at 35% 80%, rgba(130, 140, 102, 0.28), transparent 70%),
-        linear-gradient(175deg, #c7caa9 0%, #b8bba0 38%, #a6ad88 72%, #959d76 100%);
+        radial-gradient(ellipse 60% 40% at 20% 10%, rgba(255, 255, 255, 0.35), transparent 70%),
+        radial-gradient(ellipse 50% 50% at 85% 90%, rgba(255, 255, 255, 0.2), transparent 70%),
+        linear-gradient(180deg, #dbebd0 0%, #dfedd4 50%, #e2eed6 100%);
     background-attachment: fixed;
 }
 
 .page-certifications .garden-backdrop {
     position: fixed;
     inset: 0;
-    z-index: -1;
+    z-index: 0;
     overflow: hidden;
     pointer-events: none;
     user-select: none;
@@ -26,51 +20,76 @@ html.certifications-garden {
     -webkit-mask-image: none;
 }
 
-/* Photorealistic cascading jasmine flowers created via code (SVG) on the right */
-.page-certifications .garden-branch--right {
-    position: absolute;
-    top: 0;
-    right: 0;
-    height: 100vh;
-    width: clamp(380px, 38vw, 700px);
-    background: url('../assets/certifications-jasmine-branch.svg') top right / contain no-repeat;
-    opacity: 0.98;
-    z-index: 1;
+/* Hand-drawn botanical sketch flowers in the bottom-left corner matching inspiration.
+   100% pure SVG code doodle artwork with organic rough displacement filter. */
+.page-certifications .garden-bloom--left {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: clamp(260px, 32vw, 440px);
+    aspect-ratio: 336 / 296;
+    z-index: 0;
+    pointer-events: none;
 }
 
-/* Photorealistic soft dappled sunlight and leaf shadows (komorebi) created via code (SVG) on the left */
-.page-certifications .garden-shadow--left {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    width: clamp(320px, 34vw, 680px);
-    background: url('../assets/certifications-komorebi.svg') top left / cover no-repeat;
-    opacity: 0.88;
-    z-index: 0;
+.page-certifications .garden-bloom--left svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+    overflow: visible;
+}
+
+.page-certifications .d-bloom-fill {
+    fill: #edf7e4;
+    fill-opacity: 0.84;
+}
+
+.page-certifications .d-bloom-stroke {
+    stroke: #526947;
+    stroke-width: 1.35;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    fill: none;
+}
+
+.page-certifications .d-bloom-dot {
+    fill: #3b4f32;
+}
+
+/* Hide extra decorative clutter not present in inspiration */
+.page-certifications .garden-petals--right,
+.page-certifications .garden-sprig--topleft {
+    display: none !important;
+}
+
+/* Fine paper grain over the whole wall */
+.page-certifications .garden-grain {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background: url('../assets/certifications-grain.png') repeat;
+    background-size: 160px 160px;
+    opacity: 0.25;
+    mix-blend-mode: soft-light;
+    pointer-events: none;
+}
+
+@media (min-width: 1200px) and (max-width: 1439px) {
+    .page-certifications .garden-bloom--left {
+        width: clamp(240px, 30vw, 400px);
+    }
 }
 
 @media (max-width: 1199px) {
-    .page-certifications .garden-branch--right {
-        width: clamp(260px, 28vw, 420px);
-        opacity: 0.92;
-    }
-    .page-certifications .garden-shadow--left {
-        width: clamp(200px, 24vw, 360px);
-        opacity: 0.75;
+    .page-certifications .garden-bloom--left {
+        width: clamp(210px, 28vw, 340px);
     }
 }
 
 @media (max-width: 767px) {
-    .page-certifications .garden-branch--right {
-        width: 200px;
-        right: -25px;
-        opacity: 0.55;
-    }
-    .page-certifications .garden-shadow--left {
-        width: 160px;
-        left: -25px;
-        opacity: 0.45;
+    .page-certifications .garden-bloom--left {
+        width: clamp(170px, 50vw, 240px);
+        opacity: 0.85;
     }
 }
 
