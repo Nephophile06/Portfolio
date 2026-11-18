@@ -1,11 +1,28 @@
 /* Certifications Garden Theme: a serene pastel sage wall with hand-drawn botanical
    sketch flowers in the bottom-left corner matching user inspiration photograph. */
 html.certifications-garden {
-    background-color: #dfedd4;
+    background-color: #a8c599;
+    /* Mottled watercolor wall, painted in pure CSS gradients as a seamless base
+       matching the user inspiration reference: luminous mint highlights sweeping
+       across the upper center, with gentle pastel sage gatherings in the corners. */
     background-image:
-        radial-gradient(ellipse 60% 40% at 20% 10%, rgba(255, 255, 255, 0.35), transparent 70%),
-        radial-gradient(ellipse 50% 50% at 85% 90%, rgba(255, 255, 255, 0.2), transparent 70%),
-        linear-gradient(180deg, #dbebd0 0%, #dfedd4 50%, #e2eed6 100%);
+        /* Luminous pale mint pools (chalk/gouache blooms) */
+        radial-gradient(ellipse 65% 55% at 46% 42%, rgba(242, 252, 238, 0.72) 0%, rgba(230, 246, 224, 0.48) 45%, rgba(205, 230, 196, 0.18) 75%, transparent 100%),
+        radial-gradient(ellipse 60% 48% at 72% 26%, rgba(235, 248, 228, 0.55) 0%, rgba(215, 238, 208, 0.30) 50%, transparent 85%),
+        radial-gradient(ellipse 50% 42% at 22% 58%, rgba(228, 244, 220, 0.45) 0%, rgba(200, 224, 190, 0.20) 55%, transparent 80%),
+        /* Organic sponge mottle dabs */
+        radial-gradient(ellipse 32% 24% at 58% 34%, rgba(246, 252, 242, 0.45) 0%, transparent 70%),
+        radial-gradient(ellipse 28% 20% at 36% 40%, rgba(244, 252, 240, 0.50) 0%, transparent 68%),
+        radial-gradient(ellipse 30% 22% at 50% 64%, rgba(234, 248, 228, 0.42) 0%, transparent 70%),
+        radial-gradient(ellipse 24% 18% at 74% 54%, rgba(222, 240, 214, 0.35) 0%, transparent 70%),
+        /* Soft pastel moss & forest vignette shading (corners and edges) */
+        radial-gradient(ellipse 55% 45% at 0% 0%, rgba(92, 118, 80, 0.50) 0%, rgba(108, 136, 94, 0.30) 50%, transparent 80%),
+        radial-gradient(ellipse 48% 38% at 95% 0%, rgba(100, 128, 88, 0.38) 0%, transparent 75%),
+        radial-gradient(ellipse 58% 48% at 50% 100%, rgba(88, 114, 76, 0.55) 0%, rgba(102, 130, 88, 0.32) 50%, transparent 85%),
+        radial-gradient(ellipse 42% 40% at 0% 85%, rgba(86, 112, 74, 0.45) 0%, transparent 75%),
+        radial-gradient(ellipse 42% 38% at 100% 80%, rgba(105, 135, 92, 0.38) 0%, transparent 75%),
+        /* Diagonal base wash foundation */
+        linear-gradient(135deg, #7c9e6c 0%, #92b482 28%, #b2d1a2 56%, #89ab78 100%);
     background-attachment: fixed;
 }
 
@@ -16,80 +33,43 @@ html.certifications-garden {
     overflow: hidden;
     pointer-events: none;
     user-select: none;
-    mask-image: none;
-    -webkit-mask-image: none;
 }
 
-/* Hand-drawn botanical sketch flowers in the bottom-left corner matching inspiration.
-   100% pure SVG code doodle artwork with organic rough displacement filter. */
+/* Procedural high-definition watercolor & sponge plaster canvas: 100% code */
+.page-certifications .garden-canvas {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -2;
+    pointer-events: none;
+    display: block;
+}
+
+/* Hand-drawn botanical sketch flowers in the bottom-left corner.
+   Sized by width but capped by viewport height so the cluster sits in proportion
+   with the page instead of growing tall on short screens. */
 .page-certifications .garden-bloom--left {
     position: fixed;
     left: 0;
     bottom: 0;
-    width: clamp(260px, 32vw, 440px);
-    aspect-ratio: 336 / 296;
+    width: min(clamp(240px, 30vw, 470px), 45vh);
+    aspect-ratio: 640 / 920;
     z-index: 0;
+    background: url('../assets/certifications-bloom.svg') left bottom / contain no-repeat;
     pointer-events: none;
-}
-
-.page-certifications .garden-bloom--left svg {
-    width: 100%;
-    height: 100%;
-    display: block;
-    overflow: visible;
-}
-
-.page-certifications .d-bloom-fill {
-    fill: #edf7e4;
-    fill-opacity: 0.84;
-}
-
-.page-certifications .d-bloom-stroke {
-    stroke: #526947;
-    stroke-width: 1.35;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    fill: none;
-}
-
-.page-certifications .d-bloom-dot {
-    fill: #3b4f32;
-}
-
-/* Hide extra decorative clutter not present in inspiration */
-.page-certifications .garden-petals--right,
-.page-certifications .garden-sprig--topleft {
-    display: none !important;
-}
-
-/* Fine paper grain over the whole wall */
-.page-certifications .garden-grain {
-    position: fixed;
-    inset: 0;
-    z-index: -1;
-    background: url('../assets/certifications-grain.png') repeat;
-    background-size: 160px 160px;
-    opacity: 0.25;
-    mix-blend-mode: soft-light;
-    pointer-events: none;
-}
-
-@media (min-width: 1200px) and (max-width: 1439px) {
-    .page-certifications .garden-bloom--left {
-        width: clamp(240px, 30vw, 400px);
-    }
 }
 
 @media (max-width: 1199px) {
     .page-certifications .garden-bloom--left {
-        width: clamp(210px, 28vw, 340px);
+        width: min(clamp(210px, 27vw, 340px), 42vh);
     }
 }
 
 @media (max-width: 767px) {
     .page-certifications .garden-bloom--left {
-        width: clamp(170px, 50vw, 240px);
-        opacity: 0.85;
+        width: min(clamp(180px, 50vw, 240px), 42vh);
+        opacity: 0.7;
     }
 }
 
