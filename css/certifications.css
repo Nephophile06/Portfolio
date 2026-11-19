@@ -1704,4 +1704,160 @@ html.certifications-garden .personal-navbar,
         .postal-card:hover .envelope-reveal-hint {
             color: #091713;
         }
+
+/* ══════════════════════════════════════════════════════════════════
+   EchoLogyx Designathon 2026 (Holographic Foil & Prestige Shimmer Duo)
+   ══════════════════════════════════════════════════════════════════ */
+.holo-duo-container {
+    width: 100%;
+    margin-top: 14px;
+}
+
+.holo-duo-grid {
+    display: grid;
+    grid-template-columns: 1.25fr 1fr;
+    gap: 32px;
+    align-items: center;
+}
+
+@media (max-width: 960px) {
+    .holo-duo-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+}
+
+.holo-card-container {
+    position: relative;
+    padding-top: 10px;
+}
+
+.holo-floating-badge {
+    position: absolute;
+    top: -4px;
+    right: 145px;
+    background: linear-gradient(135deg, #00b4db 0%, #0083b0 100%);
+    color: #ffffff;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-size: 0.74rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    padding: 5px 14px;
+    border-radius: 20px;
+    box-shadow: 0 3px 10px rgba(0, 131, 176, 0.35);
+    border: 1.5px solid rgba(255, 255, 255, 0.9);
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    pointer-events: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.holo-card-container:hover .holo-floating-badge {
+    transform: translateY(-2px) scale(1.04);
+    box-shadow: 0 6px 20px rgba(0, 114, 255, 0.55);
+}
+
+.holo-card {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.85);
+    box-shadow: 
+        0 22px 50px -12px rgba(35, 15, 60, 0.35),
+        0 6px 18px rgba(18, 48, 36, 0.12);
+    cursor: pointer;
+    transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s ease;
+}
+
+.holo-card:hover {
+    transform: translateY(-4px) scale(1.015);
+    box-shadow: 
+        0 28px 60px -12px rgba(35, 15, 60, 0.45),
+        0 10px 24px rgba(18, 48, 36, 0.18);
+}
+
+.holo-cert-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 11px;
+}
+
+/* Right Side: Winner Celebration Podium Card */
+.holo-banner-container {
+    position: relative;
+}
+
+.winner-banner-card {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #18092e;
+    border: 1px solid rgba(138, 75, 255, 0.35);
+    box-shadow: 
+        0 20px 45px -10px rgba(45, 12, 80, 0.45),
+        0 6px 18px rgba(18, 48, 36, 0.12);
+    cursor: pointer;
+    transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s ease;
+}
+
+.winner-banner-card:hover {
+    transform: translateY(-4px) scale(1.015);
+    box-shadow: 
+        0 26px 55px -10px rgba(45, 12, 80, 0.55),
+        0 10px 24px rgba(18, 48, 36, 0.18);
+}
+
+.winner-banner-img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.winner-banner-caption {
+    padding: 13px 18px;
+    background: rgba(18, 8, 38, 0.94);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.winner-team-title {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    color: #ffffff;
+    font-size: 0.94rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    display: block;
+}
+
+.winner-team-sub {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    color: rgba(255, 255, 255, 0.68);
+    font-size: 0.72rem;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    display: block;
+    margin-top: 2px;
+}
+
+.winner-prize-tag {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background: rgba(255, 255, 255, 0.08);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    font-size: 0.74rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    padding: 4px 12px;
+    border-radius: 16px;
+    box-shadow: none;
+    flex-shrink: 0;
+}
     
