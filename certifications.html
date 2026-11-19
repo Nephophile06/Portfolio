@@ -75,6 +75,488 @@
 
             <div class="cert-details-container">
 
+                                <!-- ══════════════════════════════════════════════════════════════════
+                     SECTION 1: Anthropic AI & Agentic Certifications Archive (Postal Keepsake Grid)
+                     ══════════════════════════════════════════════════════════════════ -->
+                <div class="cert-detail-box fade-in-scroll" id="cert-anthropic-archive">
+                    <div class="cert-header-info">
+                        <h3 class="cert-detail-title">Anthropic AI &amp; Agentic Certifications</h3>
+                        <p class="cert-detail-issuer">20 Professional Credentials in Prompt Engineering, MCP, Subagents, Claude Code &amp; AI Systems</p>
+                    </div>
+
+                    <!-- Category Filter Tabs -->
+                    <div class="postal-filter-bar" role="tablist" aria-label="Certification Categories">
+                        <button class="postal-pill-btn active" role="tab" aria-selected="true" onclick="filterPostalCerts('all', this)">All Credentials (20)</button>
+                        <button class="postal-pill-btn" role="tab" aria-selected="false" onclick="filterPostalCerts('mcp', this)">MCP &amp; Subagents (4)</button>
+                        <button class="postal-pill-btn" role="tab" aria-selected="false" onclick="filterPostalCerts('claude', this)">Claude &amp; Tools (8)</button>
+                        <button class="postal-pill-btn" role="tab" aria-selected="false" onclick="filterPostalCerts('fluency', this)">AI Fluency Series (8)</button>
+                    </div>
+
+                    <!-- 20-Card Postal Keepsake Envelope Grid -->
+                    <div class="postal-grid" id="postalCertsGrid">
+                        <div class="postal-card" data-category="mcp" onclick="openLightbox(this.querySelector('.envelope-cert-img'))" tabindex="0" role="button" aria-label="Introduction to Model Context Protocol - Anthropic">
+                            <div class="postal-envelope">
+                                <div class="envelope-back"></div>
+                                <div class="envelope-cert-wrapper">
+                                    <img src="assets/certs_archive/cert_01.webp" 
+                                         alt="Introduction to Model Context Protocol - Anthropic"
+                                         class="envelope-cert-img ms-img-clickable"
+                                         width="1584" height="1224" loading="lazy" decoding="async">
+                                    <span class="envelope-peek-badge">Enlarge</span>
+                                </div>
+                                <div class="envelope-front">
+                                    <div class="envelope-meta-row">
+                                        <span class="envelope-category-tag">MCP & Subagents</span>
+                                        <span class="envelope-stamp-mini" title="Verified Credential">✓</span>
+                                    </div>
+                                    <h4 class="envelope-title">Introduction to Model Context Protocol</h4>
+                                    <div class="envelope-footer">
+                                        <span class="envelope-issuer-text">Anthropic</span>
+                                        <span class="envelope-reveal-hint">Reveal ↑</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="postal-card" data-category="claude" onclick="openLightbox(this.querySelector('.envelope-cert-img'))" tabindex="0" role="button" aria-label="Claude Platform 101 - Anthropic">
+                            <div class="postal-envelope">
+                                <div class="envelope-back"></div>
+                                <div class="envelope-cert-wrapper">
+                                    <img src="assets/certs_archive/cert_02.webp" 
+                                         alt="Claude Platform 101 - Anthropic"
+                                         class="envelope-cert-img ms-img-clickable"
+                                         width="1584" height="1224" loading="lazy" decoding="async">
+                                    <span class="envelope-peek-badge">Enlarge</span>
+                                </div>
+                                <div class="envelope-front">
+                                    <div class="envelope-meta-row">
+                                        <span class="envelope-category-tag">Claude & Tools</span>
+                                        <span class="envelope-stamp-mini" title="Verified Credential">✓</span>
+                                    </div>
+                                    <h4 class="envelope-title">Claude Platform 101</h4>
+                                    <div class="envelope-footer">
+                                        <span class="envelope-issuer-text">Anthropic</span>
+                                        <span class="envelope-reveal-hint">Reveal ↑</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="postal-card" data-category="fluency" onclick="openLightbox(this.querySelector('.envelope-cert-img'))" tabindex="0" role="button" aria-label="AI Fluency for Nonprofits - Anthropic × GivingTuesday">
+                            <div class="postal-envelope">
+                                <div class="envelope-back"></div>
+                                <div class="envelope-cert-wrapper">
+                                    <img src="assets/certs_archive/cert_03.webp" 
+                                         alt="AI Fluency for Nonprofits - Anthropic × GivingTuesday"
+                                         class="envelope-cert-img ms-img-clickable"
+                                         width="1584" height="1224" loading="lazy" decoding="async">
+                                    <span class="envelope-peek-badge">Enlarge</span>
+                                </div>
+                                <div class="envelope-front">
+                                    <div class="envelope-meta-row">
+                                        <span class="envelope-category-tag">AI Fluency Series</span>
+                                        <span class="envelope-stamp-mini" title="Verified Credential">✓</span>
+                                    </div>
+                                    <h4 class="envelope-title">AI Fluency for Nonprofits</h4>
+                                    <div class="envelope-footer">
+                                        <span class="envelope-issuer-text">Anthropic × GivingTuesday</span>
+                                        <span class="envelope-reveal-hint">Reveal ↑</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="postal-card" data-category="claude" onclick="openLightbox(this.querySelector('.envelope-cert-img'))" tabindex="0" role="button" aria-label="Claude 101 - Anthropic">
+                            <div class="postal-envelope">
+                                <div class="envelope-back"></div>
+                                <div class="envelope-cert-wrapper">
+                                    <img src="assets/certs_archive/cert_04.webp" 
+                                         alt="Claude 101 - Anthropic"
+                                         class="envelope-cert-img ms-img-clickable"
+                                         width="1584" height="1224" loading="lazy" decoding="async">
+                                    <span class="envelope-peek-badge">Enlarge</span>
+                                </div>
+                                <div class="envelope-front">
+                                    <div class="envelope-meta-row">
+                                        <span class="envelope-category-tag">Claude & Tools</span>
+                                        <span class="envelope-stamp-mini" title="Verified Credential">✓</span>
+                                    </div>
+                                    <h4 class="envelope-title">Claude 101</h4>
+                                    <div class="envelope-footer">
+                                        <span class="envelope-issuer-text">Anthropic</span>
+                                        <span class="envelope-reveal-hint">Reveal ↑</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="postal-card" data-category="mcp" onclick="openLightbox(this.querySelector('.envelope-cert-img'))" tabindex="0" role="button" aria-label="Model Context Protocol: Advanced Topics - Anthropic">
+                            <div class="postal-envelope">
+                                <div class="envelope-back"></div>
+                                <div class="envelope-cert-wrapper">
+                                    <img src="assets/certs_archive/cert_05.webp" 
+                                         alt="Model Context Protocol: Advanced Topics - Anthropic"
+                                         class="envelope-cert-img ms-img-clickable"
+                                         width="1584" height="1224" loading="lazy" decoding="async">
+                                    <span class="envelope-peek-badge">Enlarge</span>
+                                </div>
+                                <div class="envelope-front">
+                                    <div class="envelope-meta-row">
+                                        <span class="envelope-category-tag">MCP & Subagents</span>
+                                        <span class="envelope-stamp-mini" title="Verified Credential">✓</span>
+                                    </div>
+                                    <h4 class="envelope-title">Model Context Protocol: Advanced Topics</h4>
+                                    <div class="envelope-footer">
+                                        <span class="envelope-issuer-text">Anthropic</span>
+                                        <span class="envelope-reveal-hint">Reveal ↑</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="postal-card" data-category="claude" onclick="openLightbox(this.querySelector('.envelope-cert-img'))" tabindex="0" role="button" aria-label="Claude with Google Vertex AI - Anthropic × Google Cloud">
+                            <div class="postal-envelope">
+                                <div class="envelope-back"></div>
+                                <div class="envelope-cert-wrapper">
+                                    <img src="assets/certs_archive/cert_06.webp" 
+                                         alt="Claude with Google Vertex AI - Anthropic × Google Cloud"
+                                         class="envelope-cert-img ms-img-clickable"
+                                         width="1584" height="1224" loading="lazy" decoding="async">
+                                    <span class="envelope-peek-badge">Enlarge</span>
+                                </div>
+                                <div class="envelope-front">
+                                    <div class="envelope-meta-row">
+                                        <span class="envelope-category-tag">Claude & Tools</span>
+                                        <span class="envelope-stamp-mini" title="Verified Credential">✓</span>
+                                    </div>
+                                    <h4 class="envelope-title">Claude with Google Vertex AI</h4>
+                                    <div class="envelope-footer">
+                                        <span class="envelope-issuer-text">Anthropic × Google Cloud</span>
+                                        <span class="envelope-reveal-hint">Reveal ↑</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="postal-card" data-category="fluency" onclick="openLightbox(this.querySelector('.envelope-cert-img'))" tabindex="0" role="button" aria-label="AI Fluency for Educators - Anthropic">
+                            <div class="postal-envelope">
+                                <div class="envelope-back"></div>
+                                <div class="envelope-cert-wrapper">
+                                    <img src="assets/certs_archive/cert_07.webp" 
+                                         alt="AI Fluency for Educators - Anthropic"
+                                         class="envelope-cert-img ms-img-clickable"
+                                         width="1584" height="1224" loading="lazy" decoding="async">
+                                    <span class="envelope-peek-badge">Enlarge</span>
+                                </div>
+                                <div class="envelope-front">
+                                    <div class="envelope-meta-row">
+                                        <span class="envelope-category-tag">AI Fluency Series</span>
+                                        <span class="envelope-stamp-mini" title="Verified Credential">✓</span>
+                                    </div>
+                                    <h4 class="envelope-title">AI Fluency for Educators</h4>
+                                    <div class="envelope-footer">
+                                        <span class="envelope-issuer-text">Anthropic</span>
+                                        <span class="envelope-reveal-hint">Reveal ↑</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="postal-card" data-category="fluency" onclick="openLightbox(this.querySelector('.envelope-cert-img'))" tabindex="0" role="button" aria-label="AI Fluency: Framework & Foundations - Anthropic">
+                            <div class="postal-envelope">
+                                <div class="envelope-back"></div>
+                                <div class="envelope-cert-wrapper">
+                                    <img src="assets/certs_archive/cert_08.webp" 
+                                         alt="AI Fluency: Framework & Foundations - Anthropic"
+                                         class="envelope-cert-img ms-img-clickable"
+                                         width="1584" height="1224" loading="lazy" decoding="async">
+                                    <span class="envelope-peek-badge">Enlarge</span>
+                                </div>
+                                <div class="envelope-front">
+                                    <div class="envelope-meta-row">
+                                        <span class="envelope-category-tag">AI Fluency Series</span>
+                                        <span class="envelope-stamp-mini" title="Verified Credential">✓</span>
+                                    </div>
+                                    <h4 class="envelope-title">AI Fluency: Framework & Foundations</h4>
+                                    <div class="envelope-footer">
+                                        <span class="envelope-issuer-text">Anthropic</span>
+                                        <span class="envelope-reveal-hint">Reveal ↑</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="postal-card" data-category="claude" onclick="openLightbox(this.querySelector('.envelope-cert-img'))" tabindex="0" role="button" aria-label="Claude Code in Action - Anthropic">
+                            <div class="postal-envelope">
+                                <div class="envelope-back"></div>
+                                <div class="envelope-cert-wrapper">
+                                    <img src="assets/certs_archive/cert_09.webp" 
+                                         alt="Claude Code in Action - Anthropic"
+                                         class="envelope-cert-img ms-img-clickable"
+                                         width="1584" height="1224" loading="lazy" decoding="async">
+                                    <span class="envelope-peek-badge">Enlarge</span>
+                                </div>
+                                <div class="envelope-front">
+                                    <div class="envelope-meta-row">
+                                        <span class="envelope-category-tag">Claude & Tools</span>
+                                        <span class="envelope-stamp-mini" title="Verified Credential">✓</span>
+                                    </div>
+                                    <h4 class="envelope-title">Claude Code in Action</h4>
+                                    <div class="envelope-footer">
+                                        <span class="envelope-issuer-text">Anthropic</span>
+                                        <span class="envelope-reveal-hint">Reveal ↑</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="postal-card" data-category="fluency" onclick="openLightbox(this.querySelector('.envelope-cert-img'))" tabindex="0" role="button" aria-label="AI Fluency for Students - Anthropic">
+                            <div class="postal-envelope">
+                                <div class="envelope-back"></div>
+                                <div class="envelope-cert-wrapper">
+                                    <img src="assets/certs_archive/cert_10.webp" 
+                                         alt="AI Fluency for Students - Anthropic"
+                                         class="envelope-cert-img ms-img-clickable"
+                                         width="1584" height="1224" loading="lazy" decoding="async">
+                                    <span class="envelope-peek-badge">Enlarge</span>
+                                </div>
+                                <div class="envelope-front">
+                                    <div class="envelope-meta-row">
+                                        <span class="envelope-category-tag">AI Fluency Series</span>
+                                        <span class="envelope-stamp-mini" title="Verified Credential">✓</span>
+                                    </div>
+                                    <h4 class="envelope-title">AI Fluency for Students</h4>
+                                    <div class="envelope-footer">
+                                        <span class="envelope-issuer-text">Anthropic</span>
+                                        <span class="envelope-reveal-hint">Reveal ↑</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="postal-card" data-category="claude" onclick="openLightbox(this.querySelector('.envelope-cert-img'))" tabindex="0" role="button" aria-label="Introduction to Claude Cowork - Anthropic">
+                            <div class="postal-envelope">
+                                <div class="envelope-back"></div>
+                                <div class="envelope-cert-wrapper">
+                                    <img src="assets/certs_archive/cert_11.webp" 
+                                         alt="Introduction to Claude Cowork - Anthropic"
+                                         class="envelope-cert-img ms-img-clickable"
+                                         width="1584" height="1224" loading="lazy" decoding="async">
+                                    <span class="envelope-peek-badge">Enlarge</span>
+                                </div>
+                                <div class="envelope-front">
+                                    <div class="envelope-meta-row">
+                                        <span class="envelope-category-tag">Claude & Tools</span>
+                                        <span class="envelope-stamp-mini" title="Verified Credential">✓</span>
+                                    </div>
+                                    <h4 class="envelope-title">Introduction to Claude Cowork</h4>
+                                    <div class="envelope-footer">
+                                        <span class="envelope-issuer-text">Anthropic</span>
+                                        <span class="envelope-reveal-hint">Reveal ↑</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="postal-card" data-category="claude" onclick="openLightbox(this.querySelector('.envelope-cert-img'))" tabindex="0" role="button" aria-label="Claude with Amazon Bedrock - Anthropic × AWS">
+                            <div class="postal-envelope">
+                                <div class="envelope-back"></div>
+                                <div class="envelope-cert-wrapper">
+                                    <img src="assets/certs_archive/cert_12.webp" 
+                                         alt="Claude with Amazon Bedrock - Anthropic × AWS"
+                                         class="envelope-cert-img ms-img-clickable"
+                                         width="1584" height="1224" loading="lazy" decoding="async">
+                                    <span class="envelope-peek-badge">Enlarge</span>
+                                </div>
+                                <div class="envelope-front">
+                                    <div class="envelope-meta-row">
+                                        <span class="envelope-category-tag">Claude & Tools</span>
+                                        <span class="envelope-stamp-mini" title="Verified Credential">✓</span>
+                                    </div>
+                                    <h4 class="envelope-title">Claude with Amazon Bedrock</h4>
+                                    <div class="envelope-footer">
+                                        <span class="envelope-issuer-text">Anthropic × AWS</span>
+                                        <span class="envelope-reveal-hint">Reveal ↑</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="postal-card" data-category="fluency" onclick="openLightbox(this.querySelector('.envelope-cert-img'))" tabindex="0" role="button" aria-label="AI Fluency for Small Businesses - Anthropic × PayPal">
+                            <div class="postal-envelope">
+                                <div class="envelope-back"></div>
+                                <div class="envelope-cert-wrapper">
+                                    <img src="assets/certs_archive/cert_13.webp" 
+                                         alt="AI Fluency for Small Businesses - Anthropic × PayPal"
+                                         class="envelope-cert-img ms-img-clickable"
+                                         width="1584" height="1224" loading="lazy" decoding="async">
+                                    <span class="envelope-peek-badge">Enlarge</span>
+                                </div>
+                                <div class="envelope-front">
+                                    <div class="envelope-meta-row">
+                                        <span class="envelope-category-tag">AI Fluency Series</span>
+                                        <span class="envelope-stamp-mini" title="Verified Credential">✓</span>
+                                    </div>
+                                    <h4 class="envelope-title">AI Fluency for Small Businesses</h4>
+                                    <div class="envelope-footer">
+                                        <span class="envelope-issuer-text">Anthropic × PayPal</span>
+                                        <span class="envelope-reveal-hint">Reveal ↑</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="postal-card" data-category="claude" onclick="openLightbox(this.querySelector('.envelope-cert-img'))" tabindex="0" role="button" aria-label="Claude with the Anthropic API - Anthropic">
+                            <div class="postal-envelope">
+                                <div class="envelope-back"></div>
+                                <div class="envelope-cert-wrapper">
+                                    <img src="assets/certs_archive/cert_14.webp" 
+                                         alt="Claude with the Anthropic API - Anthropic"
+                                         class="envelope-cert-img ms-img-clickable"
+                                         width="1584" height="1224" loading="lazy" decoding="async">
+                                    <span class="envelope-peek-badge">Enlarge</span>
+                                </div>
+                                <div class="envelope-front">
+                                    <div class="envelope-meta-row">
+                                        <span class="envelope-category-tag">Claude & Tools</span>
+                                        <span class="envelope-stamp-mini" title="Verified Credential">✓</span>
+                                    </div>
+                                    <h4 class="envelope-title">Claude with the Anthropic API</h4>
+                                    <div class="envelope-footer">
+                                        <span class="envelope-issuer-text">Anthropic</span>
+                                        <span class="envelope-reveal-hint">Reveal ↑</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="postal-card" data-category="fluency" onclick="openLightbox(this.querySelector('.envelope-cert-img'))" tabindex="0" role="button" aria-label="Teaching the AI Fluency Framework - Anthropic">
+                            <div class="postal-envelope">
+                                <div class="envelope-back"></div>
+                                <div class="envelope-cert-wrapper">
+                                    <img src="assets/certs_archive/cert_15.webp" 
+                                         alt="Teaching the AI Fluency Framework - Anthropic"
+                                         class="envelope-cert-img ms-img-clickable"
+                                         width="1584" height="1224" loading="lazy" decoding="async">
+                                    <span class="envelope-peek-badge">Enlarge</span>
+                                </div>
+                                <div class="envelope-front">
+                                    <div class="envelope-meta-row">
+                                        <span class="envelope-category-tag">AI Fluency Series</span>
+                                        <span class="envelope-stamp-mini" title="Verified Credential">✓</span>
+                                    </div>
+                                    <h4 class="envelope-title">Teaching the AI Fluency Framework</h4>
+                                    <div class="envelope-footer">
+                                        <span class="envelope-issuer-text">Anthropic</span>
+                                        <span class="envelope-reveal-hint">Reveal ↑</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="postal-card" data-category="mcp" onclick="openLightbox(this.querySelector('.envelope-cert-img'))" tabindex="0" role="button" aria-label="Introduction to Subagents - Anthropic">
+                            <div class="postal-envelope">
+                                <div class="envelope-back"></div>
+                                <div class="envelope-cert-wrapper">
+                                    <img src="assets/certs_archive/cert_16.webp" 
+                                         alt="Introduction to Subagents - Anthropic"
+                                         class="envelope-cert-img ms-img-clickable"
+                                         width="1584" height="1224" loading="lazy" decoding="async">
+                                    <span class="envelope-peek-badge">Enlarge</span>
+                                </div>
+                                <div class="envelope-front">
+                                    <div class="envelope-meta-row">
+                                        <span class="envelope-category-tag">MCP & Subagents</span>
+                                        <span class="envelope-stamp-mini" title="Verified Credential">✓</span>
+                                    </div>
+                                    <h4 class="envelope-title">Introduction to Subagents</h4>
+                                    <div class="envelope-footer">
+                                        <span class="envelope-issuer-text">Anthropic</span>
+                                        <span class="envelope-reveal-hint">Reveal ↑</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="postal-card" data-category="fluency" onclick="openLightbox(this.querySelector('.envelope-cert-img'))" tabindex="0" role="button" aria-label="AI Fluency: AI Capabilities & Limitations - Anthropic">
+                            <div class="postal-envelope">
+                                <div class="envelope-back"></div>
+                                <div class="envelope-cert-wrapper">
+                                    <img src="assets/certs_archive/cert_17.webp" 
+                                         alt="AI Fluency: AI Capabilities & Limitations - Anthropic"
+                                         class="envelope-cert-img ms-img-clickable"
+                                         width="1584" height="1224" loading="lazy" decoding="async">
+                                    <span class="envelope-peek-badge">Enlarge</span>
+                                </div>
+                                <div class="envelope-front">
+                                    <div class="envelope-meta-row">
+                                        <span class="envelope-category-tag">AI Fluency Series</span>
+                                        <span class="envelope-stamp-mini" title="Verified Credential">✓</span>
+                                    </div>
+                                    <h4 class="envelope-title">AI Fluency: AI Capabilities & Limitations</h4>
+                                    <div class="envelope-footer">
+                                        <span class="envelope-issuer-text">Anthropic</span>
+                                        <span class="envelope-reveal-hint">Reveal ↑</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="postal-card" data-category="claude" onclick="openLightbox(this.querySelector('.envelope-cert-img'))" tabindex="0" role="button" aria-label="Claude Code 101 - Anthropic">
+                            <div class="postal-envelope">
+                                <div class="envelope-back"></div>
+                                <div class="envelope-cert-wrapper">
+                                    <img src="assets/certs_archive/cert_18.webp" 
+                                         alt="Claude Code 101 - Anthropic"
+                                         class="envelope-cert-img ms-img-clickable"
+                                         width="1584" height="1224" loading="lazy" decoding="async">
+                                    <span class="envelope-peek-badge">Enlarge</span>
+                                </div>
+                                <div class="envelope-front">
+                                    <div class="envelope-meta-row">
+                                        <span class="envelope-category-tag">Claude & Tools</span>
+                                        <span class="envelope-stamp-mini" title="Verified Credential">✓</span>
+                                    </div>
+                                    <h4 class="envelope-title">Claude Code 101</h4>
+                                    <div class="envelope-footer">
+                                        <span class="envelope-issuer-text">Anthropic</span>
+                                        <span class="envelope-reveal-hint">Reveal ↑</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="postal-card" data-category="mcp" onclick="openLightbox(this.querySelector('.envelope-cert-img'))" tabindex="0" role="button" aria-label="Introduction to Agent Skills - Anthropic">
+                            <div class="postal-envelope">
+                                <div class="envelope-back"></div>
+                                <div class="envelope-cert-wrapper">
+                                    <img src="assets/certs_archive/cert_19.webp" 
+                                         alt="Introduction to Agent Skills - Anthropic"
+                                         class="envelope-cert-img ms-img-clickable"
+                                         width="1584" height="1224" loading="lazy" decoding="async">
+                                    <span class="envelope-peek-badge">Enlarge</span>
+                                </div>
+                                <div class="envelope-front">
+                                    <div class="envelope-meta-row">
+                                        <span class="envelope-category-tag">MCP & Subagents</span>
+                                        <span class="envelope-stamp-mini" title="Verified Credential">✓</span>
+                                    </div>
+                                    <h4 class="envelope-title">Introduction to Agent Skills</h4>
+                                    <div class="envelope-footer">
+                                        <span class="envelope-issuer-text">Anthropic</span>
+                                        <span class="envelope-reveal-hint">Reveal ↑</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="postal-card" data-category="fluency" onclick="openLightbox(this.querySelector('.envelope-cert-img'))" tabindex="0" role="button" aria-label="AI Fluency for Builders - Anthropic × CodePath">
+                            <div class="postal-envelope">
+                                <div class="envelope-back"></div>
+                                <div class="envelope-cert-wrapper">
+                                    <img src="assets/certs_archive/cert_20.webp" 
+                                         alt="AI Fluency for Builders - Anthropic × CodePath"
+                                         class="envelope-cert-img ms-img-clickable"
+                                         width="1584" height="1224" loading="lazy" decoding="async">
+                                    <span class="envelope-peek-badge">Enlarge</span>
+                                </div>
+                                <div class="envelope-front">
+                                    <div class="envelope-meta-row">
+                                        <span class="envelope-category-tag">AI Fluency Series</span>
+                                        <span class="envelope-stamp-mini" title="Verified Credential">✓</span>
+                                    </div>
+                                    <h4 class="envelope-title">AI Fluency for Builders</h4>
+                                    <div class="envelope-footer">
+                                        <span class="envelope-issuer-text">Anthropic × CodePath</span>
+                                        <span class="envelope-reveal-hint">Reveal ↑</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="cert-detail-box fade-in-scroll" id="cert-software-dev">
                     <div class="cert-header-info">
                         <h3 class="cert-detail-title">Software Developer</h3>

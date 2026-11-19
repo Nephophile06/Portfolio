@@ -290,3 +290,27 @@ function closeLightboxOnClick() { closeLightbox(); }
     finePointer.addEventListener('change', () => { if (!finePointer.matches) reset(); });
     window.addEventListener('blur', reset);
 })();
+
+// Postal Keepsake Envelope Archive Filter
+function filterPostalCerts(category, btn) {
+    document.querySelectorAll('.postal-pill-btn').forEach(b => {
+        b.classList.remove('active');
+        b.setAttribute('aria-selected', 'false');
+    });
+    btn.classList.add('active');
+    btn.setAttribute('aria-selected', 'true');
+
+    const cards = document.querySelectorAll('.postal-card');
+    cards.forEach(card => {
+        const match = category === 'all' || card.getAttribute('data-category') === category;
+        if (match) {
+            card.style.display = '';
+            card.style.opacity = '1';
+            card.style.pointerEvents = '';
+        } else {
+            card.style.display = 'none';
+            card.style.opacity = '0';
+            card.style.pointerEvents = 'none';
+        }
+    });
+}
