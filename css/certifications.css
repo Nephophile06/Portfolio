@@ -46,50 +46,91 @@ html.certifications-garden {
     display: block;
 }
 
-/* Hand-drawn botanical sketch flowers in the bottom-left corner.
-   Sized by width but capped by viewport height so the cluster sits in proportion
-   with the page instead of growing tall on short screens. */
-.page-certifications .garden-bloom--left {
+/* Painterly wild grass cropped from the reference, framing the foot of the
+   page in both corners. Tall reed clumps rise softly out of the wall while
+   the inner edges melt away, leaving the center clear behind the content. */
+.page-certifications .garden-grass--left,
+.page-certifications .garden-grass--right {
     position: fixed;
-    left: 0;
     bottom: 0;
-    width: min(clamp(240px, 30vw, 470px), 45vh);
-    aspect-ratio: 640 / 920;
+    width: min(clamp(240px, 29vw, 525px), 58vh);
+    aspect-ratio: 525 / 430;
     z-index: 0;
-    background: url('../assets/certifications-bloom.svg') left bottom / contain no-repeat;
+    background: url('../assets/certifications-grass-left.webp') left bottom / contain no-repeat;
     pointer-events: none;
+    opacity: 0.94;
+    filter: drop-shadow(0 10px 26px rgba(35, 55, 30, 0.12));
+    -webkit-mask-image: linear-gradient(to right, #000 58%, transparent 100%);
+    mask-image: linear-gradient(to right, #000 58%, transparent 100%);
 }
 
-/* Watercolor Sage Butterfly in the upper-right corner */
+.page-certifications .garden-grass--left {
+    left: 0;
+}
+
+.page-certifications .garden-grass--right {
+    right: 0;
+    background-image: url('../assets/certifications-grass-right.webp');
+    background-position: right bottom;
+    -webkit-mask-image: linear-gradient(to left, #000 58%, transparent 100%);
+    mask-image: linear-gradient(to left, #000 58%, transparent 100%);
+}
+
+/* Watercolor Sage Butterfly in the right margin, fluttering alongside the card */
 .page-certifications .garden-butterfly {
     position: fixed;
-    top: clamp(110px, 18vh, 190px);
-    right: clamp(16px, 2.8vw, 48px);
-    width: min(clamp(130px, 12vw, 195px), 23vh);
+    top: clamp(280px, 40vh, 460px);
+    right: clamp(45px, 6.8vw, 130px);
+    width: min(clamp(92px, 8vw, 138px), 16vh);
     aspect-ratio: 834 / 980;
     z-index: 0;
     background: url('../assets/certifications-butterfly.svg') top right / contain no-repeat;
     pointer-events: none;
-    filter: drop-shadow(0 14px 28px rgba(45, 62, 38, 0.16));
-    transform: rotate(-3deg);
+    filter: drop-shadow(0 12px 24px rgba(45, 62, 38, 0.16));
+    transform: rotate(-26deg);
+    transition: transform 0.4s ease;
+}
+
+/* Lucky clover polaroid in the upper-left margin, perfectly rectified and orthogonal
+   with authentic paper grain, clean handwritten caption and gingham washi tape. */
+.page-certifications .garden-polaroid {
+    position: fixed;
+    top: clamp(80px, 14vh, 160px);
+    left: clamp(35px, 5.2vw, 105px);
+    width: min(clamp(98px, 7.8vw, 145px), 18.5vh);
+    aspect-ratio: 360 / 442;
+    z-index: 0;
+    background: url('../assets/certifications-polaroid.webp') center / contain no-repeat;
+    pointer-events: none;
+    filter: drop-shadow(0 14px 28px rgba(35, 55, 30, 0.22)) drop-shadow(0 4px 10px rgba(0, 0, 0, 0.10));
+    transform: rotate(-24deg);
     transition: transform 0.4s ease;
 }
 
 @media (max-width: 1199px) {
-    .page-certifications .garden-bloom--left {
-        width: min(clamp(210px, 27vw, 340px), 42vh);
+    .page-certifications .garden-grass--left,
+    .page-certifications .garden-grass--right {
+        width: min(clamp(220px, 30vw, 420px), 52vh);
     }
     .page-certifications .garden-butterfly {
-        top: clamp(85px, 13vh, 140px);
-        right: clamp(10px, 2vw, 24px);
-        width: min(clamp(105px, 12vw, 155px), 18vh);
+        top: clamp(250px, 36vh, 380px);
+        right: clamp(25px, 4vw, 55px);
+        width: min(clamp(80px, 8vw, 120px), 14vh);
+        transform: rotate(-26deg);
+    }
+}
+
+@media (max-width: 1260px) {
+    .page-certifications .garden-polaroid {
+        display: none;
     }
 }
 
 @media (max-width: 767px) {
-    .page-certifications .garden-bloom--left {
-        width: min(clamp(180px, 50vw, 240px), 42vh);
-        opacity: 0.7;
+    .page-certifications .garden-grass--left,
+    .page-certifications .garden-grass--right {
+        width: min(48vw, 26vh);
+        opacity: 0.9;
     }
     .page-certifications .garden-butterfly {
         display: none;
