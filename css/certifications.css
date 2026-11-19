@@ -1860,4 +1860,218 @@ html.certifications-garden .personal-navbar,
     box-shadow: none;
     flex-shrink: 0;
 }
+
+/* ══════════════════════════════════════════════════════════════════
+   FlyRank.ai Corporate Internship Track (Studio Magnetic Rails)
+   ══════════════════════════════════════════════════════════════════ */
+.studio-rails-container {
+    width: 100%;
+    margin-top: 16px;
+}
+
+.studio-rails-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 42px 36px;
+    align-items: start;
+}
+
+@media (max-width: 880px) {
+    .studio-rails-grid {
+        grid-template-columns: 1fr;
+        gap: 46px;
+    }
+}
+
+.studio-hanging-unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.studio-rail-mount {
+    position: relative;
+    width: 100%;
+    cursor: pointer;
+    transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+    outline: none;
+}
+
+.studio-rail-mount:hover,
+.studio-rail-mount:focus-visible {
+    transform: translateY(-6px);
+}
+
+/* Wall pin and triangular hanging cord */
+.studio-hanging-suspension {
+    position: relative;
+    width: 100%;
+    height: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    pointer-events: none;
+}
+
+.studio-wall-pin {
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, #3e4842 0%, #1c221e 60%, #0a0e0c 100%);
+    box-shadow: 
+        0 2px 5px rgba(0, 0, 0, 0.45),
+        0 1px 2px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    z-index: 4;
+}
+
+.studio-hanging-cord {
+    width: 160px;
+    height: 36px;
+    color: rgba(45, 68, 56, 0.65);
+    overflow: visible;
+    margin-top: -5px;
+}
+
+/* Magnetic wood / titanium rails */
+.studio-magnetic-rail {
+    position: relative;
+    width: calc(100% + 18px);
+    margin-left: -9px;
+    height: 18px;
+    background: linear-gradient(180deg, #2f4036 0%, #1c2922 100%);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 12px;
+    z-index: 3;
+    box-shadow: 
+        0 4px 12px rgba(14, 30, 22, 0.28),
+        0 1px 3px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.studio-magnetic-rail::after {
+    content: '';
+    position: absolute;
+    left: 8px;
+    right: 8px;
+    top: 50%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.14) 20%, rgba(255, 255, 255, 0.14) 80%, transparent 100%);
+    pointer-events: none;
+}
+
+.studio-magnetic-rail.rail-top {
+    margin-bottom: -2px;
+}
+
+.studio-magnetic-rail.rail-bottom {
+    margin-top: -2px;
+}
+
+.rail-bolt {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #96a89d;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.6);
+    display: block;
+}
+
+.rail-brand-mark {
+    display: none;
+}
+
+/* The hanging paper sheet */
+.studio-cert-frame {
+    position: relative;
+    width: 100%;
+    background: #ffffff;
+    box-shadow: 
+        0 18px 40px -10px rgba(18, 38, 28, 0.26),
+        0 6px 16px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    transition: box-shadow 0.4s ease;
+}
+
+.studio-rail-mount:hover .studio-cert-frame,
+.studio-rail-mount:focus-visible .studio-cert-frame {
+    box-shadow: 
+        0 26px 55px -12px rgba(18, 38, 28, 0.36),
+        0 10px 24px rgba(0, 0, 0, 0.12);
+}
+
+.studio-cert-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    cursor: zoom-in;
+}
+
+/* Meta info bar below */
+.studio-cert-meta {
+    width: 100%;
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 0 4px;
+}
+
+.studio-track-badge {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-size: 0.86rem;
+    font-weight: 600;
+    color: #17382a;
+    letter-spacing: -0.01em;
+}
+
+.studio-meta-details {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.studio-meta-id {
+    font-family: 'Inter', ui-monospace, monospace;
+    font-size: 0.72rem;
+    color: #476656;
+    background: rgba(71, 102, 86, 0.08);
+    padding: 3px 8px;
+    border-radius: 6px;
+    border: 1px solid rgba(71, 102, 86, 0.15);
+}
+
+.studio-verify-btn,
+.studio-highlight-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: #0d5f46;
+    text-decoration: none;
+    padding: 4px 10px;
+    border-radius: 14px;
+    background: rgba(13, 95, 70, 0.08);
+    border: 1px solid rgba(13, 95, 70, 0.2);
+    transition: all 0.2s ease;
+}
+
+.studio-verify-btn:hover,
+.studio-highlight-pill:hover {
+    background: rgba(13, 95, 70, 0.18);
+    color: #07402f;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 6px rgba(13, 95, 70, 0.15);
+}
+
     
