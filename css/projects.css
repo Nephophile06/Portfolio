@@ -1,50 +1,13 @@
 /* ==========================================================================
-   Projects Atelier Theme: Sunlit Blush & Cream Wall with a Painterly Peony /
-   Satin Ribbon / Dried Paper Flower Still Life
+   Projects Atelier Theme: Architectural Warm Lime Plaster Wall & Stucco Relief
    ========================================================================== */
 html.projects-atelier {
-    background-color: #f9e9e1 !important;
-    background-image:
-        /* low sunlight raking across the wall from the upper left */
-        linear-gradient(118deg,
-            rgba(255, 253, 248, 0.72) 0%,
-            rgba(255, 250, 243, 0.30) 26%,
-            rgba(255, 250, 243, 0.04) 48%,
-            transparent 62%),
-        /* soft petal-light bloom, upper middle */
-        radial-gradient(ellipse 58% 46% at 40% 10%,
-            rgba(255, 251, 245, 0.85) 0%,
-            rgba(255, 250, 244, 0.34) 48%,
-            transparent 76%),
-        /* blush pools lifted from the peony photograph */
-        radial-gradient(ellipse 44% 48% at 90% 34%,
-            rgba(244, 213, 203, 0.55) 0%,
-            rgba(244, 213, 203, 0.18) 52%,
-            transparent 78%),
-        radial-gradient(ellipse 40% 42% at 8% 46%,
-            rgba(252, 236, 226, 0.60) 0%,
-            rgba(252, 236, 226, 0.20) 50%,
-            transparent 76%),
-        /* rose gathers settling into the corners */
-        radial-gradient(ellipse 36% 34% at 96% 102%,
-            rgba(233, 197, 187, 0.50) 0%,
-            rgba(233, 197, 187, 0.16) 55%,
-            transparent 80%),
-        radial-gradient(ellipse 32% 30% at 0% 100%,
-            rgba(236, 203, 193, 0.44) 0%,
-            rgba(236, 203, 193, 0.14) 55%,
-            transparent 80%),
-        radial-gradient(ellipse 26% 24% at 100% 0%,
-            rgba(238, 205, 196, 0.40) 0%,
-            transparent 74%),
-        /* pale mottles so the wall never reads as a flat gradient */
-        radial-gradient(ellipse 20% 15% at 66% 56%, rgba(255, 249, 243, 0.42), transparent 72%),
-        radial-gradient(ellipse 17% 13% at 24% 74%, rgba(250, 231, 221, 0.40), transparent 74%),
-        radial-gradient(ellipse 15% 12% at 76% 84%, rgba(238, 207, 197, 0.28), transparent 74%),
-        /* champagne cloth foundation */
-        linear-gradient(162deg, #fffaf6 0%, #fdf3ec 30%, #fae8df 62%, #f6ddd3 100%) !important;
-    background-attachment: fixed !important;
+    background-color: #ede4db !important;
+    background-image: url('../assets/projects-bg-texture.webp') !important;
+    background-position: right center !important;
     background-size: cover !important;
+    background-repeat: no-repeat !important;
+    background-attachment: fixed !important;
 }
 
 body.page-projects {
@@ -53,33 +16,33 @@ body.page-projects {
 
 /* Harmonized Atelier Navbar */
 html.projects-atelier .personal-navbar {
-    background: rgba(253, 247, 242, 0.82) !important;
+    background: rgba(247, 243, 238, 0.85) !important;
     backdrop-filter: blur(14px) !important;
     -webkit-backdrop-filter: blur(14px) !important;
-    border-bottom: 1px solid rgba(226, 199, 189, 0.42) !important;
-    box-shadow: 0 8px 24px -18px rgba(120, 90, 80, 0.15) !important;
+    border-bottom: 1px solid rgba(216, 206, 196, 0.5) !important;
+    box-shadow: 0 8px 24px -18px rgba(90, 80, 70, 0.12) !important;
 }
 
 html.projects-atelier .navbar-link {
-    color: #5c4a42 !important;
+    color: #554942 !important;
 }
 
 html.projects-atelier .navbar-link:hover,
 html.projects-atelier .navbar-link.active {
-    color: #241915 !important;
+    color: #241d19 !important;
     font-weight: 600 !important;
 }
 
 html.projects-atelier .navbar-link::after {
-    border-bottom: 2px solid #c88876 !important;
+    border-bottom: 2px solid #a38f83 !important;
 }
 
 html.projects-atelier .back-link {
-    color: #6a564e !important;
+    color: #6a5e56 !important;
 }
 
 html.projects-atelier .back-link:hover {
-    color: #241915 !important;
+    color: #241d19 !important;
 }
 
 /* Fixed decorative backdrop container */
@@ -92,81 +55,59 @@ html.projects-atelier .back-link:hover {
     user-select: none;
 }
 
-/* Procedural high-definition crepe paper & silk plaster canvas */
-.page-projects .atelier-canvas {
+/* Upper-Left Rustic Stone Window with Ivy Vines */
+.page-projects .atelier-window {
     position: fixed;
-    inset: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: -2;
-    pointer-events: none;
-    display: block;
-}
-
-/* Dappled afternoon light falling across the top right of the wall */
-.page-projects .atelier-shadow {
-    position: fixed;
-    top: -4%;
-    right: -2%;
-    width: min(clamp(280px, 32vw, 470px), 70vh);
-    aspect-ratio: 520 / 700;
+    left: clamp(10px, 1.8vw, 30px);
+    top: clamp(130px, 18vh, 230px);
+    width: min(clamp(200px, 20vw, 320px), 38vh);
+    aspect-ratio: 466 / 339;
     z-index: 0;
-    background: url('../assets/projects-shadow.svg') top right / contain no-repeat;
-    opacity: 0.55;
+    background: url('../assets/projects-window.webp') left top / contain no-repeat;
     pointer-events: none;
-    transform: rotate(-2deg);
+    filter: drop-shadow(0 14px 28px rgba(85, 55, 45, 0.16));
+    opacity: 0.94;
+    transition: opacity 0.3s ease;
 }
 
-/* Bottom-Right Pencil Sketch Peony Bouquet */
-.page-projects .atelier-flora {
+/* Bottom-Left Pink Rose & Draped Linen Cloth */
+.page-projects .atelier-flower {
     position: fixed;
-    right: 0;
+    left: 0;
     bottom: 0;
-    width: min(clamp(320px, 35vw, 530px), 74vh);
-    aspect-ratio: 600 / 800;
+    width: min(clamp(200px, 20vw, 300px), 42vh);
+    aspect-ratio: 500 / 497;
     z-index: 0;
-    background: url('../assets/projects-flora.svg') right bottom / contain no-repeat;
+    background: url('../assets/projects-flower.webp') left bottom / contain no-repeat;
     pointer-events: none;
-    opacity: 0.97;
-}
-
-/* Bottom-Left Pencil Sketch Ribbon Bow */
-.page-projects .atelier-ribbon {
-    position: fixed;
-    left: 8px;
-    bottom: 8px;
-    width: min(clamp(220px, 23vw, 360px), 50vh);
-    aspect-ratio: 420 / 560;
-    z-index: 0;
-    background: url('../assets/projects-ribbon.svg') left bottom / contain no-repeat;
-    pointer-events: none;
-    opacity: 0.97;
+    filter: drop-shadow(0 12px 28px rgba(85, 55, 45, 0.18));
+    opacity: 0.98;
+    transition: opacity 0.3s ease;
 }
 
 @media (max-width: 1199px) {
-    .page-projects .atelier-shadow {
-        opacity: 0.45;
-        width: min(clamp(240px, 28vw, 380px), 58vh);
+    .page-projects .atelier-window {
+        width: min(clamp(170px, 18vw, 260px), 32vh);
+        top: clamp(110px, 16vh, 190px);
     }
-    .page-projects .atelier-flora {
-        width: min(clamp(280px, 32vw, 450px), 66vh);
-    }
-    .page-projects .atelier-ribbon {
-        width: min(clamp(200px, 21vw, 300px), 44vh);
+    .page-projects .atelier-flower {
+        width: min(clamp(160px, 18vw, 240px), 34vh);
+        left: 0;
     }
 }
 
 @media (max-width: 767px) {
-    .page-projects .atelier-shadow {
-        display: none;
+    .page-projects .atelier-window {
+        width: min(clamp(130px, 32vw, 180px), 25vh);
+        top: 135px;
+        left: 6px;
+        opacity: 0.85;
     }
-    .page-projects .atelier-flora {
-        width: min(clamp(230px, 52vw, 310px), 46vh);
-        opacity: 0.8;
-    }
-    .page-projects .atelier-ribbon {
-        width: min(clamp(160px, 40vw, 230px), 36vh);
-        opacity: 0.8;
+    .page-projects .atelier-flower {
+        width: min(clamp(130px, 32vw, 190px), 25vh);
+        left: 0;
+        bottom: 0;
+        opacity: 0.92;
     }
 }
 
@@ -205,14 +146,14 @@ html.projects-atelier .back-link:hover {
 
 /* ── Showcase card ─────────────────── */
 .page-projects .showcase-card {
-    background: rgba(255, 255, 255, 0.88);
+    background: rgba(255, 255, 255, 0.90);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
-    border: 1px solid rgba(235, 218, 210, 0.7);
+    border: 1px solid rgba(225, 217, 208, 0.8);
     border-radius: var(--radius-lg);
     overflow: hidden;
     margin-bottom: 24px;
-    box-shadow: 0 16px 45px rgba(185, 150, 140, 0.10);
+    box-shadow: 0 16px 45px rgba(120, 105, 95, 0.08);
     transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 
@@ -222,7 +163,7 @@ html.projects-atelier .back-link:hover {
 
 .page-projects .showcase-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 24px 55px rgba(185, 150, 140, 0.16);
+    box-shadow: 0 24px 55px rgba(120, 105, 95, 0.14);
 }
 
 /* ── Hero image area ───────────────── */
@@ -239,11 +180,11 @@ html.projects-atelier .back-link:hover {
 
 .page-projects .pr-hero-dark,
 .page-projects .pr-hero-light {
-    background: #fbf7f4;
+    background: #faf6f1;
     background-image:
         radial-gradient(58% 66% at 20% 28%, rgba(255, 255, 255, 0.95) 0 28%, rgba(255, 255, 255, 0) 72%),
-        radial-gradient(48% 58% at 82% 76%, rgba(248, 235, 228, 0.6) 0 28%, rgba(248, 235, 228, 0) 74%),
-        linear-gradient(180deg, #ffffff 0%, #faf4ee 55%, #f6eae2 100%);
+        radial-gradient(48% 58% at 82% 76%, rgba(242, 236, 230, 0.6) 0 28%, rgba(242, 236, 230, 0) 74%),
+        linear-gradient(180deg, #ffffff 0%, #f7f3ed 55%, #ece5dc 100%);
 }
 
 /* ── Custom Carousel Styles ───────── */
