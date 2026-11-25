@@ -55,22 +55,7 @@ html.projects-atelier .back-link:hover {
     user-select: none;
 }
 
-/* Upper-Left Rustic Stone Window with Ivy Vines */
-.page-projects .atelier-window {
-    position: fixed;
-    left: clamp(10px, 1.8vw, 30px);
-    top: clamp(130px, 18vh, 230px);
-    width: min(clamp(200px, 20vw, 320px), 38vh);
-    aspect-ratio: 466 / 339;
-    z-index: 0;
-    background: url('../assets/projects-window.webp') left top / contain no-repeat;
-    pointer-events: none;
-    filter: drop-shadow(0 14px 28px rgba(85, 55, 45, 0.16));
-    opacity: 0.94;
-    transition: opacity 0.3s ease;
-}
-
-/* Bottom-Left Pink Rose & Draped Linen Cloth */
+/* Bottom-Left Pink Rose & Draped Linen Cloth (Archived) */
 .page-projects .atelier-flower {
     position: fixed;
     left: 0;
@@ -85,29 +70,196 @@ html.projects-atelier .back-link:hover {
     transition: opacity 0.3s ease;
 }
 
+/* Bottom-Left Cute Hand-Drawn Sunflower */
+.page-projects .atelier-sunflower {
+    position: fixed;
+    left: clamp(12px, 2vw, 36px);
+    bottom: 0;
+    width: min(clamp(160px, 16vw, 250px), 36vh);
+    aspect-ratio: 1 / 1;
+    z-index: 0;
+    background: url('../assets/projects-sunflower.webp') left bottom / contain no-repeat;
+    pointer-events: none;
+    user-select: none;
+    filter: drop-shadow(0 10px 22px rgba(120, 95, 75, 0.16));
+    opacity: 0.98;
+    transition: opacity 0.3s ease;
+}
+
+/* ── Warm Aura Gradient Shading (Editorial Latte & Taupe Ambient Glows) ── */
+.page-projects .atelier-aura {
+    position: fixed;
+    border-radius: 50%;
+    pointer-events: none;
+    user-select: none;
+    z-index: 0;
+    filter: blur(60px);
+    -webkit-filter: blur(60px);
+    mix-blend-mode: multiply;
+    transform: translateZ(0);
+    will-change: transform;
+}
+
+/* 0. Top-Left Aura Halo: soft warm ambient vignette */
+.page-projects .aura-top-left {
+    top: clamp(-50px, -3vh, 0px);
+    left: clamp(-50px, -3vw, 0px);
+    width: min(440px, 38vw);
+    height: min(440px, 38vw);
+    background: radial-gradient(circle at center,
+        rgba(196, 168, 142, 0.46) 0%,
+        rgba(210, 185, 162, 0.30) 38%,
+        rgba(228, 210, 194, 0.12) 65%,
+        transparent 82%);
+    opacity: 0.90;
+}
+
+/* 1. Top-Right Aura Halo: balances stone window on left & warms Sketchify header */
+.page-projects .aura-top-right {
+    top: clamp(20px, 5vh, 90px);
+    right: clamp(10px, 6vw, 130px);
+    width: min(540px, 46vw);
+    height: min(540px, 46vw);
+    background: radial-gradient(circle at center,
+        rgba(196, 165, 137, 0.52) 0%,
+        rgba(206, 178, 152, 0.36) 32%,
+        rgba(224, 202, 182, 0.18) 58%,
+        rgba(237, 228, 219, 0.05) 75%,
+        transparent 85%);
+    opacity: 0.92;
+}
+
+/* 2. Mid-Left Aura: fills the wall gap between top stone window and bottom rose */
+.page-projects .aura-mid-left {
+    top: clamp(360px, 44vh, 520px);
+    left: clamp(-50px, -2vw, 30px);
+    width: min(460px, 38vw);
+    height: min(460px, 38vw);
+    background: radial-gradient(circle at center,
+        rgba(192, 160, 132, 0.46) 0%,
+        rgba(208, 182, 158, 0.30) 36%,
+        rgba(228, 210, 194, 0.14) 62%,
+        transparent 82%);
+    opacity: 0.88;
+}
+
+/* 3. Mid-Right Aura: soft sunlit caramel wash behind the project cards transition */
+.page-projects .aura-mid-right {
+    top: clamp(600px, 68vh, 800px);
+    right: clamp(30px, 10vw, 160px);
+    width: min(500px, 42vw);
+    height: min(500px, 42vw);
+    background: radial-gradient(circle at center,
+        rgba(198, 168, 142, 0.44) 0%,
+        rgba(212, 186, 163, 0.28) 38%,
+        rgba(230, 212, 196, 0.12) 65%,
+        transparent 82%);
+    opacity: 0.85;
+}
+
+/* 4. Bottom Aura: warm grounding aura behind Whatcha Got card & footer */
+.page-projects .aura-bottom {
+    bottom: clamp(-60px, -4vh, 20px);
+    left: clamp(22%, 32vw, 44%);
+    width: min(580px, 50vw);
+    height: min(440px, 38vw);
+    background: radial-gradient(ellipse at center,
+        rgba(194, 162, 134, 0.42) 0%,
+        rgba(210, 184, 160, 0.24) 42%,
+        rgba(232, 216, 202, 0.08) 68%,
+        transparent 80%);
+    opacity: 0.82;
+}
+
+/* ── Keepsake Heart Fingerprint Stamp (Artistic Wall Imprint) ── */
+.page-projects .atelier-heart-stamp {
+    position: fixed;
+    right: clamp(20px, 4vw, 55px);
+    bottom: clamp(18px, 3.5vh, 45px);
+    width: clamp(54px, 5.5vw, 76px);
+    aspect-ratio: 723 / 667;
+    background: url('../assets/heart-fingerprint.webp') center / contain no-repeat;
+    opacity: 0.48;
+    mix-blend-mode: multiply;
+    pointer-events: none;
+    user-select: none;
+    z-index: 0;
+    filter: drop-shadow(0 2px 6px rgba(120, 95, 80, 0.12));
+    transition: opacity 0.3s ease;
+}
+
 @media (max-width: 1199px) {
-    .page-projects .atelier-window {
-        width: min(clamp(170px, 18vw, 260px), 32vh);
-        top: clamp(110px, 16vh, 190px);
-    }
     .page-projects .atelier-flower {
         width: min(clamp(160px, 18vw, 240px), 34vh);
         left: 0;
     }
+    .page-projects .atelier-sunflower {
+        width: min(clamp(130px, 16vw, 190px), 28vh);
+        left: clamp(8px, 1.5vw, 20px);
+        bottom: 0;
+    }
+    .page-projects .aura-top-left {
+        width: 44vw;
+        height: 44vw;
+    }
+    .page-projects .aura-top-right {
+        width: 50vw;
+        height: 50vw;
+    }
+    .page-projects .aura-mid-left {
+        width: 44vw;
+        height: 44vw;
+    }
 }
 
 @media (max-width: 767px) {
-    .page-projects .atelier-window {
-        width: min(clamp(130px, 32vw, 180px), 25vh);
-        top: 135px;
-        left: 6px;
-        opacity: 0.85;
-    }
     .page-projects .atelier-flower {
         width: min(clamp(130px, 32vw, 190px), 25vh);
         left: 0;
         bottom: 0;
         opacity: 0.92;
+    }
+    .page-projects .atelier-sunflower {
+        width: min(clamp(110px, 28vw, 160px), 22vh);
+        left: 8px;
+        bottom: 0;
+        opacity: 0.92;
+    }
+    .page-projects .atelier-aura {
+        filter: blur(45px);
+        -webkit-filter: blur(45px);
+        opacity: 0.72;
+    }
+    .page-projects .aura-top-left {
+        width: 60vw;
+        height: 60vw;
+        top: -20px;
+        left: -15vw;
+    }
+    .page-projects .aura-top-right {
+        width: 68vw;
+        height: 68vw;
+        top: 10px;
+        right: -10vw;
+    }
+    .page-projects .aura-mid-left {
+        width: 62vw;
+        height: 62vw;
+        left: -15vw;
+    }
+    .page-projects .aura-mid-right {
+        display: none;
+    }
+    .page-projects .aura-bottom {
+        width: 85vw;
+        height: 60vw;
+        left: 8vw;
+    }
+    .page-projects .atelier-heart-stamp {
+        width: 48px;
+        bottom: 14px;
+        right: 14px;
+        opacity: 0.38;
     }
 }
 
@@ -628,13 +780,358 @@ html.projects-atelier .back-link:hover {
 }
 
 .showcase-arrow {
-    color: #0071e3;
-    /* Apple Blue accent */
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    color: #e28277;
+    /* Atelier Warm Rose Accent */
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), color 0.25s ease;
 }
 
 .showcase-card:hover .showcase-arrow {
     transform: translateX(6px);
+    color: #ff9f93;
+}
+
+/* ── Showcase Video Hero & Custom Facade Cover ── */
+.page-projects .showcase-hero.showcase-video-hero {
+    background: #0c1015 !important;
+    background-image: none !important;
+    padding: 0 !important;
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+.showcase-video-iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+/* ── Custom Video Facade Poster ── */
+.video-facade {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+    outline: none;
+}
+
+.video-facade.is-playing {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.facade-poster {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+    transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.4s ease;
+}
+
+.video-facade:hover .facade-poster,
+.video-facade:focus-visible .facade-poster {
+    transform: scale(1.03);
+    filter: brightness(0.92);
+}
+
+.facade-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(16, 22, 28, 0.18) 0%, rgba(16, 22, 28, 0.52) 100%);
+    transition: background 0.35s ease;
+}
+
+.video-facade:hover .facade-overlay,
+.video-facade:focus-visible .facade-overlay {
+    background: linear-gradient(180deg, rgba(16, 22, 28, 0.24) 0%, rgba(16, 22, 28, 0.62) 100%);
+}
+
+.facade-play-badge {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: inline-flex;
+    align-items: center;
+    gap: 13px;
+    padding: 10px 22px 10px 12px;
+    background: rgba(20, 26, 32, 0.82);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-radius: 999px;
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.08);
+    transition: all 0.3s cubic-bezier(0.34, 1.4, 0.64, 1);
+}
+
+.video-facade:hover .facade-play-badge,
+.video-facade:focus-visible .facade-play-badge {
+    transform: translate(-50%, -50%) scale(1.06);
+    background: rgba(20, 26, 32, 0.94);
+    border-color: rgba(226, 130, 119, 0.65);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.55), 0 0 28px rgba(226, 130, 119, 0.35);
+}
+
+.facade-play-circle {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #e28277 0%, #c96558 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    box-shadow: 0 6px 16px rgba(226, 130, 119, 0.4);
+    transition: transform 0.3s ease;
+}
+
+.video-facade:hover .facade-play-circle,
+.video-facade:focus-visible .facade-play-circle {
+    transform: scale(1.1);
+}
+
+.facade-play-icon {
+    margin-left: 3px;
+}
+
+.facade-play-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+}
+
+.facade-play-label {
+    font-family: var(--font-inter), sans-serif;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: #ffffff;
+    letter-spacing: 0.01em;
+}
+
+.facade-play-time {
+    font-family: var(--font-inter), sans-serif;
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.68);
+    letter-spacing: 0.03em;
+}
+
+/* ── Showcase Actions & Video Demo Button ── */
+.showcase-actions {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.showcase-badge {
+    font-family: var(--font-inter), sans-serif;
+    font-size: 0.76rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.72);
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    padding: 4px 11px;
+    border-radius: 999px;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+}
+
+.showcase-video-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.05));
+    color: #f7f3ee;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-family: var(--font-inter), sans-serif;
+    font-size: 0.8rem;
+    font-weight: 500;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    outline: none;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.showcase-video-btn:hover {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.24), rgba(255, 255, 255, 0.1));
+    border-color: rgba(255, 255, 255, 0.45);
+    color: #ffffff;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+}
+
+.showcase-video-btn:active {
+    transform: translateY(0);
+}
+
+.showcase-video-btn .btn-play-icon {
+    color: #ff3b30;
+    transition: transform 0.25s ease;
+}
+
+.showcase-video-btn:hover .btn-play-icon {
+    transform: scale(1.2);
+}
+
+.showcase-video-btn .btn-duration {
+    font-size: 0.7rem;
+    opacity: 0.8;
+    background: rgba(0, 0, 0, 0.35);
+    padding: 2px 6px;
+    border-radius: 8px;
+    letter-spacing: 0.02em;
+}
+
+/* ── Video Demo Modal ── */
+.video-modal-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    background: rgba(12, 16, 20, 0.82);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.video-modal-backdrop.is-open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.video-modal-container {
+    background: #141a20;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 18px;
+    width: 100%;
+    max-width: 920px;
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.65);
+    overflow: hidden;
+    transform: scale(0.94) translateY(12px);
+    transition: transform 0.35s cubic-bezier(0.34, 1.3, 0.64, 1);
+}
+
+.video-modal-backdrop.is-open .video-modal-container {
+    transform: scale(1) translateY(0);
+}
+
+.video-modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(22, 28, 35, 0.95);
+}
+
+.video-modal-title-group {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.video-modal-tag {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #ff453a;
+    font-weight: 600;
+}
+
+.video-modal-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin: 0;
+    letter-spacing: -0.01em;
+}
+
+.video-modal-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.video-modal-ext {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.78rem;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.2s ease;
+}
+
+.video-modal-ext:hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.video-modal-close {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: #ffffff;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.video-modal-close:hover {
+    background: rgba(255, 59, 48, 0.2);
+    border-color: rgba(255, 59, 48, 0.5);
+    color: #ff453a;
+    transform: rotate(90deg);
+}
+
+.video-modal-body {
+    padding: 0;
+    background: #000000;
+}
+
+.video-iframe-wrapper {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    height: 0;
+}
+
+.video-iframe-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
 }
 
 /* Hover Interaction on Center Card */
@@ -815,6 +1312,30 @@ html.projects-atelier .back-link:hover {
     .showcase-title {
         font-size: 0.78rem;
     }
+
+    .showcase-info {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 14px 18px;
+    }
+
+    .showcase-actions {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .video-modal-backdrop {
+        padding: 12px;
+    }
+
+    .video-modal-header {
+        padding: 12px 14px;
+    }
+
+    .video-modal-ext span {
+        display: none;
+    }
 }
 
 @media (max-width: 480px) {
@@ -824,5 +1345,14 @@ html.projects-atelier .back-link:hover {
 
     .hero-phone.s-main {
         width: 180px;
+    }
+
+    .showcase-video-btn {
+        padding: 5px 12px;
+        font-size: 0.76rem;
+    }
+
+    .video-modal-title {
+        font-size: 0.85rem;
     }
 }

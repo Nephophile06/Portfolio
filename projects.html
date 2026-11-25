@@ -42,10 +42,18 @@
 
 <body class="page-projects">
 
-    <!-- Atelier Backdrop: Stone Window & Rose with Draped Linen -->
+    <!-- Atelier Backdrop: Sunflower, Keepsake Stamp, Texture and Auras -->
     <div class="atelier-backdrop" aria-hidden="true">
-        <span class="atelier-window"></span>
-        <span class="atelier-flower"></span>
+        <!-- Soft Warm Aura Gradient Shading (Latte / Taupe Ambient Vignettes) -->
+        <span class="atelier-aura aura-top-left"></span>
+        <span class="atelier-aura aura-top-right"></span>
+        <span class="atelier-aura aura-mid-left"></span>
+        <span class="atelier-aura aura-mid-right"></span>
+        <span class="atelier-aura aura-bottom"></span>
+
+        <!-- Bottom-Left Sunflower & Keepsake Stamp -->
+        <span class="atelier-sunflower"></span>
+        <span class="atelier-heart-stamp"></span>
     </div>
 
     <!-- Personal Top Navbar -->
@@ -75,49 +83,47 @@
 
                 <!-- Project 1 — Sketchify -->
                 <div class="showcase-card fade-in-scroll" id="showcase-1">
-                    <div class="showcase-hero pr-hero-dark">
-
-                        <div class="custom-carousel-container">
-                            <button class="carousel-btn left-btn" id="sketchify-left-btn" type="button"
-                                aria-label="Previous Sketchify image" aria-controls="sketchify-track">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2">
-                                    <polyline points="15 18 9 12 15 6"></polyline>
-                                </svg>
-                            </button>
-
-                            <div class="carousel-track" id="sketchify-track">
-                                <div class="carousel-slide"><img src="assets/img01.webp" alt="Categories" width="1400"
-                                        height="472" loading="eager" decoding="async" fetchpriority="high"></div>
-                                <div class="carousel-slide"><img src="assets/img02.webp" alt="LogIn" width="1400"
-                                        height="712" loading="lazy" decoding="async"></div>
-                                <div class="carousel-slide"><img src="assets/img03.webp" alt="Featured" width="1400"
-                                        height="638" loading="lazy" decoding="async"></div>
-                                <div class="carousel-slide"><img src="assets/img04.webp" alt="Products by Categories"
-                                        width="1400" height="638" loading="lazy" decoding="async">
+                    <div class="showcase-hero showcase-video-hero" id="sketchifyVideoHero">
+                        <!-- Custom Video Facade Cover (Hides YouTube header & duck before play) -->
+                        <div class="video-facade" id="sketchifyFacade" role="button" tabindex="0"
+                            aria-label="Play Sketchify Demo Video">
+                            <img src="assets/img03.webp" alt="Sketchify E-Commerce Store Demo" class="facade-poster"
+                                width="1400" height="638" loading="eager" fetchpriority="high">
+                            <div class="facade-overlay"></div>
+                            <div class="facade-play-badge">
+                                <div class="facade-play-circle">
+                                    <svg class="facade-play-icon" width="22" height="22" viewBox="0 0 24 24"
+                                        fill="currentColor">
+                                        <polygon points="6 3 20 12 6 21 6 3"></polygon>
+                                    </svg>
                                 </div>
-                                <div class="carousel-slide"><img src="assets/img05.webp" alt="Search Results"
-                                        width="1400" height="638" loading="lazy" decoding="async"></div>
-                                <div class="carousel-slide"><img src="assets/img06.webp" alt="Personal Cart"
-                                        width="1400" height="638" loading="lazy" decoding="async"></div>
+                                <div class="facade-play-info">
+                                    <span class="facade-play-label">Play Walkthrough</span>
+                                    <span class="facade-play-time">4:30 min demo</span>
+                                </div>
                             </div>
-
-                            <button class="carousel-btn right-btn" id="sketchify-right-btn" type="button"
-                                aria-label="Next Sketchify image" aria-controls="sketchify-track">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2">
-                                    <polyline points="9 18 15 12 9 6"></polyline>
-                                </svg>
-                            </button>
                         </div>
+
+                        <iframe class="showcase-video-iframe"
+                            id="sketchifyIframe"
+                            data-src="https://www.youtube-nocookie.com/embed/QsGb9RA_kqU?autoplay=1&rel=0&modestbranding=1"
+                            src=""
+                            title="Sketchify — Full-Stack E-Commerce Walkthrough"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen>
+                        </iframe>
                     </div>
                     <div class="showcase-info">
                         <h3 class="showcase-title">Sketchify -> A Full-Stack E-Commerce Platform</h3>
-                        <svg class="showcase-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2">
-                            <line x1="5" y1="12" x2="19" y2="12" />
-                            <polyline points="12 5 19 12 12 19" />
-                        </svg>
+                        <div class="showcase-actions">
+                            <span class="showcase-badge">4:30 min Walkthrough</span>
+                            <svg class="showcase-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <line x1="5" y1="12" x2="19" y2="12" />
+                                <polyline points="12 5 19 12 12 19" />
+                            </svg>
+                        </div>
                     </div>
                 </div>
 
@@ -176,6 +182,45 @@
             </div>
         </section>
     </main>
+
+    <!-- Video Demo Modal -->
+    <div class="video-modal-backdrop" id="videoDemoModal" aria-hidden="true" role="dialog" aria-modal="true"
+        aria-labelledby="videoModalTitle">
+        <div class="video-modal-container">
+            <div class="video-modal-header">
+                <div class="video-modal-title-group">
+                    <span class="video-modal-tag">Project Walkthrough</span>
+                    <h3 class="video-modal-title" id="videoModalTitle">Sketchify — Full-Stack E-Commerce Walkthrough</h3>
+                </div>
+                <div class="video-modal-controls">
+                    <a href="https://youtu.be/QsGb9RA_kqU" target="_blank" rel="noopener noreferrer"
+                        class="video-modal-ext" id="videoModalExtLink" title="Open on YouTube">
+                        <span>Open on YouTube</span>
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+                    <button class="video-modal-close" id="videoModalCloseBtn" type="button" aria-label="Close video demo">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="video-modal-body">
+                <div class="video-iframe-wrapper">
+                    <iframe id="videoModalIframe" src="" title="Project Video Demo" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="js/projects-atelier.js" defer></script>
     <script src="js/main.js" defer></script>

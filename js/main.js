@@ -314,3 +314,95 @@ function filterPostalCerts(category, btn) {
         }
     });
 }
+
+// ── Video Demo Modal for Project Showcases ──
+(function () {
+    const modal = document.getElementById('videoDemoModal');
+    if (!modal) return;
+    const iframe = document.getElementById('videoModalIframe');
+    const closeBtn = document.getElementById('videoModalCloseBtn');
+    const extLink = document.getElementById('videoModalExtLink');
+    const titleElem = document.getElementById('videoModalTitle');
+    const triggers = document.querySelectorAll('[data-video-id]');
+
+    function openModal(videoId, title) {
+        if (!videoId) return;
+        if (titleElem && title) titleElem.textContent = title;
+        if (extLink) extLink.href = `https://youtu.be/${videoId}`;
+        if (iframe) {
+            iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0`;
+        }
+        modal.classList.add('is-open');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+        modal.classList.remove('is-open');
+        modal.setAttribute('aria-hidden', 'true');
+        if (iframe) iframe.src = '';
+        document.body.style.overflow = '';
+    }
+
+    triggers.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            const id = btn.getAttribute('data-video-id');
+            const title = btn.getAttribute('data-title') || 'Project Video Demo';
+            openModal(id, title);
+        });
+    });
+
+    if (closeBtn) closeBtn.addEventListener('click', closeModal);
+
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal || e.target.classList.contains('video-modal-backdrop')) {
+            closeModal();
+        }
+    });
+
+    window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('is-open')) {
+            closeModal();
+        }
+    });
+})();
+
+// ── Sketchify Custom Video Facade (Click-to-Play) ──
+(function () {
+    const facade = document.getElementById('sketchifyFacade');
+    const iframe = document.getElementById('sketchifyIframe');
+    if (!facade || !iframe) return;
+
+    function play() {
+        const dataSrc = iframe.getAttribute('data-src');
+        if (dataSrc && (!iframe.src || iframe.src === 'about:blank' || iframe.src === window.location.href)) {
+            iframe.src = dataSrc;
+        }
+        facade.classList.add('is-playing');
+    }
+
+    facade.addEventListener('click', play);
+    facade.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            play();
+        }
+    });
+
+    const showcase1 = document.getElementById('showcase-1');
+    if (showcase1) {
+        const arrow = showcase1.querySelector('.showcase-arrow');
+        const badge = showcase1.querySelector('.showcase-badge');
+        if (arrow) {
+            arrow.style.cursor = 'pointer';
+            arrow.addEventListener('click', play);
+        }
+        if (badge) {
+            badge.style.cursor = 'pointer';
+            badge.addEventListener('click', play);
+        }
+    }
+})();
+
