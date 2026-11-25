@@ -393,16 +393,40 @@ function filterPostalCerts(category, btn) {
 
     const showcase1 = document.getElementById('showcase-1');
     if (showcase1) {
-        const arrow = showcase1.querySelector('.showcase-arrow');
         const badge = showcase1.querySelector('.showcase-badge');
-        if (arrow) {
-            arrow.style.cursor = 'pointer';
-            arrow.addEventListener('click', play);
-        }
         if (badge) {
             badge.style.cursor = 'pointer';
-            badge.addEventListener('click', play);
+            badge.addEventListener('click', (e) => {
+                e.stopPropagation();
+                play();
+            });
+            badge.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    play();
+                }
+            });
         }
+        const repoLink = showcase1.querySelector('.drawer-github-link');
+        if (repoLink) {
+            repoLink.addEventListener('click', (e) => {
+                e.stopPropagation();
+            });
+        }
+    }
+
+    // Drawer click-to-toggle for mobile/touch
+    const drawer = document.getElementById('sketchifyDrawer');
+    if (drawer) {
+        drawer.addEventListener('click', (e) => {
+            if (e.target.closest('.showcase-actions') || e.target.closest('.showcase-badge') || e.target.closest('.drawer-github-link') || e.target.closest('a') || e.target.closest('button')) {
+                return;
+            }
+            if (window.innerWidth <= 768) {
+                drawer.classList.toggle('is-expanded');
+            }
+        });
     }
 })();
 
